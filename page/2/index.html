@@ -164,6 +164,295 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-9.Linux运维服务-Apache服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/9.Linux运维服务-Apache服务/">Apache服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/9.Linux运维服务-Apache服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.639Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>##Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
+<p>##声明</p>
+<ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+<li><strong>本文内容如有不当之处，欢迎批评指正</strong></li>
+<li><strong>文档书写风格  章节内的小节缩进2个tab，小节内容在章节的基础上缩进1个tab</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.Apache 服务
+3.案例
+</code></pre><hr>
+<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h2><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-Apache-服务"><a href="#2-Apache-服务" class="headerlink" title="2.Apache 服务"></a>2.Apache 服务</h2><p><strong>简介</strong></p>
+<pre><code>web服务概述：
+    WEB服务器也称为WWW(WORLD WIDE WEB，万维网)服务器，主要功能是提供网上信息浏览服务。
+
+常见web服务器（web）：
+    httpd（apache）、nginx +PHP
+    tomcat：   jsp + html
+    win:IIS
+
+客户端：IE 、firefox、chrome 、手机（浏览器）Browser
+
+今天的主角：LAMP=Linux Apache Mysql PHP 中的 Apache（HTTPD）
+类 LINUX 系统
+
+    Linux+Apache+Mysql/MariaDB+Perl/PHP/Python 一组常用来搭建动态网站或者服务器 的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼 容度，共同组成了一个强大的 Web 应用程序平台。随着开源潮流的蓬勃发展，开放源代码 的 LAMP 已经与 J2EE 和.Net 商业软件形成三足鼎立之势，并且该软件开发的项目在软件方 面的投资成本较低，因此受到整个 IT 界的关注。从网站的流量上来说，70%以上的访问流量 是 LAMP 来提供的，LAMP 是最强大的网站解决方案
+
+
+什么是 Apache
+
+    Apache HTTPD Server 简称 Apache，是 Apache 软件基金会的一个开源的网页服务器， 可以在大多数计算机操作系统中运行，由于其多平台和安全性被广泛使用，是最流行的 Web 服务器端软件之一。它快速、可靠并且可通过简单的 API 扩展，将 Perl/Python 等解释器编 译到服务器中！Apache HTTP 服务器是一个模块化的服务器,各个功能使用模块化进行插拔！ 目前支持 Windows，Linux，Unix 等平台！
+    Apache 软件基金会（也就是 Apache Software Foundation，简称为 ASF），是专门为运 作一个开源软件项目的 Apache 的团体提供支持的非盈利性组织，这个开源软件项目就是 Apache 项目！那么我们的 HTTPD 也只是 Apache 的开源项目之一！
+    主要的开源项目：HTTP Server，Ant，DB，iBATIS，Jakarta，Logging，Maven，Struts， Tomcat，Tapestry,Hadoop 等等。只是最有名的是 HTTP Server，所以现在所说的 Apache 已 经就是 HTTPD Server 的代号了! 我们还见的比较多的是 Tomcat，Hadoop 等项目
+    官方网站：http://www.apache.org/httpd：http://httpd.apache.org/
+
+
+什么是 Mysql
+    MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 旗下公司，他也是最流行的关系型数据库管理系统！特别是在 WEB 应用方面！
+关系型数据库：它通过数据、关系和对数据的约束三者组成的数据模型来存放和管理数
+据
+官方网站：http://www.mysql.com/
+
+什么是 PHP
+    PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通 用开源脚本语言。语法吸收了 C 语言、Java 和 Perl 的特点，利于学习，使用广泛，主要适 用于 Web 开发领域。PHP 独特的语法混合了 C、Java、Perl 以及 PHP 自创的语法。它可以 比 CGI 或者 Perl 更快速地执行动态网页。用 PHP 做出的动态页面与其他的编程语言相比， PHP 是将程序嵌入到 HTML（标准通用标记语言下的一个应用）文档中去执行，执行效率比 完全生成 HTML 标记的 CGI 要高许多；PHP 还可以执行编译后代码，编译可以达到加密和 优化代码运行，使代码运行更快。
+
+简单的说，PHP 就是一个脚本解释器！ 官方网站：http://php.net/
+PHP 服务器安装好之后，升级切记注意，不要盲目升级！因为它会废弃很多废弃低效的语法!
+</code></pre><p><strong>工作原理</strong></p>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/1.png" alt="工作原理"></p>
+<p><strong>服务安装、启动和配置</strong></p>
+<pre><code>服务安装
+
+    yum install -y httpd                #安装服务器端：httpd
+    yum install elinks                    #安装字符界面的下浏览器客户端
+
+
+服务启动、端口检测和加入开机启动项
+
+    service httpd restart
+    netstat -anutp | grep 80
+    chkconfig httpd on
+
+服务配置
+
+    vim /etc/httpd/conf/httpd.conf        #配置文件的位置
+
+配置参数
+
+    ServerName 192.168.1.235:80       #服务器主机名
+    PidFile run/httpd.pid#apache      #运行进程 ID 存放
+    Timeout 60                        #超时时间，多少 s 没有反应就超时
+    KeepAlive Off                     #是否允许一个永久的链接，设置为 OFF 的时候，不 能保持连接功能，传输效率比较低，设置为 ON 时，可以提高服务器传输文件的效率，建议开启
+    MaxKeepAliveRequests 100          #设置 KeepAlive 为 ON 时，设置客户端每次连接允许 请求相应最大文件数，默认 100 个
+    KeepAliveTimeout 15              #超时时间，同一个客户端下一个请求 15s 没收到就 超时
+    Listen 80#监听端口，默认本地 IP，如果指定 ip 写上 IP:80
+    &lt;IfModule prefork.c&gt;
+    StartServers8                     #服务开始起启动 8 个进程
+    MinSpareServers5                  #最小空闲 5 个进程
+    MaxSpareServers20                 #最多空闲 20 个进程
+    ServerLimit256                    #服务器允许配置进程数上线
+    MaxClients256                     #最大连接数 256，超过要进入等候队列
+    MaxRequestsPerChild4000           #每个进程生存期内服务最大的请求数量，0 表示用不 结束
+    &lt;/IfModule&gt;
+    &lt;Directory /&gt;
+    Options FollowSymLinks            #Options Indexes 目录浏览FollowSymLinks 用连接
+    浏览
+    AllowOverride None                #设置为 none，忽略.htaccess
+    &lt;/Directory&gt;
+    LoadModule auth_basic_module modules/mod_auth_basic.so      #载入的库，模块
+    ● ● ● ● ● ●
+    Include conf.d/*.conf              #conf.d 里面的 conf 文件也属有效配置文件
+    User apache#apache                 #运行以哪个身份运行
+    Group apache#apache                #运行以哪个组的身份运行
+    ServerAdmin root@localhost         #管理员邮箱
+    DocumentRoot &quot;/var/www/html&quot;       #默认的主目录，如果改动要改动两处，Directory
+    &lt;Directory &quot;/var/www/html&quot;&gt; Options Indexes FollowSymLinks AllowOverride None
+    Order allow,deny                   #这里默认后者生效，也就是 deny 生效
+    Allow from all                     #这里说允许所有
+    &lt;/Directory&gt;
+    LogLevel warn                      #日志等级
+    DirectoryIndex index.html index.html.var  #首页
+    AccessFileName .htaccess           #access 文件名
+    AddDefaultCharset UTF-8            #支持的语言，默认编码
+    #配置文件的最后是虚拟主机的字段，其中你大部分字段做个了解即可，用到的时候去查 即可
+</code></pre><h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><p><strong>例1：搭建一台测试web服务器</strong></p>
+<pre><code>分析：
+
+    部门内部搭建一台WEB服务器，采用的IP地址和端口为192.168.0.63:80，首页采用index.html文件。
+管理员E-mail地址为 cat@xuegod.cn，网页的编码类型采用UTF-8，所有网站资源都存放在/var/www/html目录下并将Apache的配置文件根目录设置为/etc/httpd目录。
+</code></pre><hr>
+<pre><code>方案：
+
+    vim /etc/httpd/conf/httpd.conf
+
+    设置Apache 的根目录为/etc/httpd
+    设置httpd 监听端口80
+    设置管理员E-mail地址为 cat@xuegod.cn
+    设置WEB 服务器的主机名和监听端口为192.168.0.63:80
+    设置Apache 文档目录为/var/www/html
+    设置主页文件为 index.html
+
+
+    改配置文件之前，记得先备份一份，以便恢复。
+
+
+    修改配置文件相关参数：
+    [root@xuegod63 chroot]#  vim /etc/httpd/conf/httpd.conf   #以下参数需要我们掌握
+    ServerRoot &quot;/etc/httpd&quot;  #apache配置文件的根目录
+    Timeout 60  #超时时间
+    Listen 80   监听的端口
+    ServerAdmin cat@xuegod.cn  #设置管理员，e-mail 地址
+    ServerName 192.168.0.63:80   #服务器主机名
+    DocumentRoot &quot;/var/www/html&quot;   #网站页面根目录
+    Options Indexes FollowSymLinks   #当一个目录没有默认首页时，允许显示此目录列表
+
+    DirectoryIndex index.html index.php   #指定默认首页
+
+
+    编码：
+    AddDefaultCharset UTF-8   # 设置服务器的默认编码为： UTF-8
+
+    取消apache默认欢迎页：
+    [root@xuegod63 ~]#  vim /etc/httpd/conf.d/welcome.conf
+    #
+    # This configuration file enables the default &quot;Welcome&quot;
+    # page if there is no default index page present for
+    # the root URL.  To disable the Welcome page, comment
+    # out all the lines below.
+    #
+    #&lt;LocationMatch &quot;^/+$&quot;&gt;   #把红色内容注释
+    #    Options -Indexes
+    #    ErrorDocument 403 /error/noindex.html
+    #&lt;/LocationMatch&gt;
+
+    重启：
+    [root@xuegod63 ~]# service httpd restart
+
+    创建首页：
+    # echo &apos;welcome to www.xuegod.cn!&apos;  &gt; /var/www/html/index.html
+</code></pre><p><strong>例2：使用yum搭建LAMP环境</strong></p>
+<pre><code>yum install httpd  mysql mysql-server php php-mysql –y
+service mysqld start
+chkconfig mysqld on
+
+安装完成之后首先要测试一下Mysql，在终端输入mysql如果出现mysql的提示符号那么代表Mysql安装成功
+
+测试apache是否支持php
+
+    cd /var/www/html/
+    [root@xuegod63 html]# vim index.php
+    &lt;?php
+    phpinfo();
+    ?&gt;
+</code></pre><p><strong>配置apache虚拟主机，实现在一台服务器上运行多个网站</strong></p>
+<pre><code>apache虚拟主机实现有三种方法：
+1、通过不同的IP地址
+2、通过不同的域名
+3、通过不同的端口号
+
+
+
+配置文件可以修改为如下：
+
+    修改httpd.conf
+    #vim httpd.conf   在文件的最后，添加以下内容
+    &lt;VirtualHost 192.168.0.63:80&gt;
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /var/www/html/
+        ServerName dummy-host.example.com
+        ErrorLog logs/dummy-host.example.com-error_log
+        CustomLog logs/dummy-host.example.com-access_log common
+    &lt;/VirtualHost&gt;
+    &lt;VirtualHost 192.168.0.56:80&gt;
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /var/www/html/bbs/
+        ServerName dummy-host.example.com
+        ErrorLog logs/dummy-host.example.com-error_log
+        CustomLog logs/dummy-host.example.com-access_log common
+    &lt;/VirtualHost&gt;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Apache服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/9.Linux运维服务-Apache服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-8.Linux运维服务-DNS服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2334,303 +2623,6 @@ Disabled
 
 
   
-    <article id="post-1.Linux运维服务-SSH服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/1.Linux运维服务-SSH服务/">SSH服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/1.Linux运维服务-SSH服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:44.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2017-02-27 10:24:24</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.SSH服务
-3.排错
-4.SSH调优
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h4 id="2-SSH服务"><a href="#2-SSH服务" class="headerlink" title="2.SSH服务"></a>2.SSH服务</h4><p><strong>- 了解服务</strong></p>
-<pre><code>SSHD服务，在我们的linux服务器上经常用到，很重要，涉及到服务器的安全，对这个服务的安全配置要高度重视
-
-SSH 协议：安全外壳协议。为 Secure Shell 的缩写。SSH 为建立在应用层和传输层基础上的安全
-
-sshd服务使用SSH协议可以用来进行远程控制， 或在计算机之间传送文件相比较之前用telnet方式来传输文件要安全很多，因为telnet使用明文传输，是加密传输。
-</code></pre><p><strong>- 服务安装</strong></p>
-<pre><code>第一步 ： 准备安装的软件包
-        openssh-5.3p1-114.el6_7.x86_64：包含OpenSSH 服务器及客户端需要的核心文件
-        openssh-clients-5.3p1-114.el6_7.x86_64：OpenSSH 客户端软件包
-        openssh-server-5.3p1-114.el6_7.x86_64：OpenSSH 服务器软件包
-        openssh-askpass-5.3p1-114.el6_7.x86_64：支持对话框窗口的显示，是一个基于X 系统的密码诊断工具
-
-第二步 ：安装软件
-        1.使用yum安装
-            yum list all | grep openssh         # 查看是否有需要的软件包
-            yum install openssh* -y             # 安装
-        2.使用rpm安装
-            rpm -ivh /media/cdrom/Packages/openssh*.rpm
-
-        这里推荐使用yum安装
-
-第三步： 检查软件是否安装
-        rpm -qa | grep openssh                     #查看软件包
-        rpm -ql openssh                         #查看软件安装目录
-        netstat -ntulp | grep 22                #通过端口查看软件是否开启
-
-第四步： 启动服务
-        service sshd restart                    #重启服务
-        chkconfig sshd on                         #加入开机自启
-        chkconfig --list sshd                    #查看是否配置开机自启成功
-
-
-
-第五步： 远程登陆
-        1.ssh  [远程主机用户名] @[远程服务器主机名或IP地址]
-            ssh 192.168.200.100
-            ssh root@192.168.200.100
-            ssh root@192.168.200.100 -p 22
-            ssh -l root 192.168.200.100            #注意没有@符号
-        2.第一次登录服务器时系统没有保存远程主机的信息，为了确认该主机身份会提示用户是否续连接，输入yes 后登录这时系统会将远程服务器信息写入用户主目录下的$HOME/.ssh/known_hosts 文件中，下次再进行登录时因为保存有该主机信息就不会再提示了
-
-        3.远程登录以普通用户登陆
-            useradd cat &amp;&amp; echo 123456 | passwd --stdin cat
-            ssh -l cat 192.168.200.100
-</code></pre><p><strong>- 配置文件</strong></p>
-<pre><code>OpenSSH 配置文件
-    OpenSSH 常用配置文件有两个 /etc/ssh/ssh_config 和 /etc/sshd_config
-        ssh_config 为客户端配置文件
-        sshd_config 为服务器端配置文件
-</code></pre><p><strong>服务脚本 线上一般配置(实战)</strong></p>
-<pre><code>常用的启动脚本主要有以下两个
-    /etc/init.d/sshd restart/stop/start/status
-    service sshd restart/stop/start/status
-</code></pre><p><strong>注意事项</strong></p>
-<pre><code>1.参数前面有#，表示是默认值。当然#号也表示注释
-2.登录系统的默认日志存放在哪？
-    sshd服务日志存放在： /var/log/secure
-    由于这个文件/etc/rsyslog.conf  定义的sshd服务的日志存放位置？
-        # The authpriv file has restricted access.
-        authpriv.*                                              /var/log/secure
-3.修改配置文件要重启服务
-</code></pre><p><strong>/etc/ssh/sshd_config 配置文件</strong></p>
-<pre><code>1.Port 22  -&gt;  设置sshd 监听端口号
-    # SSH 预设使用 22 这个port，也可以使用多个port，即重复使用 port 这个设定项目！
-    # 例如想要开放 sshd 端口为 22和 222 ，则多加一行内容为： Port 222  即可
-    # 然后重新启动 sshd 这样就好了。 建议大家修改 port number 为其它端口。防止别人暴力破解。
-2.ListenAddress 0.0.0.0  -&gt;  设置sshd监听ip地址
-    # 设置sshd 服务器绑定的IP 地址，0.0.0.0 表示侦听所有地址
-    # 比如192.168.0.63 这个机器只允许0.64来远程登录，那么可以设置
-    # ListenAddress 192.168.0.64
-3.Protocol 2  -&gt;  设置sshd的协议的版本号
-    # 选择的 SSH 协议版本，可以是 1 也可以是 2 ，CentOS 5.x 预设是仅支援 V2。 安全考虑，设置为最新的协议版本
-4.#HostKey /etc/ssh/ssh_host_key  -&gt;  设置sshd登陆密钥文件
-    # 设置包含计算机私人密匙的文件
-5.SyslogFacility AUTHPRIV    -&gt;    设置日志登陆信息
-    # 当有人使用 SSH 登入系统的时候，SSH 会记录信息，这个信息要记录的类型为AUTHPRIV。
-6.#LogLevel INFO
-    # 登录记录的等级！INFO级别以上。
-    [关于系统日志的文章](http://blog.csdn.net/beckdon/article/details/32696047 &quot;Linux系统日志&quot;)
-</code></pre><p><strong>涉及到安全调优的配置选项</strong></p>
-<pre><code>7.LoginGraceTime 2m       #grace 优雅
-# 当使用者连上 SSH server 之后，会出现输入密码的画面，在该画面中，
-# 在多久时间内没有成功连上 SSH server 就强迫断线！若无单位则默认时间为秒！ 可以根据实际情况来修改实际
-
-8.# PermitRootLogin yes
-# 是否允许 root 登入！预设是允许的，但是建议设定成 no！真实的生产环境服务器，是不允许root账号登陆的！！！
-
-
-9.PasswordAuthentication yes
-# 密码验证当然是需要的！所以这里写 yes，也可以设置为no。在真实的生产服务器上，根据不同安全级别要求，有的是设置不需要密码登陆的，通过认证的秘钥来登陆
-
-10.# PermitEmptyPasswords no
-# 若上面那一项如果设定为 yes 的话，这一项就最好设定为 no ，
-# 这个项目在是否允许以空的密码登入！当然不许！
-
-11.# PrintMotd yes
-# 登入后是否显示出一些信息呢？例如上次登入的时间、地点等等，预设是 yes
-# 亦即是打印出 /etc/motd 这个文档的内容。
-例：给sshd服务添加一些警告信息
-    cat /etc/motd
-    echo &apos;Warning ! From now on, all of your operation has been 4record!&apos;&gt; /etc/motd
-测试：
-    ssh 192.168.0.64
-    root@192.168.0.64&apos;s password:
-    Last login: Thu Jun 23 14:02:38 2016 from 192.168.0.1
-    Warning ! From now on, all of your operation has been record!
-
-12.# PrintLastLog yes
-    # 显示上次登入的信息！预设也是 yes  ！
-    例：
-    ssh 192.168.0.63
-    Last login: Tue Nov  4 19:57:31 2014 from 192.168.1.107  #就是这个信息
-
-13.# UseDNS yes
-     # 一般来说，为了要判断客户端来源是正常合法的，因此会使用 DNS 去反查客户端的主机名
-     # 不过如果是在内网互连，这项目设定为 no 会让联机速度比较快。
-</code></pre><p><strong>3.排错</strong></p>
-<pre><code>1.防火墙和selinux关闭
-2.软件是否安装、服务是否开启以及端口是否在监听
-3.配置文件是否修改  比如 端口号
-4.分析日志文件
-</code></pre><p><strong>4.SSHD防止暴力破解</strong></p>
-<p><strong>配置文件</strong></p>
-<pre><code>1.通过修改配置文件，密码的长度最好大于20位密码复杂度要尽可能有数字、大小写字母和特殊符号混合组成(kepass软件记录软件)
-
-2.修改默认端口号
-
-3.不允许root用户登陆
-
-4.不允许密码登陆，只能通过密钥登陆系统客户端生成密钥对，然后将公钥上传到服务器   ssh-keygen创建私钥默认放在 /root/.ssh/id_rsa,并且需要设置密码来保护客户端私钥的密码，公钥保存在/root/.ssh/id_rsa.pub
-
-    &gt;传输方法    ssh-copy-id -i 服务器
-    &gt;在服务器上,服务器会将其替换成了.ssh/authorized_keys和在客户端上的公钥一致
-</code></pre><p><strong>开源防护工具  fail2ban</strong></p>
-<pre><code>fail2ban可以监视你的系统日志，然后匹配日志的错误系你想执行相应的屏蔽工作，而且可以发送e-mail通知系统管理员，工作的原理是通过分析一定时间内的相关服务日志，将满足动作的相关IP利用iptables加入到dorp列表一定时间。 使用该软件iptables必须要开启，如果ssh配置文件中的端口号发生改变需要更改/etc/fail2ban/jail.conf以及/对应action.d/iptables.conf文件
-
-注：重启iptables服务的话，所有DORP将重置。
-</code></pre><p><strong>fail2ban的安装、使用和配置</strong></p>
-<pre><code>1.下载位置
-    http://www.fail2ban.org
-
-2.解压软件包和安装
-     tar  -zxvf fail2ban-0.8.14.tar.gz -C /usr/local/src
-
-3.执行安装，在安装之前首先检查一下python的版本
-    python -V
-    python setup.py install
-
-4.目录解释，其配置文件为jail.conf
-    /etc/fail2ban/action.d              #动作文件夹，内含默认文件。iptables以及mail等动作配置
-    /etc/fail2ban/fail2ban.conf            #定义了fai2ban日志级别、日志位置及sock文件位置
-    /etc/fail2ban/filter.d              #条件文件夹，内含默认文件。过滤日志关键内容设置
-    /etc/fail2ban/jail.conf                #主要配置文件，模块化。主要设置启用ban动作的服务及动作阀值
-
-5.加入系统启动服务中
-    cp files/redhat-initd  /etc/init.d/fail2ban
-    chkconfig --add fail2ban  #开机自动启动
-
-    查找一个软件中的启动脚本文件的小方法：
-        grep chkconfig  ./* -R --color  #启动脚本文件都是含有chkconfig
-
-6.实例文件/etc/fail2ban/jail.conf及说明
-    [DEFAULT]               #全局设置
-    ignoreip = 127.0.0.1/8       #忽略的IP列表,不受设置限制
-    bantime  = 600               #屏蔽时间，单位：秒
-    findtime  = 600              #这个时间段内超过规定次数会被ban掉
-    maxretry = 3                 #最大尝试次数
-    backend = auto               #日志修改检测机制（gamin、polling和auto这三种）
-
-    #单个服务检查设置，如设置bantime、findtime、maxretry和全局冲突，服务优先级大于全局设置。
-
-    [sshd]
-    enabled  = true              #是否激活此项（true/false）修改成 true
-    filter   = sshd              #过滤规则filter的名字，对应filter.d目录下的sshd.conf
-    action   = iptables[name=SSH, port=ssh, protocol=tcp]             #动作的相关参数，对应action.d/iptables.conf文件
-    sendmail-whois[name=SSH, dest=you@example.com, sender=fail2ban@example.com, sendername=&quot;Fail2Ban&quot;]   #触发报警的收件人
-    logpath  = /var/log/secure   #检测的系统的登陆日志文件。这里要写sshd服务日志文件。 默认为logpath  = /var/log/sshd.log
-    #5分钟内3次密码验证失败，禁止用户IP访问主机1小时。 配置如下
-    bantime  = 3600     #禁止用户IP访问主机1小时
-    findtime  = 300     #在5分钟内内出现规定次数就开始工作
-    maxretry = 3        #3次密码验证失败
-
-如果遇到不能发送邮件的首先要确定sendmail可以发送右键，测试代码如下
-    echo &quot;Hello World&quot; | mail -s test xxx@xxx.com
-
-如果遇到本机不能远程登陆，那么只需要将ssh的日志文件删除即可   也就是/var/log/secure文件内容清除
-    &gt; /var/log/secure
-
-7.启动服务
-    service fail2ban start
-
-8.查看服务状态和防火墙是否设置了相关条目
-    iptables -L -n
-    fail2ban-client status                    #查看该软件是否工作
-    #具体看某一项的状态也可以看，如果显示被ban的ip和数目就表示成功了，如果都是0，说明没有成功。相关代码如下
-    fail2ban-client status ssh-iptables
-</code></pre><p><strong>xinetd服务</strong></p>
-<pre><code>xinetd(eXtended InterNET services daemon)  扩展因特网服务守护进程，是新一代的网络守护进程服务程序，又叫超级Internet服务器
-作用： 通过xinetd服务来管理多种轻量级Internet服务。如： telnet、rsync、 tftp服务等。并为这些服务提供安全访问控制功能。
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SSH服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/1.Linux运维服务-SSH服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -2754,19 +2746,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2774,7 +2754,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2782,23 +2774,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2830,6 +2814,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
               </li>
              
@@ -2842,7 +2830,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2854,11 +2846,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
