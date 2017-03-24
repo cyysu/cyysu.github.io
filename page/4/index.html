@@ -164,6 +164,690 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-6.Linux运维服务-Samba服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/6.Linux运维服务-Samba服务/">Samba服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/6.Linux运维服务-Samba服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.Samba服务
+3.常见错误解决方案
+4.应用场景
+</code></pre><hr>
+<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-Samba服务"><a href="#2-Samba服务" class="headerlink" title="2.Samba服务"></a>2.Samba服务</h2><p><strong>简介</strong></p>
+<pre><code>Samba服务概述：
+    Samba 最先在Linux 和Windows 两个平台之间架起了一座桥梁，正是由于Samba 的出现，我们可以在Linux 系统和Windows 系统之间互相通信，比如拷贝文件、实现不同操作系统之间的资源共享等等，我们可以将其架设成一个功能非常强大的文件服务器，也可以将其架设成打印服务器提供本地和远程联机打印
+</code></pre><p><strong>软件安装和启动</strong></p>
+<pre><code>软件安装
+    rpm -ivh /mnt/Packages/samba-3.5.10-114.el6.x86_64.rpm
+
+服务启动
+    service smb start 或 /etc/init.d/smb restart
+
+samba 服务配置重新加载
+    /etc/init.d/smb   reload
+
+服务加入开机自启
+    chkconfig smb on
+
+查看端口
+    netstat -antup | grep smb
+
+windows访问samba服务的时候采用如下格式访问
+    \\192.168.1.63
+
+Linux访问的时候共享文件夹采用如下格式
+    smbclient -L  samba IP    密码为空   这样查看的方式为匿名用户
+    smbclient -L  samba IP -U 用户名%密码    以用户名查看samba共享文件
+    smbclient //samba共享的绝对路径 -U 用户名%密码
+
+如果登陆出现问题可以尝试清除一下缓存    (windows平台)
+    net use * /del                      //显示已建立的远程连接并询问是否确认删除，输入y删除，输入n暂不删除
+</code></pre><p><strong>配置文件解析</strong></p>
+<pre><code>配置文件详解：/etc/samba/smb.conf
+
+    1、samba 配置简介
+        smb.conf 文件的开头部分为samba 配置简介，告诉我们smb.conf 文件的作用及相关信息。
+        smb.conf 中还有以“;”开头，这些都是samba 配置的格式范例，默认是不生效滴，可以通过去掉前面的“;”并加以修改来设置想使用的功能。
+        [root@xuegod63 ~]# vim /etc/samba/smb.conf  #搜索分号 ；
+        ;       security = domain
+        另外#号也是表示注示
+    2、Global Settings
+
+        Global Settings 设置为全局变量区域。全局变量就是说我们只要在global 时进行设置，那么该设置项目就是针对所有共享资源生效。这与以后我们学习的很多服务器配置文件相似。
+
+
+    格式：
+    字段=设定值
+    下面我们说下[global]常用字段及设置方法：
+
+    1）设置samba 服务器所在工作组或域名
+    我们设置samba 服务器的工作组为xuegod.cn
+           workgroup = xuegod.cn  #工作组
+    2）服务器描述，服务器描述实际上类似于备注信息，
+    设置samba 描述信息为“xuegod.cn Samba Server  ”。
+            server string = xuegod.cn Samba Server  #samba服务器描述
+
+    3、设置samba 服务器安全模式。常见模式有两种：share 安全级别模式和user 安全级别模式
+        samba 服务器有share、user、server、domain 和AD活动目录 五种安全模式。
+        （1）share 安全级别模式
+        客户端登录samba 服务器，不需要输入用户名和密码就可以浏览samba 服务器的资源，适用于公
+        共的共享资源，安全性差，需要配合其他权限设置，保证samba 服务器的安全性。
+        （2）user 安全级别模式
+        客户端登录samba 服务器，需要提交合法帐号和密码，经过服务器验证才可以访问共享资源，服务器默认为此级别模式。
+    4、Share Definitions 共享服务的定义
+        [homes]为特殊共享目录，表示用户主目录。
+        [printers]表示共享打印机。
+
+修改配置文件，实战举例：
+     Samba 常规服务器配置
+        基本的Samba服务器的搭建流程主要分为四个步骤：
+        [1]、编辑主配置文件smb.conf,指定需要共享的目录，并为共享目录设置共享权限。
+        [2]、在smb.conf 文件中指定日志文件名称和存放路径。
+        [3]、设置共享目录的本地系统权限及samba共享权限。
+        [4]、重新加载配置文件或重新启动smb 服务，使用配置生效
+
+
+    配置一个共享资源：
+        [share]  #设置共享名
+                comment = Home Directories  #描述
+                browseable = yes   #是否允许查看此共享内容 。如果是否，后期通过绝对路径，可以查看到。
+        path = /share      #共享路径，写绝对路径
+        public = yes  #允许匿名查看
+        readonly = yes
+    5、设置访问用户
+
+        如果共享资源存在重要数据的话，需要对访问用户审核，我们可以使用valid users 字段进行设置
+        格式：
+        valid users = 用户名
+        valid users = @组名
+
+    6、设置目录只读
+        共享目录如果限制用户的读写操作，我们可以通过readonly 实现哈~
+        格式：
+        readonly = yes #只读
+        readonly = no #读写
+
+    7、设置目录可写
+        如果共享目录允许用户写操作，可以使用writable 或write list 两个字段进行设置
+        writable 格式：
+        writable = yes #读写
+        writable = no #只读
+        write list 格式：
+        write list = 用户名
+        write list = @组名
+
+        Samba 服务日志文件
+        在/etc/samba/smb.conf 文件中，log file 为设置samba 日志的字段。
+</code></pre><p><strong>案例</strong></p>
+<pre><code>    例1：匿名共享：
+
+        公司现在用一个工作组xuegod.cn， 需要添加samba 服务器作为文件服务器，并发布共享目录/share，共享名为public,这个共享目录允许所有公司员工访问。
+
+
+        [root@xuegod63 Desktop]# mkdir /share
+        [root@xuegod63 Desktop]# cp /etc/passwd !$   #复制一个测试文件
+        cp /etc/passwd /share
+
+        vim /etc/samba/smb.conf
+        [global]
+                workgroup = xuegod.cn  #工作组
+                server string = xuegod.cn Samba Server  #samba服务器描述
+        security = share   # 允许匿名访问
+        ============================ Share Definitions ====
+        [share]  #设置共享名
+                comment = Home Directories  #描述
+        path = /share      #共享路径，写绝对路径
+        public = yes  #允许匿名查看
+
+        2）重新加载配置
+        service smb restart
+
+    例2：通过用户名和密码共享文件。把/sales  共享出去，只有知道用户名和密码的同事可以看这个共享。我们需要将全局配置中security 设置user 安全级别，然后在共享目录设置权限
+
+    注意：一定要先指定存放密码的文件位置：
+
+
+    1）添加销售部用户和组并添加相应samba 帐号
+
+        使用groupadd 命令添加sales 组，然后执行useradd 命令和passwd 命令添加销售部员工的帐号及密码。
+
+        [root@xuegod63 samba]# groupadd sales
+        [root@xuegod63 samba]# useradd -g sales sale1
+        [root@xuegod63 samba]# useradd -g sales sale2
+        [root@xuegod63 samba]# id sale2
+        uid=501(sale2) gid=500(sales) groups=500(sales)
+        [root@xuegod63 samba]#
+
+        接下来为销售部成员添加相应samba 帐号
+        [root@xuegod63 samba]# smbpasswd -a sale1
+        New SMB password:
+        Retype new SMB password:
+        startsmbfilepwent_internal: file /etc/samba/smbpasswd did not exist. File successfully created.
+        Added user sale1.
+        [root@xuegod63 samba]# ls /etc/samba/smbpasswd
+        /etc/samba/smbpasswd
+        [root@xuegod63 samba]# cat !$
+        cat /etc/samba/smbpasswd
+                sale1:500:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:32ED87BDB5FDC5E9CBA88547376818D4:[U          ]:LCT-545E2105:
+        [root@xuegod63 samba]# smbpasswd -a sale2
+        New SMB password:
+        Retype new SMB password:
+        Added user sale2.
+
+    2）修改samba 主配置文件smb.conf
+        passdb backend = smbpasswd
+        smb passwd file = /etc/samba/smbpasswd
+
+例3:linux访问Windows共享文件的方法
+
+    1、安装Samba服务
+         yum install samba samba-client samba-swat
+
+    2、启动Samba服务器
+         /etc/init.d/smb restart
+
+    3、安装cifs-utils，解决只读挂载
+
+        yum install cifs-utils.x86_64
+
+    4、把Windows共享文件夹挂载到linux 目录下
+
+        mount -t cifs -o username=cnt01/njpublic,passwd=&apos;Welcome123&apos; //10.60.1.14/Files-Temporary-Transfer /mnt/
+
+    注意挂载的格式：
+    密码要 写在‘’ 里面，
+    挂载的目录要写到上一级，//ip/共享文件夹
+</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题</strong></p>
+<p><strong>第二种问题</strong></p>
+<h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)文件和打印机贡献</strong><br>    文件和打印机共享是Samba 的主要功能，SMB 进程实现资源共享，将文件和打印机发布到网络之中，以供用户可以访问。</p>
+<p><strong>2)身份验证和权限设置</strong><br>    smbd 服务支持user mode 和domain mode 等身份验证和权限设置模式，</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Samba服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/6.Linux运维服务-Samba服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-5.Linux运维服务-NFS服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/5.Linux运维服务-NFS服务/">NFS服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/5.Linux运维服务-NFS服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.196Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
+<p>##声明</p>
+<ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.服务
+3.常见错误解决方案
+4.应用场景
+</code></pre><hr>
+<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-NFS服务"><a href="#2-NFS服务" class="headerlink" title="2.NFS服务"></a>2.NFS服务</h2><p><strong>简介</strong></p>
+<pre><code>NFS，是Network File System的简写，即网络文件系统。网络文件系统是FreeBSD支持的文件系统中的一种，也被称为NFS. NFS允许一个系统在网络上与他人共享目录和文件。通过使用NFS，用户和程序可以像访问本地文件一样访问远端系统上的文件。
+
+模式： C/S 模式
+端口：
+RHEL6是以NFSv4作为默认版本，NFSv4使用TCP协议（端口号是2049）和NFS服务器建立连接
+</code></pre><p><strong>软件安装和启动</strong></p>
+<pre><code>软件安装
+    yum -y install nfs*
+    yum install mount        #用到showmount命令查看nfs的那些文件实现了贡献
+
+端口检测和服务开启
+    netstat -antpu | grep 2049
+    service nfs start
+
+加入开机自启
+    chkconfig nfs on
+
+查看NFS的贡献目录
+    showmount -e NFS服务器IP
+
+挂载文件
+    mount 192.168.1.63:/tmp /opt
+</code></pre><p><strong>触发式挂载</strong></p>
+<pre><code>1.自动挂载
+    vim  /etc/fstab
+        192.168.30.128:/media    /opt        /nfs         defualts   0  0
+
+2.安装软件 autofs
+
+    yum install autofs -y
+    autofs软件包要实现自动挂载涉及到两个文件，auto.master和auto.misc
+
+    /etc/auto.master 文件定义本地挂载点.
+    /etc/auto.misc 配置文件是用来设置需要挂载的文件系统类型和选项
+
+            cd              -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
+            *               -fstype=nfs,rw        192.168.0.62:/media
+
+服务器端没有必要安装autofs  客户端安装nfs
+
+重启服务
+    service autofs restart
+</code></pre><p><strong>配置文件解析</strong></p>
+<pre><code>配置文件
+
+        vim /etc/exports
+        /media      *(rw)
+        贡献目录
+
+配置文件的简单配置
+
+    /tmp/a/no_root_squash      *(rw,no_root_squash)
+    /tmp/a/sync                192.168.0.0/24(rw,sync)
+    /tmp/a/ro                  192.168.1.64(ro)
+    /tmp/a/all_squash          192.168.0.0/24(rw,all_squash,anonuid=500,anongid=500)
+    /tmp/a/async               192.168.3.0/255.255.255.0(async)
+    /tmp/a/rw                  192.168.3.0/255.255.255.0(rw)    192.168.4.0/255.255.255.0(rw)
+    /tmp/a/root_squash         *(rw,root_squash)
+
+    * 表示所有网段
+    sync/async:数据同步写入硬盘/不同步写入在内存中缓存
+    root_squash（压制）：如果用root登录nfs，使其身份自动切换成nfsnobody。
+    no_root_squash：如果用root登录nfs，使其身份就是root。
+    all_squash：用户登录nfs时，指定身份为UID/GID的用户。
+
+    注意：在发布共享目录的格式中除了共享目录是必跟参数外，其他参数都是可选的。并且共享
+    目录与客户端之间及客户端与客户端之间需要使用空格符号，但是客户端与参数之间是不能有
+    空格的
+
+查看NFS的贡献目录
+    showmount -e NFS服务器IP
+</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题：共享目录之后无法创建文件</strong></p>
+<pre><code>1、可能是服务器端文件自身的读写权限设置问题
+    chmod 777 -R /贡献目录
+
+2、chown nfsnobody:nfsnobody     /共享目录
+</code></pre><p><strong>第二种问题：</strong></p>
+<h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)文件共享</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NFS服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/5.Linux运维服务-NFS服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-4.Linux运维服务-NTP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/4.Linux运维服务-NTP服务/">NTP服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/4.Linux运维服务-NTP服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.NTP服务
+3.常见错误解决方案
+4.应用场景
+</code></pre><hr>
+<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-NTP服务"><a href="#2-NTP服务" class="headerlink" title="2.NTP服务"></a>2.NTP服务</h2><p><strong>-简介</strong></p>
+<pre><code>1、原理
+
+    NTP（Network Time Protocol，网络时间协议）是用来使计算机时间同步化的一种协议。它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正（LAN上与标准间差小于1毫秒，WAN上几十毫秒），且可介由加密确认的方式来防止恶毒的协议攻击。
+
+    模式： C/S 模式
+    运行模式：
+
+2.服务安装和检查
+
+    rpm -ivh /mnt/Packages/ntp-4.2.4p8-2.el6.x86_64.rpm 或 yum -y install ntp*
+
+    service ntpd start
+
+    netstat -anutp | grep 123
+
+     ntpdate time.windows.com        #同步时间
+    如果自己同步自己的话就会出现如下错误
+    ntpdate time.windows.com
+
+3.NTP服务器的主要配置文件
+
+    /etc/ntp.conf：这个是NTP服务器的主要设文件，也是 NTP 唯一的设定文件
+    下面重点说说 /etc/ntp.conf文件的设置。在 NTP Server 的设定上面，其实最好不要对 Internet 无限制的开放，尽量仅提供您自己内部的 Client 端联机进行网络校时就好。此外， NTP Server 总也是需要网络上面较为准确的主机来自行更新自己的时间，所以在我们的 NTP Server 上面也要找一部最靠近自己的 Time Server 来进行自我校正。事实上， NTP 这个服务和服务器之间，也是 C/S的一种模式。
+
+    NTP服务器实际作用：保证Linux集群中所有所有服务器时间同步。 对于一个Linux集群，集群内的机器保持时间同步是很重要的，不然会出现很多问题。
+
+    实例：配置一个本地时间同步服务器
+    实验前请确保此服务器可以上网
+    [root@xuegod63 ~]# vim /etc/ntp.conf   #修改以下√号标记内容，为自己需要的内存即可
+    [root@xuegod63 ~]# vim /etc/ntp.conf   #修改以下√号标记内容，为自己需要的内存即可
+
+    driftfile /var/lib/ntp/drift
+    restrict default kod nomodify notrap nopeer noquery
+    restrict -6 default kod nomodify notrap nopeer noquery
+    restrict 127.0.0.1
+    restrict -6 ::1
+    √restrict 192.168.1.0 mask 255.255.255.0   # 允许192.168.1.0这个网段中的服务器，访问ntp服务器同步时间。
+    √restrict 202.120.2.101   #允许单个IP地址方访问本服务器。
+
+    server  202.120.2.101  #指定本NTP服务器的上游NTP服务器为202.120.2.101，并且设置为首先服务器。同步时间为，从上到下，写的越靠上，优先级越高。（写在所有server最前面IP地址为首先服务器，此服务器同步不了时间，寻找下一个NTP服务器）。此IP地址是上海交通大学网络中心NTP服务器地址。  在原配置文件中添加一个外网NTP服务器
+    server 0.rhel.pool.ntp.org
+    server 1.rhel.pool.ntp.org
+    server 2.rhel.pool.ntp.org
+
+    注意：有的老系统里，有下面这两行配置。如何有，就启动这两行，如果没有，可以跳过
+
+
+    配置文件参数说明：
+    # 1. 关于权限设定部分
+    #权限的设定主要以 restrict 这个参数来设定，主要的语法为：
+    #restrict IP mask netmask_IP parameter （pəˈramitər ：参数）
+    #其中 IP 可以是IP地址，也可以是 default ，default 就类似 0.0.0.0
+    #至于 paramter 则有：
+
+    #ignore　：关闭所有的 NTP 联机服务
+    #nomodify：表示 Client 端不能更改 Server 端的时间参数，不过， Client 端仍然可以透过 Server 端来进行网络校时。
+    #notrust ：该 Client 除非通过认证，否则该 Client 来源将被视为不信任网域
+    #noquery ：不提供 Client 端的时间查询
+    #notrap ：不提供trap这个远程事件登入 。 不提供trap这个远程事件登陆（remote event logging)的功能。
+    #如果 paramter 完全没有设定，那就表示该 IP (或网域)“没有任何限制”
+
+    restrict default nomodify notrap noquery　# 关闭所有的 NTP 要求封包
+    restrict 133.100.11.8
+    #允许上游服务器133.100.11.8通过，并且指定上游服务器为133.100.11.8，并且设置为首先服务器。
+
+    restrict 127.0.0.1　　　 #这是允许本机查询
+    restrict 192.168.1.0  mask 255.255.255.0 nomodify
+    #允许192.168.1.0/24网段内的客户端，通过这台NTP Server进行时间同步。
+    #2. 上层主机的设定
+    #要设定上层主机主要以 server 这个参数来设定，语法为：
+    #server [IP|HOST Name]
+    #Server 后面接的就是我们上层 Time Server 啰！同步时间为，从上到下，写的越靠上，优先级越高。server 0.pool.ntp.org
+    server 1.pool.ntp.org
+    server 2.pool.ntp.org
+    server cn.pool.ntp.org prefer
+
+    #其他设置值，以系统默认值即可
+    #　另外，为了解决更新时间封包的传送延迟动作， 　所以可以使用 driftfile 来规定我们的主机
+    #　在与 Time Server 沟通时所花费的时间，可以记录在 driftfile
+    #　后面接的文件内，例如下面的范例中，我们的 NTP server 与   cn.pool.ntp.org联机时所花费的时间会记录在 /etc/ntp/drift文件内
+    driftfile /var/lib/ntp/drift
+    例：cat  /var/lib/ntp/drift    #只有ntp服务工作正常后，这个文件中才有内容。
+
+4.启动的流程
+
+    在启动NTP服务前，先对提供服务的这台主机手动的校正一次时间。有时，你的时间和NTP服务器时间相差太大，NTP会以你当前系统时间为准，不作同步。（因为启动服务器，端口会被服务端占用，就不能手动同步时间了）
+
+    ntpdate time.windows.com
+
+    然后在启动服务
+    service ntpd start 或 /etc/init.d/ntpd start
+
+    查看端口是否服务启动成功
+    netstat -ln|grep 123
+
+    确认我们的NTP服务器已经更新了自己的时间
+    ntpstat #如果出现一下信心那么就代表成功了
+    synchronized to NTP server(127.127.1.0) at stratum 11  #可以看到我们当前在11层。
+    time correct to within 950ms   # ms毫秒是一种较为微小的时间单位，是一秒的千分之一。
+    polling（轮询） server every 64 s
+
+5.NTP服务同步硬件时间
+
+    最后提及一点，ntp服务，默认只会同步系统时间。如果想要让ntp同时同步硬件时间，可以设置/etc/sysconfig/ntpd 文件。
+    在/etc/sysconfig/ntpd文件中，添加 SYNC_HWCLOCK=yes 这样，就可以让硬件时间与系统时间一起同步。
+    如下：
+    [root@desktop2 ~]# cat /etc/sysconfig/ntpd //允许BIOS与系统时间同步
+    # Drop root to id &apos;ntp:ntp&apos; by default.
+    SYNC_HWCLOCK=yes
+    OPTIONS=&quot;-u ntp:ntp -p /var/run/ntpd.pid -g&quot;
+</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题：no server suitable for synchronization found</strong></p>
+<pre><code>其实，这不是一个错误。而是由于每次重启NTP服务器之后大约要3－5分钟客户端才能与server建立正常的通讯连接。当此时用客户端连接服务端就会报这样的信息。一般等待几分钟就可以了。
+</code></pre><p><strong>第二种问题：unsynchronised     polling server every 64 s</strong></p>
+<pre><code>1、    在启动服务之前，先要手动同步下时间，系统时间和硬件时间都要同步
+2、    修改配置文件，在定义server 字段下添加两行：
+    server  127.127.1.0
+    fudge   127.127.1.0 stratum 10
+    server127.127.1.0 如果上面的服务器都无同步时间，就和本地系统时间同步。 127.127.1.0在这里是一个IP地址，不是网段。
+    fudge127.127.1.0 stratum 10 #  127.127.1.0 为第10层。 ntp和127.127.1.0同步完后，就变成了11层。  ntp是层次阶级的。同步上层服务器的stratum 大小不能超过或等于16。
+
+如果没有以上两个错误，可以不用添加这两行，按照上面的笔记配置即可
+</code></pre><h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)集群应用</strong></p>
+<p><strong>2)内网NTP服务器</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NTP服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/4.Linux运维服务-NTP服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-3.Linux运维服务-RSYNC服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1501,11 +2185,11 @@ sshd服务使用SSH协议可以用来进行远程控制， 或在计算机之间
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Gitlab</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Gitlab</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装</a>
         		</li>
       		
 		</ul>
@@ -1671,11 +2355,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1683,19 +2367,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1703,7 +2383,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1727,6 +2415,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1739,18 +2439,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
               </li>
              
@@ -1760,10 +2448,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1791,7 +2475,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1800,14 +2492,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">跨平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1823,7 +2507,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
             
             <div class="clearfix"></div>
