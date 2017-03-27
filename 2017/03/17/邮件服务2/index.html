@@ -6,17 +6,88 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cyysu.github.io">
-  <title>Archives: 2017/3 | 运维技术</title>
+  <title>邮件服务2 | 运维技术</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="专注Linux运维技术 热爱开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="运维技术">
-<meta property="og:url" content="http://cyysu.github.io/archives/2017/03/page/6/index.html">
+  <meta name="description" content="环境准备前的基础知识
+Courier-IMAP
+maildrop百科
+Cyrus SASL
+extman
+spamassassin
+clamav
+amavisd-new
+amavisd-new
+clamAV
+Spam Locker
+dspam
+
+
+参考教程1.参考教程2.需要注意的是在这个教程里面添加SASL配置的时候类似如下1234567891011smtpd_recipient_restric">
+<meta property="og:type" content="article">
+<meta property="og:title" content="邮件服务2">
+<meta property="og:url" content="http://cyysu.github.io/2017/03/17/邮件服务2/index.html">
 <meta property="og:site_name" content="运维技术">
-<meta property="og:description" content="专注Linux运维技术 热爱开源">
+<meta property="og:description" content="环境准备前的基础知识
+Courier-IMAP
+maildrop百科
+Cyrus SASL
+extman
+spamassassin
+clamav
+amavisd-new
+amavisd-new
+clamAV
+Spam Locker
+dspam
+
+
+参考教程1.参考教程2.需要注意的是在这个教程里面添加SASL配置的时候类似如下1234567891011smtpd_recipient_restric">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_1.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_2.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_3.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_4.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_5.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_6.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_7.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_8.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_9.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_10.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_11.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_12.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_13.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_14.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_15.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_16.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_17.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_18.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_19.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_21.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_22.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_23.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_24.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_25.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_26.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_27.png">
+<meta property="og:image" content="http://omysh8v49.bkt.clouddn.com/extmail_28.png">
+<meta property="og:updated_time" content="2017-03-27T10:34:04.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="运维技术">
-<meta name="twitter:description" content="专注Linux运维技术 热爱开源">
+<meta name="twitter:title" content="邮件服务2">
+<meta name="twitter:description" content="环境准备前的基础知识
+Courier-IMAP
+maildrop百科
+Cyrus SASL
+extman
+spamassassin
+clamav
+amavisd-new
+amavisd-new
+clamAV
+Spam Locker
+dspam
+
+
+参考教程1.参考教程2.需要注意的是在这个教程里面添加SASL配置的时候类似如下1234567891011smtpd_recipient_restric">
+<meta name="twitter:image" content="http://omysh8v49.bkt.clouddn.com/extmail_1.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -162,36 +233,141 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-邮件服务2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      邮件服务2
+    </h1>
+  
+
+        
+        <a href="/2017/03/17/邮件服务2/" class="archive-article-date">
+  	<time datetime="2017-03-17T15:26:37.009Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-17</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="环境准备前的基础知识"><a href="#环境准备前的基础知识" class="headerlink" title="环境准备前的基础知识"></a>环境准备前的基础知识</h2><ol>
+<li><a href="http://os.51cto.com/art/201101/243404.htm" target="_blank" rel="external">Courier-IMAP</a></li>
+<li><a href="http://baike.baidu.com/link?url=Gqq8JrocbUaZmm9EgJxg4aswn5Ib4maZiNYQs2sDGKncGxOFDpCm4AD1v1xjUV3jhY1D3FnAIu8r0PKUwYp7u1YnCcW5UdWg5_hbzkAincy" target="_blank" rel="external">maildrop百科</a></li>
+<li><a href="http://www.cnblogs.com/silenceli/p/4031262.html" target="_blank" rel="external">Cyrus SASL</a></li>
+<li><a href="http://wiki.extmail.org/extman%E7%AE%80%E4%BB%8B" target="_blank" rel="external">extman</a></li>
+<li><a href="http://baike.baidu.com/link?url=ljniFDJfCL7UiCwoOxIx3HPTnvHAai5d14c8cZWtGF2KKWKDi6gA4IC5ZxCCES8HXtIGkMfs_FxIGtHSJ5GR5N9bNTR35EDW12tKNiFPLaS" target="_blank" rel="external">spamassassin</a></li>
+<li><a href="http://baike.baidu.com/link?url=iuKygo-lVjO-v2eGYEUdNw-zzy7GRBRegbXKcgNwbSDB5kNzA_Uwc07nPpVFmtl4dhNz8T4pPkEew2g1WayS6P8t5sorIblxMNPZRyQ3KGUZKVjeifhzbVx3gxj55iG8RELsN__Mbq0hjKdwaBXGqa" target="_blank" rel="external">clamav</a></li>
+<li><a href="http://www.07net01.com/storage_networking/Amavisd_newfanlajihefanbingdupeizhi_10904_1345750220.html" target="_blank" rel="external">amavisd-new</a></li>
+<li><a href="http://www.07net01.com/storage_networking/Amavisd_newfanlajihefanbingdupeizhi_10904_1345750220.html" target="_blank" rel="external">amavisd-new</a></li>
+<li><a href="http://www.iyunv.com/thread-237251-1-1.html" target="_blank" rel="external">clamAV</a></li>
+<li><a href="http://baike.baidu.com/link?url=j9edDlhvcJhGQ31ro-wCeIxotGWDMDB7Ns8NtcID4FXUcfq7PCGpGtHnVXEqBMoeRqPHakk--LgiVsHagCnwu-A1VsoiQd2EJleKmP8S9aW" target="_blank" rel="external">Spam Locker</a></li>
+<li><a href="http://ywzhou.blog.51cto.com/2785388/1592505/" target="_blank" rel="external">dspam</a></li>
+</ol>
+<hr>
+<h3 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h3><p>1.<a href="http://wiki.extmail.org/extmail_solution_for_centos-5" target="_blank" rel="external">参考教程</a><br>2.需要注意的是在这个教程里面添加SASL配置的时候类似如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">smtpd_recipient_restrictions =</div><div class="line">    permit_mynetworks,</div><div class="line">    permit_sasl_authenticated,</div><div class="line">    reject_non_fqdn_hostname,</div><div class="line">    reject_non_fqdn_sender,</div><div class="line">    reject_non_fqdn_recipient,</div><div class="line">    reject_unauth_destination,</div><div class="line">    reject_unauth_pipelining,</div><div class="line">    reject_invalid_hostname,</div><div class="line"></div><div class="line">注意前面加空格，否则会报错</div></pre></td></tr></table></figure></p>
+<p>3.还有一处需要注意的就是添加authmysqlrc配置的的时候类似如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">MYSQL_SERVER localhost</div><div class="line">MYSQL_USERNAME extmail</div><div class="line">MYSQL_PASSWORD extmail</div><div class="line">MYSQL_SOCKET /var/lib/mysql/mysql.sock</div><div class="line">MYSQL_PORT <span class="number">3306</span></div><div class="line">MYSQL_OPT <span class="number">0</span></div><div class="line">MYSQL_DATABASE extmail</div><div class="line">MYSQL_USER_TABLE mailbox</div><div class="line">MYSQL_CRYPT_PWFIELD password</div><div class="line">MYSQL_UID_FIELD uidnumber</div><div class="line">MYSQL_GID_FIELD gidnumber</div><div class="line">MYSQL_LOGIN_FIELD username</div><div class="line">MYSQL_HOME_FIELD homedir</div><div class="line">MYSQL_NAME_FIELD name</div><div class="line">....</div><div class="line"></div><div class="line"></div><div class="line">在localhost后面没有空格，多添加的时候会连接不上数据库</div></pre></td></tr></table></figure></p>
+<ol>
+<li><a href="http://pan.baidu.com/s/1geAXzYN" target="_blank" rel="external">EMOS镜像下载地址  密码：wmr2</a></li>
+</ol>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_1.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_2.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_3.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_4.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_5.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_6.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_7.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_8.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_9.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_10.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_11.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_12.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_13.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_14.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_15.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_16.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_17.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_18.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_19.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_21.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_22.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_23.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_24.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_25.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_26.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_27.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_28.png" alt="案例"></p>
+<hr>
+<h3 id="简便安装"><a href="#简便安装" class="headerlink" title="简便安装"></a>简便安装</h3><pre><code>看完上面的安装步骤你肯定烦了，下面我们用镜像来进行安装，这个就是so easy 了！！
+</code></pre><p><a href="http://blog.csdn.net/zonelan/article/details/8125971" target="_blank" rel="external">参考教程</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/8.Linux运维服务-DNS服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.445Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/8.Linux运维服务-DNS服务/">DNS服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,517 +377,136 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DNS服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/7.Linux运维服务-FTP服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.326Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/7.Linux运维服务-FTP服务/">FTP服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">FTP服务</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">邮件服务</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cyysu.github.io/2017/03/17/邮件服务2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/6.Linux运维服务-Samba服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/6.Linux运维服务-Samba服务/">Samba服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Samba服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/5.Linux运维服务-NFS服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.196Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/5.Linux运维服务-NFS服务/">NFS服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NFS服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/4.Linux运维服务-NTP服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/4.Linux运维服务-NTP服务/">NTP服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NTP服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/3.Linux运维服务-RSYNC服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/3.Linux运维服务-RSYNC服务/">RSYNC服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RSYNC服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/2.Linux运维服务-DHCP服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/2.Linux运维服务-DHCP服务/">DHCP服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DHCP服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/11.Linux运维服务-Postfix服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:44.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/11.Linux运维服务-Postfix服务/">Postfix服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Postfix服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/10.Linux运维服务-自动化安装服务器/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:44.645Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">自动化部署</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自动化部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/1.Linux运维服务-SSH服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:44.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/1.Linux运维服务-SSH服务/">SSH服务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SSH服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2017/03/18/LAMP搭建博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          LAMP搭建博客
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/03/16/新版邮件服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">邮件服务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="邮件服务2" data-title="邮件服务2" data-url="http://cyysu.github.io/2017/03/17/邮件服务2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cyysu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/03/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/2017/03/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/03/page/4/">4</a><a class="page-number" href="/archives/2017/03/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/2017/03/page/7/">7</a><a class="extend next" rel="next" href="/archives/2017/03/page/7/">Next &raquo;</a>
-    </nav>
-  
+
 
 
           </div>
@@ -734,8 +529,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
