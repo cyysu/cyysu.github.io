@@ -164,6 +164,441 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-11.Linux运维服务-Postfix服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/11.Linux运维服务-Postfix服务/">Postfix服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/11.Linux运维服务-Postfix服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:44.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#YSU-Linux运维笔记模板V3.0</p>
+<p><strong>编辑软件：MarkdownPad2</strong></p>
+<p><strong>撰写人员：Kali</strong></p>
+<p><strong>撰写日期：2017年3月5日</strong></p>
+<p><strong>联系作者：cyysu.github.io@gmail.com</strong></p>
+<p><strong>友情提示：文章内容如有不对，欢迎指正。</strong></p>
+<hr>
+<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1 开篇的话"></a>1 开篇的话</h2><h3 id="1-1-学习方法"><a href="#1-1-学习方法" class="headerlink" title="1.1 学习方法"></a>1.1 学习方法</h3><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-Postfix服务"><a href="#2-Postfix服务" class="headerlink" title="2 Postfix服务"></a>2 Postfix服务</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><pre><code>postfix是Wietse Venema在IBM的GPL协议之下开发的MTA（邮件传输代理）软件。postfix是Wietse Venema想要为使用最广泛的sendmail提供替代品的一个尝试。
+在Internet世界中，大部分的电子邮件都是通过sendmail来投递的，大约有100万用户使用sendmail，每天投递上亿封邮件。这真是一个让人吃惊的数字。
+Postfix试图更快、更容易管理、更安全，同时还与sendmail保持足够的兼容性
+
+其它邮件服务器：
+Sendmail、Qmail、Postfix
+Sendmail的不足
+　第一个重要的缺点是它的安全性较差，这是因为当其作者Eric Allman最初开始写作这个软件的时候，Internet的用户还很少，因而安全性并不没有得到大家的重视。
+由于邮件系统需要处理的是外部发送来的各种各样的信息，甚至包含一些恶意数据，然而sendmail在大多数系统中都是以root身份运行，一旦出现问题，就会对系统安全造成严重影响。在这种情况下，要防止出现安全问题，仅仅依赖程序本身是不可取的，应该从系统结构出发，使程序拥有的特殊权限限制到最小。
+第二个，使用Sendmail还会遇到的另一个问题是它的设置相当复杂，对于使用缺省设置来收发电子邮件，问题并不存在。当管理员打算进行一些特殊设置，以便利用Sendmail提供的复杂邮件处理能力时，就不得不面对复杂的宏和正则表达式。
+
+Qmail可以替代Sendmail
+Qmail，为了解决sendmail的安全问题，整个系统结构需要重新设计。基本的原则是将系统划分为不同的模块，有负责接收外部邮件的，有管理缓冲目录中待发送的邮件队列的，有将邮件发送到远程服务器或本地用户的。Qmail就是按照这个原则进行的设计，它由多个不同功能的小程序组成，只有必要的程序才是setuid程序(即以root用户权限执行)，这样就减少了安全隐患，并且由于这些程序都比较简单一些，因此就可以达到较高的安全性。
+
+
+今天的主角：
+另一种替换软件:Postfix  可以替代sendmail
+　　Postfix同样也是采用了模块化的方式，但与Qmail不同的是，Postfix使用了一个主控进程进行监控。Postfix在很多方面都考虑到了安全问题，它甚至不向root分发电子邮件，以避免以root身份读写文件或启动外部程序。考虑到它的作者Wietse Venema曾编写了著名的安全软件TcpWrapper，Postfix的安全性是非常值得信赖的。
+Postfix的性能也非常不错，甚至在Qmail作者自己进行的测试中也表明，Postfix的性能和Qmail基本相当。postfix在性能上大约比sendmail快三倍。
+
+
+Dovecot: 邮件接收服务器：
+    Dovecot 是一个开源的 IMAP 和 POP3 邮件服务器，支持 Linux/Unix 系统。
+    POP / IMAP4 是 MUA 从邮件服务器中读取邮件时使用的协议。
+    POP3 是从邮件服务器中下载邮件存起来，IMAP 则是将邮件留在服务器端直接对邮件进行管理、操作。比POP3更先进。
+    由 Timo Sirainen 开发，最初发布于 2002年7月。作者将安全性考虑在第一，所以 Dovecot 在安全性方面比较出众。
+    IMAP4是TCP/IP协议族中的一员，现在的版本是“IMAP第四版第一次修订版”。
+    一个完整的邮件服务器由以下内容构成：
+
+    postfix（作为发送邮件服务器）+dovecot（作为接收邮件服务器）+mysql（作为数据库）
+
+    可以通过foxmail或outlook客户端。也可以通过网页来收邮件。
+
+
+
+    邮件服务协议和端口：
+
+        25 端口：SMTP协议。
+            SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。
+        作用：此协议主要用来发送或中转邮件。SMTP协议属于TCP/IP协议簇，
+
+        邮件服务中：
+            发送： 指的是同属于163邮件服务器两人相互发送邮件。
+            中转： 使用163邮箱给QQ邮箱发送邮件。
+
+        24端口：LMTP(Local Mail Transfer Protocol)[1]，是本地邮件传输协议，与SMTP类似，但不支持邮件队列（queue），主要应用于非广域网的邮件网关。
+
+
+        110端口：POP3协议
+            POP3(Post Office Protocol 3)即邮局协议的第3个版本，它是规定个人计算机如何连接到互联网上的邮件服务器进行收邮件的协议。
+        还有POP2协议。
+
+
+        143端口：IMAP
+            IMAP： （Internet Mail Access Protocol Internet邮件访问协议） 。IMAP是斯坦福大学在1986年开发的一种邮件获取协议。它的主要作用是邮件客户端（例如Outlook)可以通过这种协议从邮件服务器上获取邮件的信息，下载邮件等。
+
+        当前的权威定义是RFC3501。IMAP协议运行在TCP/IP协议之上，使用的端口是143。它与POP3协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。他们之间的区别如下:
+</code></pre><p><img src="http://omutvk8c2.bkt.clouddn.com/3.png" alt="pop3和IMAP的区别"><br><img src="http://omutvk8c2.bkt.clouddn.com/4.jpg" alt="邮件的工作流程"></p>
+<pre><code>1：发件人写邮件，通过客户端连接邮件服务器，这个之间使用了 SMTP 协议链接！用
+户就是 SMTP  客户端，发送服务器就是我们这儿的 SMTP 服务器！
+2：SMTP  检查我们进入的邮件，将其放到邮件缓冲队列中，等待发送到接受服务器中， 这里要注意，postfix 在这里会检查我们是是否发给自己，若是发给自己的，那么就直接进入 了我们服务器自己的 mailbox！
+3：发送服务器此时充当 SMTP 客户端，接受服务器充当 SMTP 服务端，建立 TCP 链接， 将邮件发送的接受服务器！
+4：接受服务器收到邮件之后，把邮件里面的内容读取，如收件人信息   to:……
+5：收件人打开客户端，使用 POP3 或者 IMAP 协议收取邮件并读取！
+</code></pre><h3 id="2-2-服务安装、启动和配置"><a href="#2-2-服务安装、启动和配置" class="headerlink" title="2.2 服务安装、启动和配置"></a>2.2 服务安装、启动和配置</h3><pre><code>服务安装
+
+    在安装之前首先要检查一下系统是否已经安装了Sendmail。
+
+        rpm -qa | grep sendmail     #查看是否安装 sendmail
+        yum remove sendmail -y      #卸载 sendmail
+
+    下面就开始安装服务
+         yum install -y postfix dovecot
+
+
+
+服务启动、端口检测和加入开机启动项
+
+    service postfix restart
+    chkconfig postfix  on
+     netstat -antup | grep 25
+
+服务配置
+
+    /etc/postfix/main.cf     #主配置文件位置
+    /var/log/maillog         #日志文件位置
+    /var/spool/mail/         #邮件存放位置，对应有相应用户名
+
+配置文件部分参数
+
+    [root@xuegod63 ~]# cp /etc/postfix/main.cf /etc/postfix/main.cf.bak
+    [root@xuegod63 ~]# vim /etc/postfix/main.cf
+    queue_directory = /var/spool/postfix   #队列目录
+    command_directory = /usr/sbin     #命令位置目录
+    mail_owner = postfix              #postfix运行身份
+    myhostname = xuegod63.cn        #发送邮件时的名字，服务器名字
+    mydomain = xuegod63.cn           #邮件域，用于接受的时候用
+    myorigin = $mydomain             #我来自哪儿，别人收到的时候知道是我发送的
+    inet_interfaces = localhost          #邮件接受监控的地址
+    inet_protocols = all                #启用IPV4和IPV6
+    mydestination = $myhostname, $mydomain, localhost          #服务器负责那些域
+    mynetworks = 192.168.0.0/24, 127.0.0.0/8                 #指定允许使用的IP地址段
+    alias_maps = hash:/etc/aliases                             #对某一个用户发，里面的人都可以收到邮件
+    alias_database = hash:/etc/aliases
+    #home_mailbox = Mailbox                                   #收件箱存放位置
+</code></pre><h2 id="3-精彩案例"><a href="#3-精彩案例" class="headerlink" title="3 精彩案例"></a>3 精彩案例</h2><h3 id="3-1-配置postfix邮件服务器，实现邮件发送功能。"><a href="#3-1-配置postfix邮件服务器，实现邮件发送功能。" class="headerlink" title="3.1 配置postfix邮件服务器，实现邮件发送功能。"></a>3.1 配置postfix邮件服务器，实现邮件发送功能。</h3><pre><code>修改主机名和对应关系：
+[root@xuegod63 postfix]# hostname
+xuegod63.cn
+[root@xuegod63 postfix]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.1.63   xuegod63.cn
+192.168.1.64   xuegod64.cn
+
+vim /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=xuegod63.cn
+
+[root@xuegod63 ~]# vim /etc/postfix/main.cf
+需要启用和修改的项：
+myhostname = xuegod63.cn  #指定邮件服务器名字，接收用来识别的，也就是一个标识
+mydomain = xuegod63.cn   #邮件域
+myorigin = $mydomain  #启用，去掉注释，发信地址，此设置显示为@xuegod63.cn
+inet_interfaces = all  #对外提供MTA服务设置为监听所有网卡，默认只监听本地
+#inet_interfaces = localhost  #这个注释起来，是默认值，只监控本地
+mydestination = $myhostname, localhost.$mydomain, localhost  #此行不用改，但是要说明，这是代表邮件服务器负责的那些域
+mynetworks_style = subnet #允许转发的来源网段，可选subnet子网，class网段，host本机
+mynetworks = 192.168.0.0/24, 127.0.0.0/8 #用户允许的使用的IP地址段
+relay_domains = $mydestination  #允许转发的目标域
+local_recipient_maps =  #含有所有本地邮件地址的查询表.SMTP server借此拒收外界寄给不明用户的邮件，启用即可
+alias_maps = hash:/etc/aliases  #对某个用户发，文件中的用户都可以收到邮件，别名组
+alias_database = hash:/etc/aliases  #别名数据库
+smtpd_banner = $myhostname ESMTP &quot;Welcome XueGod63.cn STMP Server&quot;  #自定义服务器信息
+
+重启服务：
+[root@xuegod63 ~]# service postfix start
+[root@xuegod63 ~]# netstat -antup | grep 25
+
+
+测试：
+
+    mail -s &apos;Postfix1&apos; 3402301871@qq.com &lt; /etc/hosts
+    tail -f /var/log/maillog
+    在postfix的日志里：
+    如果status=sent表示已经成功发送。removed表示从队列中删除发送的邮件
+    如果status= deferred表示延期，需要重试，当重试到一定次数，还失败就抛弃
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Postfix服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/11.Linux运维服务-Postfix服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-10.Linux运维服务-自动化安装服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">自动化部署</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/10.Linux运维服务-自动化安装服务器/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:44.645Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#YSU-Linux运维笔记模板V3.0</p>
+<p><strong>编辑软件：MarkdownPad2</strong></p>
+<p><strong>撰写人员：Kali</strong></p>
+<p><strong>撰写日期：2017年3月5日</strong></p>
+<p><strong>联系作者：cyysu.github.io@gmail.com</strong></p>
+<p><strong>友情提示：文章内容如有不对，欢迎指正。</strong></p>
+<hr>
+<p><strong>PXE简介</strong></p>
+<pre><code>严格来说，PXE 并不是一种安装方式，而是一种引导的方式。进行 PXE 安装的必要条件是要安装的计算机中包含一个 PXE 支持的网卡（NIC），即网卡中必须要有 PXE Client。PXE （Pre-boot Execution Environment）协议使计算机可以通过网络启动。
+
+协议分为 client 和 server 端，PXE client 在网卡的 ROM 中，当计算机引导时，BIOS 把 PXE client 调入内存执行，由 PXE client 将放置在远端的文件通过网络下载到本地运行。
+
+运行 PXE 协议需要设置 DHCP 服务器 和 TFTP 服务器。DHCP 服务器用来给 PXE client（将要安装系统的主机）分配一个 IP 地址，由于是给 PXE client 分配 IP 地址，所以在配置 DHCP 服务器时需要增加相应的 PXE 设置。
+此外，在 PXE client 的 ROM 中，已经存在了 TFTP Client。PXE Client 通过 TFTP 协议到 TFTP Server 上下载所需的文件。
+</code></pre><p><strong>KickStart</strong></p>
+<pre><code>KickStart是一种无人职守安装方式。KickStart的工作原理是通过记录典型的安装过程中所需人工干预填写的各种参数，并生成一个名为 ks.cfg的文件；在其后的安装过程中（不只局限于生成KickStart安装文件的机器）当出现要求填写参数的情况时，安装程序会首先去查找 KickStart生成的文件，当找到合适的参数时，就采用找到的参数，当没有找到合适的参数时，才需要安装者手工干预。
+
+这样，如果KickStart文件涵盖了安装过程中出现的所有需要填写的参数时，安装者完全可以只告诉安装程序从何处取ks.cfg文件，然后去忙自己的事情。等安装完毕，安装程序会根据ks.cfg中设置的重启选项来重启系统，并结束安装。
+</code></pre><p><strong>PXE + KickStart安装需要准备内容</strong></p>
+<pre><code>DHCP 服务器用来给客户机分配IP；
+TFTP 服务器用来存放PXE的相关文件，比如：系统引导文件；
+FTP 服务器用来存放系统安装文件；
+KickStart所生成的ks.cfg配置文件；
+带有一个 PXE 支持网卡的将安装的主机；
+</code></pre><hr>
+<p>##以上的基础知识已经讲完，现在就让我们动手来实践一下吧！</p>
+<p><strong>配置基本环境</strong></p>
+<h3 id="安装ftp服务"><a href="#安装ftp服务" class="headerlink" title="安装ftp服务"></a>安装ftp服务</h3><pre><code>yum install vsftpd -y
+/etc/init.d/vsftpd start
+chkconfig vsftpd on
+</code></pre><h3 id="安装tftp服务"><a href="#安装tftp服务" class="headerlink" title="安装tftp服务"></a>安装tftp服务</h3><pre><code>yum install tftp tftp-server xinetd -y
+
+
+配置tftp服务器：
+vim /etc/xinetd.d/tftp
+修改配置文件里面的13，14行.改成以下内容：
+
+disable = no
+server_args = -s /tftpboot  # 表示服务器默认的目录是 /tftpboot
+
+启动服务
+/etc/init.d/xinetd restart
+lsof -i :69    #查看69端口正在被哪个进程使用
+netstat -antup | grep 69   #这种方法，只能看到xinetd进程
+</code></pre><h3 id="安装dhcp服务"><a href="#安装dhcp服务" class="headerlink" title="安装dhcp服务"></a>安装dhcp服务</h3><pre><code>yum install dhcp* -y
+
+配置DHCP服务器：
+cp /usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
+
+在配置DHCP服务器的时候可以不用在加一张网卡，可以直接使用本机的网卡。这里为了使用Xshell在加一张网卡，但是和实际中都是一样的。
+
+给DHCP服务器添加一张VMNET4网卡，ip设置为192.168.1.10（只要是1网段都行）
+ifconfig eth1 192.168.1.10/24
+
+
+vim /etc/dhcp/dhcpd.conf  #这里为了简便，只保留一个subnet {。。。} ，取掉其它subnet，改成如下内容：
+
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+   range 192.168.1.100 192.168.1.200;
+ option domain-name-servers 192.168.1.1;
+  option domain-name &quot;internal.example.org&quot;;
+  option routers 192.168.1.1;
+  option broadcast-address 192.168.1.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+  next-server 192.168.1.10;
+  filename &quot;pxelinux.0&quot;;
+}
+
+
+在配置上面的文件的时候一定要注意每行的结尾处要加上分号。配置完，先不启动DHCP ，等所有的软件安装好，最后来启动。
+</code></pre><h3 id="安装PXE"><a href="#安装PXE" class="headerlink" title="安装PXE"></a>安装PXE</h3><pre><code>yum -y install system-config-kickstart  #安装此包时，会把syslinux软件包也安装上。
+
+准备tftp需要共享出去的文件
+
+mount /dev/sr0 /media/
+
+mkdir /tftpboot
+mkdir /tftpboot/pxelinux.cfg
+cp /usr/share/syslinux/pxelinux.0     /tftpboot/
+cp /media/images/pxeboot/initrd.img /tftpboot/
+cp /media/images/pxeboot/vmlinuz     /tftpboot/
+cp /media/isolinux/isolinux.cfg     /tftpboot/pxelinux.cfg/default
+chmod 644 /tftpboot/pxelinux.cfg/default
+
+
+修改default，指定安装操作系统的方式和ks.cfg文件路径
+vim /tftpboot/pxelinux.cfg/default
+#修改第1行 改为 default  linux,后面的linux意思是寻找下面18行的label linux
+然后修改下22行（即在后面添加ks=ftp://192.168.1.10/ks.cfg）
+第22行的意思是使安装程序通过FTP服务器访问kickstart文件
+</code></pre><h3 id="制作kickstart安装向导"><a href="#制作kickstart安装向导" class="headerlink" title="制作kickstart安装向导"></a>制作kickstart安装向导</h3><pre><code> yum install system-config-kickstart -y
+ LANG=zh_CN.UTF-8
+ system-config-kickstart  #执行system-config-kickstart弹出来界面。
+    1.设置下默认安装的语言，时区，根口令，然后勾选下面的安装后重新引导
+    2.配置ftp服务器的安装方法。修改FTP服务器和FTP根目录为/pub
+    3.配置grub相关选项
+    4.设置分区
+    5.配置网络，默认没有网络设置，点击添加网络，设备名称为eth0，网络类型为dhcp
+    6.验证，默认就可以了。
+    7.防火墙和selinux根据自己需求选择开启或者禁用。我选择关闭selinux。启用防火墙。
+    8.安装图形环境选择禁用
+    9.自定义软件包。默认可能没有勾选桌面。根据自己需求勾选。 我们为了快速度演示安装，不选择安装桌面。
+    10.安装脚本：在&quot;预安装脚本&quot;，&quot;安装后脚本&quot;对话框中，可以分别添加在安装前、安装后自动动行的可执行语句。此项设置可以使服务器自动化配置变得更加容易。
+    11.保存文件 -&gt; 点击左上角的文件选择保存，选择下保存的路径
+cp ks.cfg /var/ftp  #复制ks.cfg文件到/var/ftp目录下
+注：ks.cfg就是无人值守安装时要用的Kickstart文件。
+要对应：/tftpboot/pxelinux.cfg/default文件中设置过ks=ftp://192.168.1.10/ks.cfg
+mount /dev/sr0 /var/ftp/pub             #挂载RHEL6安装光盘到/var/ftp/pub目录下
+建议关闭防火墙和selinux，
+如果没有关闭的话，tftp服务会有问题。
+[root@xuegod63 ~]# getenforce
+Disabled
+设置防火墙：
+#iptables -F
+#service iptables save
+配置两台机器的网络模式为：VMnet4
+给server 设置一个和DHCP 定义相同网段的IP
+</code></pre><p>#现在接下来就是启动DHCP，设置为开机启动<br>    /etc/init.d/dhcpd start<br>    chkconfig dhcpd on<br>    修改另一台机器的BIOS启动顺序为网络优先，加电后开始启动。</p>
+<h1 id="整个过程工作原理"><a href="#整个过程工作原理" class="headerlink" title="整个过程工作原理"></a>整个过程工作原理</h1><p><img src="http://omutvk8c2.bkt.clouddn.com/2.jpg" alt="工作原理"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自动化部署</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-1.Linux运维服务-SSH服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -851,19 +1286,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,6 +1306,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
@@ -883,15 +1318,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -911,11 +1342,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,6 +1358,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
               </li>
              
@@ -940,18 +1375,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -967,7 +1390,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,11 +1406,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -995,11 +1430,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">存储</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1011,11 +1446,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+                <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,10 +1466,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -1043,11 +1474,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,6 +1491,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1092,10 +1531,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
