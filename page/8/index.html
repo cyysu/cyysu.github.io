@@ -164,6 +164,120 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-3.Linux运维服务-RSYNC服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/3.Linux运维服务-RSYNC服务/">RSYNC服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/3.Linux运维服务-RSYNC服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.RSYNC服务
+3.Rysnc特性和优点
+</code></pre><hr>
+<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h2><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-简介"><a href="#2-简介" class="headerlink" title="2.简介"></a>2.简介</h2><pre><code>RSYNC=Remote Sync 远程同步   高效，一定要结合shell
+官方网站：https://rsync.samba.org/
+Author：     Andrew Tridgell, Wayne Davison, and others
+                     Andrew Tridgell是Samba项目的领导者和主要开发人员，同时还在参与开发rsync、Linux Kernel。
+
+与SCP的比较：scp=无法备份大量数据，类似windows的复制
+ rsync=边复制 ，边统计，边比较
+</code></pre><h2 id="3-Rysnc特性和优点"><a href="#3-Rysnc特性和优点" class="headerlink" title="3.Rysnc特性和优点"></a>3.Rysnc特性和优点</h2><pre><code>可以镜像保存整个目录树和文件系统。
+可以很容易做到保持原来文件的权限、时间、软硬链接等等。
+无须特殊权限即可安装。
+
+快速：第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。
+压缩传输：rsync 在传输数据的过程中可以实行压缩及解压缩操作，因此可以使用更少的带宽。
+
+安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。
+支持匿名传输，以方便进行网站镜象。
+选择性保持：符号连接，硬链接，文件属性，权限，时间等
+</code></pre><hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RSYNC服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/3.Linux运维服务-RSYNC服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-2.Linux运维服务-DHCP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1830,6 +1944,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
               </li>
             
             <div class="clearfix"></div>
