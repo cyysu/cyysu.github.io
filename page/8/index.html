@@ -164,6 +164,708 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2.Linux运维服务-DHCP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/2.Linux运维服务-DHCP服务/">DHCP服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/2.Linux运维服务-DHCP服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.DHCP服务
+3.常见错误解决方案
+4.应用场景
+5.和windows server的异同
+</code></pre><hr>
+<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外
+如果公司对DHCP服务器系统没有要求 那么建议用windows搭建
+</code></pre><h2 id="2-DHCP服务"><a href="#2-DHCP服务" class="headerlink" title="2.DHCP服务"></a>2.DHCP服务</h2><p><strong>-简介</strong></p>
+<pre><code>名称：DHCP  - Dynamic Host Configuration Protocol  动态主机配置协议
+功能：DHCP(Dynamic Host Configuration Protocol，动态主机配置协议)是一个局域网的网络协议，使用UDP协议工作， 主要有两个用途：
+
+    1、    给内部网络或网络服务供应商自动分配IP地址，主机名，DNS服务器，域名
+    2、    配合其它服务，实现集成化管理功能。如：无人执守安装服务器
+
+特点： C/S 模式
+    自动分配IP地址，方便管理
+    DHCP不会同时租借相同的IP地址给两台主机；
+    DHCP管理员可以约束特定的计算机使用特定的IP地址；
+    可以为每个DHCP作用域设置很多选项；
+    客户机在不同子网间移动时不需要重新设置IP地址。每次都自动获取IP地址就可以了。
+    DHCP的缺点:
+    当网络上存在多服务器时，一个DHCP服务器不能查出已被其它服务器租出去的IP地址；
+    DHCP服务器不能跨路由器与客户机通信，除非路由器允许BOOTP协议转发。
+端口：
+    **DHCP服务使用：端口67(bootps) 68(bootpc) 。
+</code></pre><p><strong>-DHCP工作原理</strong></p>
+<pre><code>第一阶段：
+        client -&gt;  发送 discover广播报 -&gt;server               #这个过程中只有dhcp server能响应
+第二阶段：
+        server -&gt;  发送 OFFER  -&gt;  client                  #如果局域网中有多台dhcp server 都会发给client一个offer  但是client只会选择第一个
+第三阶段：
+        client -&gt;  发送request -&gt;  server                 #client请求服务器
+第四阶段：
+        server -&gt;  发送ack -&gt; client                        #发送确认报文，并给予ip地址
+第五阶段：当ip地址的租期到达一半的时候，就会发生续租报文
+        client -&gt; 发送REQUEST(renew)  -&gt; server
+第六阶段：
+        server -&gt; ack  -&gt; client
+</code></pre><p><strong>便于理解</strong></p>
+<pre><code>为了便于理解，我们把DHCP客户机比做餐馆里的客人，DHCP服务器工作原理当中，服务器比做服务员（一个餐馆里也可以有多个服务员），IP地址比做客户需要的食物。那么可以这样描述整个过程：客人走进餐馆，问：“有没有服务员啊？”（DHCP discover），多个服务员同时回答：“有，我这有鸡翅”“有，我这有汉堡”（DHCP offer）。
+
+客人说：“好吧，我要一份汉堡”（DHCP request，这个客人比较死板，总是选择第一次听到的食物），端着汉堡的服务员回应了一声：“来啦”（DHCP ack），并把食物端到客人面前，供其享用（将网卡和IP地址绑定）。客人下次来的时候，就直接找上次那个服务员点自己喜欢的汉堡了（DHCP request），如果还有汉堡，服务员会再次确认并上菜（DHCP ack），而如果已经卖完了，服务员则会告诉客人：“不好意思，已经卖完了”（DHCP nack）。
+
+当然，服务员隔一段时间会来收拾一次桌子，除非客人特别说明这菜还要继续吃的，服务员会将剩菜端走。
+</code></pre><p><strong>注意</strong></p>
+<pre><code>客户端执行DHCP DISCOVER 后，如果没有DHCP 服务器响应客户端的请求，客户端会随机使用169.254.0.0/16 网段中的一个IP 地址配置本机地址
+</code></pre><p><strong>-搭建服务</strong></p>
+<pre><code>1.安装软件
+    yum install -y dhcp
+
+2.配置文件
+    cp /usr/share/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
+    chkconfig dhcpd on
+    配置完服务是启动不成功的,启动失败的原因是 dhcp服务器配置的IP地址和本地的ip地址分发是不相同。
+    ##在启动DHCP服务之前，需要给DHCP Server配置一个静态的IP地址
+
+3.配置文件解析
+    DHCP配置文件参数说明
+        1)、主配置文件介绍
+
+            dhcp 范本配置文件内容包含了部分参数、声明以及选项的用法，其中注释部分可以放在任何位
+            置，并以“#”号开头，当一行内容结束时，以“;”号结束，大括号所在行除外
+
+            可以看出整个配置文件分成全局和局部两个部分。但是并不容易看出哪些属于参数，哪些属于声明和选项。
+
+            概念与协议：
+            作用域：可以分配IP的范围 subnet
+            地址池：可以分配给客户端的IP，range包括的IP
+            保留地址：指定某个客户端使用一个特定IP，通过host配置的
+            租约(时间)：客户端可以使用这个IP地址的时间
+
+
+        2)、配置文件：/etc/dhcp/dhcpd.conf     部分配置解释
+            # option definitions common to all supported networks...    ＃定义全局配置，通用于所有支持的网络选项.
+            option domain-name &quot;example.org&quot;;    #为客户端指定所属的域类似windows上的AD域
+            option domain-name-servers ns1.example.org, ns2.example.org;  #为客户端指定DNS服务器地址
+
+
+            default-lease-time 600;
+                作用：定义默认IP 租约时间，以秒为单位的租约时间。
+                50%:续约。(续不上继续用)
+                87.5%:再次续约。(续不上找别人)
+                DHCP工作站除了在开机的时候发出 DHCPrequest 请求之外，在租约期限一半的时候也会发出 DHCPrequest ，如果此时得不到 DHCP服务器的确认的话，工作站还可以继续使用该IP；当租约期过了87.5%时，如果客户机仍然无法与当初的DHCP服务器联系上，它将与其它 DHCP服务器通信。如果网络上再没有任何DHCP协议服务器在运行时，该客户机必须停止使用该IP地址，并从发送一个Dhcpdiscover数据包开始，再一次重复整个过程。要是您想退租，可以随时送出 DHCPRELEASE 命令解约，就算您的租约在前一秒钟才获得的。
+
+            max-lease-time 7200;  (数字)
+                作用：定义客户端IP租约时间的最大值，当客户端超过租约时间，却尚未更新IP 时，最长可以使用该IP 的时间；
+                例：
+                比如，机器在开机获得IP地址后，然后关机了。这时，当时间过了default-lease-time 600秒后，没有机器向DHCP续约，DHCP会保留7200秒，保留此IP地址不用于分配给其它机器。 当超过7200秒后，将不再保留此IP地址给此机器。
+                注意:（3）、（4）都是以秒为单位的租约时间，该项参数可以作用在全局配置中，也可以作用在局部配置中。
+
+            log-facility local7;   #定义日志类型为  local7
+
+            subnet：
+
+                声明一般用来指定IP 作用域、定义为客户端分配的IP 地址池等等
+                声明格式如下：
+                subnet 网络号 netmask 子网掩码 {
+                选项或参数
+                }
+
+        3)、常见声明的使用如下：
+            1) subnet 网络号 netmask 子网掩码 {......}
+            作用:定义作用域，指定子网
+            如：
+
+            注意：网络号必须与DHCP 服务器的网络号相同
+
+            下面介绍以下每个选项的含意：
+                range 起始IP 地址 结束IP 地址
+                    作用：指定动态IP 地址范围
+                    注意：可以在subnet（子网） 声明中指定多个range，但多个range 所定义IP 范围不能重复
+
+                常用选项介绍
+                    选项通常用来配置DHCP 客户端的可选参数，比如定义客户端的DNS 地址、默认网关等等。选项
+                    内容都是以option 关键字开始。
+                    常见选项使用如下：
+                              1）option routers IP 地址
+                                作用：为客户端指定默认网关
+                                如：option routers 10.5.5.1;
+
+                            2）option domain-name
+                                作用：为客户端指定默认的域
+
+                            3) option domain-name-servers IP 地址
+                                作用：为客户端指定DNS 服务器地址
+                            注意：(1)、(2)、(3)选项可以用在全局配置中，也可以用在局部配置中。
+
+4、常见的配置
+    subnet 192.168.1.0 netmask 255.255.255.0 {
+          range 192.168.1.100 192.168.1.200;
+          option domain-name-servers 192.168.1.1;
+          option domain-name &quot;xuegod.cn&quot;;
+          option routers 192.168.1.1;
+          option broadcast-address 192.168.1.255;
+          default-lease-time 600;
+          max-lease-time 7200;
+    }
+    配置完之后就可以重启网络服务
+
+5.客户端配置
+    在以上步骤配置完服务器端之后就可以配置客户端了，首先可以在客户端添加一份网卡，网卡设置为dhcp之后如果都配置正确的话重启网络服务就会产生ip地址
+
+6.查看租期
+    客户端文件存放在/var/lib/dhclient/dhclient-eth1.leases
+服务器文件存放在/var/lib/dhcpd/dpcpd.leases
+
+7.设置ip地址和MAC地址绑定在一起
+    在DHCP 中的IP 地址绑定用于给客户端分配固定IP 地址。比如服务器需要使用固定IP 地址就可以使用IP 地址绑定，通过MAC 地址与IP 地址的对应关系为指定的物理地址计算机分配固定IP地址。整个配置过程需要用到 host 声明和hardware、fixed-address 参数。
+            （1）host 主机名 {......}
+                作用：用于定义保留地址
+            （2）hardware 类型 硬件地址
+                作用：定义网络接口类型和硬件地址。常用类型为以太网（ethernet）,地址为MAC 地址。
+            （3）fixed-address IP 地址
+                作用：定义DHCP 客户端指定的IP 地址。
+
+ host xuegod63 {    #这一段内容，要写在subnet字段中，和subnet配合使用。
+    hardware ethernet 00:0C:29:12:ec:1e;
+    fixed-address 192.168.0.251;
+  }
+</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>-错误解决方案</strong></p>
+<pre><code>1.当配置文件复制完成之后，重启hdcpd服务发现无法启动
+    启动失败的原因是 dhcp服务器配置的IP地址和本地的ip地址分发是不相同。
+    ##在启动DHCP服务之前，需要给DHCP Server配置一个静态的IP地址
+
+2.在配置dhcpd.conf文件的时候，当到达句尾一定不要忘记“;”
+
+3.如果服务一直启动不成功，仔细检查配置文件，尤其是ip地址的网段
+</code></pre><h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>-主要应用</strong></p>
+<pre><code>1、    给内部网络或网络服务供应商自动分配IP地址，主机名，DNS服务器，域名
+2、    配合其它服务，实现集成化管理功能。如：无人执守安装服务器
+</code></pre><h2 id="5-windows-server的异同"><a href="#5-windows-server的异同" class="headerlink" title="5.windows server的异同"></a>5.windows server的异同</h2><p>由于本人不擅长windows server知识，但是为了大家方便给大家找了一些文章</p>
+<p>1.<a href="http://blog.chinaunix.net/uid-29178012-id-3963202.html" title="windows server AD" target="_blank" rel="external">http://blog.chinaunix.net/uid-29178012-id-3963202.html</a></p>
+<p>2.<a href="http://jingyan.baidu.com/article/c275f6bacef120e33d756701.html" title="在Windows Server中怎么安装DHCP服务" target="_blank" rel="external">http://jingyan.baidu.com/article/c275f6bacef120e33d756701.html</a></p>
+<p>3.<a href="http://blog.csdn.net/yuanguozhengjust/article/details/37512269" title="Windows Server上的DHCP配置 " target="_blank" rel="external">http://blog.csdn.net/yuanguozhengjust/article/details/37512269</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DHCP服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/2.Linux运维服务-DHCP服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-11.Linux运维服务-Postfix服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/11.Linux运维服务-Postfix服务/">Postfix服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/11.Linux运维服务-Postfix服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:44.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#YSU-Linux运维笔记模板V3.0</p>
+<p><strong>编辑软件：MarkdownPad2</strong></p>
+<p><strong>撰写人员：Kali</strong></p>
+<p><strong>撰写日期：2017年3月5日</strong></p>
+<p><strong>联系作者：cyysu.github.io@gmail.com</strong></p>
+<p><strong>友情提示：文章内容如有不对，欢迎指正。</strong></p>
+<hr>
+<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1 开篇的话"></a>1 开篇的话</h2><h3 id="1-1-学习方法"><a href="#1-1-学习方法" class="headerlink" title="1.1 学习方法"></a>1.1 学习方法</h3><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-Postfix服务"><a href="#2-Postfix服务" class="headerlink" title="2 Postfix服务"></a>2 Postfix服务</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><pre><code>postfix是Wietse Venema在IBM的GPL协议之下开发的MTA（邮件传输代理）软件。postfix是Wietse Venema想要为使用最广泛的sendmail提供替代品的一个尝试。
+在Internet世界中，大部分的电子邮件都是通过sendmail来投递的，大约有100万用户使用sendmail，每天投递上亿封邮件。这真是一个让人吃惊的数字。
+Postfix试图更快、更容易管理、更安全，同时还与sendmail保持足够的兼容性
+
+其它邮件服务器：
+Sendmail、Qmail、Postfix
+Sendmail的不足
+　第一个重要的缺点是它的安全性较差，这是因为当其作者Eric Allman最初开始写作这个软件的时候，Internet的用户还很少，因而安全性并不没有得到大家的重视。
+由于邮件系统需要处理的是外部发送来的各种各样的信息，甚至包含一些恶意数据，然而sendmail在大多数系统中都是以root身份运行，一旦出现问题，就会对系统安全造成严重影响。在这种情况下，要防止出现安全问题，仅仅依赖程序本身是不可取的，应该从系统结构出发，使程序拥有的特殊权限限制到最小。
+第二个，使用Sendmail还会遇到的另一个问题是它的设置相当复杂，对于使用缺省设置来收发电子邮件，问题并不存在。当管理员打算进行一些特殊设置，以便利用Sendmail提供的复杂邮件处理能力时，就不得不面对复杂的宏和正则表达式。
+
+Qmail可以替代Sendmail
+Qmail，为了解决sendmail的安全问题，整个系统结构需要重新设计。基本的原则是将系统划分为不同的模块，有负责接收外部邮件的，有管理缓冲目录中待发送的邮件队列的，有将邮件发送到远程服务器或本地用户的。Qmail就是按照这个原则进行的设计，它由多个不同功能的小程序组成，只有必要的程序才是setuid程序(即以root用户权限执行)，这样就减少了安全隐患，并且由于这些程序都比较简单一些，因此就可以达到较高的安全性。
+
+
+今天的主角：
+另一种替换软件:Postfix  可以替代sendmail
+　　Postfix同样也是采用了模块化的方式，但与Qmail不同的是，Postfix使用了一个主控进程进行监控。Postfix在很多方面都考虑到了安全问题，它甚至不向root分发电子邮件，以避免以root身份读写文件或启动外部程序。考虑到它的作者Wietse Venema曾编写了著名的安全软件TcpWrapper，Postfix的安全性是非常值得信赖的。
+Postfix的性能也非常不错，甚至在Qmail作者自己进行的测试中也表明，Postfix的性能和Qmail基本相当。postfix在性能上大约比sendmail快三倍。
+
+
+Dovecot: 邮件接收服务器：
+    Dovecot 是一个开源的 IMAP 和 POP3 邮件服务器，支持 Linux/Unix 系统。
+    POP / IMAP4 是 MUA 从邮件服务器中读取邮件时使用的协议。
+    POP3 是从邮件服务器中下载邮件存起来，IMAP 则是将邮件留在服务器端直接对邮件进行管理、操作。比POP3更先进。
+    由 Timo Sirainen 开发，最初发布于 2002年7月。作者将安全性考虑在第一，所以 Dovecot 在安全性方面比较出众。
+    IMAP4是TCP/IP协议族中的一员，现在的版本是“IMAP第四版第一次修订版”。
+    一个完整的邮件服务器由以下内容构成：
+
+    postfix（作为发送邮件服务器）+dovecot（作为接收邮件服务器）+mysql（作为数据库）
+
+    可以通过foxmail或outlook客户端。也可以通过网页来收邮件。
+
+
+
+    邮件服务协议和端口：
+
+        25 端口：SMTP协议。
+            SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。
+        作用：此协议主要用来发送或中转邮件。SMTP协议属于TCP/IP协议簇，
+
+        邮件服务中：
+            发送： 指的是同属于163邮件服务器两人相互发送邮件。
+            中转： 使用163邮箱给QQ邮箱发送邮件。
+
+        24端口：LMTP(Local Mail Transfer Protocol)[1]，是本地邮件传输协议，与SMTP类似，但不支持邮件队列（queue），主要应用于非广域网的邮件网关。
+
+
+        110端口：POP3协议
+            POP3(Post Office Protocol 3)即邮局协议的第3个版本，它是规定个人计算机如何连接到互联网上的邮件服务器进行收邮件的协议。
+        还有POP2协议。
+
+
+        143端口：IMAP
+            IMAP： （Internet Mail Access Protocol Internet邮件访问协议） 。IMAP是斯坦福大学在1986年开发的一种邮件获取协议。它的主要作用是邮件客户端（例如Outlook)可以通过这种协议从邮件服务器上获取邮件的信息，下载邮件等。
+
+        当前的权威定义是RFC3501。IMAP协议运行在TCP/IP协议之上，使用的端口是143。它与POP3协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。他们之间的区别如下:
+</code></pre><p><img src="http://omutvk8c2.bkt.clouddn.com/3.png" alt="pop3和IMAP的区别"><br><img src="http://omutvk8c2.bkt.clouddn.com/4.jpg" alt="邮件的工作流程"></p>
+<pre><code>1：发件人写邮件，通过客户端连接邮件服务器，这个之间使用了 SMTP 协议链接！用
+户就是 SMTP  客户端，发送服务器就是我们这儿的 SMTP 服务器！
+2：SMTP  检查我们进入的邮件，将其放到邮件缓冲队列中，等待发送到接受服务器中， 这里要注意，postfix 在这里会检查我们是是否发给自己，若是发给自己的，那么就直接进入 了我们服务器自己的 mailbox！
+3：发送服务器此时充当 SMTP 客户端，接受服务器充当 SMTP 服务端，建立 TCP 链接， 将邮件发送的接受服务器！
+4：接受服务器收到邮件之后，把邮件里面的内容读取，如收件人信息   to:……
+5：收件人打开客户端，使用 POP3 或者 IMAP 协议收取邮件并读取！
+</code></pre><h3 id="2-2-服务安装、启动和配置"><a href="#2-2-服务安装、启动和配置" class="headerlink" title="2.2 服务安装、启动和配置"></a>2.2 服务安装、启动和配置</h3><pre><code>服务安装
+
+    在安装之前首先要检查一下系统是否已经安装了Sendmail。
+
+        rpm -qa | grep sendmail     #查看是否安装 sendmail
+        yum remove sendmail -y      #卸载 sendmail
+
+    下面就开始安装服务
+         yum install -y postfix dovecot
+
+
+
+服务启动、端口检测和加入开机启动项
+
+    service postfix restart
+    chkconfig postfix  on
+     netstat -antup | grep 25
+
+服务配置
+
+    /etc/postfix/main.cf     #主配置文件位置
+    /var/log/maillog         #日志文件位置
+    /var/spool/mail/         #邮件存放位置，对应有相应用户名
+
+配置文件部分参数
+
+    [root@xuegod63 ~]# cp /etc/postfix/main.cf /etc/postfix/main.cf.bak
+    [root@xuegod63 ~]# vim /etc/postfix/main.cf
+    queue_directory = /var/spool/postfix   #队列目录
+    command_directory = /usr/sbin     #命令位置目录
+    mail_owner = postfix              #postfix运行身份
+    myhostname = xuegod63.cn        #发送邮件时的名字，服务器名字
+    mydomain = xuegod63.cn           #邮件域，用于接受的时候用
+    myorigin = $mydomain             #我来自哪儿，别人收到的时候知道是我发送的
+    inet_interfaces = localhost          #邮件接受监控的地址
+    inet_protocols = all                #启用IPV4和IPV6
+    mydestination = $myhostname, $mydomain, localhost          #服务器负责那些域
+    mynetworks = 192.168.0.0/24, 127.0.0.0/8                 #指定允许使用的IP地址段
+    alias_maps = hash:/etc/aliases                             #对某一个用户发，里面的人都可以收到邮件
+    alias_database = hash:/etc/aliases
+    #home_mailbox = Mailbox                                   #收件箱存放位置
+</code></pre><h2 id="3-精彩案例"><a href="#3-精彩案例" class="headerlink" title="3 精彩案例"></a>3 精彩案例</h2><h3 id="3-1-配置postfix邮件服务器，实现邮件发送功能。"><a href="#3-1-配置postfix邮件服务器，实现邮件发送功能。" class="headerlink" title="3.1 配置postfix邮件服务器，实现邮件发送功能。"></a>3.1 配置postfix邮件服务器，实现邮件发送功能。</h3><pre><code>修改主机名和对应关系：
+[root@xuegod63 postfix]# hostname
+xuegod63.cn
+[root@xuegod63 postfix]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.1.63   xuegod63.cn
+192.168.1.64   xuegod64.cn
+
+vim /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=xuegod63.cn
+
+[root@xuegod63 ~]# vim /etc/postfix/main.cf
+需要启用和修改的项：
+myhostname = xuegod63.cn  #指定邮件服务器名字，接收用来识别的，也就是一个标识
+mydomain = xuegod63.cn   #邮件域
+myorigin = $mydomain  #启用，去掉注释，发信地址，此设置显示为@xuegod63.cn
+inet_interfaces = all  #对外提供MTA服务设置为监听所有网卡，默认只监听本地
+#inet_interfaces = localhost  #这个注释起来，是默认值，只监控本地
+mydestination = $myhostname, localhost.$mydomain, localhost  #此行不用改，但是要说明，这是代表邮件服务器负责的那些域
+mynetworks_style = subnet #允许转发的来源网段，可选subnet子网，class网段，host本机
+mynetworks = 192.168.0.0/24, 127.0.0.0/8 #用户允许的使用的IP地址段
+relay_domains = $mydestination  #允许转发的目标域
+local_recipient_maps =  #含有所有本地邮件地址的查询表.SMTP server借此拒收外界寄给不明用户的邮件，启用即可
+alias_maps = hash:/etc/aliases  #对某个用户发，文件中的用户都可以收到邮件，别名组
+alias_database = hash:/etc/aliases  #别名数据库
+smtpd_banner = $myhostname ESMTP &quot;Welcome XueGod63.cn STMP Server&quot;  #自定义服务器信息
+
+重启服务：
+[root@xuegod63 ~]# service postfix start
+[root@xuegod63 ~]# netstat -antup | grep 25
+
+
+测试：
+
+    mail -s &apos;Postfix1&apos; 3402301871@qq.com &lt; /etc/hosts
+    tail -f /var/log/maillog
+    在postfix的日志里：
+    如果status=sent表示已经成功发送。removed表示从队列中删除发送的邮件
+    如果status= deferred表示延期，需要重试，当重试到一定次数，还失败就抛弃
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Postfix服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/11.Linux运维服务-Postfix服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-10.Linux运维服务-自动化安装服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">自动化部署</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/10.Linux运维服务-自动化安装服务器/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:44.645Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#YSU-Linux运维笔记模板V3.0</p>
+<p><strong>编辑软件：MarkdownPad2</strong></p>
+<p><strong>撰写人员：Kali</strong></p>
+<p><strong>撰写日期：2017年3月5日</strong></p>
+<p><strong>联系作者：cyysu.github.io@gmail.com</strong></p>
+<p><strong>友情提示：文章内容如有不对，欢迎指正。</strong></p>
+<hr>
+<p><strong>PXE简介</strong></p>
+<pre><code>严格来说，PXE 并不是一种安装方式，而是一种引导的方式。进行 PXE 安装的必要条件是要安装的计算机中包含一个 PXE 支持的网卡（NIC），即网卡中必须要有 PXE Client。PXE （Pre-boot Execution Environment）协议使计算机可以通过网络启动。
+
+协议分为 client 和 server 端，PXE client 在网卡的 ROM 中，当计算机引导时，BIOS 把 PXE client 调入内存执行，由 PXE client 将放置在远端的文件通过网络下载到本地运行。
+
+运行 PXE 协议需要设置 DHCP 服务器 和 TFTP 服务器。DHCP 服务器用来给 PXE client（将要安装系统的主机）分配一个 IP 地址，由于是给 PXE client 分配 IP 地址，所以在配置 DHCP 服务器时需要增加相应的 PXE 设置。
+此外，在 PXE client 的 ROM 中，已经存在了 TFTP Client。PXE Client 通过 TFTP 协议到 TFTP Server 上下载所需的文件。
+</code></pre><p><strong>KickStart</strong></p>
+<pre><code>KickStart是一种无人职守安装方式。KickStart的工作原理是通过记录典型的安装过程中所需人工干预填写的各种参数，并生成一个名为 ks.cfg的文件；在其后的安装过程中（不只局限于生成KickStart安装文件的机器）当出现要求填写参数的情况时，安装程序会首先去查找 KickStart生成的文件，当找到合适的参数时，就采用找到的参数，当没有找到合适的参数时，才需要安装者手工干预。
+
+这样，如果KickStart文件涵盖了安装过程中出现的所有需要填写的参数时，安装者完全可以只告诉安装程序从何处取ks.cfg文件，然后去忙自己的事情。等安装完毕，安装程序会根据ks.cfg中设置的重启选项来重启系统，并结束安装。
+</code></pre><p><strong>PXE + KickStart安装需要准备内容</strong></p>
+<pre><code>DHCP 服务器用来给客户机分配IP；
+TFTP 服务器用来存放PXE的相关文件，比如：系统引导文件；
+FTP 服务器用来存放系统安装文件；
+KickStart所生成的ks.cfg配置文件；
+带有一个 PXE 支持网卡的将安装的主机；
+</code></pre><hr>
+<p>##以上的基础知识已经讲完，现在就让我们动手来实践一下吧！</p>
+<p><strong>配置基本环境</strong></p>
+<h3 id="安装ftp服务"><a href="#安装ftp服务" class="headerlink" title="安装ftp服务"></a>安装ftp服务</h3><pre><code>yum install vsftpd -y
+/etc/init.d/vsftpd start
+chkconfig vsftpd on
+</code></pre><h3 id="安装tftp服务"><a href="#安装tftp服务" class="headerlink" title="安装tftp服务"></a>安装tftp服务</h3><pre><code>yum install tftp tftp-server xinetd -y
+
+
+配置tftp服务器：
+vim /etc/xinetd.d/tftp
+修改配置文件里面的13，14行.改成以下内容：
+
+disable = no
+server_args = -s /tftpboot  # 表示服务器默认的目录是 /tftpboot
+
+启动服务
+/etc/init.d/xinetd restart
+lsof -i :69    #查看69端口正在被哪个进程使用
+netstat -antup | grep 69   #这种方法，只能看到xinetd进程
+</code></pre><h3 id="安装dhcp服务"><a href="#安装dhcp服务" class="headerlink" title="安装dhcp服务"></a>安装dhcp服务</h3><pre><code>yum install dhcp* -y
+
+配置DHCP服务器：
+cp /usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
+
+在配置DHCP服务器的时候可以不用在加一张网卡，可以直接使用本机的网卡。这里为了使用Xshell在加一张网卡，但是和实际中都是一样的。
+
+给DHCP服务器添加一张VMNET4网卡，ip设置为192.168.1.10（只要是1网段都行）
+ifconfig eth1 192.168.1.10/24
+
+
+vim /etc/dhcp/dhcpd.conf  #这里为了简便，只保留一个subnet {。。。} ，取掉其它subnet，改成如下内容：
+
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+   range 192.168.1.100 192.168.1.200;
+ option domain-name-servers 192.168.1.1;
+  option domain-name &quot;internal.example.org&quot;;
+  option routers 192.168.1.1;
+  option broadcast-address 192.168.1.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+  next-server 192.168.1.10;
+  filename &quot;pxelinux.0&quot;;
+}
+
+
+在配置上面的文件的时候一定要注意每行的结尾处要加上分号。配置完，先不启动DHCP ，等所有的软件安装好，最后来启动。
+</code></pre><h3 id="安装PXE"><a href="#安装PXE" class="headerlink" title="安装PXE"></a>安装PXE</h3><pre><code>yum -y install system-config-kickstart  #安装此包时，会把syslinux软件包也安装上。
+
+准备tftp需要共享出去的文件
+
+mount /dev/sr0 /media/
+
+mkdir /tftpboot
+mkdir /tftpboot/pxelinux.cfg
+cp /usr/share/syslinux/pxelinux.0     /tftpboot/
+cp /media/images/pxeboot/initrd.img /tftpboot/
+cp /media/images/pxeboot/vmlinuz     /tftpboot/
+cp /media/isolinux/isolinux.cfg     /tftpboot/pxelinux.cfg/default
+chmod 644 /tftpboot/pxelinux.cfg/default
+
+
+修改default，指定安装操作系统的方式和ks.cfg文件路径
+vim /tftpboot/pxelinux.cfg/default
+#修改第1行 改为 default  linux,后面的linux意思是寻找下面18行的label linux
+然后修改下22行（即在后面添加ks=ftp://192.168.1.10/ks.cfg）
+第22行的意思是使安装程序通过FTP服务器访问kickstart文件
+</code></pre><h3 id="制作kickstart安装向导"><a href="#制作kickstart安装向导" class="headerlink" title="制作kickstart安装向导"></a>制作kickstart安装向导</h3><pre><code> yum install system-config-kickstart -y
+ LANG=zh_CN.UTF-8
+ system-config-kickstart  #执行system-config-kickstart弹出来界面。
+    1.设置下默认安装的语言，时区，根口令，然后勾选下面的安装后重新引导
+    2.配置ftp服务器的安装方法。修改FTP服务器和FTP根目录为/pub
+    3.配置grub相关选项
+    4.设置分区
+    5.配置网络，默认没有网络设置，点击添加网络，设备名称为eth0，网络类型为dhcp
+    6.验证，默认就可以了。
+    7.防火墙和selinux根据自己需求选择开启或者禁用。我选择关闭selinux。启用防火墙。
+    8.安装图形环境选择禁用
+    9.自定义软件包。默认可能没有勾选桌面。根据自己需求勾选。 我们为了快速度演示安装，不选择安装桌面。
+    10.安装脚本：在&quot;预安装脚本&quot;，&quot;安装后脚本&quot;对话框中，可以分别添加在安装前、安装后自动动行的可执行语句。此项设置可以使服务器自动化配置变得更加容易。
+    11.保存文件 -&gt; 点击左上角的文件选择保存，选择下保存的路径
+cp ks.cfg /var/ftp  #复制ks.cfg文件到/var/ftp目录下
+注：ks.cfg就是无人值守安装时要用的Kickstart文件。
+要对应：/tftpboot/pxelinux.cfg/default文件中设置过ks=ftp://192.168.1.10/ks.cfg
+mount /dev/sr0 /var/ftp/pub             #挂载RHEL6安装光盘到/var/ftp/pub目录下
+建议关闭防火墙和selinux，
+如果没有关闭的话，tftp服务会有问题。
+[root@xuegod63 ~]# getenforce
+Disabled
+设置防火墙：
+#iptables -F
+#service iptables save
+配置两台机器的网络模式为：VMnet4
+给server 设置一个和DHCP 定义相同网段的IP
+</code></pre><p>#现在接下来就是启动DHCP，设置为开机启动<br>    /etc/init.d/dhcpd start<br>    chkconfig dhcpd on<br>    修改另一台机器的BIOS启动顺序为网络优先，加电后开始启动。</p>
+<h1 id="整个过程工作原理"><a href="#整个过程工作原理" class="headerlink" title="整个过程工作原理"></a>整个过程工作原理</h1><p><img src="http://omutvk8c2.bkt.clouddn.com/2.jpg" alt="工作原理"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自动化部署</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-1.Linux运维服务-SSH服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -851,6 +1553,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
@@ -859,15 +1569,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,19 +1577,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,27 +1585,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,27 +1605,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">IT</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -967,19 +1645,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,7 +1665,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1011,14 +1713,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
               </li>
              
@@ -1027,15 +1721,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,6 +1738,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,6 +1818,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1200,6 +1918,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="http://www.dcloud.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>HTML5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.xiaomastack.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>小马运维博客</a>
             </li>
           
         </ul>
