@@ -164,6 +164,303 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-1.Linux运维服务-SSH服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/1.Linux运维服务-SSH服务/">SSH服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/1.Linux运维服务-SSH服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:44.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2017-02-27 10:24:24</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.SSH服务
+3.排错
+4.SSH调优
+</code></pre><hr>
+<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h4 id="2-SSH服务"><a href="#2-SSH服务" class="headerlink" title="2.SSH服务"></a>2.SSH服务</h4><p><strong>- 了解服务</strong></p>
+<pre><code>SSHD服务，在我们的linux服务器上经常用到，很重要，涉及到服务器的安全，对这个服务的安全配置要高度重视
+
+SSH 协议：安全外壳协议。为 Secure Shell 的缩写。SSH 为建立在应用层和传输层基础上的安全
+
+sshd服务使用SSH协议可以用来进行远程控制， 或在计算机之间传送文件相比较之前用telnet方式来传输文件要安全很多，因为telnet使用明文传输，是加密传输。
+</code></pre><p><strong>- 服务安装</strong></p>
+<pre><code>第一步 ： 准备安装的软件包
+        openssh-5.3p1-114.el6_7.x86_64：包含OpenSSH 服务器及客户端需要的核心文件
+        openssh-clients-5.3p1-114.el6_7.x86_64：OpenSSH 客户端软件包
+        openssh-server-5.3p1-114.el6_7.x86_64：OpenSSH 服务器软件包
+        openssh-askpass-5.3p1-114.el6_7.x86_64：支持对话框窗口的显示，是一个基于X 系统的密码诊断工具
+
+第二步 ：安装软件
+        1.使用yum安装
+            yum list all | grep openssh         # 查看是否有需要的软件包
+            yum install openssh* -y             # 安装
+        2.使用rpm安装
+            rpm -ivh /media/cdrom/Packages/openssh*.rpm
+
+        这里推荐使用yum安装
+
+第三步： 检查软件是否安装
+        rpm -qa | grep openssh                     #查看软件包
+        rpm -ql openssh                         #查看软件安装目录
+        netstat -ntulp | grep 22                #通过端口查看软件是否开启
+
+第四步： 启动服务
+        service sshd restart                    #重启服务
+        chkconfig sshd on                         #加入开机自启
+        chkconfig --list sshd                    #查看是否配置开机自启成功
+
+
+
+第五步： 远程登陆
+        1.ssh  [远程主机用户名] @[远程服务器主机名或IP地址]
+            ssh 192.168.200.100
+            ssh root@192.168.200.100
+            ssh root@192.168.200.100 -p 22
+            ssh -l root 192.168.200.100            #注意没有@符号
+        2.第一次登录服务器时系统没有保存远程主机的信息，为了确认该主机身份会提示用户是否续连接，输入yes 后登录这时系统会将远程服务器信息写入用户主目录下的$HOME/.ssh/known_hosts 文件中，下次再进行登录时因为保存有该主机信息就不会再提示了
+
+        3.远程登录以普通用户登陆
+            useradd cat &amp;&amp; echo 123456 | passwd --stdin cat
+            ssh -l cat 192.168.200.100
+</code></pre><p><strong>- 配置文件</strong></p>
+<pre><code>OpenSSH 配置文件
+    OpenSSH 常用配置文件有两个 /etc/ssh/ssh_config 和 /etc/sshd_config
+        ssh_config 为客户端配置文件
+        sshd_config 为服务器端配置文件
+</code></pre><p><strong>服务脚本 线上一般配置(实战)</strong></p>
+<pre><code>常用的启动脚本主要有以下两个
+    /etc/init.d/sshd restart/stop/start/status
+    service sshd restart/stop/start/status
+</code></pre><p><strong>注意事项</strong></p>
+<pre><code>1.参数前面有#，表示是默认值。当然#号也表示注释
+2.登录系统的默认日志存放在哪？
+    sshd服务日志存放在： /var/log/secure
+    由于这个文件/etc/rsyslog.conf  定义的sshd服务的日志存放位置？
+        # The authpriv file has restricted access.
+        authpriv.*                                              /var/log/secure
+3.修改配置文件要重启服务
+</code></pre><p><strong>/etc/ssh/sshd_config 配置文件</strong></p>
+<pre><code>1.Port 22  -&gt;  设置sshd 监听端口号
+    # SSH 预设使用 22 这个port，也可以使用多个port，即重复使用 port 这个设定项目！
+    # 例如想要开放 sshd 端口为 22和 222 ，则多加一行内容为： Port 222  即可
+    # 然后重新启动 sshd 这样就好了。 建议大家修改 port number 为其它端口。防止别人暴力破解。
+2.ListenAddress 0.0.0.0  -&gt;  设置sshd监听ip地址
+    # 设置sshd 服务器绑定的IP 地址，0.0.0.0 表示侦听所有地址
+    # 比如192.168.0.63 这个机器只允许0.64来远程登录，那么可以设置
+    # ListenAddress 192.168.0.64
+3.Protocol 2  -&gt;  设置sshd的协议的版本号
+    # 选择的 SSH 协议版本，可以是 1 也可以是 2 ，CentOS 5.x 预设是仅支援 V2。 安全考虑，设置为最新的协议版本
+4.#HostKey /etc/ssh/ssh_host_key  -&gt;  设置sshd登陆密钥文件
+    # 设置包含计算机私人密匙的文件
+5.SyslogFacility AUTHPRIV    -&gt;    设置日志登陆信息
+    # 当有人使用 SSH 登入系统的时候，SSH 会记录信息，这个信息要记录的类型为AUTHPRIV。
+6.#LogLevel INFO
+    # 登录记录的等级！INFO级别以上。
+    [关于系统日志的文章](http://blog.csdn.net/beckdon/article/details/32696047 &quot;Linux系统日志&quot;)
+</code></pre><p><strong>涉及到安全调优的配置选项</strong></p>
+<pre><code>7.LoginGraceTime 2m       #grace 优雅
+# 当使用者连上 SSH server 之后，会出现输入密码的画面，在该画面中，
+# 在多久时间内没有成功连上 SSH server 就强迫断线！若无单位则默认时间为秒！ 可以根据实际情况来修改实际
+
+8.# PermitRootLogin yes
+# 是否允许 root 登入！预设是允许的，但是建议设定成 no！真实的生产环境服务器，是不允许root账号登陆的！！！
+
+
+9.PasswordAuthentication yes
+# 密码验证当然是需要的！所以这里写 yes，也可以设置为no。在真实的生产服务器上，根据不同安全级别要求，有的是设置不需要密码登陆的，通过认证的秘钥来登陆
+
+10.# PermitEmptyPasswords no
+# 若上面那一项如果设定为 yes 的话，这一项就最好设定为 no ，
+# 这个项目在是否允许以空的密码登入！当然不许！
+
+11.# PrintMotd yes
+# 登入后是否显示出一些信息呢？例如上次登入的时间、地点等等，预设是 yes
+# 亦即是打印出 /etc/motd 这个文档的内容。
+例：给sshd服务添加一些警告信息
+    cat /etc/motd
+    echo &apos;Warning ! From now on, all of your operation has been 4record!&apos;&gt; /etc/motd
+测试：
+    ssh 192.168.0.64
+    root@192.168.0.64&apos;s password:
+    Last login: Thu Jun 23 14:02:38 2016 from 192.168.0.1
+    Warning ! From now on, all of your operation has been record!
+
+12.# PrintLastLog yes
+    # 显示上次登入的信息！预设也是 yes  ！
+    例：
+    ssh 192.168.0.63
+    Last login: Tue Nov  4 19:57:31 2014 from 192.168.1.107  #就是这个信息
+
+13.# UseDNS yes
+     # 一般来说，为了要判断客户端来源是正常合法的，因此会使用 DNS 去反查客户端的主机名
+     # 不过如果是在内网互连，这项目设定为 no 会让联机速度比较快。
+</code></pre><p><strong>3.排错</strong></p>
+<pre><code>1.防火墙和selinux关闭
+2.软件是否安装、服务是否开启以及端口是否在监听
+3.配置文件是否修改  比如 端口号
+4.分析日志文件
+</code></pre><p><strong>4.SSHD防止暴力破解</strong></p>
+<p><strong>配置文件</strong></p>
+<pre><code>1.通过修改配置文件，密码的长度最好大于20位密码复杂度要尽可能有数字、大小写字母和特殊符号混合组成(kepass软件记录软件)
+
+2.修改默认端口号
+
+3.不允许root用户登陆
+
+4.不允许密码登陆，只能通过密钥登陆系统客户端生成密钥对，然后将公钥上传到服务器   ssh-keygen创建私钥默认放在 /root/.ssh/id_rsa,并且需要设置密码来保护客户端私钥的密码，公钥保存在/root/.ssh/id_rsa.pub
+
+    &gt;传输方法    ssh-copy-id -i 服务器
+    &gt;在服务器上,服务器会将其替换成了.ssh/authorized_keys和在客户端上的公钥一致
+</code></pre><p><strong>开源防护工具  fail2ban</strong></p>
+<pre><code>fail2ban可以监视你的系统日志，然后匹配日志的错误系你想执行相应的屏蔽工作，而且可以发送e-mail通知系统管理员，工作的原理是通过分析一定时间内的相关服务日志，将满足动作的相关IP利用iptables加入到dorp列表一定时间。 使用该软件iptables必须要开启，如果ssh配置文件中的端口号发生改变需要更改/etc/fail2ban/jail.conf以及/对应action.d/iptables.conf文件
+
+注：重启iptables服务的话，所有DORP将重置。
+</code></pre><p><strong>fail2ban的安装、使用和配置</strong></p>
+<pre><code>1.下载位置
+    http://www.fail2ban.org
+
+2.解压软件包和安装
+     tar  -zxvf fail2ban-0.8.14.tar.gz -C /usr/local/src
+
+3.执行安装，在安装之前首先检查一下python的版本
+    python -V
+    python setup.py install
+
+4.目录解释，其配置文件为jail.conf
+    /etc/fail2ban/action.d              #动作文件夹，内含默认文件。iptables以及mail等动作配置
+    /etc/fail2ban/fail2ban.conf            #定义了fai2ban日志级别、日志位置及sock文件位置
+    /etc/fail2ban/filter.d              #条件文件夹，内含默认文件。过滤日志关键内容设置
+    /etc/fail2ban/jail.conf                #主要配置文件，模块化。主要设置启用ban动作的服务及动作阀值
+
+5.加入系统启动服务中
+    cp files/redhat-initd  /etc/init.d/fail2ban
+    chkconfig --add fail2ban  #开机自动启动
+
+    查找一个软件中的启动脚本文件的小方法：
+        grep chkconfig  ./* -R --color  #启动脚本文件都是含有chkconfig
+
+6.实例文件/etc/fail2ban/jail.conf及说明
+    [DEFAULT]               #全局设置
+    ignoreip = 127.0.0.1/8       #忽略的IP列表,不受设置限制
+    bantime  = 600               #屏蔽时间，单位：秒
+    findtime  = 600              #这个时间段内超过规定次数会被ban掉
+    maxretry = 3                 #最大尝试次数
+    backend = auto               #日志修改检测机制（gamin、polling和auto这三种）
+
+    #单个服务检查设置，如设置bantime、findtime、maxretry和全局冲突，服务优先级大于全局设置。
+
+    [sshd]
+    enabled  = true              #是否激活此项（true/false）修改成 true
+    filter   = sshd              #过滤规则filter的名字，对应filter.d目录下的sshd.conf
+    action   = iptables[name=SSH, port=ssh, protocol=tcp]             #动作的相关参数，对应action.d/iptables.conf文件
+    sendmail-whois[name=SSH, dest=you@example.com, sender=fail2ban@example.com, sendername=&quot;Fail2Ban&quot;]   #触发报警的收件人
+    logpath  = /var/log/secure   #检测的系统的登陆日志文件。这里要写sshd服务日志文件。 默认为logpath  = /var/log/sshd.log
+    #5分钟内3次密码验证失败，禁止用户IP访问主机1小时。 配置如下
+    bantime  = 3600     #禁止用户IP访问主机1小时
+    findtime  = 300     #在5分钟内内出现规定次数就开始工作
+    maxretry = 3        #3次密码验证失败
+
+如果遇到不能发送邮件的首先要确定sendmail可以发送右键，测试代码如下
+    echo &quot;Hello World&quot; | mail -s test xxx@xxx.com
+
+如果遇到本机不能远程登陆，那么只需要将ssh的日志文件删除即可   也就是/var/log/secure文件内容清除
+    &gt; /var/log/secure
+
+7.启动服务
+    service fail2ban start
+
+8.查看服务状态和防火墙是否设置了相关条目
+    iptables -L -n
+    fail2ban-client status                    #查看该软件是否工作
+    #具体看某一项的状态也可以看，如果显示被ban的ip和数目就表示成功了，如果都是0，说明没有成功。相关代码如下
+    fail2ban-client status ssh-iptables
+</code></pre><p><strong>xinetd服务</strong></p>
+<pre><code>xinetd(eXtended InterNET services daemon)  扩展因特网服务守护进程，是新一代的网络守护进程服务程序，又叫超级Internet服务器
+作用： 通过xinetd服务来管理多种轻量级Internet服务。如： telnet、rsync、 tftp服务等。并为这些服务提供安全访问控制功能。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SSH服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/1.Linux运维服务-SSH服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-作业部落markdown编辑器模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -554,15 +851,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,15 +863,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,6 +895,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
@@ -614,15 +919,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,15 +967,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,7 +979,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,7 +987,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,10 +1000,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,14 +1015,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
@@ -722,11 +1023,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,11 +1043,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,23 +1071,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +1087,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,15 +1107,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,18 +1140,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
               </li>
             
             <div class="clearfix"></div>
