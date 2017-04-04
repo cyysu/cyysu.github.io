@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://cyysu.github.io">
+  <title>运维技术</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="专注Linux运维技术 热爱开源">
+<meta property="og:type" content="website">
+<meta property="og:title" content="运维技术">
+<meta property="og:url" content="http://cyysu.github.io/page/9/index.html">
+<meta property="og:site_name" content="运维技术">
+<meta property="og:description" content="专注Linux运维技术 热爱开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="运维技术">
+<meta name="twitter:description" content="专注Linux运维技术 热爱开源">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?260032afd54ad6c4bcd06ae61fa5febb";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #4d4d4d"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/man.png" class="js-avatar show">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">lyx</a></h1>
+		</hgroup>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/categories/Linux">运维</a></li>
+	        
+				<li><a href="/categories/oldLinux">笔记</a></li>
+	        
+				<li><a href="/categories/about">关于</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/cyysu" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:2869905223@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+					<a class="jianshu" target="_blank" href="http://www.500d.me/resume/cyysu/" title="jianshu"><i class="icon-jianshu"></i></a>
+		        
+			</div>
+		</nav>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/man.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">lyx</h1>
+			</hgroup>
+			
+			
+			
+				
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/cyysu" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:2869905223@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.500d.me/resume/cyysu/" title="jianshu"><i class="icon-jianshu"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 70%">
+				
+				
+					<li style="width: 33.333333333333336%"><a href="/categories/Linux">运维</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/oldLinux">笔记</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/about">关于</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            
+  
+    <article id="post-作业部落markdown编辑器模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/作业部落markdown编辑器模板/">markdown模板</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/14/作业部落markdown编辑器模板/" class="archive-article-date">
+  	<time datetime="2017-03-14T15:17:53.738Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
+<blockquote>
+<ul>
+<li>整理知识，学习笔记</li>
+<li>发布日记，杂文，所见所想</li>
+<li>撰写发布技术文稿（代码支持）</li>
+<li>撰写发布学术论文（LaTeX 公式支持）</li>
+</ul>
+</blockquote>
+<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
+<p>除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：</p>
+<h3 id="Windows-Mac-Linux-全平台客户端"><a href="#Windows-Mac-Linux-全平台客户端" class="headerlink" title="Windows/Mac/Linux 全平台客户端"></a><a href="https://www.zybuluo.com/cmd/" target="_blank" rel="external">Windows/Mac/Linux 全平台客户端</a></h3><blockquote>
+<p>请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> <strong>新文稿</strong> 或者使用快捷键 <code>Ctrl+Alt+N</code>。</p>
+</blockquote>
+<hr>
+<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown"></a>什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，<strong>粗体</strong> 或者 <em>斜体</em> 某些文字，更棒的是，它还可以</p>
+<h3 id="1-制作一份待办事宜-Todo-列表"><a href="#1-制作一份待办事宜-Todo-列表" class="headerlink" title="1. 制作一份待办事宜 Todo 列表"></a>1. 制作一份待办事宜 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表" target="_blank" rel="external">Todo 列表</a></h3><ul>
+<li>[ ] 支持以 PDF 格式导出文稿</li>
+<li>[ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
+<li>[x] 新增 Todo 列表功能</li>
+<li>[x] 修复 LaTex 公式渲染问题</li>
+<li>[x] 新增 LaTex 公式编号功能</li>
+</ul>
+<h3 id="2-书写一个质能守恒公式-LaTeX"><a href="#2-书写一个质能守恒公式-LaTeX" class="headerlink" title="2. 书写一个质能守恒公式[^LaTeX]"></a>2. 书写一个质能守恒公式[^LaTeX]</h3><p>$$E=mc^2$$</p>
+<h3 id="3-高亮一段代码-code"><a href="#3-高亮一段代码-code" class="headerlink" title="3. 高亮一段代码[^code]"></a>3. 高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@requires_authorization</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># A comment</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></div></pre></td></tr></table></figure>
+<h3 id="4-高效绘制-流程图"><a href="#4-高效绘制-流程图" class="headerlink" title="4. 高效绘制 流程图"></a>4. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-流程图" target="_blank" rel="external">流程图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: Start</div><div class="line">op=&gt;operation: Your Operation</div><div class="line">cond=&gt;condition: Yes or No?</div><div class="line">e=&gt;end</div><div class="line"></div><div class="line">st-&gt;op-&gt;cond</div><div class="line">cond(yes)-&gt;e</div><div class="line">cond(no)-&gt;op</div></pre></td></tr></table></figure>
+<h3 id="5-高效绘制-序列图"><a href="#5-高效绘制-序列图" class="headerlink" title="5. 高效绘制 序列图"></a>5. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-序列图" target="_blank" rel="external">序列图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Alice-&gt;Bob: Hello Bob, how are you?</div><div class="line">Note right of Bob: Bob thinks</div><div class="line">Bob--&gt;Alice: I am good thanks!</div></pre></td></tr></table></figure>
+<h3 id="6-高效绘制-甘特图"><a href="#6-高效绘制-甘特图" class="headerlink" title="6. 高效绘制 甘特图"></a>6. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-甘特图" target="_blank" rel="external">甘特图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">title 项目开发流程</div><div class="line">section 项目确定</div><div class="line">    需求分析       :a1, 2016-06-22, 3d</div><div class="line">    可行性报告     :after a1, 5d</div><div class="line">    概念验证       : 5d</div><div class="line">section 项目实施</div><div class="line">    概要设计      :2016-07-05  , 5d</div><div class="line">    详细设计      :2016-07-08, 10d</div><div class="line">    编码          :2016-07-15, 10d</div><div class="line">    测试          :2016-07-22, 5d</div><div class="line">section 发布验收</div><div class="line">    发布: 2d</div><div class="line">    验收: 3d</div></pre></td></tr></table></figure>
+<h3 id="7-绘制表格"><a href="#7-绘制表格" class="headerlink" title="7. 绘制表格"></a>7. 绘制表格</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">价格</th>
+<th style="text-align:center">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机</td>
+<td style="text-align:right">\$1600</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td style="text-align:right">\$12</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td style="text-align:right">\$1</td>
+<td style="text-align:center">234</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-更详细语法说明"><a href="#8-更详细语法说明" class="headerlink" title="8. 更详细语法说明"></a>8. 更详细语法说明</h3><p>想要查看更详细的语法说明，可以参考我们准备的 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="external">Cmd Markdown 简明语法手册</a>，进阶用户可以参考 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册" target="_blank" rel="external">Cmd Markdown 高阶语法手册</a> 了解更多高级功能。</p>
+<p>总而言之，不同于其它 <em>所见即所得</em> 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。<strong>Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。</strong> 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。</p>
+<hr>
+<h2 id="什么是-Cmd-Markdown"><a href="#什么是-Cmd-Markdown" class="headerlink" title="什么是 Cmd Markdown"></a>什么是 Cmd Markdown</h2><p>您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 <strong>编辑/发布/阅读</strong> Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。</p>
+<h3 id="1-实时同步预览"><a href="#1-实时同步预览" class="headerlink" title="1. 实时同步预览"></a>1. 实时同步预览</h3><p>我们将 Cmd Markdown 的主界面一分为二，左边为<strong>编辑区</strong>，右边为<strong>预览区</strong>，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！</p>
+<h3 id="2-编辑工具栏"><a href="#2-编辑工具栏" class="headerlink" title="2. 编辑工具栏"></a>2. 编辑工具栏</h3><p>也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 <strong>编辑区</strong> 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-editor.png" alt="tool-editor"></p>
+<h3 id="3-编辑模式"><a href="#3-编辑模式" class="headerlink" title="3. 编辑模式"></a>3. 编辑模式</h3><p>完全心无旁骛的方式编辑文字：点击 <strong>编辑工具栏</strong> 最右侧的拉伸按钮或者按下 <code>Ctrl + M</code>，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！</p>
+<h3 id="4-实时的云端文稿"><a href="#4-实时的云端文稿" class="headerlink" title="4. 实时的云端文稿"></a>4. 实时的云端文稿</h3><p>为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 <strong>编辑工具栏</strong> 的最右侧提示 <code>已保存</code> 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。</p>
+<h3 id="5-离线模式"><a href="#5-离线模式" class="headerlink" title="5. 离线模式"></a>5. 离线模式</h3><p>在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。</p>
+<h3 id="6-管理工具栏"><a href="#6-管理工具栏" class="headerlink" title="6. 管理工具栏"></a>6. 管理工具栏</h3><p>为了便于管理您的文稿，在 <strong>预览区</strong> 的顶部放置了如下所示的 <strong>管理工具栏</strong>：</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-manager.jpg" alt="tool-manager"></p>
+<p>通过管理工具栏可以：</p>
+<p><i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享<br><i class="icon-file"></i> 新建：开始撰写一篇新的文稿<br><i class="icon-trash"></i> 删除：删除当前的文稿<br><i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地<br><i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作<br><i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式</p>
+<h3 id="7-阅读工具栏"><a href="#7-阅读工具栏" class="headerlink" title="7. 阅读工具栏"></a>7. 阅读工具栏</h3><p><img src="https://www.zybuluo.com/static/img/toolbar-reader.jpg" alt="tool-manager"></p>
+<p>通过 <strong>预览区</strong> 右上角的 <strong>阅读工具栏</strong>，可以查看当前文稿的目录并增强阅读体验。</p>
+<p>工具栏上的五个图标依次为：</p>
+<p><i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落<br><i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置<br><i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 <strong>黑色主题</strong>，超炫！<br><i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验<br><i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境</p>
+<h3 id="8-阅读模式"><a href="#8-阅读模式" class="headerlink" title="8. 阅读模式"></a>8. 阅读模式</h3><p>在 <strong>阅读工具栏</strong> 点击 <i class="icon-desktop"></i> 或者按下 <code>Ctrl+Alt+M</code> 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。</p>
+<h3 id="9-标签、分类和搜索"><a href="#9-标签、分类和搜索" class="headerlink" title="9. 标签、分类和搜索"></a>9. 标签、分类和搜索</h3><p>在编辑区任意行首位置输入以下格式的文字可以标签当前文档：</p>
+<p>标签： 未分类</p>
+<p>标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：</p>
+<p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
+<h3 id="10-文稿发布和分享"><a href="#10-文稿发布和分享" class="headerlink" title="10. 文稿发布和分享"></a>10. 文稿发布和分享</h3><p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
+<hr>
+<p>再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！</p>
+<p>作者 <a href="http://weibo.com/ghosert" target="_blank" rel="external">@ghosert</a><br>2016 年 07月 07日    </p>
+<p>[^LaTeX]: 支持 <strong>LaTeX</strong> 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">MathJax</a> 参考更多使用方法。</p>
+<p>[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，<strong>四十一</strong>种主流编程语言。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">跨平台</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/14/作业部落markdown编辑器模板/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Gitlab源码安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/Gitlab源码安装/">Centos6.8下源码安装GitLab</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/14/Gitlab源码安装/" class="archive-article-date">
+  	<time datetime="2017-03-14T14:55:19.797Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为本博客的第一次的，也同时作为对网络上博客的抄袭而不加以注意做一次贡献，就网络上源码安装Gitlab教程不多，并且很坑，特此整理一份。还请大家持续关注我的博客，转载请注明出处。谢谢</p>
+<pre><code>[来自]：(http://www.cyysu.cn &quot;运维技术&quot;)
+</code></pre><hr>
+<p>[TOC]</p>
+<h3 id="0-开篇的话"><a href="#0-开篇的话" class="headerlink" title="0.开篇的话"></a>0.开篇的话</h3><p>文章依赖<br><a href="https://github.com/btfak/gitlab-recipes/blob/bffe5a60f063720053ea90973ade8e1f086d6d60/install/centos/README.md" target="_blank" rel="external">1. 官方博客</a><br><a href="ttp://pan.baidu.com/s/1nv8ZonR" target="_blank" rel="external">2. 配置网络yum仓库    提取密码ak1v</a><br><a href="http://www.lai18.com/content/1576569.html?from=cancel" target="_blank" rel="external">3. centos下安装gitlab</a><br><a href="http://www.cnblogs.com/baolong/p/5969337.html" target="_blank" rel="external">4. centos7下源码安装gitlab</a></p>
+<p>出现错误解决方案依赖</p>
+<p><a href="http://blog.csdn.net/Xunzi229/article/details/51304111?locationNum=11" target="_blank" rel="external">1. 提示没有找不到 Specified ‘mysql2’</a><br><a href="https://ruby-china.org/topics/26314" target="_blank" rel="external">2. bundle更换源问题</a><br><a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/22831" target="_blank" rel="external">3. no tmp uploads folder yet</a></p>
+<p>便捷安装</p>
+<p><a href="http://wenku.baidu.com/link?url=7v1s-btSVcldSj5GGRSZRPg8wmsXo9UHwBVRvtY70JIphaxeXPZev3uzFRjEvb_jYYMMwRvaZgKufDbgaRv_Yk2_gaSIREa0Ursxce9ymbu" target="_blank" rel="external">1. Bitnami安装</a><br><a href="http://pan.baidu.com/s/1slrqkpR" target="_blank" rel="external">2. 安装工具    提取密码：xb4e</a></p>
+<h3 id="1-关闭SELINUX和iptables"><a href="#1-关闭SELINUX和iptables" class="headerlink" title="1.关闭SELINUX和iptables"></a>1.关闭SELINUX和iptables</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# service iptables stop       #关闭防火墙</div><div class="line">[root@localhost ~]# setenforce 0                #暂时关闭Selinux</div></pre></td></tr></table></figure>
+<h3 id="2-添加EPEL存储库"><a href="#2-添加EPEL存储库" class="headerlink" title="2.添加EPEL存储库"></a>2.添加EPEL存储库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL<span class="number">-6</span> https://getfedora.org/static/<span class="number">0608</span>B895.txt</div><div class="line">rpm --<span class="keyword">import</span> /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL<span class="number">-6</span></div><div class="line"></div><div class="line"><span class="comment">#验证密钥安装成功</span></div><div class="line">rpm -qa gpg*</div><div class="line"></div><div class="line"><span class="comment">#安装软件包，不区分32和64位</span></div><div class="line">rpm -Uvh http://dl.fedoraproject.org/pub/epel/<span class="number">6</span>/x86_64/epel-release<span class="number">-6</span><span class="number">-8.</span>noarch.rpm</div></pre></td></tr></table></figure>
+<h3 id="3-添加Remi的RPM存储库"><a href="#3-添加Remi的RPM存储库" class="headerlink" title="3.添加Remi的RPM存储库"></a>3.添加Remi的RPM存储库</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-remi http://rpms.famillecollet.com/RPM-GPG-KEY-remi</div><div class="line">rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi</div><div class="line"></div><div class="line">##验证密钥安装成功</div><div class="line">rpm -qa gpg*</div><div class="line"></div><div class="line">#安装软件包</div><div class="line">rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</div><div class="line"></div><div class="line">#查看上述仓库是否启动</div><div class="line">yum repolist</div><div class="line"></div><div class="line">repo id        repo name                                                       status</div><div class="line">base           CentOS-6 - Base                                                  6696</div><div class="line">epel           Extra Packages for Enterprise Linux 6 - x86_64                  12125</div><div class="line">extras         CentOS-6 - Extras                                                  61</div><div class="line">remi-safe      Safe Remi's RPM repository for Enterprise Linux 6 - x86_64        827</div><div class="line">updates        CentOS-6 - Updates                                                137</div><div class="line">repolist: 19846</div></pre></td></tr></table></figure>
+<h3 id="4-安装GitLab所需的工具"><a href="#4-安装GitLab所需的工具" class="headerlink" title="4.安装GitLab所需的工具"></a>4.安装GitLab所需的工具</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">yum -y update</div><div class="line"></div><div class="line"><span class="comment">#安装需要的开发的工具</span></div><div class="line">yum -y groupinstall <span class="string">'Development Tools'</span></div><div class="line"></div><div class="line">yum -y install readline readline-devel ncurses-devel gdbm-devel glibc-devel tcl-devel openssl-devel curl-devel expat-devel db4-devel byacc sqlite-devel libyaml libyaml-devel libffi libffi-devel libxml2 libxml2-devel libxslt libxslt-devel libicu libicu-devel system-config-firewall-tui redis sudo wget crontabs logwatch logrotate perl-Time-HiRes git cmake libcom_err-devel.i686 libcom_err-devel.x86_64 nodejs</div><div class="line"></div><div class="line">yum -y install python-docutils</div></pre></td></tr></table></figure>
+<h3 id="5-安装邮件服务器"><a href="#5-安装邮件服务器" class="headerlink" title="5.安装邮件服务器"></a>5.安装邮件服务器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#在这里自行可以自行去配置，官方推荐的是postfix。有机会的话，笔者会研究一下，后续更新上来博客</span></div><div class="line">yum install postfix</div><div class="line">service postfix restart</div><div class="line">chkconfig postfix on</div><div class="line">   </div><div class="line"><span class="comment">#修改postfix的主配置文件</span></div><div class="line">vim /etc/postfix/main.cf </div><div class="line">    </div><div class="line">    myhostname = sample.test.com　      ← 设置系统的主机名</div><div class="line">    mydomain = test.com　               ← 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）</div><div class="line">    myorigin = $mydomain　              ← 将发信地址“@”后面的部分设置为域名（非系统主机名）</div><div class="line">    inet_interfaces = all　             ← 接受来自所有网络的请求</div><div class="line">    mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain　 ← 指定发给本地邮件的域名</div><div class="line">    home_mailbox = Maildir/　           ← 指定用户邮箱目录</div><div class="line">    </div><div class="line"><span class="comment">#修改gitlab相关的配置文件 修改内容如下：</span></div><div class="line">vim /home/git/gitlab/config/gitlab.yml</div><div class="line">    email_enabled: true</div><div class="line">    email_from: root@cyysu.cn                   <span class="comment"># 发件人的地址</span></div><div class="line">    email_display_name: GitLabMaster            <span class="comment"># 显示的收件人昵称</span></div><div class="line">    email_reply_to:</div><div class="line"></div><div class="line"><span class="comment">#配置上面的hostname的时候要注意修改一个/etc/hosts文件</span></div><div class="line">vim /etc/hosts</div><div class="line"></div><div class="line"><span class="comment">#生效</span></div><div class="line">hostname your_hostname</div><div class="line"></div><div class="line"><span class="comment">#配置完成之后记得要重启服务</span></div><div class="line">/etc/init.d/postfix restart</div><div class="line">/etc/init.d/gitlab restart </div><div class="line"></div><div class="line"><span class="comment">#检查是否配置成功，开启三个shell窗口</span></div><div class="line">tail -f /home/git/gitlab/log/*.log</div><div class="line">tail -f /var/log/maillog</div><div class="line"></div><div class="line"><span class="comment">#执行命令进入测试</span></div><div class="line">bundle <span class="keyword">exec</span> rails console production</div><div class="line">  </div><div class="line"><span class="comment">#接下来就变成下面的界面</span></div><div class="line"></div><div class="line"><span class="comment">#输入以下命令</span></div><div class="line">:sendmail</div><div class="line">   </div><div class="line"><span class="comment">#显示配置</span></div><div class="line">ActionMailer::Base.smtp_settings</div><div class="line">   </div><div class="line"><span class="comment">#给自己邮箱发送测试文件</span></div><div class="line"><span class="comment">#这里测试最好用163邮箱测试，QQ邮箱测试不是太好使</span></div><div class="line">Notify.test_email(<span class="string">'cyysu@163.com'</span>, <span class="string">'Hello World'</span>, <span class="string">'This is a test message'</span>).deliver_now</div></pre></td></tr></table></figure>
+<h3 id="6-源码安装git"><a href="#6-源码安装git" class="headerlink" title="6.源码安装git"></a>6.源码安装git</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#必须要确定git的版本高于2.7.4或更高版本。如果系统安装了git那么需要卸载</span></div><div class="line">yum -y remove git</div><div class="line"></div><div class="line"><span class="comment">#安装git编译需求的软件</span></div><div class="line">yum install zlib-devel perl-CPAN gettext curl-devel expat-devel gettext-devel openssl-devel</div><div class="line"></div><div class="line"><span class="comment">#下载源码并安装</span></div><div class="line">mkdir /tmp/git &amp;&amp; cd /tmp/git</div><div class="line">curl --progress https://www.kernel.org/pub/software/scm/git/git<span class="number">-2.9</span><span class="number">.0</span>.tar.gz | tar xz</div><div class="line">cd git<span class="number">-2.9</span><span class="number">.0</span></div><div class="line">./configure</div><div class="line">make</div><div class="line">make prefix=/usr/local install</div></pre></td></tr></table></figure>
+<h3 id="7-安装Ruby"><a href="#7-安装Ruby" class="headerlink" title="7.安装Ruby"></a>7.安装Ruby</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#删除旧的Ruby 1.8软件包（如果存在）。GitLab只支持Ruby 2.1版本系列</span></div><div class="line">yum remove ruby</div><div class="line"></div><div class="line"><span class="comment">#下载并编译</span></div><div class="line">mkdir /tmp/ruby &amp;&amp; cd /tmp/ruby</div><div class="line">curl --progress https://cache.ruby-lang.org/pub/ruby/<span class="number">2.1</span>/ruby<span class="number">-2.1</span><span class="number">.9</span>.tar.gz | tar xz</div><div class="line">cd ruby<span class="number">-2.1</span><span class="number">.9</span></div><div class="line">./configure --disable-install-rdoc</div><div class="line">make</div><div class="line">make prefix=/usr/local install</div><div class="line"></div><div class="line"><span class="comment">#安装Bundler Gem</span></div><div class="line">gem install bundler --no-doc</div><div class="line"></div><div class="line"><span class="comment"># 检测信息，如果输出信息就代表没错</span></div><div class="line">which ruby</div><div class="line">ruby -v</div></pre></td></tr></table></figure>
+<h3 id="8-安装Go"><a href="#8-安装Go" class="headerlink" title="8.安装Go"></a>8.安装Go</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#从GitLab 8.0开始，Git HTTP请求由gitlab-workhorse（以前称为gitlab-git-http-server）处理。这是一个在Go写的小守护进程。要安装gitlab-workhorse，我们需要一个Go编译器。</span></div><div class="line">yum install -y golang golang-bin golang-src</div></pre></td></tr></table></figure>
+<h3 id="9-创建用户"><a href="#9-创建用户" class="headerlink" title="9.创建用户"></a>9.创建用户</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Gitlab 创建一个用户</span></div><div class="line">adduser --system --shell /bin/bash --comment <span class="string">'GitLab'</span> --create-home --home-dir /home/git/ git</div><div class="line"></div><div class="line"><span class="comment">#修改sudoers文件</span></div><div class="line">visudo</div><div class="line">Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin</div></pre></td></tr></table></figure>
+<h3 id="10-安装数据库"><a href="#10-安装数据库" class="headerlink" title="10.安装数据库"></a>10.安装数据库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#官方推荐用PostgreSQL，这里我们用Mysql来安装</span></div><div class="line"><span class="comment">#安装软件</span></div><div class="line">yum install -y mysql-server mysql-devel</div><div class="line">chkconfig mysqld on</div><div class="line">service mysqld start</div><div class="line"></div><div class="line"><span class="comment">#这里Mysql的版本保持这个样子就可以，亲测可用</span></div><div class="line">mysql --version</div><div class="line"><span class="comment">#mysql  Ver 14.14 Distrib 5.1.73, for redhat-linux-gnu (x86_64) using readline 5.1</span></div><div class="line"></div><div class="line"><span class="comment">#首先对数据库进行一下设置</span></div><div class="line">mysql_secure_installation</div><div class="line"></div><div class="line"><span class="comment">#登陆系统</span></div><div class="line">mysql -u root -p</div><div class="line"></div><div class="line"><span class="comment">#为gitlab创建用户</span></div><div class="line">CREATE USER <span class="string">'git'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'your passwd'</span>;</div><div class="line"></div><div class="line"><span class="comment">#添加InnoDB引擎</span></div><div class="line">SET storage_engine=INNODB;</div><div class="line"></div><div class="line"><span class="comment">#下面先不创建Gitlab生产数据库，后面有个命令可以创建这里先不创建(不执行)</span></div><div class="line"><span class="comment">#CREATE DATABASE IF NOT EXISTS `gitlabhq_production` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;</span></div><div class="line"></div><div class="line"><span class="comment">#授权</span></div><div class="line">GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, ALTER, LOCK TABLES, REFERENCES ON `gitlabhq_production`.* TO <span class="string">'git'</span>@<span class="string">'localhost'</span>;</div><div class="line"></div><div class="line"><span class="comment">#退出数据库</span></div><div class="line">\q</div></pre></td></tr></table></figure>
+<h3 id="11-安装Redis"><a href="#11-安装Redis" class="headerlink" title="11.安装Redis"></a>11.安装Redis</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#Gitlab要求Redis版本不低于2.8，系统默认安装版本为2.4.1，卸载当前版本并采用remi源安装最新版本：</span></div><div class="line"><span class="comment">#卸载当前redis：</span></div><div class="line">yum -y remove redis</div><div class="line"><span class="comment">#采用remi源安装最新版本：</span></div><div class="line">yum --enablerepo=remi install redis</div><div class="line"></div><div class="line"><span class="comment">#确保redis在启动时启动：</span></div><div class="line">chkconfig redis on</div><div class="line"></div><div class="line"><span class="comment">#将redis配置为使用套接字：</span></div><div class="line">cp /etc/redis.conf /etc/redis.conf.orig</div><div class="line"></div><div class="line"><span class="comment">#通过将'port'设置为0，禁止在TCP上侦听Redis：</span></div><div class="line">sed <span class="string">'s/^port .*/port 0/'</span> /etc/redis.conf.orig | sudo tee /etc/redis.conf</div><div class="line"></div><div class="line"><span class="comment">#为默认CentOS路径启用Redis套接字：</span></div><div class="line">echo <span class="string">'unixsocket /var/run/redis/redis.sock'</span> | sudo tee -a /etc/redis.conf</div><div class="line">echo -e <span class="string">'unixsocketperm 0770'</span> | sudo tee -a /etc/redis.conf</div><div class="line"></div><div class="line"><span class="comment">#创建包含套接字的目录</span></div><div class="line">mkdir /var/run/redis</div><div class="line">chown redis:redis /var/run/redis</div><div class="line">chmod <span class="number">755</span> /var/run/redis</div><div class="line"></div><div class="line"><span class="comment">#保留包含套接字的目录（如果适用）</span></div><div class="line"><span class="keyword">if</span> [ -d /etc/tmpfiles.d ]; then</div><div class="line">    echo <span class="string">'d  /var/run/redis  0755  redis  redis  10d  -'</span> | sudo tee -a /etc/tmpfiles.d/redis.conf</div><div class="line">fi</div><div class="line"></div><div class="line"><span class="comment">#修改配置文件</span></div><div class="line">vim /etc/redis.conf</div><div class="line">    <span class="comment">#bind 127.0.0.1</span></div><div class="line"></div><div class="line"><span class="comment">#重启服务：</span></div><div class="line">service redis restart</div><div class="line"></div><div class="line"><span class="comment">#如果遇到以下问题</span></div><div class="line"></div><div class="line"><span class="comment">#&gt;&gt;&gt; 'vm-enabled no'</span></div><div class="line"><span class="comment">#Bad directive or wrong number of arguments</span></div><div class="line">                                                       [FAILED]</div><div class="line"></div><div class="line">只需要注释以下内容：</div><div class="line"><span class="comment">#vm-enabled yes</span></div><div class="line"><span class="comment">#vm-swap-file /tmp/redis.swap</span></div><div class="line"><span class="comment">#vm-max-memory 0</span></div><div class="line"><span class="comment">#vm-page-size 32</span></div><div class="line"><span class="comment">#vm-pages 134217728</span></div><div class="line"><span class="comment">#vm-max-threads 4</span></div><div class="line"><span class="comment">#hash-max-zipmap-entries 512</span></div><div class="line"><span class="comment">#hash-max-zipmap-value 64</span></div><div class="line"></div><div class="line"><span class="comment">#将git添加到redis组：</span></div><div class="line">usermod -aG redis git</div></pre></td></tr></table></figure>
+<h3 id="12-安装Gitlab"><a href="#12-安装Gitlab" class="headerlink" title="12.安装Gitlab"></a>12.安装Gitlab</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#存放gitlab等相关软件集合</span></div><div class="line">cd /home/git</div><div class="line"></div><div class="line"><span class="comment">#下载</span></div><div class="line">sudo -u git -H git clone https://gitlab.com/gitlab-org/gitlab-ce.git -b <span class="number">8</span><span class="number">-9</span>-stable gitlab</div><div class="line"></div><div class="line"><span class="comment">#配置，从这里开始直接复制即可，主要就是创建目录，赋予权限</span></div><div class="line"></div><div class="line"><span class="comment"># Go to GitLab installation folder</span></div><div class="line">cd /home/git/gitlab</div><div class="line"></div><div class="line"><span class="comment"># Copy the example GitLab config</span></div><div class="line">sudo -u git -H cp config/gitlab.yml.example config/gitlab.yml</div><div class="line"></div><div class="line"><span class="comment"># Update GitLab config file, follow the directions at top of file</span></div><div class="line">sudo -u git -H editor config/gitlab.yml</div><div class="line"></div><div class="line"><span class="comment"># Copy the example secrets file</span></div><div class="line">sudo -u git -H cp config/secrets.yml.example config/secrets.yml</div><div class="line">sudo -u git -H chmod <span class="number">0600</span> config/secrets.yml</div><div class="line"></div><div class="line"><span class="comment"># Make sure GitLab can write to the log/ and tmp/ directories</span></div><div class="line">sudo chown -R git log/</div><div class="line">sudo chown -R git tmp/</div><div class="line">sudo chmod -R u+rwX,go-w log/</div><div class="line">sudo chmod -R u+rwX tmp/</div><div class="line"></div><div class="line"><span class="comment"># Make sure GitLab can write to the tmp/pids/ and tmp/sockets/ directories</span></div><div class="line">sudo chmod -R u+rwX tmp/pids/</div><div class="line">sudo chmod -R u+rwX tmp/sockets/</div><div class="line"></div><div class="line"><span class="comment"># Create the public/uploads/ directory</span></div><div class="line">sudo -u git -H mkdir public/uploads/</div><div class="line"></div><div class="line"><span class="comment"># Make sure only the GitLab user has access to the public/uploads/ directory</span></div><div class="line"><span class="comment"># now that files in public/uploads are served by gitlab-workhorse</span></div><div class="line">sudo chmod <span class="number">0700</span> public/uploads</div><div class="line"></div><div class="line">sudo chmod ug+rwX,o-rwx /home/git/repositories/</div><div class="line"></div><div class="line"><span class="comment"># Change the permissions of the directory where CI build traces are stored</span></div><div class="line">sudo chmod -R u+rwX builds/</div><div class="line"></div><div class="line"><span class="comment"># Change the permissions of the directory where CI artifacts are stored</span></div><div class="line">sudo chmod -R u+rwX shared/artifacts/</div><div class="line"></div><div class="line"><span class="comment"># Copy the example Unicorn config</span></div><div class="line">sudo -u git -H cp config/unicorn.rb.example config/unicorn.rb</div><div class="line"></div><div class="line"><span class="comment"># 查看核心数</span></div><div class="line">nproc</div><div class="line"></div><div class="line"><span class="comment"># Enable cluster mode if you expect to have a high load instance</span></div><div class="line"><span class="comment"># Ex. change amount of workers to 3 for 2GB RAM server</span></div><div class="line"><span class="comment"># Set the number of workers to at least the number of cores</span></div><div class="line">sudo -u git -H editor config/unicorn.rb</div><div class="line"></div><div class="line"><span class="comment"># Copy the example Rack attack config</span></div><div class="line">sudo -u git -H cp config/initializers/rack_attack.rb.example config/initializers/rack_attack.rb</div><div class="line"></div><div class="line"><span class="comment"># Configure Git global settings for git user</span></div><div class="line"><span class="comment"># 'autocrlf' is needed for the web editor</span></div><div class="line">sudo -u git -H git config --<span class="keyword">global</span> core.autocrlf input</div><div class="line"></div><div class="line"><span class="comment"># Disable 'git gc --auto' because GitLab already runs 'git gc' when needed</span></div><div class="line">sudo -u git -H git config --<span class="keyword">global</span> gc.auto <span class="number">0</span></div><div class="line"></div><div class="line"><span class="comment"># Configure Redis connection settings</span></div><div class="line">sudo -u git -H cp config/resque.yml.example config/resque.yml</div><div class="line"></div><div class="line"><span class="comment"># 这里保持默认</span></div><div class="line">sudo -u git -H vim config/resque.yml</div></pre></td></tr></table></figure>
+<h3 id="13-数据库配置"><a href="#13-数据库配置" class="headerlink" title="13.数据库配置"></a>13.数据库配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#配置数据库文件</span></div><div class="line">sudo -u git cp config/database.yml.mysql config/database.yml</div><div class="line"></div><div class="line"><span class="comment">#编辑数据库文件</span></div><div class="line">sudo -u git -H vim config/database.yml</div><div class="line">  production:</div><div class="line">  adapter: mysql2</div><div class="line">  encoding: utf8</div><div class="line">  collation: utf8_general_ci</div><div class="line">  reconnect: false</div><div class="line">  database: gitlabhq_production</div><div class="line">  pool: <span class="number">10</span></div><div class="line">  username: gitlab</div><div class="line">  password: <span class="string">"gitlab"</span></div><div class="line">  <span class="comment"># host: localhost</span></div><div class="line">  <span class="comment"># socket: /tmp/mysql.sock</span></div><div class="line"></div><div class="line"><span class="comment">#赋予权限</span></div><div class="line">sudo -u git -H chmod o-rwx config/database.yml</div></pre></td></tr></table></figure>
+<h3 id="14-安装Gems"><a href="#14-安装Gems" class="headerlink" title="14.安装Gems"></a>14.安装Gems</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">cd /home/git/gitlab</div><div class="line"></div><div class="line"></div><div class="line">sudo -u git -H bundle config build.pg --with-pg-config=/usr/pgsql-9.3/bin/pg_config</div><div class="line">sudo -u git -H bundle install --deployment --without development test mysql aws kerberos</div><div class="line"></div><div class="line"></div><div class="line">sudo -u git -H bundle install --deployment --without development test postgres aws kerberos</div><div class="line">#提示出现这个错误：</div><div class="line">#Gem::Ext::BuildError: ERROR: Failed to build gem native extension.</div><div class="line">#/usr/local/bin/ruby extconf.rb --with-pg-config=/usr/pgsql-9.3/bin/pg_config</div><div class="line">#Using config values from /usr/pgsql-9.3/bin/pg_config</div><div class="line">#sh: /usr/pgsql-9.3/bin/pg_config: No such file or directory</div><div class="line">#sh: /usr/pgsql-9.3/bin/pg_config: No such file or directory</div><div class="line"></div><div class="line">#解决方法：</div><div class="line"></div><div class="line">    #卸载</div><div class="line">    yum remove postgresql</div><div class="line"></div><div class="line">    #安装pgdg仓库：</div><div class="line">    rpm -Uvh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-2.noarch.rpm</div><div class="line"></div><div class="line">    #安装postgresql93-server，postgreqsql93-devel和postgresql93-contrib库：</div><div class="line">    yum install postgresql93-server postgresql93-devel postgresql93-contrib</div><div class="line"></div><div class="line">    #重命名服务脚本：</div><div class="line">    mv /etc/init.d/&#123;postgresql-9.3,postgresql&#125;</div><div class="line"></div><div class="line">    # 服务启动</div><div class="line">    service postgresql initdb</div><div class="line">    service postgresql start</div><div class="line">    chkconfig postgresql on</div><div class="line"></div><div class="line">#这个时候就不会报错了，提示以下信息</div><div class="line"></div><div class="line">    #-------------------------------------------------</div><div class="line">    #Thank you for installing html-pipeline!</div><div class="line">    #You must bundle Filter gem dependencies.</div><div class="line">    #See html-pipeline README.md for more details.</div><div class="line">    #https://github.com/jch/html-pipeline#dependencies</div><div class="line">    #-------------------------------------------------</div><div class="line"></div><div class="line">#这里我们修改一个Gemfile文件，刚刚编辑的数据库配置文件我们看到了Mysql2，我们执行的上述步骤是没有安装的，检查的方法可以使用如下</div><div class="line"></div><div class="line">    #查看mysql2是否安装</div><div class="line">    bundle show mysql2</div><div class="line"></div><div class="line">    #当前目录在Gitlab目录下，编辑Gemfile文件，修改成如下内容</div><div class="line">    vim Gemfile</div><div class="line">        gem &quot;mysql2&quot;, &apos;~&gt; 0.3.18&apos;</div><div class="line"></div><div class="line">    #在执行以下语句</div><div class="line">    bundle install --no-deployment</div><div class="line"></div><div class="line">    #执行时间根据网速和电脑配置而言，下面查看以下结果</div><div class="line">    [root@localhost gitlab]# bundle show mysql2</div><div class="line">    /usr/local/lib/ruby/gems/2.1.0/gems/mysql2-0.3.20</div></pre></td></tr></table></figure>
+<h3 id="15-安装GitLab-Shell"><a href="#15-安装GitLab-Shell" class="headerlink" title="15.安装GitLab Shell"></a>15.安装GitLab Shell</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> #安装</div><div class="line">sudo -u git -H bundle exec rake gitlab:shell:install[v3.0.0] REDIS_URL=unix:/var/run/redis/redis.sock RAILS_ENV=production</div><div class="line"></div><div class="line">#编辑文件  这个文件主要就是提供gitlab API 接口的</div><div class="line">sudo -u git -H vim /home/git/gitlab-shell/config.yml</div><div class="line">    #修改内容如下</div><div class="line">    gitlab_url: "http://localhost:8000/"</div><div class="line"></div><div class="line">#这个文件主要提供ruby的服务端口和ip</div><div class="line">[root@localhost gitlab]# vim config/unicorn.rb</div><div class="line">    #修改内容如下</div><div class="line">    listen "127.0.0.1:8080", :tcp_nopush =&gt; true</div><div class="line"></div><div class="line">#这个文件主要提供gitlab服务的端口，ip</div><div class="line">[root@localhost gitlab]# vim config/gitlab.yml</div><div class="line">    #修改内容如下</div><div class="line">    gitlab:</div><div class="line">        host: localhost</div><div class="line">        port: 8000</div><div class="line">    git:</div><div class="line">        bin_path: /usr/local/bin/git</div><div class="line"></div><div class="line">#如果后面的操作会提示git找不到那么需要执行以下操作</div><div class="line">ln -s /usr/local/bin/git /usr/bin/git</div><div class="line"></div><div class="line">restorecon -Rv /home/git/.ssh</div></pre></td></tr></table></figure>
+<h3 id="16-安装gitlab-workhorse"><a href="#16-安装gitlab-workhorse" class="headerlink" title="16.安装gitlab-workhorse"></a>16.安装gitlab-workhorse</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#这个不多说了，很简单</span></div><div class="line">cd /home/git</div><div class="line">sudo -u git -H git clone https://gitlab.com/gitlab-org/gitlab-workhorse.git</div><div class="line">cd gitlab-workhorse</div><div class="line">sudo -u git -H git checkout v0<span class="number">.7</span><span class="number">.5</span></div><div class="line">sudo -u git -H make</div></pre></td></tr></table></figure>
+<h3 id="17-初始化数据库"><a href="#17-初始化数据库" class="headerlink" title="17.初始化数据库"></a>17.初始化数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">cd /home/git/gitlab</div><div class="line">sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production</div><div class="line"></div><div class="line">#这里会提示如下“错误”</div><div class="line">#Couldn&apos;t drop gitlabhq_production</div><div class="line">#Access denied for user &apos;gitlab&apos;@&apos;localhost&apos; (using password: YES)Please provide the root password for your MySQL installation</div><div class="line">&gt;输入你设定的mysql密码</div><div class="line"></div><div class="line">#之后就会提示如下内容</div><div class="line">#   -&gt; 0.0104s</div><div class="line">#-- add_foreign_key(&quot;u2f_registrations&quot;, &quot;users&quot;)</div><div class="line">#   -&gt; 0.0085s</div><div class="line">#-- initialize_schema_migrations_table()</div><div class="line">#   -&gt; 0.0188s</div><div class="line">#Adding limits to schema.rb for mysql</div><div class="line">#-- change_column(:merge_request_diffs, :st_commits, :text, &#123;:limit=&gt;2147483647&#125;)</div><div class="line">#   -&gt; 0.0218s</div><div class="line">#-- change_column(:merge_request_diffs, :st_diffs, :text, &#123;:limit=&gt;2147483647&#125;)</div><div class="line">#   -&gt; 0.0107s</div><div class="line">#-- change_column(:snippets, :content, :text, &#123;:limit=&gt;2147483647&#125;)</div><div class="line">#   -&gt; 0.0134s</div><div class="line">#-- change_column(:notes, :st_diff, :text, &#123;:limit=&gt;2147483647&#125;)</div><div class="line">#   -&gt; 0.0149s</div><div class="line">#-- change_column(:events, :data, :text, &#123;:limit=&gt;2147483647&#125;)</div><div class="line">#   -&gt; 0.0096s</div><div class="line"></div><div class="line">#== Seed from /home/git/gitlab/db/fixtures/production/001_admin.rb</div><div class="line">#Administrator account created:</div><div class="line"></div><div class="line">#login:    root</div><div class="line">#password: You&apos;ll be prompted to create one on your first visit.</div><div class="line"></div><div class="line"></div><div class="line">#当你进行登陆的时候就会提示你更改密码的操作</div></pre></td></tr></table></figure>
+<h3 id="18-安装启动脚本"><a href="#18-安装启动脚本" class="headerlink" title="18.安装启动脚本"></a>18.安装启动脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装了这么长时间终于快结束了，心情有没有开心！！！！</span></div><div class="line"><span class="comment">#当前目录在/home/git/gitlab</span></div><div class="line">cp lib/support/init.d/gitlab /etc/init.d/gitlab</div><div class="line">chkconfig gitlab on</div><div class="line">cp lib/support/logrotate/gitlab /etc/logrotate.d/gitlab</div><div class="line"></div><div class="line"><span class="comment">#检查程序的版本</span></div><div class="line"><span class="comment">#System information</span></div><div class="line"><span class="comment">#System:		CentOS 6.8</span></div><div class="line"><span class="comment">#Current User:	git</span></div><div class="line"><span class="comment">#Using RVM:	no</span></div><div class="line"><span class="comment">#Ruby Version:	2.1.9p490</span></div><div class="line"><span class="comment">#Bundler Version:1.14.6</span></div><div class="line"><span class="comment">#Rake Version:	10.5.0</span></div><div class="line"><span class="comment">#Sidekiq Version:4.1.2</span></div><div class="line"></div><div class="line"><span class="comment">#GitLab information</span></div><div class="line"><span class="comment">#Version:	8.9.11</span></div><div class="line"><span class="comment">#Revision:	9a05855</span></div><div class="line"><span class="comment">#Directory:	/home/git/gitlab</span></div><div class="line"><span class="comment">#DB Adapter:	mysql2</span></div><div class="line"><span class="comment">#URL:		http://localhost:8000</span></div><div class="line"><span class="comment">#HTTP Clone URL:	http://localhost:8000/some-group/some-project.git</span></div><div class="line"><span class="comment">#SSH Clone URL:	git@localhost:some-group/some-project.git</span></div><div class="line"><span class="comment">#Using LDAP:	no</span></div><div class="line"><span class="comment">#Using Omniauth:	no</span></div><div class="line"></div><div class="line"><span class="comment">#GitLab Shell</span></div><div class="line"><span class="comment">#Version:	3.0.0</span></div><div class="line"><span class="comment">#Repositories:	/home/git/repositories/</span></div><div class="line"><span class="comment">#Hooks:		/home/git/gitlab-shell/hooks/</span></div><div class="line"><span class="comment">#Git:		/usr/bin/git</span></div><div class="line"></div><div class="line"><span class="comment">#生成网页需要的资源</span></div><div class="line">sudo -u git -H bundle <span class="keyword">exec</span> rake assets:precompile RAILS_ENV=production</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#启动实例</span></div><div class="line">service gitlab start</div><div class="line"></div><div class="line"><span class="comment">#如果看到以下信息，就代表你已经成功安装了Gitlab</span></div><div class="line"><span class="comment">#Starting GitLab Unicorn</span></div><div class="line"><span class="comment">#Starting GitLab Sidekiq</span></div><div class="line"><span class="comment">#Starting Gi充电tLab Workhorse</span></div><div class="line"></div><div class="line"><span class="comment">#The GitLab Unicorn web server with pid 80821 is running.</span></div><div class="line"><span class="comment">#The GitLab Sidekiq job dispatcher with pid 80870 is running.</span></div><div class="line"><span class="comment">#The GitLab Workhorse with pid 80852 is running.</span></div><div class="line"><span class="comment">#GitLab and all its components are up and running.</span></div><div class="line"></div><div class="line"><span class="comment">#下面在浏览器开始c访问</span></div><div class="line">http://localhost:<span class="number">8000</span></div><div class="line"><span class="comment">#开始就会弹出让你修改密码的界面，之后就提示登陆界面</span></div><div class="line"><span class="comment">#http://localhost:8000/users/password/edit?reset_password_token=DjzQ-AcPsgdkhx4ckUBg</span></div><div class="line"><span class="comment">#初始的时候你可以用root和你刚刚设定的密码进行登陆</span></div><div class="line"><span class="comment">#http://localhost:8000/users/sign_in</span></div><div class="line"></div><div class="line"><span class="comment">#如果发现不能登陆，请确保服务启动成功，然后在重点检查以下配置文件</span></div><div class="line"><span class="comment">#当前目录   /home/git/gitlab</span></div><div class="line">vim config/gitlab.yml</div><div class="line">vim config/unicorn.rb</div><div class="line">vim ../gitlab-shell/config.yml</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#如果提示以下信息，那么需要检测Redis,mysql是否启动</span></div><div class="line">/etc/init.d/gitlab restart</div><div class="line">The GitLab Unicorn web server <span class="keyword">is</span> <span class="keyword">not</span> running.</div><div class="line"><span class="comment">#查看/home/git/gitlab/log/unicorn.stderr.log，最新的日志在末尾。</span></div><div class="line">/home/git/gitlab/config/environments/production.rb:<span class="number">82</span>: syntax error</div><div class="line"><span class="comment">#进入命令模式set nu显示行号，找到82行所在。</span></div><div class="line"></div><div class="line"><span class="comment">#如果发现启动不了服务，可以尝试重新创建一下数据库</span></div><div class="line">sudo -u git -H bundle <span class="keyword">exec</span> rake gitlab:setup RAILS_ENV=production</div><div class="line"></div><div class="line"><span class="comment">#检测一下程序状态</span></div><div class="line"><span class="comment">#这里可以看出你的版本是否达到要求，不过笔者一切比较正常。</span></div><div class="line"><span class="comment">#前几次装的时候出现过版本不对，不过也没有影响使用</span></div><div class="line"><span class="comment">#可能这是个bug吧 如果那位大神了解这个还请给我留言，谢谢</span></div><div class="line">sudo -u git -H bundle <span class="keyword">exec</span> rake gitlab:check RAILS_ENV=production</div><div class="line"></div><div class="line">    <span class="comment">#Checking GitLab Shell ...</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#GitLab Shell version &gt;= 3.0.0 ? ... OK (3.0.0)</span></div><div class="line">    <span class="comment">#Repo base directory exists? ... yes</span></div><div class="line">    <span class="comment">#Repo base directory is a symlink? ... no</span></div><div class="line">    <span class="comment">#Repo base owned by git:git? ... yes</span></div><div class="line">    <span class="comment">#Repo base access is drwxrws---? ... yes</span></div><div class="line">    <span class="comment">#hooks directories in repos are links: ... can't check, you have no projects</span></div><div class="line">    <span class="comment">#Running /home/git/gitlab-shell/bin/check</span></div><div class="line">    <span class="comment">#Check GitLab API access: OK</span></div><div class="line">    <span class="comment">#Check directories and files:</span></div><div class="line">    <span class="comment">#	/home/git/repositories/: OK</span></div><div class="line">    <span class="comment">#	/home/git/.ssh/authorized_keys: OK</span></div><div class="line">    <span class="comment">#Send ping to redis server: gitlab-shell self-check successful</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking GitLab Shell ... Finished</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking Sidekiq ...</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Running? ... yes</span></div><div class="line">    <span class="comment">#Number of Sidekiq processes ... 1</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking Sidekiq ... Finished</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking Reply by email ...</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Reply by email is disabled in config/gitlab.yml</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking Reply by email ... Finished</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking LDAP ...</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#LDAP is disabled in config/gitlab.yml</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking LDAP ... Finished</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking GitLab ...</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Git configured with autocrlf=input? ... yes</span></div><div class="line">    <span class="comment">#Database config exists? ... yes</span></div><div class="line">    <span class="comment">#All migrations up? ... yes</span></div><div class="line">    <span class="comment">#Database contains orphaned GroupMembers? ... no</span></div><div class="line">    <span class="comment">#GitLab config exists? ... yes</span></div><div class="line">    <span class="comment">#GitLab config outdated? ... no</span></div><div class="line">    <span class="comment">#Log directory writable? ... yes</span></div><div class="line">    <span class="comment">#Tmp directory writable? ... yes</span></div><div class="line">    <span class="comment">#Uploads directory setup correctly? ... skipped (no tmp uploads folder yet)</span></div><div class="line">    <span class="comment">#Init script exists? ... yes</span></div><div class="line">    <span class="comment">#Init script up-to-date? ... yes</span></div><div class="line">    <span class="comment">#projects have namespace: ... can't check, you have no projects</span></div><div class="line">    <span class="comment">#Redis version &gt;= 2.8.0? ... yes</span></div><div class="line">    <span class="comment">#Ruby version &gt;= 2.1.0 ? ... yes (2.1.9)</span></div><div class="line">    <span class="comment">#Your git bin path is "/usr/local/bin/git"</span></div><div class="line">    <span class="comment">#Git version &gt;= 2.7.3 ? ... yes (2.9.0)</span></div><div class="line">    <span class="comment">#Active users: 1</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#Checking GitLab ... Finished</span></div></pre></td></tr></table></figure>
+<h3 id="19-Nginx服务器安装"><a href="#19-Nginx服务器安装" class="headerlink" title="19. Nginx服务器安装"></a>19. Nginx服务器安装</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#说在前头： 这里的web服务器可以选择性安装，就是可以通过外网正常访问你的GitLab,这里web服务器可以选择Nginx或这Apache</span></div><div class="line"></div><div class="line">sudo yum install -y nginx</div><div class="line">sudo cp lib/support/nginx/gitlab /etc/nginx/conf.d/gitlab.conf</div><div class="line"></div><div class="line"><span class="comment">#这里默认不修改端口 默认是80</span></div><div class="line">vim /etc/nginx/conf.d/gitlab.conf</div><div class="line">vim /etc/nginx/conf.d/default.conf</div><div class="line">vim /etc/nginx/nginx.conf</div><div class="line"></div><div class="line"><span class="comment">#测试语法</span></div><div class="line">sudo nginx -t</div><div class="line"></div><div class="line"><span class="comment">#启动服务</span></div><div class="line">sudo service nginx restart</div><div class="line">chkconfig nginx on</div><div class="line">sudo chmod <span class="number">775</span> /home/git</div><div class="line"></div><div class="line"><span class="comment">#在本地电脑访问对于的IP。如果以上均配置正确，就会看到登陆页面</span></div><div class="line">http://<span class="number">192.168</span><span class="number">.223</span><span class="number">.140</span>:<span class="number">80</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Gitlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/14/Gitlab源码安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+    </nav>
+  
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 lyx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: true
+	}
+</script>
+
+<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),m=e(75),g=r(m),w=e(70);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.2d7529.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
+<script src="/js/jquery.min.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CentOS6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">内核</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">跨平台</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">STM32</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Corosync</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Pacemaker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DRBD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://www.aliyun.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阿里云</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://bbs.hh010.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>鸿鹄论坛</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://baiduyun.57fx.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>百度云搜索</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://github.com/search?utf8=%E2%9C%93&q=&type=Repositories&ref=searchresults" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Github搜索</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://convertio.co/zh/pdf-html/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>PDF转换软件</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.ti.com.cn/lsds/ti_zh/analog/webench/overview.page" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>TI公司WEBENCH</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.pstips.net/powershell-online-tutorials/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>powershell教程</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://portal.qiniu.com/signin" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>七牛云</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://note.youdao.com/?auto=1" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>有道云笔记</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.dcloud.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>HTML5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.xiaomastack.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>小马运维博客</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.unixhot.com/page/ops" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>运维知识体系架构图</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;热爱技术&lt;br&gt;热爱开源&lt;br&gt; 2017年&lt;br&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
