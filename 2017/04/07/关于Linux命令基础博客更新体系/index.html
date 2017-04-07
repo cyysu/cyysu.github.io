@@ -6,37 +6,63 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cyysu.github.io">
-  <title>英文文献(PDF)汉化 | 运维技术</title>
+  <title>关于Linux命令基础博客更新体系 | 运维技术</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="汉化工具汉化工具
-使用说明网页版的英文网页我们知道怎么转换成成中文，不知道？好，那我告诉你，别再用什么IE，或者360之类的啦
-那些浏览器确实不怎么好！使用chorme吧，这个支持网页翻译，有助于英文不好的同学掌握所述内容，但是
-我们的PDF怎么翻译呢，对的，我们转换成网页就可以翻译了！工具就是上面的链接！
-图文教程">
+  <meta name="description" content="Linux基础命令更新体系1. 软件包的管理
+
+2. 文件目录管理
+
+3. 用户管理
+
+4. 磁盘分区
+
+5. 源码编译
+
+6. 网络管理
+
+7. 防火墙
+更新体系详细说明更新内容如上面所示，在每一个模块内会有多个命令进行介绍，然后进行最后目录的汇总。
+预计在7天左右更新完以上内容。
+关于下一阶段更新内容介绍学习完了命令，就的学学写一下脚本吧！一直在命令行中敲代码多累呀！！哈哈，这个阶段将保持1个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="英文文献(PDF)汉化">
-<meta property="og:url" content="http://cyysu.github.io/2017/03/26/汉化工具/index.html">
+<meta property="og:title" content="关于Linux命令基础博客更新体系">
+<meta property="og:url" content="http://cyysu.github.io/2017/04/07/关于Linux命令基础博客更新体系/index.html">
 <meta property="og:site_name" content="运维技术">
-<meta property="og:description" content="汉化工具汉化工具
-使用说明网页版的英文网页我们知道怎么转换成成中文，不知道？好，那我告诉你，别再用什么IE，或者360之类的啦
-那些浏览器确实不怎么好！使用chorme吧，这个支持网页翻译，有助于英文不好的同学掌握所述内容，但是
-我们的PDF怎么翻译呢，对的，我们转换成网页就可以翻译了！工具就是上面的链接！
-图文教程">
-<meta property="og:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/1.png">
-<meta property="og:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/2.png">
-<meta property="og:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/3.png">
-<meta property="og:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/4.png">
-<meta property="og:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/5.png">
-<meta property="og:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/6.png">
-<meta property="og:updated_time" content="2017-03-26T14:45:14.597Z">
+<meta property="og:description" content="Linux基础命令更新体系1. 软件包的管理
+
+2. 文件目录管理
+
+3. 用户管理
+
+4. 磁盘分区
+
+5. 源码编译
+
+6. 网络管理
+
+7. 防火墙
+更新体系详细说明更新内容如上面所示，在每一个模块内会有多个命令进行介绍，然后进行最后目录的汇总。
+预计在7天左右更新完以上内容。
+关于下一阶段更新内容介绍学习完了命令，就的学学写一下脚本吧！一直在命令行中敲代码多累呀！！哈哈，这个阶段将保持1个">
+<meta property="og:updated_time" content="2017-04-07T15:26:20.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="英文文献(PDF)汉化">
-<meta name="twitter:description" content="汉化工具汉化工具
-使用说明网页版的英文网页我们知道怎么转换成成中文，不知道？好，那我告诉你，别再用什么IE，或者360之类的啦
-那些浏览器确实不怎么好！使用chorme吧，这个支持网页翻译，有助于英文不好的同学掌握所述内容，但是
-我们的PDF怎么翻译呢，对的，我们转换成网页就可以翻译了！工具就是上面的链接！
-图文教程">
-<meta name="twitter:image" content="http://7u2hrk.com1.z0.glb.clouddn.com/1.png">
+<meta name="twitter:title" content="关于Linux命令基础博客更新体系">
+<meta name="twitter:description" content="Linux基础命令更新体系1. 软件包的管理
+
+2. 文件目录管理
+
+3. 用户管理
+
+4. 磁盘分区
+
+5. 源码编译
+
+6. 网络管理
+
+7. 防火墙
+更新体系详细说明更新内容如上面所示，在每一个模块内会有多个命令进行介绍，然后进行最后目录的汇总。
+预计在7天左右更新完以上内容。
+关于下一阶段更新内容介绍学习完了命令，就的学学写一下脚本吧！一直在命令行中敲代码多累呀！！哈哈，这个阶段将保持1个">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -182,43 +208,44 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-汉化工具" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-关于Linux命令基础博客更新体系" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      英文文献(PDF)汉化
+      关于Linux命令基础博客更新体系
     </h1>
   
 
         
-        <a href="/2017/03/26/汉化工具/" class="archive-article-date">
-  	<time datetime="2017-03-26T14:43:14.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+        <a href="/2017/04/07/关于Linux命令基础博客更新体系/" class="archive-article-date">
+  	<time datetime="2017-04-07T15:10:40.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="汉化工具"><a href="#汉化工具" class="headerlink" title="汉化工具"></a>汉化工具</h2><p><a href="https://convertio.co/zh/pdf-html/" target="_blank" rel="external">汉化工具</a></p>
-<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><pre><code>网页版的英文网页我们知道怎么转换成成中文，不知道？好，那我告诉你，别再用什么IE，或者360之类的啦
-那些浏览器确实不怎么好！使用chorme吧，这个支持网页翻译，有助于英文不好的同学掌握所述内容，但是
-我们的PDF怎么翻译呢，对的，我们转换成网页就可以翻译了！工具就是上面的链接！
-</code></pre><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://7u2hrk.com1.z0.glb.clouddn.com/1.png" alt=""></p>
-<hr>
-<p><img src="http://7u2hrk.com1.z0.glb.clouddn.com/2.png" alt=""></p>
-<hr>
-<p><img src="http://7u2hrk.com1.z0.glb.clouddn.com/3.png" alt=""></p>
-<hr>
-<p> <img src="http://7u2hrk.com1.z0.glb.clouddn.com/4.png" alt=""></p>
-<hr>
-<p><img src="http://7u2hrk.com1.z0.glb.clouddn.com/5.png" alt=""></p>
-<hr>
-<p> <img src="http://7u2hrk.com1.z0.glb.clouddn.com/6.png" alt=""></p>
-<hr>
+        <h2 id="Linux基础命令更新体系"><a href="#Linux基础命令更新体系" class="headerlink" title="Linux基础命令更新体系"></a>Linux基础命令更新体系</h2><pre><code>1. 软件包的管理
 
+2. 文件目录管理
+
+3. 用户管理
+
+4. 磁盘分区
+
+5. 源码编译
+
+6. 网络管理
+
+7. 防火墙
+</code></pre><h2 id="更新体系详细说明"><a href="#更新体系详细说明" class="headerlink" title="更新体系详细说明"></a>更新体系详细说明</h2><pre><code>更新内容如上面所示，在每一个模块内会有多个命令进行介绍，然后进行最后目录的汇总。
+预计在7天左右更新完以上内容。
+</code></pre><h2 id="关于下一阶段更新内容介绍"><a href="#关于下一阶段更新内容介绍" class="headerlink" title="关于下一阶段更新内容介绍"></a>关于下一阶段更新内容介绍</h2><pre><code>学习完了命令，就的学学写一下脚本吧！一直在命令行中敲代码多累呀！！哈哈，这个阶段将保持1个月左右，
+争取让大家可以达到入门级别。
+</code></pre>
       
 
       
@@ -262,15 +289,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汉化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
         		</li>
       		
 		</ul>
@@ -337,7 +360,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cyysu.github.io/2017/03/26/汉化工具/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cyysu.github.io/2017/04/07/关于Linux命令基础博客更新体系/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -351,18 +374,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/03/27/Hadoop安装教程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hadoop集群
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/26/高可用MFS分布式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">高可用分布式存储（Corosync+Pacemaker+DRBD+MooseFS）</div>
+    <a href="/2017/04/07/MogileFS分布式系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MogileFS分布式系统</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -376,7 +390,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="汉化工具" data-title="英文文献(PDF)汉化" data-url="http://cyysu.github.io/2017/03/26/汉化工具/"></div>
+	<div class="ds-thread" data-thread-key="关于Linux命令基础博客更新体系" data-title="关于Linux命令基础博客更新体系" data-url="http://cyysu.github.io/2017/04/07/关于Linux命令基础博客更新体系/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
