@@ -164,6 +164,184 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-5.Linux运维服务-NFS服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/5.Linux运维服务-NFS服务/">NFS服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/5.Linux运维服务-NFS服务/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:48.196Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
+<p>##声明</p>
+<ul>
+<li><strong>“-“ 后面接的是段落小节标题</strong></li>
+<li><strong>笔记按照服务一般配置整理</strong></li>
+<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
+<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
+<li><strong>请将本文ip替换成自己的ip</strong></li>
+</ul>
+<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
+2.服务
+3.常见错误解决方案
+4.应用场景
+</code></pre><hr>
+<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
+
+    了解服务的作用：名称，功能，特点
+    安装
+    配置文件位置，端口
+    服务启动关闭的脚本
+    此服务的使用方法
+    修改配置文件，实战举例
+    排错(从下到上，从内到外)
+</code></pre><h2 id="2-NFS服务"><a href="#2-NFS服务" class="headerlink" title="2.NFS服务"></a>2.NFS服务</h2><p><strong>简介</strong></p>
+<pre><code>NFS，是Network File System的简写，即网络文件系统。网络文件系统是FreeBSD支持的文件系统中的一种，也被称为NFS. NFS允许一个系统在网络上与他人共享目录和文件。通过使用NFS，用户和程序可以像访问本地文件一样访问远端系统上的文件。
+
+模式： C/S 模式
+端口：
+RHEL6是以NFSv4作为默认版本，NFSv4使用TCP协议（端口号是2049）和NFS服务器建立连接
+</code></pre><p><strong>软件安装和启动</strong></p>
+<pre><code>软件安装
+    yum -y install nfs*
+    yum install mount        #用到showmount命令查看nfs的那些文件实现了贡献
+
+端口检测和服务开启
+    netstat -antpu | grep 2049
+    service nfs start
+
+加入开机自启
+    chkconfig nfs on
+
+查看NFS的贡献目录
+    showmount -e NFS服务器IP
+
+挂载文件
+    mount 192.168.1.63:/tmp /opt
+</code></pre><p><strong>触发式挂载</strong></p>
+<pre><code>1.自动挂载
+    vim  /etc/fstab
+        192.168.30.128:/media    /opt        /nfs         defualts   0  0
+
+2.安装软件 autofs
+
+    yum install autofs -y
+    autofs软件包要实现自动挂载涉及到两个文件，auto.master和auto.misc
+
+    /etc/auto.master 文件定义本地挂载点.
+    /etc/auto.misc 配置文件是用来设置需要挂载的文件系统类型和选项
+
+            cd              -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
+            *               -fstype=nfs,rw        192.168.0.62:/media
+
+服务器端没有必要安装autofs  客户端安装nfs
+
+重启服务
+    service autofs restart
+</code></pre><p><strong>配置文件解析</strong></p>
+<pre><code>配置文件
+
+        vim /etc/exports
+        /media      *(rw)
+        贡献目录
+
+配置文件的简单配置
+
+    /tmp/a/no_root_squash      *(rw,no_root_squash)
+    /tmp/a/sync                192.168.0.0/24(rw,sync)
+    /tmp/a/ro                  192.168.1.64(ro)
+    /tmp/a/all_squash          192.168.0.0/24(rw,all_squash,anonuid=500,anongid=500)
+    /tmp/a/async               192.168.3.0/255.255.255.0(async)
+    /tmp/a/rw                  192.168.3.0/255.255.255.0(rw)    192.168.4.0/255.255.255.0(rw)
+    /tmp/a/root_squash         *(rw,root_squash)
+
+    * 表示所有网段
+    sync/async:数据同步写入硬盘/不同步写入在内存中缓存
+    root_squash（压制）：如果用root登录nfs，使其身份自动切换成nfsnobody。
+    no_root_squash：如果用root登录nfs，使其身份就是root。
+    all_squash：用户登录nfs时，指定身份为UID/GID的用户。
+
+    注意：在发布共享目录的格式中除了共享目录是必跟参数外，其他参数都是可选的。并且共享
+    目录与客户端之间及客户端与客户端之间需要使用空格符号，但是客户端与参数之间是不能有
+    空格的
+
+查看NFS的贡献目录
+    showmount -e NFS服务器IP
+</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题：共享目录之后无法创建文件</strong></p>
+<pre><code>1、可能是服务器端文件自身的读写权限设置问题
+    chmod 777 -R /贡献目录
+
+2、chown nfsnobody:nfsnobody     /共享目录
+</code></pre><p><strong>第二种问题：</strong></p>
+<h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)文件共享</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NFS服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/5.Linux运维服务-NFS服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-4.Linux运维服务-NTP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1904,11 +2082,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1916,15 +2094,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1944,7 +2122,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1960,6 +2138,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
               </li>
              
@@ -1969,18 +2155,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1996,23 +2170,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内核</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2024,23 +2202,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2052,6 +2218,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
@@ -2060,15 +2238,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2084,14 +2262,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
               </li>
              
@@ -2100,7 +2270,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2281,6 +2459,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://yq.aliyun.com/?spm=5176.100239.0.0.AG7xwa" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>云栖社区</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://bbs.chinaunix.net/tree/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>ChinaUnix</a>
             </li>
           
         </ul>

@@ -6,17 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cyysu.github.io">
-  <title>Tag: 虚拟机 | 运维技术</title>
+  <title>MogileFS分布式系统 | 运维技术</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="专注Linux运维技术 热爱开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="运维技术">
-<meta property="og:url" content="http://cyysu.github.io/tags/虚拟机/index.html">
+  <meta name="description" content="前提什么是MFS文件系统？
+　　 Moose File System 是一个具备容错功能的网络分布式文件系统，它将数据分布在网络中的不同服务器上，MooseFS 通过 FUSE 使之看起来就是一个 Unix 的文件系统。
+
+　　 MFS文件系统个人理解: 将分布在各个范围的计算机,将他们未使用的分区统一进行管理使用的一种文件系统。
+
+MFS文件系统结构：
+包含3种角色:
+        管理服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MogileFS分布式系统">
+<meta property="og:url" content="http://cyysu.github.io/2017/04/07/MogileFS分布式系统/index.html">
 <meta property="og:site_name" content="运维技术">
-<meta property="og:description" content="专注Linux运维技术 热爱开源">
+<meta property="og:description" content="前提什么是MFS文件系统？
+　　 Moose File System 是一个具备容错功能的网络分布式文件系统，它将数据分布在网络中的不同服务器上，MooseFS 通过 FUSE 使之看起来就是一个 Unix 的文件系统。
+
+　　 MFS文件系统个人理解: 将分布在各个范围的计算机,将他们未使用的分区统一进行管理使用的一种文件系统。
+
+MFS文件系统结构：
+包含3种角色:
+        管理服务器">
+<meta property="og:updated_time" content="2017-04-07T14:44:47.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="运维技术">
-<meta name="twitter:description" content="专注Linux运维技术 热爱开源">
+<meta name="twitter:title" content="MogileFS分布式系统">
+<meta name="twitter:description" content="前提什么是MFS文件系统？
+　　 Moose File System 是一个具备容错功能的网络分布式文件系统，它将数据分布在网络中的不同服务器上，MooseFS 通过 FUSE 使之看起来就是一个 Unix 的文件系统。
+
+　　 MFS文件系统个人理解: 将分布在各个范围的计算机,将他们未使用的分区统一进行管理使用的一种文件系统。
+
+MFS文件系统结构：
+包含3种角色:
+        管理服务器">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -162,44 +184,98 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MogileFS分布式系统" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/22/虚拟机网卡问题/" class="archive-article-date">
-  	<time datetime="2017-03-22T04:08:20.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/22/虚拟机网卡问题/">虚拟机复制网卡没有eth0</a>
+    <h1 class="article-title" itemprop="name">
+      MogileFS分布式系统
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/07/MogileFS分布式系统/" class="archive-article-date">
+  	<time datetime="2017-04-07T06:36:32.843Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><pre><code>什么是MFS文件系统？
+　　 Moose File System 是一个具备容错功能的网络分布式文件系统，它将数据分布在网络中的不同服务器上，MooseFS 通过 FUSE 使之看起来就是一个 Unix 的文件系统。
+
+　　 MFS文件系统个人理解: 将分布在各个范围的计算机,将他们未使用的分区统一进行管理使用的一种文件系统。
+
+MFS文件系统结构：
+包含3种角色:
+        管理服务器managing server (master)
+        数据存储服务器data servers (chunkservers)
+        客户机挂载使用client computers
+</code></pre><h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><pre><code>Mogilefs工作原理：
+
+MogileFS是一个开源的分布式文件系统。其特性包括：应用层的组件、无单点故障、自动文件复制 主要由mogilefsd和mogstored两个程序组成。前者即是mogilefsd的tracker，它将一些全局信息保存在数据库里，例如站点domain,class,host等。后者即是存储节点(store node)，它其实是个HTTP Daemon，默认侦听在7500端口，接受客户端的文件备份请求。在安装完后，要运行mogadm工具将所有的store node注册到mogilefsd的数据库里，mogilefsd会对这些节点进行管理和监控。
+
+
+tracker 节点： 借助数据库保存各节点文件的元数据信息保存每个域中所有键的存储位置分布 , 方便检索定位数据位置的同时监控各节点，告诉客户端存储区位置并指挥 storage 节点复制数据副本，进程名为 mogilefsd(7001) 。
+
+database 节点： 为 tracker 节点提供数据存取服务。
+
+storage 节点： 将指定域中的键转换为其特有的文件名存储在指定的设备文件中，转换后的文件名为值， storage 节点自动维护键值的对应关系， storage 节点由于使用 http 进行数据传输，因此依赖于 perlbal ， storage 节点前端可以使用 nginx 进行反向代理，但需要安装 nginx-mogilefs-module-master 模块进行名称转换。
+
+Domain ： 一个域中的键值是惟一的，一个 MogileFS 可以有多个域，域可以用来存储不同应用类型的数据的容器。
+
+Host ： 每一个存储节点称为一个主机，一个主机上可以有多个存储设备 ( 单独的硬盘 ) ，每个设备都有 ID 号， Domain+Fid 用来定位文件。
+
+Class: 复制最小单位 , 文件属性管理，定义文件存储在不同设备上份数。
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://bbs.chinaunix.net/tree/index_304_1/" target="_blank" rel="external">汇总连接</a></p>
+<p><a href="http://www.cnblogs.com/adolfmc/p/4238604.html" target="_blank" rel="external">MogileFS和FastDFS</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-09/122947.htm" target="_blank" rel="external">分布式MogileFS</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
@@ -207,19 +283,11 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网卡错误</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟机</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -232,17 +300,104 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cyysu.github.io/2017/04/07/MogileFS分布式系统/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/04/07/RHCS-GFS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RHCS-gfs</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="MogileFS分布式系统" data-title="MogileFS分布式系统" data-url="http://cyysu.github.io/2017/04/07/MogileFS分布式系统/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cyysu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -265,9 +420,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
