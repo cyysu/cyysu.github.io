@@ -164,6 +164,87 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于新版博客说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/16/关于新版博客说明/">新版博客说明</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/16/关于新版博客说明/" class="archive-article-date">
+  	<time datetime="2017-03-16T12:10:02.605Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="后续博客的说明"><a href="#后续博客的说明" class="headerlink" title="后续博客的说明"></a>后续博客的说明</h2><pre><code>昨天已经上传了之前的笔记记录，是不是大家总感觉缺点什么哈？对，单纯的笔记太枯燥了，每个人的开发环境不一样，看文字没意思，为适应广大初学者学习，新版笔记采用图文的方式进行记录，图文上有文字说明，希望大家喜欢。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/16/关于新版博客说明/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-关于我" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2270,244 +2351,6 @@ Author：     Andrew Tridgell, Wayne Davison, and others
 
 
   
-    <article id="post-11.Linux运维服务-Postfix服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/11.Linux运维服务-Postfix服务/">Postfix服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/11.Linux运维服务-Postfix服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:44.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#YSU-Linux运维笔记模板V3.0</p>
-<p><strong>编辑软件：MarkdownPad2</strong></p>
-<p><strong>撰写人员：Kali</strong></p>
-<p><strong>撰写日期：2017年3月5日</strong></p>
-<p><strong>联系作者：cyysu.github.io@gmail.com</strong></p>
-<p><strong>友情提示：文章内容如有不对，欢迎指正。</strong></p>
-<hr>
-<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1 开篇的话"></a>1 开篇的话</h2><h3 id="1-1-学习方法"><a href="#1-1-学习方法" class="headerlink" title="1.1 学习方法"></a>1.1 学习方法</h3><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-Postfix服务"><a href="#2-Postfix服务" class="headerlink" title="2 Postfix服务"></a>2 Postfix服务</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><pre><code>postfix是Wietse Venema在IBM的GPL协议之下开发的MTA（邮件传输代理）软件。postfix是Wietse Venema想要为使用最广泛的sendmail提供替代品的一个尝试。
-在Internet世界中，大部分的电子邮件都是通过sendmail来投递的，大约有100万用户使用sendmail，每天投递上亿封邮件。这真是一个让人吃惊的数字。
-Postfix试图更快、更容易管理、更安全，同时还与sendmail保持足够的兼容性
-
-其它邮件服务器：
-Sendmail、Qmail、Postfix
-Sendmail的不足
-　第一个重要的缺点是它的安全性较差，这是因为当其作者Eric Allman最初开始写作这个软件的时候，Internet的用户还很少，因而安全性并不没有得到大家的重视。
-由于邮件系统需要处理的是外部发送来的各种各样的信息，甚至包含一些恶意数据，然而sendmail在大多数系统中都是以root身份运行，一旦出现问题，就会对系统安全造成严重影响。在这种情况下，要防止出现安全问题，仅仅依赖程序本身是不可取的，应该从系统结构出发，使程序拥有的特殊权限限制到最小。
-第二个，使用Sendmail还会遇到的另一个问题是它的设置相当复杂，对于使用缺省设置来收发电子邮件，问题并不存在。当管理员打算进行一些特殊设置，以便利用Sendmail提供的复杂邮件处理能力时，就不得不面对复杂的宏和正则表达式。
-
-Qmail可以替代Sendmail
-Qmail，为了解决sendmail的安全问题，整个系统结构需要重新设计。基本的原则是将系统划分为不同的模块，有负责接收外部邮件的，有管理缓冲目录中待发送的邮件队列的，有将邮件发送到远程服务器或本地用户的。Qmail就是按照这个原则进行的设计，它由多个不同功能的小程序组成，只有必要的程序才是setuid程序(即以root用户权限执行)，这样就减少了安全隐患，并且由于这些程序都比较简单一些，因此就可以达到较高的安全性。
-
-
-今天的主角：
-另一种替换软件:Postfix  可以替代sendmail
-　　Postfix同样也是采用了模块化的方式，但与Qmail不同的是，Postfix使用了一个主控进程进行监控。Postfix在很多方面都考虑到了安全问题，它甚至不向root分发电子邮件，以避免以root身份读写文件或启动外部程序。考虑到它的作者Wietse Venema曾编写了著名的安全软件TcpWrapper，Postfix的安全性是非常值得信赖的。
-Postfix的性能也非常不错，甚至在Qmail作者自己进行的测试中也表明，Postfix的性能和Qmail基本相当。postfix在性能上大约比sendmail快三倍。
-
-
-Dovecot: 邮件接收服务器：
-    Dovecot 是一个开源的 IMAP 和 POP3 邮件服务器，支持 Linux/Unix 系统。
-    POP / IMAP4 是 MUA 从邮件服务器中读取邮件时使用的协议。
-    POP3 是从邮件服务器中下载邮件存起来，IMAP 则是将邮件留在服务器端直接对邮件进行管理、操作。比POP3更先进。
-    由 Timo Sirainen 开发，最初发布于 2002年7月。作者将安全性考虑在第一，所以 Dovecot 在安全性方面比较出众。
-    IMAP4是TCP/IP协议族中的一员，现在的版本是“IMAP第四版第一次修订版”。
-    一个完整的邮件服务器由以下内容构成：
-
-    postfix（作为发送邮件服务器）+dovecot（作为接收邮件服务器）+mysql（作为数据库）
-
-    可以通过foxmail或outlook客户端。也可以通过网页来收邮件。
-
-
-
-    邮件服务协议和端口：
-
-        25 端口：SMTP协议。
-            SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。
-        作用：此协议主要用来发送或中转邮件。SMTP协议属于TCP/IP协议簇，
-
-        邮件服务中：
-            发送： 指的是同属于163邮件服务器两人相互发送邮件。
-            中转： 使用163邮箱给QQ邮箱发送邮件。
-
-        24端口：LMTP(Local Mail Transfer Protocol)[1]，是本地邮件传输协议，与SMTP类似，但不支持邮件队列（queue），主要应用于非广域网的邮件网关。
-
-
-        110端口：POP3协议
-            POP3(Post Office Protocol 3)即邮局协议的第3个版本，它是规定个人计算机如何连接到互联网上的邮件服务器进行收邮件的协议。
-        还有POP2协议。
-
-
-        143端口：IMAP
-            IMAP： （Internet Mail Access Protocol Internet邮件访问协议） 。IMAP是斯坦福大学在1986年开发的一种邮件获取协议。它的主要作用是邮件客户端（例如Outlook)可以通过这种协议从邮件服务器上获取邮件的信息，下载邮件等。
-
-        当前的权威定义是RFC3501。IMAP协议运行在TCP/IP协议之上，使用的端口是143。它与POP3协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。他们之间的区别如下:
-</code></pre><p><img src="http://omutvk8c2.bkt.clouddn.com/3.png" alt="pop3和IMAP的区别"><br><img src="http://omutvk8c2.bkt.clouddn.com/4.jpg" alt="邮件的工作流程"></p>
-<pre><code>1：发件人写邮件，通过客户端连接邮件服务器，这个之间使用了 SMTP 协议链接！用
-户就是 SMTP  客户端，发送服务器就是我们这儿的 SMTP 服务器！
-2：SMTP  检查我们进入的邮件，将其放到邮件缓冲队列中，等待发送到接受服务器中， 这里要注意，postfix 在这里会检查我们是是否发给自己，若是发给自己的，那么就直接进入 了我们服务器自己的 mailbox！
-3：发送服务器此时充当 SMTP 客户端，接受服务器充当 SMTP 服务端，建立 TCP 链接， 将邮件发送的接受服务器！
-4：接受服务器收到邮件之后，把邮件里面的内容读取，如收件人信息   to:……
-5：收件人打开客户端，使用 POP3 或者 IMAP 协议收取邮件并读取！
-</code></pre><h3 id="2-2-服务安装、启动和配置"><a href="#2-2-服务安装、启动和配置" class="headerlink" title="2.2 服务安装、启动和配置"></a>2.2 服务安装、启动和配置</h3><pre><code>服务安装
-
-    在安装之前首先要检查一下系统是否已经安装了Sendmail。
-
-        rpm -qa | grep sendmail     #查看是否安装 sendmail
-        yum remove sendmail -y      #卸载 sendmail
-
-    下面就开始安装服务
-         yum install -y postfix dovecot
-
-
-
-服务启动、端口检测和加入开机启动项
-
-    service postfix restart
-    chkconfig postfix  on
-     netstat -antup | grep 25
-
-服务配置
-
-    /etc/postfix/main.cf     #主配置文件位置
-    /var/log/maillog         #日志文件位置
-    /var/spool/mail/         #邮件存放位置，对应有相应用户名
-
-配置文件部分参数
-
-    [root@xuegod63 ~]# cp /etc/postfix/main.cf /etc/postfix/main.cf.bak
-    [root@xuegod63 ~]# vim /etc/postfix/main.cf
-    queue_directory = /var/spool/postfix   #队列目录
-    command_directory = /usr/sbin     #命令位置目录
-    mail_owner = postfix              #postfix运行身份
-    myhostname = xuegod63.cn        #发送邮件时的名字，服务器名字
-    mydomain = xuegod63.cn           #邮件域，用于接受的时候用
-    myorigin = $mydomain             #我来自哪儿，别人收到的时候知道是我发送的
-    inet_interfaces = localhost          #邮件接受监控的地址
-    inet_protocols = all                #启用IPV4和IPV6
-    mydestination = $myhostname, $mydomain, localhost          #服务器负责那些域
-    mynetworks = 192.168.0.0/24, 127.0.0.0/8                 #指定允许使用的IP地址段
-    alias_maps = hash:/etc/aliases                             #对某一个用户发，里面的人都可以收到邮件
-    alias_database = hash:/etc/aliases
-    #home_mailbox = Mailbox                                   #收件箱存放位置
-</code></pre><h2 id="3-精彩案例"><a href="#3-精彩案例" class="headerlink" title="3 精彩案例"></a>3 精彩案例</h2><h3 id="3-1-配置postfix邮件服务器，实现邮件发送功能。"><a href="#3-1-配置postfix邮件服务器，实现邮件发送功能。" class="headerlink" title="3.1 配置postfix邮件服务器，实现邮件发送功能。"></a>3.1 配置postfix邮件服务器，实现邮件发送功能。</h3><pre><code>修改主机名和对应关系：
-[root@xuegod63 postfix]# hostname
-xuegod63.cn
-[root@xuegod63 postfix]# cat /etc/hosts
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.1.63   xuegod63.cn
-192.168.1.64   xuegod64.cn
-
-vim /etc/sysconfig/network
-NETWORKING=yes
-HOSTNAME=xuegod63.cn
-
-[root@xuegod63 ~]# vim /etc/postfix/main.cf
-需要启用和修改的项：
-myhostname = xuegod63.cn  #指定邮件服务器名字，接收用来识别的，也就是一个标识
-mydomain = xuegod63.cn   #邮件域
-myorigin = $mydomain  #启用，去掉注释，发信地址，此设置显示为@xuegod63.cn
-inet_interfaces = all  #对外提供MTA服务设置为监听所有网卡，默认只监听本地
-#inet_interfaces = localhost  #这个注释起来，是默认值，只监控本地
-mydestination = $myhostname, localhost.$mydomain, localhost  #此行不用改，但是要说明，这是代表邮件服务器负责的那些域
-mynetworks_style = subnet #允许转发的来源网段，可选subnet子网，class网段，host本机
-mynetworks = 192.168.0.0/24, 127.0.0.0/8 #用户允许的使用的IP地址段
-relay_domains = $mydestination  #允许转发的目标域
-local_recipient_maps =  #含有所有本地邮件地址的查询表.SMTP server借此拒收外界寄给不明用户的邮件，启用即可
-alias_maps = hash:/etc/aliases  #对某个用户发，文件中的用户都可以收到邮件，别名组
-alias_database = hash:/etc/aliases  #别名数据库
-smtpd_banner = $myhostname ESMTP &quot;Welcome XueGod63.cn STMP Server&quot;  #自定义服务器信息
-
-重启服务：
-[root@xuegod63 ~]# service postfix start
-[root@xuegod63 ~]# netstat -antup | grep 25
-
-
-测试：
-
-    mail -s &apos;Postfix1&apos; 3402301871@qq.com &lt; /etc/hosts
-    tail -f /var/log/maillog
-    在postfix的日志里：
-    如果status=sent表示已经成功发送。removed表示从队列中删除发送的邮件
-    如果status= deferred表示延期，需要重试，当重试到一定次数，还失败就抛弃
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Postfix服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/11.Linux运维服务-Postfix服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
@@ -2631,23 +2474,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2659,27 +2490,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2688,6 +2511,26 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2700,26 +2543,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2739,7 +2562,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2751,15 +2578,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2771,11 +2602,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2783,7 +2618,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2795,11 +2638,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2815,15 +2654,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2839,15 +2678,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2855,7 +2686,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2863,11 +2702,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2879,18 +2730,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STM32</a>
               </li>
              
@@ -2899,11 +2738,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
