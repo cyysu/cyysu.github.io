@@ -164,6 +164,991 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux命令基础-sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-sort/">Linux命令基础-sort</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-sort/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:41:58.220Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>sort命令是在Linux里非常有用，它将文件进行排序，并将排序结果标准输出。sort命令既可以从特定的文件，也可以从stdin中获取输入。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>sort(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-b：忽略每行前面开始出的空格字符；
+-c：检查文件是否已经按照顺序排序；
+-d：排序时，处理英文字母、数字及空格字符外，忽略其他的字符；
+-f：排序时，将小写字母视为大写字母；
+-i：排序时，除了040至176之间的ASCII字符外，忽略其他的字符；
+-m：将几个排序号的文件进行合并；
+-M：将前面3个字母依照月份的缩写进行排序；
+-n：依照数值的大小排序；
+-o&lt;输出文件&gt;：将排序后的结果存入制定的文件；
+-r：以相反的顺序来排序；
+-t&lt;分隔字符&gt;：指定排序时所用的栏位分隔字符；
++&lt;起始栏位&gt;-&lt;结束栏位&gt;：以指定的栏位来排序，范围由起始栏位到结束栏位的前一栏位。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>sort的-n、-r、-k、-t选项的使用：
+
+[root@mail text]# cat sort.txt
+AAA:BB:CC
+aaa:30:1.6
+ccc:50:3.3
+ddd:20:4.2
+bbb:10:2.5
+eee:40:5.4
+eee:60:5.1
+
+#将BB列按照数字从小到大顺序排列：
+
+[root@mail text]# sort -nk 2 -t: sort.txt
+AAA:BB:CC
+bbb:10:2.5
+ddd:20:4.2
+aaa:30:1.6
+eee:40:5.4
+ccc:50:3.3
+eee:60:5.1
+
+#将CC列数字从大到小顺序排列：
+[root@mail text]# sort -nrk 3 -t: sort.txt
+eee:40:5.4
+eee:60:5.1
+ddd:20:4.2
+ccc:50:3.3
+bbb:10:2.5
+aaa:30:1.6
+AAA:BB:CC
+
+# -n是按照数字大小排序，-r是以相反顺序，-k是指定需要爱排序的栏位，-t指定栏位分隔符为冒号
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-sort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-cut" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-cut/">Linux命令基础-cut</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-cut/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:31:15.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cut命令用来显示行中的指定部分，删除文件中指定字段。cut经常用来显示文件的内容，类似于下的type命令。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cut(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-b：仅显示行中指定直接范围的内容；
+-c：仅显示行中指定范围的字符；
+-d：指定字段的分隔符，默认的字段分隔符为“TAB”；
+-f：显示指定字段的内容；
+-n：与“-b”选项连用，不分割多字节字符；
+--complement：补足被选择的字节、字符或字段；
+--out-delimiter=&lt;字段分隔符&gt;：指定输出内容是的字段分割符；
+--help：显示指令的帮助信息；
+--version：显示指令的版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# cat test.txt
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+
+[root@localhost ~]# cut -d: -f1 test.txt
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+
+[root@localhost ~]# cut -d: -f1,3 test.txt
+root:0
+bin:1
+daemon:2
+adm:3
+lp:4
+sync:5
+shutdown:6
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-cut/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-wc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-wc/">Linux命令基础-wc</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-wc/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:17:16.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>wc命令的功能为统计指定文件中的字节数、字数、行数, 并将统计结果显示输出。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>wc [选项] 文件
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>- c 统计字节数。
+</code></pre><p>　　    - l 统计行数。<br>　　    - w 统计字数。</p>
+<h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><p>　　$ wc - lcw file1 file2<br>　　4 33 file1<br>　　7 52 file2<br>　　11 11 85 total<br>　　省略任选项-lcw，wc命令的执行结果与上面一样。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-wc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-rzsz" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-rzsz/">Linux命令基础-rzsz</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-rzsz/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:08:35.111Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>linux使用rz和sz命令上传和下载文件！
+</code></pre><h2 id="命令安装"><a href="#命令安装" class="headerlink" title="命令安装"></a>命令安装</h2><pre><code>yum install lrzsz -y
+
+[root@localhost ~]# yum install -y lrzsz
+Loaded plugins: fastestmirror, langpacks, priorities
+Loading mirror speeds from cached hostfile
+ * base: mirrors.btte.net
+ * extras: mirrors.btte.net
+ * updates: mirrors.cn99.com
+Package lrzsz-0.12.20-36.el7.x86_64 already installed and latest version
+Nothing to do
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>sz命令发送文件到本地：
+# sz filename
+rz命令本地上传文件到服务器：
+# rz
+执行该命令后，在弹出框中选择要上传的文件即可。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-rzsz/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-scp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-scp/">Linux命令基础-scp</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-scp/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:08:34.473Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>scp命令用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。当你服务器硬盘变为只读read only system时，用scp可以帮你把文件移出来。另外，scp还非常不占资源，不会提高多少系统负荷，在这一点上，rsync就远远不及它了。虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>scp(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-1：使用ssh协议版本1；
+-2：使用ssh协议版本2；
+-4：使用ipv4；
+-6：使用ipv6；
+-B：以批处理模式运行；
+-C：使用压缩；
+-F：指定ssh配置文件；
+-l：指定宽带限制；
+-o：指定使用的ssh选项；
+-P：指定远程主机的端口号；
+-p：保留文件的最后修改时间，最后访问时间和权限模式；
+-q：不显示复制进度；
+-r：以递归方式复制。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>从远程复制到本地的scp命令与上面的命令雷同，只要将从本地复制到远程的命令后面2个参数互换顺序就行了。
+
+从远处复制文件到本地目录
+scp root@10.10.10.10:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/
+从10.10.10.10机器上的/opt/soft/的目录中下载nginx-0.5.38.tar.gz 文件到本地/opt/soft/目录中。
+
+从远处复制到本地
+scp -r root@10.10.10.10:/opt/soft/mongodb /opt/soft/
+从10.10.10.10机器上的/opt/soft/中下载mongodb目录到本地的/opt/soft/目录来。
+
+上传本地文件到远程机器指定目录
+scp /opt/soft/nginx-0.5.38.tar.gz root@10.10.10.10:/opt/soft/scptest
+复制本地/opt/soft/目录下的文件nginx-0.5.38.tar.gz到远程机器10.10.10.10的opt/soft/scptest目录。
+
+上传本地目录到远程机器指定目录
+scp -r /opt/soft/mongodb root@10.10.10.10:/opt/soft/scptest
+上传本地目录/opt/soft/mongodb到远程机器10.10.10.10上/opt/soft/scptest的目录中去。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-scp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux基础命令-chkconfig" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux基础命令-chkconfig/">Linux命令基础-chkconfig</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux基础命令-chkconfig/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:03:16.186Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux下的7个运行级别"><a href="#Linux下的7个运行级别" class="headerlink" title="Linux下的7个运行级别"></a>Linux下的7个运行级别</h2><pre><code>0.系统停机状态，系统默认运行级别不能设置为0，否则不能正常启动，机器关闭。
+
+1.单用户工作状态，root权限，用于系统维护，禁止远程登陆，就像Windows下的安全模式登录。
+
+2.多用户状态，没有NFS支持。
+
+3.完整的多用户模式，有NFS，登陆后进入控制台命令行模式。
+
+4.系统未使用，保留一般不用，在一些特殊情况下可以用它来做一些事情。例如在笔记本电脑的电池用尽时，可以切换到这个模式来做一些设置。
+
+5.X11控制台，登陆后进入图形GUI模式，X Window系统。
+
+6.系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动。运行init 6机器就会重启。
+</code></pre><h2 id="运行级别原理"><a href="#运行级别原理" class="headerlink" title="运行级别原理"></a>运行级别原理</h2><pre><code>1.在目录/etc/rc.d/init.d下有许多服务器脚本程序，一般称为服务(service)
+2.在/etc/rc.d下有7个名为rcN.d的目录，对应系统的7个运行级别
+
+3.rcN.d目录下都是一些符号链接文件，这些链接文件都指向init.d目录下的service脚本文件，命名规则为K+nn+服务名或S+nn+服务名，其中nn为两位数字。
+
+4.系统会根据指定的运行级别进入对应的rcN.d目录，并按照文件名顺序检索目录下的链接文件：对于以K开头的文件，系统将终止对应的服； 对于以S开头的文件，系统将启动对应的服务
+
+5.查看运行级别用：runlevel
+
+6.进入其它运行级别用：init N，如果init 3则进入终端模式，init 5则又登录图形GUI模式
+
+7.另外init0为关机，init 6为重启系统
+</code></pre><h2 id="忘记root密码拯救办法"><a href="#忘记root密码拯救办法" class="headerlink" title="忘记root密码拯救办法"></a>忘记root密码拯救办法</h2><pre><code>标准的Linux运行级别为3或5，如果是3的话，系统就在多用户状态；如果是5的话，则是运行着X Window系统。
+
+不同的运行级别有不同的用处，也应该根据自己的不同情形来设置。例如，如果丢失了root口令，那么可以让机器启动进入单用户状态来设置。在启动后的lilo提示符下输入：
+
+init=/bin/sh rw
+
+这样就可以使机器进入运行级别1，并把root文件系统挂为读写。它会路过所有系统认证，让你使用passwd程序来改变root口令，然后启动到一个新的运行级。
+</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre><code>[root@localhost ~]# ll /etc/rc3.d/
+total 0
+lrwxrwxrwx. 1 root root 20 Apr 10 10:00 K50netconsole -&gt; ../init.d/netconsole
+lrwxrwxrwx. 1 root root 22 Apr 10 10:00 S03vmware-tools -&gt; ../init.d/vmware-tools
+lrwxrwxrwx. 1 root root 17 Apr 10 10:00 S10network -&gt; ../init.d/network
+lrwxrwxrwx. 1 root root 32 Apr 10 10:00 S57vmware-tools-thinprint -&gt; ../init.d/vmware-tools-thinprint
+
+[root@localhost ~]# ll /etc/init.d/
+total 92
+-rw-r--r--. 1 root root 15131 Sep 12  2016 functions
+-rwxr-xr-x. 1 root root  2989 Sep 12  2016 netconsole
+-rwxr-xr-x. 1 root root  6643 Sep 12  2016 network
+-rw-r--r--. 1 root root  1160 Mar  3 11:23 README
+-rwxr-xr-x. 1 root root 44264 Apr  3 23:05 vmware-tools
+-rwxr-xr-x. 1 root root 15721 Apr  3 23:05 vmware-tools-thinprint
+</code></pre><h2 id="chkconfig用法"><a href="#chkconfig用法" class="headerlink" title="chkconfig用法"></a>chkconfig用法</h2><pre><code>chkconfig命令可以用来检查、设置系统的各种服务
+
+使用语法：
+
+chkconfig [--add][--del][--list][系统服务] 或 chkconfig [--level &lt;等级代号&gt;][系统服务][on/off/reset]
+
+
+使用范例：
+
+chkconfig --list      列出所有的系统服务
+
+chkconfig --add httpd 增加httpd服务
+
+chkconfig --del httpd 删除httpd服务
+
+chkconfig --level httpd 2345 on 把httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态。
+
+
+
+chkconfig命令提供了一种简单的方式来设置一个服务的运行级别。例如，为了设置MySQL服务器在运行级别3和4上运行，你必须首先将MySQL添加为受chkconfig管理的服务：
+
+chkconfig --add mysql
+
+现在，我们在级别3和5上设定服务为“on”
+
+chkconfig --level 35 mysql on
+
+在其他级别上设为off
+
+chkconfig --level 01246 mysql off
+
+为了确认你的配置被正确的修改了，我们可以列出服务将会运行的运行级别，如下所示：
+
+#chkconfig --list mysql
+
+mysql           0:off       1:off       2:off       3:on 4:off       5:on 6:off
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux基础命令-chkconfig/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-mv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-mv/">Linux命令基础-mv</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-mv/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:00:58.074Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>mv命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。source表示源文件或目录，target表示目标文件或目录。如果将一个文件移到一个已经存在的目标文件中，则目标文件的内容将被覆盖。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>mv(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--backup=&lt;备份模式&gt;：若需覆盖文件，则覆盖前先行备份；
+-b：当文件存在时，覆盖前，为其创建一个备份；
+-f：若目标文件或目录与现有的文件或目录重复，则直接覆盖现有的文件或目录；
+-i：交互式操作，覆盖前先行询问用户，如果源文件与目标文件或目标目录中的文件同名，则询问用户是否覆盖目标文件。用户输入”y”，表示将覆盖目标文件；输入”n”，表示取消对源文件的移动。这样可以避免误将文件覆盖。
+--strip-trailing-slashes：删除源文件中的斜杠“/”；
+-S&lt;后缀&gt;：为备份文件指定后缀，而不使用默认的后缀；
+--target-directory=&lt;目录&gt;：指定源文件要移动到目标目录；
+-u：当源文件比目标文件新或者目标文件不存在时，才执行移动操作。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>将文件ex3改名为new1 mv ex3 new1
+mv ex3 new1
+
+将目录/usr/men中的所有文件移到当前目录（用.表示）中：
+mv /usr/men/* .
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-mv/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-rm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-rm/">Linux命令基础-rm</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-rm/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:00:35.105Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>rm命令可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉。对于链接文件，只是删除整个链接文件，而原有文件保持不变。 注意：使用rm命令要格外小心。因为一旦删除了一个文件，就无法再恢复它。所以，在删除文件之前，最好再看一下文件的内容，确定是否真要删除。rm命令可以用-i选项，这个选项在使用文件扩展名字符删除多个文件时特别有用。使用这个选项，系统会要求你逐一确定是否要删除。这时，必须输入y并按Enter键，才能删除文件。如果仅按Enter键或其他字符，文件不会被删除。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>rm (选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-d：直接把欲删除的目录的硬连接数据删除成0，删除该目录；
+-f：强制删除文件或目录；
+-i：删除已有文件或目录之前先询问用户；
+-r或-R：递归处理，将指定目录下的所有文件与子目录一并处理；
+--preserve-root：不对根目录进行递归操作；
+-v：显示指令的详细执行过程。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>交互式删除当前目录下的文件test和example
+rm -i test example Remove test ?n（不删除文件test)
+Remove example ?y（删除文件example)
+
+删除当前目录下除隐含文件外的所有文件和子目录
+# rm -r *
+应注意，这样做是非常危险的!
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-rm/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-cp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-cp/">Linux命令基础-cp</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-cp/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:00:33.045Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cp命令用来将一个或多个源文件或者目录复制到指定的目的文件或目录。它可以将单个源文件复制成一个指定文件名的具体的文件或一个已经存在的目录下。cp命令还支持同时复制多个文件，当一次复制多个文件时，目标文件参数必须是一个已经存在的目录，否则将出现错误。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cp(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：此参数的效果和同时指定&quot;-dpR&quot;参数相同；
+-d：当复制符号连接时，把目标文件或目录也建立为符号连接，并指向与源文件或目录连接的原始文件或目录；
+-f：强行复制文件或目录，不论目标文件或目录是否已存在；
+-i：覆盖既有文件之前先询问用户；
+-l：对源文件建立硬连接，而非复制文件；
+-p：保留源文件或目录的属性；
+-R/r：递归处理，将指定目录下的所有文件与子目录一并处理；
+-s：对源文件建立符号连接，而非复制文件；
+-u：使用这项参数后只会在源文件的更改时间较目标文件更新时或是名称相互对应的目标文件并不存在时，才复制文件；
+-S：在备份文件时，用指定的后缀“SUFFIX”代替文件的默认后缀；
+-b：覆盖已存在的文件目标前将目标文件备份；
+-v：详细显示命令执行的操作。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这里最常用的还是 -p 选项和-r选项以及-v选项
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-cp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Devops资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -253,952 +1238,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Linux命令基础-rmdir" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-rmdir/">Linux命令基础-rmdir</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-rmdir/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:58:24.991Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>rmdir命令用来删除空目录。当目录不再被使用时，或者磁盘空间已到达使用限定值，就需要删除失去使用价值的目录。利用rmdir命令可以从一个目录中删除一个或多个空的子目录。该命令从一个目录中删除一个或多个子目录，其中dirname佬表示目录名。如果dirname中没有指定路径，则删除当前目录下由dirname指定的目录；如dirname中包含路径，则删除指定位置的目录。删除目录时，必须具有对其父目录的写权限。
-
-注意：子目录被删除之前应该是空目录。就是说，该目录中的所有文件必须用rm命令全部，另外，当前工作目录必须在被删除目录之上，不能是被删除目录本身，也不能是被删除目录的子目录。
-
-虽然还可以用带有-r选项的rm命令递归删除一个目录中的所有文件和该目录本身，但是这样做存在很大的危险性。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>rmdir(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-p或--parents：删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除； --ignore-fail-on-non-empty：此选项使rmdir命令忽略由于删除非空目录时导致的错误信息；
--v或-verboes：显示命令的详细执行过程；
---help：显示命令的帮助信息；
---version：显示命令的版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# rmdir /mnt/haha/hello/
-[root@localhost ~]# tree /mnt/
-/mnt/
-├── haha
-└── hgfs
-
-rmdir 只能删除空目录
-[root@localhost ~]# clear
-[root@localhost ~]# tree /mnt
-/mnt
-├── haha
-│   └── hello.ttx
-└── hgfs
-2 directories, 1 file
-[root@localhost ~]# rmdir /mnt/haha/
-rmdir: failed to remove ‘/mnt/haha/’: Directory not empty
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-rmdir/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-mkdir" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-mkdir/">Linux命令基础-mkdir</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-mkdir/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:51:02.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>mkdir命令用来创建目录。该命令创建由dirname命名的目录。如果在目录名的前面没有加任何路径名，则在当前目录下创建由dirname指定的目录；如果给出了一个已经存在的路径，将会在该目录下创建一个指定的目录。在创建目录时，应保证新建的目录与它所在目录下的文件没有重名。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>mkdir (选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-Z：设置安全上下文，当使用SELinux时有效；
--m&lt;目标属性&gt;或--mode&lt;目标属性&gt;建立目录的同时设置目录的权限；
--p或--parents 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录；
---version 显示版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# mkdir -pv  /mnt/haha/hello
-mkdir: created directory ‘/mnt/haha’
-mkdir: created directory ‘/mnt/haha/hello’
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-mkdir/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-echo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-echo/">Linux命令基础-echo</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-echo/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:51:02.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>echo命令用于在shell中打印shell变量的值，或者直接输出指定的字符串。linux的echo命令，在shell编程中极为常用, 在终端下打印变量value的时候也是常常用到的，因此有必要了解下echo的用法echo命令的功能是在显示器上显示一段文字，一般起到一个提示的作用。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>echo(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-e：激活转义字符。 使用-e选项时，若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出：
-\a 发出警告声；
-\b 删除前一个字符；
-\c 最后不加上换行符号；
-\f 换行但光标仍旧停留在原来的位置；
-\n 换行且光标移至行首；
-\r 光标移至行首，但不换行；
-\t 插入tab；
-\v 与\f相同；
-\\ 插入\字符；
-\nnn 插入nnn（八进制）所代表的ASCII字符；
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# echo -e &quot;\e[1;42mGreed Background\e[0m&quot;
-Greed Background
-
-文字闪动效果，5m表示光标闪烁 0m表示光标停止闪烁
-[root@localhost ~]# echo -e &quot;\033[37;31;5mMySQL Server Stop...\033[39;49;0m&quot;
-MySQL Server Stop...
-
-
-可以选择的编码如下所示(这些颜色是ANSI标准颜色)：
-      编码          颜色/动作
-      0      　     重新设置属性到缺省设置
-      1     　      设置粗体
-      2     　      设置一半亮度(模拟彩色显示器的颜色)
-      4     　      设置下划线(模拟彩色显示器的颜色)
-      5     　      设置闪烁
-      7     　      设置反向图象
-      22    　      设置一般密度
-      24    　      关闭下划线
-      25     　     关闭闪烁
-      27     　     关闭反向图象
-      30      　    设置黑色前景
-      31   　       设置红色前景
-      32   　       设置绿色前景
-      33   　       设置黄色前景
-      34   　       设置蓝色前景
-      35    　      设置紫色前景
-      36     　     设置青色前景
-      37    　      设置白色(灰色)前景
-      38      　    在缺省的前景颜色上设置下划线
-      39      　    在缺省的前景颜色上关闭下划线
-      40      　    设置黑色背景
-      41      　    设置红色背景
-      42     　     设置绿色背景
-      43     　     设置黄色背景
-      44     　     设置蓝色背景
-      45     　     设置紫色背景
-      46     　     设置青色背景
-      47      　    设置白色(灰色)背景
-      49      　    设置缺省黑色背景
-其他有趣的代码还有：
-      \033[2J  　   清除屏幕
-      \033[0q  　   关闭所有的键盘指示灯
-      \033[1q 　    设置&quot;滚动锁定&quot;指示灯(Scroll Lock)
-      \033[2q 　    设置&quot;数值锁定&quot;指示灯(Num Lock)
-      \033[3q 　    设置&quot;大写锁定&quot;指示灯(Caps Lock)
-      \033[15:40H   把关闭移动到第15行，40列
-      \007  　　    发蜂鸣生beep
-
-
-关注更多的可以查看这个网址
-
-http://blog.csdn.net/xin_yu_xin/article/details/46948079
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-echo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-touch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-touch/">Linux命令基础-touch</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-touch/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:51:01.938Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>touch命令有两个功能：一是用于把已存在文件的时间标签更新为系统当前的时间（默认方式），它们的数据将原封不动地保留下来；二是用来创建新的空文件。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>touch(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：或--time=atime或--time=access或--time=use 只更改存取时间；
--c：或--no-create 不建立任何文件；
--d：&lt;时间日期&gt; 使用指定的日期时间，而非现在的时间；
--f：此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题；
--m：或--time=mtime或--time=modify 只更该变动时间；
--r：&lt;参考文件或目录&gt; 把指定文件或目录的日期时间，统统设成和参考文件或目录的日期时间相同；
--t：&lt;日期时间&gt; 使用指定的日期时间，而非现在的时间；
---help：在线帮助；
---version：显示版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这个比较简单，大家简单尝试一下就可以了！！
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-touch/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-head" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-head/">Linux命令基础-head</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-head/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:17.898Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>head命令用于显示文件的开头的内容。在默认情况下，head命令显示文件的头10行内容。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>head(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-n&lt;数字&gt;：指定显示头部内容的行数；
--c&lt;字符数&gt;：指定显示头部内容的字符数；
--v：总是显示文件名的头信息；
--q：不显示文件名的头信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# head  -v anaconda-ks.cfg
-==&gt; anaconda-ks.cfg &lt;==
-#version=DEVEL
-# Demo file
-# hello
-# helo
-# System authorization information
-auth --enableshadow --passalgo=sha512
-# Use CDROM installation media
-cdrom
-# Use graphical install
-graphical
-
-
-显示文件前20行
-[root@localhost ~]# head -20 anaconda-ks.cfg
-#version=DEVEL
-# Demo file
-# hello
-# helo
-# System authorization information
-auth --enableshadow --passalgo=sha512
-# Use CDROM installation media
-cdrom
-# Use graphical install
-graphical
-# Run the Setup Agent on first boot
-firstboot --enable
-ignoredisk --only-use=sda
-# Keyboard layouts
-keyboard --vckeymap=us --xlayouts=&apos;us&apos;
-# System language
-lang en_US.UTF-8
-
-# Network information
-network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
-
-显示文件第10到20行
-[root@localhost ~]# head -20 anaconda-ks.cfg | tail
-# Run the Setup Agent on first boot
-firstboot --enable
-ignoredisk --only-use=sda
-# Keyboard layouts
-keyboard --vckeymap=us --xlayouts=&apos;us&apos;
-# System language
-lang en_US.UTF-8
-
-# Network information
-network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
-[root@localhost ~]#
-
-如果想要显示的时候增加行号，我们可以使用cat命令
-[root@localhost ~]# cat -n anaconda-ks.cfg | head -n 5 | tail -n 2
-     4  # helo
-     5  # System authorization information
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-head/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-pwd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-pwd/">Linux命令基础-pwd</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-pwd/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:17.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>pwd命令以绝对路径的方式显示用户当前工作目录。命令将当前目录的全路径名称（从根目录）写入标准输出。全部目录使用/分隔。第一个/表示根目录，最后一个目录是当前目录。执行pwd命令可立刻得知您目前所在的工作目录的绝对路径名称。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>pwd（选项）
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--help：显示帮助信息；
---version：显示版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# pwd /root
-/root
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-pwd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-tree/">Linux命令基础-tree</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-tree/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:16.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>tree命令以树状图列出目录的内容。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>tree(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：显示所有文件和目录；
--A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
--C：在文件和目录清单加上色彩，便于区分各种类型；
--d：先是目录名称而非内容；
--D：列出文件或目录的更改时间；
--f：在每个文件或目录之前，显示完整的相对路径名称； -F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;，&quot;/&quot;，&quot;@&quot;，&quot;|&quot;号； -g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；
--i：不以阶梯状列出文件和目录名称；
--l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称； -l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
--n：不在文件和目录清单加上色彩；
--N：直接列出文件和目录名称，包括控制字符；
--p：列出权限标示；
--P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；
--q：用“？”号取代控制字符，列出文件和目录名称； -s：列出文件和目录大小；
--t：用文件和目录的更改时间排序；
--u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
--x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>如果大家的Linux没有tree，那么可以使用yum来进行安装
-
-这个命令主要用的就是 -L 选项 和显示当前目录，我这里就不演示了
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-tree/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-cd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-cd/">Linux命令基础-cd</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-cd/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:16.078Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cd命令用来切换工作目录至dirname。 其中dirName表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的home directory(也就是刚login时所在的目录)。另外，~也表示为home directory的意思，.则是表示目前所在的目录，..则表示目前目录位置的上一层目录。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cd (选项) (参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-p 如果要切换到的目标目录是一个符号连接，直接切换到符号连接指向的目标目录
--L 如果要切换的目标目录是一个符号的连接，直接切换到字符连接名代表的目录，而非符号连接所指向的目标目录。
-- 当仅实用&quot;-&quot;一个选项时，当前工作目录将被切换到环境变量&quot;OLDPWD&quot;所表示的目录。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>cd 进入用户主目录；
-cd ~ 进入用户主目录；
-cd - 返回进入此目录之前所在的目录；
-cd .. 返回上级目录（若当前目录为“/“，则执行完后还在“/&quot;；&quot;..&quot;为上级目录的意思）；
-cd ../.. 返回上两级目录；
-cd !$ 把上个命令的参数作为cd参数使用。
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-cd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-tail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-tail/">Linux命令基础-tail</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-tail/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:12.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>当前位置：首页 » 文件和目录管理 » tail tail命令文件内容查看 tail命令用于输入文件中的尾部内容。tail命令默认在屏幕上显示指定文件的末尾10行。如果给定的文件不止一个，则在显示的每个文件前面加一个文件名标题。如果没有指定文件或者文件名为“-”，则读取标准输入。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>tail(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--retry：即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“——follow=name”连用；
--c或——bytes=：输出文件尾部的N（N为整数）个字节内容； -f或；--follow：显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。“-f”与“-fdescriptor”等效； -F：与选项“-follow=name”和“--retry&quot;连用时功能相同；
--n或——line=：输出文件的尾部N（N位数字）行内容。
---pid=&lt;进程号&gt;：与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令； -q或——quiet或——silent：当有多个文件参数时，不输出各个文件名；
--s&lt;秒数&gt;或——sleep-interal=&lt;秒数&gt;：与“-f”选项连用，指定监视文件变化时间隔的秒数； -v或——verbose：当有多个文件参数时，总是输出各个文件名；
---help：显示指令的帮助信息；
---version：显示指令的版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>tail file （显示文件file的最后10行）
-tail +20 file （显示文件file的内容，从第20行至文件末尾）
-tail -c 10 file （显示文件file的最后10个字符）
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-tail/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1319,7 +1361,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1327,19 +1369,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1347,7 +1377,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1355,11 +1385,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1379,11 +1405,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1399,26 +1449,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
               </li>
              
@@ -1428,6 +1458,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1451,19 +1489,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
+                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1475,14 +1513,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
@@ -1491,19 +1521,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1519,6 +1553,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
@@ -1527,15 +1565,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1543,7 +1577,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1551,11 +1589,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1567,18 +1621,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STM32</a>
               </li>
              
@@ -1587,11 +1629,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">

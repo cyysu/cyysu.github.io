@@ -164,6 +164,1326 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux命令基础-less" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/Linux命令基础-less/">Linux命令基础-less</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/Linux命令基础-less/" class="archive-article-date">
+  	<time datetime="2017-04-08T15:21:15.622Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>less命令的作用与more十分相似，都可以用来浏览文字档案的内容，不同的是less命令允许用户向前或向后浏览文件，而more命令只能向前浏览。用less命令显示文件时，用PageUp键向上翻页，用PageDown键向下翻页。要退出less程序，应按Q键。
+
+
+less命令比较好用的就是支持 &quot;↑&quot; 和 &quot;↓&quot; 操作了,还有就是支持显示行号了。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><p>   SYNOPSIS<br>   less -?<br>   less –help<br>   less -V<br>   less –version<br>   less [-[+]aABcCdeEfFgGiIJKLmMnNqQrRsSuUVwWX~]<br>        [-b space] [-h lines] [-j line] [-k keyfile]<br>        [-{oO} logfile] [-p pattern] [-P prompt] [-t tag]<br>        [-T tagsfile] [-x tab,…] [-y lines] [-[z] lines]<br>        [-# shift] [+[+]cmd] [–] [filename]…<br>   (See the OPTIONS section for alternate option syntax with long option names.)</p>
+<h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-e：文件内容显示完毕后，自动退出；
+-f：强制显示文件；
+-g：不加亮显示搜索到的所有关键词，仅显示当前显示的关键字，以提高显示速度；
+-l：搜索时忽略大小写的差异；
+-N：每一行行首显示行号；
+-s：将连续多个空行压缩成一行显示；
+-S：在单行显示较长的内容，而不换行显示；
+-x&lt;数字&gt;：将TAB字符显示为指定个数的空格字符。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code> [root@localhost ~]# less -N anaconda-ks.cfg
+ 1 #version=DEVEL
+ 2 # Demo file
+ 3 # hello
+ 4 # helo
+ 5 # System authorization information
+ 6 auth --enableshadow --passalgo=sha512
+ 7 # Use CDROM installation media
+ 8 cdrom
+ 9 # Use graphical install
+10 graphical
+11 # Run the Setup Agent on first boot
+12 firstboot --enable
+13 ignoredisk --only-use=sda
+14 # Keyboard layouts
+15 keyboard --vckeymap=us --xlayouts=&apos;us&apos;
+16 # System language
+17 lang en_US.UTF-8
+18
+19 # Network information
+20 network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
+21 network  --hostname=localhost.localdomain
+22
+23 # Root password
+24 rootpw --iscrypted $6$An162lZ8.Z3YBLxq$8Use.ICT.2bM4wz5JcFym9v0UOXgkkZwvzXbTW3o5wsKjcMcf.YOOOdCxmOGCpRYIyGBuGVGttn5CnHqk8UCR0
+25 # System services
+26 services --enabled=&quot;chronyd&quot;
+27 # System timezone
+28 timezone America/New_York --isUtc
+29 # X Window System configuration information
+30 xconfig  --startxonboot
+    anaconda-ks.cfg
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/Linux命令基础-less/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-more" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/Linux命令基础-more/">Linux命令基础-more</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/Linux命令基础-more/" class="archive-article-date">
+  	<time datetime="2017-04-08T15:21:15.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，支持vi中的关键字定位操作。more名单中内置了若干快捷键，常用的有H（获得帮助信息），Enter（向下翻滚一行），空格（向下滚动一屏），Q（退出命令）
+
+该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比：--More--（XX%）可以用下列不同的方法对提示做出回答：
+
+按Space键：显示文本的下一屏内容。
+按Enier键：只显示文本的下一行内容。
+按斜线符|：接着输入一个模式，可以在文本中寻找下一个相匹配的模式。
+按H键：显示帮助屏，该屏上有相关的帮助信息。
+按B键：显示上一屏内容。 按Q键：退出rnore命令。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>more(语法)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>+&lt;数字&gt;： 从笫n行开始显示
+-&lt;数字&gt;： 定义屏幕大小为n行
++/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示
+-c        从顶部清屏，然后显示
+-d        提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能
+-l        忽略Ctrl+l（换页）字符
+-p        通过清除窗口而不是滚屏来对文件进行换页，与-c选项相似
+-s        把连续的多个空行显示为一行
+-u        把文件内容中的下画线去掉
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# more -10 anaconda-ks.cfg
+#version=DEVEL
+# Demo file
+# hello
+# helo
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# Use CDROM installation media
+cdrom
+# Use graphical install
+graphical
+--More--(11%)
+
+
+[root@localhost ~]# more +/network anaconda-ks.cfg
+...skipping
+# Network information
+network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
+network  --hostname=localhost.localdomain
+@development
+@dial-up
+@directory-client
+@fonts
+@gnome-desktop
+@guest-agents
+--More--(70%)
+
+其实more命令我这边用的不是怎么多，大部分用的还是less命令，让我们来看下一篇关于less的博客的！
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/Linux命令基础-more/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-cat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/Linux命令基础-cat/">Linux命令基础-cat</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/Linux命令基础-cat/" class="archive-article-date">
+  	<time datetime="2017-04-08T14:24:24.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cat(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-n或-number：有1开始对所有输出的行数编号；
+-b或--number-nonblank：和-n相似，只不过对于空白行不编号；
+-s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行；
+-A：显示不可打印字符，行尾显示“$”；
+-e：等价于&quot;-vE&quot;选项
+-t：等价于&quot;-vT&quot;选项；
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# cat /etc/fstab
+#
+# /etc/fstab
+# Created by anaconda on Mon Apr  3 18:32:24 2017
+#
+# Accessible filesystems, by reference, are maintained under &apos;/dev/disk&apos;
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/cl-root     /                       xfs     defaults        0 0
+UUID=a4fcb234-a261-44f8-9653-6d3ed094a989 /boot xfs     defaults        0 0
+/dev/mapper/cl-swap     swap                    swap    defaults        0 0
+
+
+[root@localhost ~]# cat &gt; test.txt              ## ctrl + D 停止输入
+welcome to use cat command
+bye
+bye
+[root@localhost ~]# cat test.txt
+welcome to use cat command
+bye
+bye
+
+
+
+我们一般不会像上面那样做，我们使用下面这种方式对文件进行追加操作。我这里为了测试在末尾输入eof
+没有和结尾处定义的一致，也说明了Linux是区分大小写的。
+[root@localhost ~]# cat &gt; Demo.txt &lt;&lt; EOF
+&gt; HELLO WORLD
+&gt; welcome to linux world
+&gt; bye
+&gt; eof
+&gt; EOF
+[root@localhost ~]# cat Demo.txt
+HELLO WORLD
+welcome to linux world
+bye
+eof
+
+
+将两个文件的内容和并到一个文件里面
+[root@localhost ~]# cat Demo.txt test.txt &gt; Demo-test.txt
+[root@localhost ~]# cat Demo.txt
+HELLO WORLD
+welcome to linux world
+bye
+eof
+[root@localhost ~]# cat test.txt
+welcome to use cat command
+bye
+bye
+[root@localhost ~]# cat Demo-test.txt
+HELLO WORLD
+welcome to linux world
+bye
+eof
+welcome to use cat command
+bye
+bye
+
+
+
+如果加上-n选项表示的是显示文件的行号
+[root@localhost ~]# cat -n Demo-test.txt
+ 1  HELLO WORLD
+ 2  welcome to linux world
+ 3  bye
+ 4  eof
+ 5  welcome to use cat command
+ 6  bye
+ 7  bye
+
+
+如果想要对文件进行追加操作，那么需要使用 &gt;&gt; 操作符  其中!$ 表示上一条命令的最后一个参数
+[root@localhost ~]# cat Demo.txt test.txt  &gt;&gt; Demo-test.txt
+[root@localhost ~]# cat -n !$
+cat -n Demo-test.txt
+     1  HELLO WORLD
+     2  welcome to linux world
+     3  bye
+     4  eof
+     5  welcome to use cat command
+     6  bye
+     7  bye
+     8  HELLO WORLD
+     9  welcome to linux world
+    10  bye
+    11  eof
+    12  welcome to use cat command
+    13  bye
+    14  bye
+
+
+这里我们使用cat命令查看我们系统版本来结束我们本篇文章
+[root@localhost ~]# cat /etc/redhat-release
+CentOS Linux release 7.3.1611 (Core)
+
+[root@localhost ~]# cat /proc/version
+Linux version 3.10.0-514.10.2.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-11) (GCC) ) #1 SMP Fri Mar 3 00:04:05 UTC 2017
+
+还有一个可以查看内核版本的命令
+[root@localhost ~]# uname -r
+3.10.0-514.10.2.el7.x86_64
+
+同时还有一个命令可以查看，这个命令有些版本可能没有，你可以选择去用yum安装，我在CentOS7进行测试的时候是没有的
+在CentOS6.8上可以完美得出结果
+[root@node1 ~]# lsb_release -a
+LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
+Distributor ID: CentOS
+Description:    CentOS release 6.8 (Final)
+Release:    6.8
+Codename:   Final
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/Linux命令基础-cat/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-ls" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/Linux命令基础-ls/">Linux命令基础-ls</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/Linux命令基础-ls/" class="archive-article-date">
+  	<time datetime="2017-04-08T13:25:56.106Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>ls命令用来显示目标列表，在Linux中是使用率较高的命令。ls命令的输出信息可以进行彩色加亮显示，以分区不同类型的文件。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>ls（选项）（参数）
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：显示所有档案及目录（ls内定将档案名或目录名称为“.”的视为影藏，不会列出）
+
+-A：显示除影藏文件“.”和“..”以外的所有文件列表； -C：多列显示输出结果。这是默认选项；
+
+-l：与“-C”选项功能相反，所有输出信息用单列格式输出，不输出为多列；
+
+-F：在每个输出项后追加文件的类型标识符，具体含义：“*”表示具有可执行权限的普通文件，“/”表示目录，“@”表示符号链接，“|”表示命令管道FIFO，“=”表示sockets套接字。当文件为普通文件时，不输出任何标识符；
+
+-b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出； -c：与“-lt”选项连用时，按照文件状态时间排序输出目录内容，排序的依据是文件的索引节点中的ctime字段。与“-l”选项连用时，则排序的一句是文件的状态改变时间；
+
+-d：仅显示目录名，而不显示目录下的内容列表。显示符号链接文件本身，而不显示其所指向的目录列表；
+
+-f：此参数的效果和同时指定“aU”参数相同，并关闭“lst”参数的效果；
+
+-i：显示文件索引节点号（inode）。一个索引节点代表一个文件；
+
+--file-type：与“-F”选项的功能相同，但是不显示“*”； -k：以KB（千字节）为单位显示文件大小； -l：以长格式显示目录下的内容列表。输出的信息从左到右依次包括文件名，文件类型、权限模式、硬连接数、所有者、组、文件大小和文件的最后修改时间等； -m：用“,”号区隔每个文件和目录的名称； -n：以用户识别码和群组识别码替代其名称；
+
+-r：以文件名反序排列并输出目录内容列表； -s：显示文件和目录的大小，以区块为单位；
+
+-t：用文件和目录的更改时间排序；
+
+-L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录；
+
+-R：递归处理，将指定目录下的所有文件及子目录一并处理；
+
+--full-time：列出完整的日期与时间；
+
+--color[=WHEN]：使用不同的颜色高亮显示不同类型的。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这么多的参数，你都要记住？那你可就犯了大错误！需要的时候你可以找一下男人man啊！！！下面我中针对常用的参数选项进行讲解。
+
+-l 选项：
+
+    [root@localhost ~]# ls -l
+    total 8
+    -rw-------. 1 root root 1607 Apr  4 06:48 anaconda-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
+    -rw-r--r--. 1 root root 1635 Apr  3 22:56 initial-setup-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
+
+    上面这个命令有点长怎么办，我们可以使用alias命令进行简化我们的书写，当然这个在系统中已经帮我们弄好了别名设置，可以使用
+    alias来查看一下系统还有那些的别名设置。
+
+    [root@localhost ~]# alias
+    alias cp=&apos;cp -i&apos;
+    alias egrep=&apos;egrep --color=auto&apos;
+    alias fgrep=&apos;fgrep --color=auto&apos;
+    alias grep=&apos;grep --color=auto&apos;
+    alias l.=&apos;ls -d .* --color=auto&apos;
+    alias ll=&apos;ls -l --color=auto&apos;
+    alias ls=&apos;ls --color=auto&apos;
+    alias mv=&apos;mv -i&apos;
+    alias rm=&apos;rm -i&apos;
+    alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&apos;
+
+    通过 “ll” 命令我们看到的文件大小不够直观，这个时候我们需要用到的参数选项为 -h
+
+- h 选项：
+
+    [root@localhost ~]# ls -l
+    total 8
+    -rw-------. 1 root root 1607 Apr  4 06:48 anaconda-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
+    -rw-r--r--. 1 root root 1635 Apr  3 22:56 initial-setup-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
+
+    通过对比我们可以看出显示文件大小更直观了，这个选项可以理解成以human的方式去查看。
+
+    [root@localhost ~]# ls -lh
+    total 8.0K
+    -rw-------. 1 root root 1.6K Apr  4 06:48 anaconda-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
+    -rw-r--r--. 1 root root 1.6K Apr  3 22:56 initial-setup-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
+
+- a 选项：
+
+    在windows我们都知道系统中有隐藏文件，在Linux中也是不例外的。我们可以使用 - a 选项进行查看所有文件
+
+    [root@localhost ~]# ll -ah
+    total 48K
+    dr-xr-x---. 14 root root 4.0K Apr  8 20:39 .
+    dr-xr-xr-x. 17 root root  233 Apr  4 06:47 ..
+    -rw-------.  1 root root 1.6K Apr  4 06:48 anaconda-ks.cfg
+    -rw-------.  1 root root  758 Apr  4 15:40 .bash_history
+    -rw-r--r--.  1 root root   18 Dec 29  2013 .bash_logout
+    -rw-r--r--.  1 root root  176 Dec 29  2013 .bash_profile
+    -rw-r--r--.  1 root root  176 Dec 29  2013 .bashrc
+    drwx------. 11 root root  284 Apr  8 20:39 .cache
+    drwx------. 15 root root  276 Apr  3 23:09 .config
+    -rw-r--r--.  1 root root  100 Dec 29  2013 .cshrc
+    drwx------.  3 root root   25 Apr  4 06:52 .dbus
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Downloads
+    -rw-------.  1 root root   16 Apr  3 23:08 .esd_auth
+    -rw-------.  1 root root  938 Apr  8 20:39 .ICEauthority
+    -rw-r--r--.  1 root root 1.6K Apr  3 22:56 initial-setup-ks.cfg
+    drwxr-xr-x.  3 root root   19 Apr  3 22:55 .local
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Public
+    -rw-r--r--.  1 root root  129 Dec 29  2013 .tcshrc
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Templates
+    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Videos
+    -rw-------.  1 root root 1.8K Apr  3 23:26 .viminfo
+
+- d 选项：
+
+    有些时候我们只想查看一下文件夹的属性，这个时候我们就要用到了 - d 选项
+
+    [root@localhost init.d]# ls -d /etc/init.d/
+    /etc/init.d/
+
+    [root@localhost init.d]# ll -dh /etc/init.d/
+    drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/init.d/
+
+- i 选项：
+
+    索引节点（index inode简称为“inode”）是Linux中一个特殊的概念，具有相同的索引节点号的两个文本本质上是同一个文件（除文件名不同外）。
+
+    这里我们以查看 /etc/下的文件进行讲解，大家可以看到下面你的grub2.cfg文件是链接到了../boot/grub2/grub.cfg
+    以及我们常用的脚本目录 init.d 链接到了 rc.d/init.d
+
+    [root@localhost init.d]# ll /etc/
+    total 1416
+
+    drwxr-xr-x.  2 root root        6 Nov  5 21:44 gdbinit.d
+    drwxr-xr-x.  6 root root      107 Apr  4 06:42 gdm
+    drwxr-xr-x.  2 root root       26 Apr  4 06:38 geoclue
+    -rw-r--r--.  1 root root      842 Nov  6 04:29 GeoIP.conf
+    -rw-r--r--.  1 root root      858 Nov  6 04:29 GeoIP.conf.default
+    drwxr-xr-x.  3 root root       18 Mar  3 16:07 ghostscript
+    drwxr-xr-x.  2 root root        6 Nov  6 00:06 gnupg
+    -rw-r--r--.  1 root root       94 Apr 29  2015 GREP_COLORS
+    drwxr-xr-x.  4 root root       40 Apr  4 06:34 groff
+    -rw-r--r--.  1 root root      954 Apr  3 23:13 group
+    -rw-r--r--.  1 root root      954 Apr  3 23:13 group-
+    lrwxrwxrwx.  1 root root       22 Apr  4 06:43 grub2.cfg -&gt; ../boot/grub2/grub.cfg
+    drwx------.  2 root root      182 Apr  4 06:47 grub.d
+    ----------.  1 root root      768 Apr  3 23:01 gshadow
+    ----------.  1 root root      757 Apr  4 06:43 gshadow-
+    drwxr-xr-x.  3 root root       20 Dec  7 02:34 gss
+    drwxr-xr-x.  2 root root       27 Apr  4 06:39 gssproxy
+    -rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
+    -rw-r--r--.  1 root root       22 Apr  4 06:47 hostname
+    -rw-r--r--.  1 root root      158 Jun  7  2013 hosts
+    -rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
+    -rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
+    drwxr-xr-x.  2 root root       24 Apr  4 06:39 hp
+    -rw-r--r--.  1 root root     3580 Nov  6 09:18 idmapd.conf
+    lrwxrwxrwx.  1 root root       11 Apr  4 06:33 init.d -&gt; rc.d/init.d
+
+    可以看到两个文件的inode的节点数是一样的，表明这其实文件内容是一样的。
+
+    [root@localhost init.d]# ll -id /etc/init.d/
+    56140 drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/init.d/
+
+    [root@localhost init.d]# ll -id /etc/rc.d/init.d/
+    56140 drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/rc.d/init.d/
+
+- t 选项：
+
+    如果我们想查看最近修改的文件  那么我们可以使用-t选项
+
+    [root@localhost ~]# ll -t
+    total 8
+    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
+    -rw-------. 1 root root 1619 Apr  8 21:16 anaconda-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
+
+    [root@localhost ~]# vim anaconda-ks.cfg                             #这个编辑器后面会讲到
+
+    [root@localhost ~]# ll -t
+    total 8
+    -rw-------. 1 root root 1635 Apr  8 21:19 anaconda-ks.cfg
+    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
+
+-- color 选项：
+
+    列出文件并标记颜色分类，当然这个命令的别名系统已经帮我们做好了，再上面我们也可以看到
+
+    [root@localhost ~]# ll --color=auto
+    total 8
+    -rw-------. 1 root root 1635 Apr  8 21:19 anaconda-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
+    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
+    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/Linux命令基础-ls/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于Linux命令基础博客更新体系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/关于Linux命令基础博客更新体系/">关于Linux命令基础博客更新体系</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/07/关于Linux命令基础博客更新体系/" class="archive-article-date">
+  	<time datetime="2017-04-07T15:10:40.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux基础命令更新体系"><a href="#Linux基础命令更新体系" class="headerlink" title="Linux基础命令更新体系"></a>Linux基础命令更新体系</h2><pre><code>1. 软件包的管理
+
+2. 文件目录管理
+
+3. 用户管理
+
+4. 磁盘分区
+
+5. 源码编译
+
+6. 网络管理
+
+7. 防火墙
+</code></pre><h2 id="更新体系详细说明"><a href="#更新体系详细说明" class="headerlink" title="更新体系详细说明"></a>更新体系详细说明</h2><pre><code>更新内容如上面所示，在每一个模块内会有多个命令进行介绍，然后进行最后目录的汇总。
+预计在7天左右更新完以上内容。
+</code></pre><h2 id="关于下一阶段更新内容介绍"><a href="#关于下一阶段更新内容介绍" class="headerlink" title="关于下一阶段更新内容介绍"></a>关于下一阶段更新内容介绍</h2><pre><code>学习完了命令，就的学学写一下脚本吧！一直在命令行中敲代码多累呀！！哈哈，这个阶段将保持1个月左右，
+争取让大家可以达到入门级别。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/07/关于Linux命令基础博客更新体系/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-MogileFS分布式系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/MogileFS分布式系统/">MogileFS分布式系统</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/07/MogileFS分布式系统/" class="archive-article-date">
+  	<time datetime="2017-04-07T06:36:32.843Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><pre><code>什么是MFS文件系统？
+　　 Moose File System 是一个具备容错功能的网络分布式文件系统，它将数据分布在网络中的不同服务器上，MooseFS 通过 FUSE 使之看起来就是一个 Unix 的文件系统。
+
+　　 MFS文件系统个人理解: 将分布在各个范围的计算机,将他们未使用的分区统一进行管理使用的一种文件系统。
+
+MFS文件系统结构：
+包含3种角色:
+        管理服务器managing server (master)
+        数据存储服务器data servers (chunkservers)
+        客户机挂载使用client computers
+</code></pre><h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><pre><code>Mogilefs工作原理：
+
+MogileFS是一个开源的分布式文件系统。其特性包括：应用层的组件、无单点故障、自动文件复制 主要由mogilefsd和mogstored两个程序组成。前者即是mogilefsd的tracker，它将一些全局信息保存在数据库里，例如站点domain,class,host等。后者即是存储节点(store node)，它其实是个HTTP Daemon，默认侦听在7500端口，接受客户端的文件备份请求。在安装完后，要运行mogadm工具将所有的store node注册到mogilefsd的数据库里，mogilefsd会对这些节点进行管理和监控。
+
+
+tracker 节点： 借助数据库保存各节点文件的元数据信息保存每个域中所有键的存储位置分布 , 方便检索定位数据位置的同时监控各节点，告诉客户端存储区位置并指挥 storage 节点复制数据副本，进程名为 mogilefsd(7001) 。
+
+database 节点： 为 tracker 节点提供数据存取服务。
+
+storage 节点： 将指定域中的键转换为其特有的文件名存储在指定的设备文件中，转换后的文件名为值， storage 节点自动维护键值的对应关系， storage 节点由于使用 http 进行数据传输，因此依赖于 perlbal ， storage 节点前端可以使用 nginx 进行反向代理，但需要安装 nginx-mogilefs-module-master 模块进行名称转换。
+
+Domain ： 一个域中的键值是惟一的，一个 MogileFS 可以有多个域，域可以用来存储不同应用类型的数据的容器。
+
+Host ： 每一个存储节点称为一个主机，一个主机上可以有多个存储设备 ( 单独的硬盘 ) ，每个设备都有 ID 号， Domain+Fid 用来定位文件。
+
+Class: 复制最小单位 , 文件属性管理，定义文件存储在不同设备上份数。
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://bbs.chinaunix.net/tree/index_304_1/" target="_blank" rel="external">汇总连接</a></p>
+<p><a href="http://www.cnblogs.com/adolfmc/p/4238604.html" target="_blank" rel="external">MogileFS和FastDFS</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-09/122947.htm" target="_blank" rel="external">分布式MogileFS</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/07/MogileFS分布式系统/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-RHCS-GFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/RHCS-GFS/">RHCS-gfs</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/07/RHCS-GFS/" class="archive-article-date">
+  	<time datetime="2017-04-07T06:05:01.341Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><ol>
+<li>ISCSI配置教程   <a href="http://vicdu.blog.51cto.com/4604557/1427290" target="_blank" rel="external">http://vicdu.blog.51cto.com/4604557/1427290</a></li>
+</ol>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://img1.ph.126.net/jPGxmUhW97RzuEt24cVnsQ==/6632376184536083764.jpg" alt=""></p>
+<hr>
+<p><img src="http://img1.ph.126.net/Mc9Oq55N74t818lfkWHY8g==/6632453150350036054.jpg" alt=""></p>
+<hr>
+<p><img src="http://img0.ph.126.net/GmRdPdk-U49ngrS-izeuAg==/6631925384771375640.jpg" alt=""></p>
+<hr>
+<p><img src="http://img1.ph.126.net/vSbHHLykeltzCMdI2c4j5Q==/6632181570980647255.jpg" alt=""></p>
+<hr>
+<p><img src="http://img2.ph.126.net/yfsi8CJUdjP3WLX3hBUBLg==/6632218954376023253.jpg" alt=""></p>
+<hr>
+<p><img src="http://img1.ph.126.net/mIWwlCEIWoTlG41uvSSlDA==/6632610380512816423.jpg" alt=""></p>
+<hr>
+<p><img src="http://img0.ph.126.net/SkSjyjsI1ctsP1YdIUJF7A==/6632469643024452585.jpg" alt=""></p>
+<hr>
+<p><img src="http://img2.ph.126.net/jpl-maFjUGBY7lwOoXa6Ng==/6632125495887627695.jpg" alt=""></p>
+<hr>
+<p><img src="http://img0.ph.126.net/4rDzMmnRHDuTDp2VgocFUA==/6632089212003915183.jpg" alt=""></p>
+<hr>
+<p><img src="http://img2.ph.126.net/CK-vSGP78fFokX2DKe_7FQ==/6632469643024452590.jpg" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/07/RHCS-GFS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-rhcs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/07/rhcs/">rhcs</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/07/rhcs/" class="archive-article-date">
+  	<time datetime="2017-04-07T02:50:48.044Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><ol>
+<li><p>RHCS完全配置手册             <a href="https://wenku.baidu.com/view/10a1b31aa8114431b90dd8a8.html" target="_blank" rel="external">https://wenku.baidu.com/view/10a1b31aa8114431b90dd8a8.html</a></p>
+</li>
+<li><p>RHCS概念                     <a href="http://blog.chinaunix.net/uid-26931379-id-3558604.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26931379-id-3558604.html</a></p>
+</li>
+<li><p>RHCS实战                     <a href="http://blog.chinaunix.net/uid-26931379-id-3558613.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26931379-id-3558613.html</a></p>
+</li>
+<li><p>CentOS6.6+ RHCS              <a href="http://blog.163.com/qiushuhui1989@126/blog/static/2701108920156331823741/" target="_blank" rel="external">http://blog.163.com/qiushuhui1989@126/blog/static/2701108920156331823741/</a></p>
+</li>
+<li><p>红帽RHCS套件搭建与配置       <a href="https://my.oschina.net/leeypp1/blog/294740" target="_blank" rel="external">https://my.oschina.net/leeypp1/blog/294740</a></p>
+</li>
+</ol>
+<p><a href="https://access.redhat.com/documentation/zh-CN/Red_Hat_Enterprise_Linux/6/pdf/Cluster_Administration/Red_Hat_Enterprise_Linux-6-Cluster_Administration-zh-CN.pdf" target="_blank" rel="external">6. RHEL 6 集群配置官方管理手册</a></p>
+<ol>
+<li><p>CentOS6.5搭建RHCS            <a href="http://www.limingit.com/sitecn/itjq/1645_1694.html" target="_blank" rel="external">http://www.limingit.com/sitecn/itjq/1645_1694.html</a></p>
+</li>
+<li><p>RHCS集群搭建                 <a href="http://blog.csdn.net/tjiyu/article/details/52736285" target="_blank" rel="external">http://blog.csdn.net/tjiyu/article/details/52736285</a></p>
+</li>
+<li><p>架构基础                     <a href="http://blog.csdn.net/tjiyu/article/category/6517525" target="_blank" rel="external">http://blog.csdn.net/tjiyu/article/category/6517525</a></p>
+</li>
+</ol>
+<p>10.图文的RHCS集群搭建           <a href="http://www.limingit.com/sitecn/itjq/1645_1694.html" target="_blank" rel="external">http://www.limingit.com/sitecn/itjq/1645_1694.html</a></p>
+<h2 id="官方教程"><a href="#官方教程" class="headerlink" title="官方教程"></a>官方教程</h2><p><a href="http://7vzp5q.com1.z0.glb.clouddn.com/Red_Hat_Enterprise_Linux-6-Cluster_Administration-zh-CN.pdf" target="_blank" rel="external">RHCS6</a></p>
+<h2 id="步骤总结"><a href="#步骤总结" class="headerlink" title="步骤总结"></a>步骤总结</h2><pre><code>1. 同步时间  ntpdate time.windows.com
+
+2. 编辑主机域名解析文件  vim /etc/hosts  以及 hostname xxxx
+
+3. 关闭防火墙 service iptables stop 以及关闭selinux  setenforce 0
+
+4. 关闭NetworkManager  service NetworkManager stop  &amp;&amp; chkconfig NetworkManager off
+
+5. 节点安装 yum install -y ricci  在管理节点上安装 yum install -y luci
+
+6. 修改ricci的密码
+
+7. 在启动服务
+</code></pre><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/1.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/2.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/3.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/6.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/7.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/8.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/9.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/10.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/11.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/15.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/16.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/17.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/18.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/19.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/20.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/21.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/22.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/23.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/24.jpg" alt=""></p>
+<hr>
+<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/25.jpg" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/07/rhcs/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于上一次发布博文更新内容目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/关于上一次发布博文更新内容目录/">关于上一次博文更新目录</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/06/关于上一次发布博文更新内容目录/" class="archive-article-date">
+  	<time datetime="2017-04-06T10:45:55.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.cyysu.cn/2017/04/04/WEB/" target="_blank" rel="external">0.web架构图</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/02/cobbler/" target="_blank" rel="external">1.cobbler</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/03/elkstack-ES/" target="_blank" rel="external">2.架构师日志平台ELKStack-1</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/03/elkstack-Logstash/" target="_blank" rel="external">3.架构师日志平台ELKStack-2</a></p>
+<p><a href="http://www.cyysu.cn/2017/03/30/saltstack1/" target="_blank" rel="external">4.Saltstack-1</a></p>
+<p><a href="http://www.cyysu.cn/2017/03/31/saltstack2/" target="_blank" rel="external">5.Saltstack-2</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/01/saltstack3/" target="_blank" rel="external">6.Saltstack-3</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/01/saltstack4/" target="_blank" rel="external">7.Saltstack-4</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/04/puppet1/" target="_blank" rel="external">8.puppet</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/02/ansible/" target="_blank" rel="external">9.Ansible</a></p>
+<p><a href="http://www.cyysu.cn/2017/03/30/Linux%E5%86%85%E6%A0%B8%E8%A3%81%E5%89%AA/" target="_blank" rel="external">10.Linux定制内核</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/07/rhcs/" target="_blank" rel="external">11.RHCS集群</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/07/RHCS-GFS/" target="_blank" rel="external">12.RHCS-GFS</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/05/mysql%E4%B8%BB%E4%B8%BB%E5%A4%8D%E5%88%B6/" target="_blank" rel="external">13.mysql-复制1</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/06/mysql-LVM%E5%BF%AB%E7%85%A7/" target="_blank" rel="external">14.mysql-复制2</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/05/mysql%E5%A4%8D%E5%88%B6%E8%BF%87%E6%BB%A4%E5%99%A8/" target="_blank" rel="external">15.mysql复制过滤器</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/06/mysql%E9%9B%86%E7%BE%A4-MHA/" target="_blank" rel="external">16.mysql集群</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/05/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" target="_blank" rel="external">17.mysql-主从复制</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/06/mysql-LVM%E5%BF%AB%E7%85%A7/" target="_blank" rel="external">18.mysql-LVM快照备份</a></p>
+<p><a href="http://www.cyysu.cn/2017/04/07/MogileFS%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" target="_blank" rel="external">19.MogileFS分布式系统</a></p>
+<p><a href="http://bbs.chinaunix.net/tree/" target="_blank" rel="external">20.分享一个Linux技术综合性网站</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/06/关于上一次发布博文更新内容目录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-运维技术博客更新通知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -247,969 +1567,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-mysql集群-MHA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/mysql集群-MHA/">mysql集群-MHA</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/06/mysql集群-MHA/" class="archive-article-date">
-  	<time datetime="2017-04-06T10:18:59.278Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#注意</p>
-<pre><code>博客由于七牛的问题无法上传图片，暂时将图片存储在了百度云盘，结果无法显示。大家只要点击那个图片就可以看到有一个链接的The image 点击一下就可以看到那张图片了
-</code></pre><h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>MHA（Master High Availability）目前在MySQL高可用方面是一个相对成熟的解决方案，它由日本DeNA公司youshimaton（现就职于Facebook公司）开发，是一套优秀的作为MySQL高可用性环境下故障切换和主从提升的高可用软件。在MySQL故障切换过程中，MHA能做到在0~30秒之内自动完成数据库的故障切换操作，并且在进行故障切换的过程中，MHA能在最大程度上保证数据的一致性，以达到真正意义上的高可用。
-
-该软件由两部分组成：MHA Manager（管理节点）和MHA Node（数据节点）。MHA Manager可以单独部署在一台独立的机器上管理多个master-slave集群，也可以部署在一台slave节点上。MHA Node运行在每台MySQL服务器上，MHA Manager会定时探测集群中的master节点，当master出现故障时，它可以自动将最新数据的slave提升为新的master，然后将所有其他的slave重新指向新的master。整个故障转移过程对应用程序完全透明。
-
-在MHA自动故障切换过程中，MHA试图从宕机的主服务器上保存二进制日志，最大程度的保证数据的不丢失，但这并不总是可行的。例如，如果主服务器硬件故障或无法通过ssh访问，MHA没法保存二进制日志，只进行故障转移而丢失了最新的数据。使用MySQL 5.5的半同步复制，可以大大降低数据丢失的风险。MHA可以与半同步复制结合起来。如果只有一个slave已经收到了最新的二进制日志，MHA可以将最新的二进制日志应用于其他所有的slave服务器上，因此可以保证所有节点的数据一致性。
-
-目前MHA主要支持一主多从的架构，要搭建MHA,要求一个复制集群中必须最少有三台数据库服务器，一主二从，即一台充当master，一台充当备用master，另外一台充当从库，因为至少需要三台服务器，出于机器成本的考虑，淘宝也在该基础上进行了改造，目前淘宝TMHA已经支持一主一从。
-</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.cnblogs.com/stefan-liu/p/5446263.html" target="_blank" rel="external">MHA原理</a></p>
-<p><a href="http://os.51cto.com/art/201307/401702.htm" target="_blank" rel="external">基于 MHA 方式实现 MySQL 的高可用</a></p>
-<p><a href="http://www.dataguru.cn/thread-457284-1-1.html" target="_blank" rel="external">MySQL高可用架构之MHA 很详细</a></p>
-<p><a href="http://www.cnblogs.com/gomysql/p/3675429.html" target="_blank" rel="external">MySQL高可用架构之MHA</a></p>
-<p><a href="http://www.cnblogs.com/gomysql/p/3662492.html" target="_blank" rel="external">MySQL Replication需要注意的问题</a></p>
-<h2 id="PDF教程"><a href="#PDF教程" class="headerlink" title="PDF教程"></a>PDF教程</h2><p><a href="http://pan.baidu.com/s/1hs7OPFm" target="_blank" rel="external">MHA配置</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://pan.baidu.com/s/1boBMCgR" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1gfxbA3D" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1jI5IVsy" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1qYHcbBe" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1cku5K6" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1pLO5A9X" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1i59iLPN" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1o8DcuLW" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1qY2OS5e" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1i4TRrLV" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/mysql集群-MHA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux基础命令grep" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/Linux基础命令grep/">Linux基础命令-grep|egrep</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/06/Linux基础命令grep/" class="archive-article-date">
-  	<time datetime="2017-04-06T10:17:17.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h2><pre><code>grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
-
-Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。
-</code></pre><h2 id="1-命令参数选项"><a href="#1-命令参数选项" class="headerlink" title="1. 命令参数选项"></a>1. 命令参数选项</h2><pre><code>grep [-acinv] [--color=auto] &apos;搜寻字符串&apos; filename
-选项与参数：
--a ：将 binary 文件以 text 文件的方式搜寻数据
--c ：计算找到 &apos;搜寻字符串&apos; 的次数
--i ：忽略大小写的不同，所以大小写视为相同
--n ：顺便输出行号
--v ：反向选择，亦即显示出没有 &apos;搜寻字符串&apos; 内容的那一行！
---color=auto ：可以将找到的关键词部分加上颜色的显示喔！
-</code></pre><h2 id="2-常见的匹配规则"><a href="#2-常见的匹配规则" class="headerlink" title="2. 常见的匹配规则"></a>2. 常见的匹配规则</h2><pre><code>^      匹配输入字符串的开始位置。
-*      匹配前面的子表达式任意次。
-+      匹配前面的子表达式一次或多次(大于等于1次）。
-?      匹配前面的子表达式零次或一次。
-{n,m}  m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。
-</code></pre><h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><pre><code>grep &apos;\&lt;Tom\&gt;&apos; file                 包含单词Tom的行
-grep &apos;Tom savage&apos; file              包含Tom savage的行
-grep &apos;^Tommy&apos; file                  包含以Tommy开头的行
-grep &apos;\.bak$&apos; file                  包含以.bak结束的行
-grep &apos;[Pp]yramid&apos; file              包含pyramid 或Pyramid的单词的行
-grep &apos;[A-Z]&apos; file                   包含至少一个大写字母的行
-grep &apos;[0-9]&apos; file                   包含至少一个数字的行
-grep &apos;[A-Z]...[0-9]&apos; file           包含五个字符,以大写开头, 和一个数字结尾的行.
-grep -w &apos;[tT]est&apos; file              包含单词和test的行.
-grep -s &apos;ken sun&apos; file              找到包含ken sun的行, 但不打印行, 而是用来检查退出状态.
-grep -v aaa file                    打印不包含aaa的行.
-grep -i cathy file                  打印所有包含cathy的行, 而不考虑大小些.
-grep -l &apos;dear cathy&apos; *              打印包含dear cathy的文件的文件名清单.
-grep -n tom file                    打印匹配的行并追加行号.
-grep &quot;$LOGNAME&quot; file                包含变量内容的行, 注意必须用双引号, 单引号则无法引用变量.
-grep &apos;$name&apos; file                   打印包含字符$name的行.
-</code></pre><h2 id="4-网络教程"><a href="#4-网络教程" class="headerlink" title="4. 网络教程"></a>4. 网络教程</h2><p><a href="http://blog.csdn.net/newthinker_wei/article/details/8219293" target="_blank" rel="external">关于grep和egrep的一些整理</a></p>
-<p><a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856896.html" target="_blank" rel="external">linux grep命令详解</a></p>
-<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5. 正则表达式"></a>5. 正则表达式</h2><p><a href="http://baike.baidu.com/link?url=B5fgKVzAWRE9MPf-tEGrmkABdRzpmgMLoOg-FrTVonMMNuGEUODIxAfksd3FZ_oHg0LR3ncYPylfPUx9fud2cVeqc0hdsm_aT0_rg6dZrTjjDrbFHHciuXUaNhfWg4HNoDkkNXTUoi3hlY5Lhwd78_" target="_blank" rel="external">百度百科</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/Linux基础命令grep/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux基础命令-cron" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/Linux基础命令-cron/">Linux基础命令-cron</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/06/Linux基础命令-cron/" class="archive-article-date">
-  	<time datetime="2017-04-06T09:54:47.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h2><pre><code>crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。
-</code></pre><h2 id="1-crontab文件规范"><a href="#1-crontab文件规范" class="headerlink" title="1. crontab文件规范"></a>1. crontab文件规范</h2><pre><code>*　 *　 *　 *　 *　　command
-分　时　日　月　周　 命令
-
-第1列表示分钟1～59 每分钟用*或者 */1表示
-第2列表示小时1～23（0表示0点）
-第3列表示日期1～31
-第4列表示月份1～12
-第5列标识号星期0～6（0表示星期天）
-第6列要运行的命令
-</code></pre><h2 id="2-命令参数选项"><a href="#2-命令参数选项" class="headerlink" title="2. 命令参数选项"></a>2. 命令参数选项</h2><pre><code>crontab [-u username] [-l|-e|-r]
-选项与参数：
--u  ：只有 root 才能进行这个任务，亦即帮其他使用者创建/移除 crontab 工作排程；
--e  ：编辑 crontab 的工作内容
--l  ：查阅 crontab 的工作内容
--r  ：移除所有的 crontab 的工作内容，若仅要移除一项，请用 -e 去编辑
-</code></pre><h2 id="3-特殊符号含义"><a href="#3-特殊符号含义" class="headerlink" title="3. 特殊符号含义"></a>3. 特殊符号含义</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">特殊符号</th>
-<th style="text-align:center">代表含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">*(星号)</td>
-<td style="text-align:center">代表任何时刻都接受的意思,*代表的是任何时候</td>
-</tr>
-<tr>
-<td style="text-align:center">,(逗号)</td>
-<td style="text-align:center">代表分隔字段的意思</td>
-</tr>
-<tr>
-<td style="text-align:center">-(减号)</td>
-<td style="text-align:center">代表一段时间范围内</td>
-</tr>
-<tr>
-<td style="text-align:center">/n　</td>
-<td style="text-align:center">那个 n 代表数字，也就是每隔 n 单位间隔的意思</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-Demo"><a href="#4-Demo" class="headerlink" title="4. Demo"></a>4. Demo</h2><pre><code>1. 在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup :
-
-#    */20 6-12 * 12 * /usr/bin/backup
-
-2. 周一到周五每天下午 5:00 寄一封信给 alex_mail_name :
-
-#    0 17 * * 1-5 mail -s &quot;hi&quot; alex_mail_name &lt; /tmp/maildata
-
-3. 晚上11点到早上8点之间每两个小时，早上8点
-
-#    0 23-7/2,8 * * * date
-
-4. 每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 echo &quot;haha&quot;
-
-#    20 0-23/2 * * * echo &quot;haha&quot;
-</code></pre><h2 id="5-实例"><a href="#5-实例" class="headerlink" title="5. 实例"></a>5. 实例</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">实例</th>
-<th>代码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">每1分钟执行一次</td>
-<td>/1 <em> </em> <em> </em> command</td>
-</tr>
-<tr>
-<td style="text-align:left">每小时的第15,30,45分钟执行</td>
-<td>15,30,45 <em> </em> <em> </em> command</td>
-</tr>
-<tr>
-<td style="text-align:left">每周一的7点到11点的第25和第50分钟执行</td>
-<td>25,50 7-11 <em> </em> 1 command</td>
-</tr>
-<tr>
-<td style="text-align:left">每周六、周日的3 : 30执行</td>
-<td>30 3 <em> </em> 6,7 command</td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/Linux基础命令-cron/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-mysql-LVM快照" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/mysql-LVM快照/">MysqlLVM快照</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/06/mysql-LVM快照/" class="archive-article-date">
-  	<time datetime="2017-04-06T04:41:20.692Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><pre><code>mysql的数据要存放在LVM卷上,备份二进制日志要在源数据备份
-</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.jb51.net/os/RedHat/337102.html" target="_blank" rel="external">LVM创建教程</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2016-09/135484.htm" target="_blank" rel="external">lvm快照恢复</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2014-10/107697.htm" target="_blank" rel="external">使用LVM创建弹性磁盘存储——第一部分</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2014-10/107786.htm" target="_blank" rel="external">在Linux中扩展/缩减LVM（第二部分）</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2014-11/108867.htm" target="_blank" rel="external">在 LVM中 录制逻辑卷快照并恢复（第三部分）</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2014-11/109757.htm" target="_blank" rel="external">在LVM中设置精简资源调配卷（第四部分）</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2014-12/110532.htm" target="_blank" rel="external">使用条块化I/O管理多个LVM磁盘（第五部分）</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2013-07/87887.htm" target="_blank" rel="external">MySQL高性能备份方案解决数据不间断访问（LVM快照方式备份</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2015-04/116238.htm" target="_blank" rel="external">MySQL基于LVM快照的备份恢复</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onz0j1wor.bkt.clouddn.com/0.jpg" alt=""></p>
-<hr>
-<p><img src="http://onz0j1wor.bkt.clouddn.com/1.jpg" alt=""></p>
-<hr>
-<p><img src="http://onz0j1wor.bkt.clouddn.com/2.jpg" alt=""></p>
-<hr>
-<p><img src="http://onz0j1wor.bkt.clouddn.com/3.jpg" alt=""></p>
-<hr>
-<p><img src="http://onz0j1wor.bkt.clouddn.com/4.jpg" alt=""></p>
-<hr>
-<p><img src="http://onz0j1wor.bkt.clouddn.com/5.jpg" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/mysql-LVM快照/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-mysql备份恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/mysql备份恢复/">mysql备份恢复</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/06/mysql备份恢复/" class="archive-article-date">
-  	<time datetime="2017-04-06T04:41:20.166Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.ha97.com/4197.html" target="_blank" rel="external">MySQL存储引擎MyISAM与InnoDB的主要区别对比</a></p>
-<p><a href="http://www.cnblogs.com/kissdodog/p/4174421.html" target="_blank" rel="external">mysql备份和恢复</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://pan.baidu.com/s/1bpaPhDl" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1jIyXvnS" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1mi7GIvu" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1geBE2H1" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1kVSb7wF" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/mysql备份恢复/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-mysql复制过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/mysql复制过滤器/">mysql复制过滤器</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/05/mysql复制过滤器/" class="archive-article-date">
-  	<time datetime="2017-04-05T14:49:05.627Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#注意</p>
-<pre><code>博客由于七牛的问题无法上传图片，暂时将图片存储在了百度云盘，结果无法显示。大家只要点击那个图片就可以看到有一个链接的The image 点击一下就可以看到那张图片了
-</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://blog.csdn.net/dba_waterbin/article/details/8143284" target="_blank" rel="external">图解</a></p>
-<p><a href="http://blog.csdn.net/yaoqinglin/article/details/46658727" target="_blank" rel="external">参数解析</a></p>
-<p><a href="https://yq.aliyun.com/articles/59268" target="_blank" rel="external">详细解析</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://pan.baidu.com/s/1sl6kA7N" alt=""></p>
-<hr>
-<p><img src="http://pan.baidu.com/s/1clG2uE" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/05/mysql复制过滤器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-云栖社区分享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/云栖社区分享/">云栖社区</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/05/云栖社区分享/" class="archive-article-date">
-  	<time datetime="2017-04-05T14:34:05.287Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>阿里珍贵技术资料免费下载  <a href="https://yq.aliyun.com/articles/69316?spm=5176.100239.topwz.1.5Jr3va" target="_blank" rel="external">https://yq.aliyun.com/articles/69316?spm=5176.100239.topwz.1.5Jr3va</a></p>
-</li>
-<li><p>云栖大会资料下载          <a href="https://yq.aliyun.com/activity/147?spm=5176.100239.blogcont69316.22.IF0ZR8" target="_blank" rel="external">https://yq.aliyun.com/activity/147?spm=5176.100239.blogcont69316.22.IF0ZR8</a></p>
-</li>
-</ol>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/05/云栖社区分享/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-mysql半同步复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/mysql半同步复制/">Mysql半同步复制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/05/mysql半同步复制/" class="archive-article-date">
-  	<time datetime="2017-04-05T14:15:42.912Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://blog.csdn.net/lichangzai/article/details/50554057" target="_blank" rel="external">半同步复制</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onxwyu0t3.bkt.clouddn.com/1.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/2.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/3.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/4.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/5.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/6.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/7.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/8.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/9.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/10.jpg" alt=""></p>
-<hr>
-<p><img src="http://onxwyu0t3.bkt.clouddn.com/11.jpg" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/05/mysql半同步复制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/Linux博客/">Linux博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/05/Linux博客/" class="archive-article-date">
-  	<time datetime="2017-04-05T13:22:25.017Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>Linux运维部落     <a href="http://www.178linux.com/" target="_blank" rel="external">http://www.178linux.com/</a></p>
-</li>
-<li><p>前端技术博客      <a href="http://www.daqianduan.com/" target="_blank" rel="external">http://www.daqianduan.com/</a></p>
-</li>
-<li><p>Linux基础         <a href="http://roclinux.cn/" target="_blank" rel="external">http://roclinux.cn/</a></p>
-</li>
-<li><p>Lamp优化          <a href="http://blog.csdn.net/chinalinuxzend/article/details/1761921" target="_blank" rel="external">http://blog.csdn.net/chinalinuxzend/article/details/1761921</a></p>
-</li>
-<li><p>启程Linux博客     <a href="http://qicheng0211.blog.51cto.com/" target="_blank" rel="external">http://qicheng0211.blog.51cto.com/</a></p>
-</li>
-<li><p>Linux驱动         <a href="http://blog.csdn.net/dansen_xu" target="_blank" rel="external">http://blog.csdn.net/dansen_xu</a></p>
-</li>
-<li><p>Linux技术         <a href="http://qgjie456.blog.163.com/" target="_blank" rel="external">http://qgjie456.blog.163.com/</a></p>
-</li>
-</ol>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/05/Linux博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1330,7 +1690,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,19 +1698,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1358,7 +1706,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1366,11 +1714,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,11 +1734,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1410,26 +1778,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
               </li>
              
@@ -1439,6 +1787,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1462,19 +1818,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
+                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1486,14 +1842,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
@@ -1502,19 +1850,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1530,6 +1882,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
@@ -1538,15 +1894,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1554,7 +1906,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,11 +1918,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1578,18 +1950,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STM32</a>
               </li>
              
@@ -1598,11 +1958,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">

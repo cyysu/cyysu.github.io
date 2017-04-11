@@ -164,6 +164,1358 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Zabbix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/21/Zabbix/">Zabbix</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/21/Zabbix/" class="archive-article-date">
+  	<time datetime="2017-03-21T14:24:16.803Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Zabbix-主要特点"><a href="#1-Zabbix-主要特点" class="headerlink" title="1.Zabbix 主要特点"></a>1.Zabbix 主要特点</h2><pre><code>安装与配置简单，学习成本低 支持多语言（包括中文） 免费开源 自动发现服务器与网络设备分布式监视以及 WEB 集中管理功能 可以无 agent 监视 用户安全认证和柔软的授权方式 通过 WEB 界面设置或查看监视结果 email 等通知功能
+</code></pre><h2 id="2-Zabbix主要功能"><a href="#2-Zabbix主要功能" class="headerlink" title="2. Zabbix主要功能"></a>2. Zabbix主要功能</h2><pre><code>监控CPU负载、内存使用、磁盘使用、网络状态、端口监视、日志监视、插件开发自定义
+</code></pre><h2 id="３-Zabbix-组成"><a href="#３-Zabbix-组成" class="headerlink" title="３.Zabbix 组成"></a>３.Zabbix 组成</h2><pre><code>Zabbix Server 和 Zabbix agent
+
+Zabbix Server 可以通过 SNMP，Zabbix agent，Ping，端口监视等你方法提供对远程服务器/网络状态的 监视，数据收集功能，可以在运行 Linux，Solaris，HP-UX，AIX，FreeBSD，OpenBSD，OX X，Windows 多 平台。
+
+Zabbix Agent 安装在需要被监控的目标服务器上，主要完成对硬件信息与操作系统有关的内存，CPU 等你 信息收集。
+
+Zabbix Server 可以单独监视远程服务器的服务状态，同时也可以与 Zabbix Agent 结合。可以轮询 Zabbix Agent 主动接收监视数据（trapping 传递 方式），同时还可以被动接收 Zabbix Agent 发送的数据。
+</code></pre><h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="http://on625b10n.bkt.clouddn.com/2-30-zabbix%E5%9F%BA%E7%A1%80.docx" target="_blank" rel="external">安装教程</a></p>
+<h2 id="安装前的准备环境"><a href="#安装前的准备环境" class="headerlink" title="安装前的准备环境"></a>安装前的准备环境</h2><p><a href="http://www.cyysu.cn/2017/03/19/LNMP%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/" target="_blank" rel="external">1.LNMP开发环境搭建</a></p>
+<p><a href="http://on625b10n.bkt.clouddn.com/zabbix-3.0.3.tar.gz" target="_blank" rel="external">2.zabbix软件包</a></p>
+<p><a href="http://on625b10n.bkt.clouddn.com/msyh.ttc" target="_blank" rel="external">3.微软雅黑字体</a></p>
+<p><a href="http://on625b10n.bkt.clouddn.com/apache-template.zip" target="_blank" rel="external">4.监控apache配置文件</a></p>
+<h2 id="zabbix-客户端图文教程"><a href="#zabbix-客户端图文教程" class="headerlink" title="zabbix 客户端图文教程"></a>zabbix 客户端图文教程</h2><p><img src="http://on625b10n.bkt.clouddn.com/0.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/20.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/21.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/22.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/23.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/24.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/25.png" alt="教程"></p>
+<hr>
+<p><img src="http://on625b10n.bkt.clouddn.com/26.png" alt="教程"></p>
+<hr>
+<h2 id="zabbix-服务端图文教程"><a href="#zabbix-服务端图文教程" class="headerlink" title="zabbix 服务端图文教程"></a>zabbix 服务端图文教程</h2><p><img src="http://on631a33c.bkt.clouddn.com/1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/20.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/21.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/22.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/23.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/24.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/25.png" alt="教程"></p>
+<hr>
+<p><img src="http://on631a33c.bkt.clouddn.com/26.png" alt="教程"></p>
+<hr>
+<h2 id="这里总结一下服务端配置流程"><a href="#这里总结一下服务端配置流程" class="headerlink" title="这里总结一下服务端配置流程"></a>这里总结一下服务端配置流程</h2><pre><code>1.LNMP环境搭建好，推荐用源码安装的方法
+2.启动nginx服务、启动Mysql服务、启动php-fpm服务、测试环境是否正常
+3.上传zabbix的压缩包3.0.3，解压，创建数据库，创建用户，授权，导入Zabbix的数据库
+        database/mysql/schema.sql
+        database/mysql/images.sql 
+        database/mysql/data.sql
+4.安装zabbix，预编译 直接make install
+5.修改server、agent配置文件、复制启动脚本，启动服务，查看端口
+6.页面初始化Zabbix ，复制源码目录下的php内容到nginx的发布目录下，重启nginx php-fpm
+7.浏览器开始安装Zabbix，修改php的对应的配置文件
+8.如果提示缺少模块，可以重新打模块进入
+</code></pre><h2 id="监控Apache的模板链接"><a href="#监控Apache的模板链接" class="headerlink" title="监控Apache的模板链接"></a>监控Apache的模板链接</h2><p><a href="http://www.zabbix.org/wiki/Main_Page" target="_blank" rel="external">资料1</a></p>
+<p><a href="https://github.com/zabbix/zabbix-community-repos" target="_blank" rel="external">资料2</a></p>
+<p><a href="http://www.douglas.wiki.br/doku.php?id=en:installing_and_configuring_zabbix" target="_blank" rel="external">资料3</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">监控</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Zabbix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/21/Zabbix/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-小工具集合(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/小工具集合(一)/">小工具集合(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/20/小工具集合(一)/" class="archive-article-date">
+  	<time datetime="2017-03-20T15:39:56.775Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="小工具集合-一"><a href="#小工具集合-一" class="headerlink" title="小工具集合(一)"></a>小工具集合(一)</h2><p><a href="http://on4do0xxi.bkt.clouddn.com/GIF%E5%BD%95%E5%88%B6%E5%B7%A5%E5%85%B7.exe" target="_blank" rel="external">1.GIF录制工具</a></p>
+<p><a href="http://on4do0xxi.bkt.clouddn.com/aliyun-yum%E6%BA%90.zip" target="_blank" rel="external">2.yum源-阿里</a></p>
+<p><a href="http://on4do0xxi.bkt.clouddn.com/Linux%E4%BA%91%E8%AE%A1%E7%AE%97%E9%9B%86%E7%BE%A4%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2-V9.8.pdf" target="_blank" rel="external">3.学神ITLinux2017大纲</a></p>
+<p><a href="http://on4do0xxi.bkt.clouddn.com/%E9%A9%AC%E5%93%A52017%E5%85%A8%E6%96%B0Linux%E8%AF%BE%E7%A8%8B%E4%BD%93%E7%B3%BB%E5%A4%A7%E7%BA%B2.pdf" target="_blank" rel="external">4.马哥教育Linux2017大纲</a></p>
+<p><a href="http://on4do0xxi.bkt.clouddn.com/psiphon3.exe" target="_blank" rel="external">5.免费的翻墙软件</a></p>
+<p><a href="http://on4do0xxi.bkt.clouddn.com/%E9%A9%AC%E5%93%A5%E7%AC%94%E8%AE%B0.zip" target="_blank" rel="external">6.马哥教育Linux笔记</a></p>
+<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序员</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/20/小工具集合(一)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-IT资源共享1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/IT资源共享1/">学习资源分享</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/20/IT资源共享1/" class="archive-article-date">
+  	<time datetime="2017-03-20T13:03:38.460Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>开源世界让我拥有了很多资源，也让我学习到了很多知识！有一些人一直默默的为开源界做出贡献，为人类的进步坐着改变！
+
+热爱开源 热爱分享
+</code></pre><hr>
+<h2 id="我希望大家在获取资源的同时将本篇博文进行转发评论，本博客致力于让更多的人可以拥有更好的学习资源！同时还请大家持续关注我的博客，不定期会分享一些学习资源，以及运维的教程！！"><a href="#我希望大家在获取资源的同时将本篇博文进行转发评论，本博客致力于让更多的人可以拥有更好的学习资源！同时还请大家持续关注我的博客，不定期会分享一些学习资源，以及运维的教程！！" class="headerlink" title="我希望大家在获取资源的同时将本篇博文进行转发评论，本博客致力于让更多的人可以拥有更好的学习资源！同时还请大家持续关注我的博客，不定期会分享一些学习资源，以及运维的教程！！"></a><strong>我希望大家在获取资源的同时将本篇博文进行转发评论，本博客致力于让更多的人可以拥有更好的学习资源！同时还请大家持续关注我的博客，不定期会分享一些学习资源，以及运维的教程！！</strong></h2><hr>
+<h2 id="Linux-学习资源"><a href="#Linux-学习资源" class="headerlink" title="Linux 学习资源"></a>Linux 学习资源</h2><p><a href="http://pan.baidu.com/s/1c2Kh0Ak" target="_blank" rel="external">1.2016烨子女神Linux   密码：z1f9</a></p>
+<p><a href="http://pan.baidu.com/s/1kV8xPmn" target="_blank" rel="external">2.阿铭Linux  密码：wdxn</a></p>
+<p><a href="http://pan.baidu.com/s/1hsp7gyC" target="_blank" rel="external">3.Linux0.11内核  密码：cm6o</a></p>
+<p><a href="http://pan.baidu.com/s/1eSBpMTG" target="_blank" rel="external">4.Linux内核 密码：1eq4</a></p>
+<p><a href="http://pan.baidu.com/s/1qY55LWK" target="_blank" rel="external">5.炼数成金 Linux   密码：d1a6</a></p>
+<p><a href="http://pan.baidu.com/s/1sllQVpj" target="_blank" rel="external">6.嵌入式LINUX  密码：1o7k</a></p>
+<p><a href="http://pan.baidu.com/s/1eRXup8Y" target="_blank" rel="external">7.华清远见Linux   密码：87gd</a></p>
+<p><a href="http://pan.baidu.com/s/1i5wW73n" target="_blank" rel="external">8.Linux系统篇  密码：dwv0</a></p>
+<p><a href="http://pan.baidu.com/s/1nvyQszR" target="_blank" rel="external">9.嵌入式学习   密码：etoq</a></p>
+<p><a href="http://pan.baidu.com/s/1cCJTKy" target="_blank" rel="external">10.sundy 嵌入式  密码：ivkq</a></p>
+<h2 id="python-学习资源"><a href="#python-学习资源" class="headerlink" title="python 学习资源"></a>python 学习资源</h2><p><a href="http://pan.baidu.com/s/1kUTMnGj" target="_blank" rel="external">1.python魔鬼训练 密码：u40y</a></p>
+<p><a href="http://pan.baidu.com/s/1kVC18yz" target="_blank" rel="external">2.python运维实战   密码：4ezg</a></p>
+<p><a href="http://pan.baidu.com/s/1geDFzTx" target="_blank" rel="external">3.机器学习  密码：don7</a></p>
+<p><a href="http://pan.baidu.com/s/1slVmlDr" target="_blank" rel="external">4.python web开发 密码：pyw8</a></p>
+<p><a href="http://pan.baidu.com/s/1pLvy3NH" target="_blank" rel="external">5.明星python  密码：b76a</a></p>
+<h2 id="云计算-学习资源"><a href="#云计算-学习资源" class="headerlink" title="云计算 学习资源"></a>云计算 学习资源</h2><p><a href="http://pan.baidu.com/s/1qYIxcBi" target="_blank" rel="external">1.2016炼数成金  密码：7irq</a></p>
+<p><a href="http://pan.baidu.com/s/1sluEvpj" target="_blank" rel="external">2.Hadoop视频    密码：aa04</a></p>
+<p><a href="http://pan.baidu.com/s/1eRM4QZ4" target="_blank" rel="external">3.五套云计算视频  密码：yzjh</a></p>
+<p><a href="http://pan.baidu.com/s/1pL8pCYv" target="_blank" rel="external">4.大数据实战 密码：ry2o</a></p>
+<p><a href="http://pan.baidu.com/s/1geUAzdh" target="_blank" rel="external">5.黑马Hadoop 密码：iats</a></p>
+<p><a href="http://pan.baidu.com/s/1eS1MvPC" target="_blank" rel="external">6.大数据源码 密码：0dnl</a></p>
+<p><a href="http://pan.baidu.com/s/1bYOqJG" target="_blank" rel="external">7.Hadoop多套视频  密码：ftdf</a></p>
+<p><a href="http://pan.baidu.com/s/1nvSC5fj" target="_blank" rel="external">8.传智播客三期大数据   密码：fasq</a></p>
+<p><a href="http://pan.baidu.com/s/1o8wgzH4" target="_blank" rel="external">9.about云 openstack  密码：v8eo</a></p>
+<p><a href="http://pan.baidu.com/s/1slLIKIp" target="_blank" rel="external">10.openstack   密码：luiq</a></p>
+<h2 id="HTML5-学习资源"><a href="#HTML5-学习资源" class="headerlink" title="HTML5 学习资源"></a>HTML5 学习资源</h2><p><a href="http://pan.baidu.com/s/1c3q398" target="_blank" rel="external">1.密码：lofn</a></p>
+<p><a href="http://pan.baidu.com/s/1o8lXcfS" target="_blank" rel="external">2.密码：0wwu</a></p>
+<p><a href="http://pan.baidu.com/s/1cgpQTg" target="_blank" rel="external">3.密码：bjbi</a></p>
+<h2 id="Java-学习资源"><a href="#Java-学习资源" class="headerlink" title="Java 学习资源"></a>Java 学习资源</h2><p><a href="http://pan.baidu.com/s/1i4NKJcx" target="_blank" rel="external">1.密码：w7wa</a></p>
+<p><a href="http://pan.baidu.com/s/1eRSA4UI" target="_blank" rel="external">2.密码：4nha</a></p>
+<h2 id="C-学习资源"><a href="#C-学习资源" class="headerlink" title="C++ 学习资源"></a>C++ 学习资源</h2><p><a href="http://pan.baidu.com/s/1kVE3y4J" target="_blank" rel="external">1.密码：ur51</a></p>
+<p><a href="http://pan.baidu.com/s/1eR4obHg" target="_blank" rel="external">2.密码：f8fm</a></p>
+<h2 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h2><p><a href="http://pan.baidu.com/s/1cgpQWm" target="_blank" rel="external">1. 密码：71r7</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序员</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/20/IT资源共享1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Nagios" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/Nagios/">服务监控Nagios</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/20/Nagios/" class="archive-article-date">
+  	<time datetime="2017-03-20T12:19:02.658Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="今日博文"><a href="#今日博文" class="headerlink" title="今日博文"></a>今日博文</h2><pre><code>今天更新Nagios服务，有一些企业里面会用的到，技多不压身嘛！！  大家有什么问题都可以练习我！！
+一会给大家分享一些好的编程工具和资源，还请大家关注我的博客！每天都有更新哦！
+</code></pre><h2 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h2><p><a href="http://on3sfogdf.bkt.clouddn.com/NSCP-0.4.1.73-x64.msi" target="_blank" rel="external">Nsclient</a><br><a href="http://on3sfogdf.bkt.clouddn.com/nagios-3.5.1.tar.gz" target="_blank" rel="external">Nagios核心文件</a><br><a href="http://on3sfogdf.bkt.clouddn.com/vautour_style.zip" target="_blank" rel="external">vautour_style主题包</a><br><a href="http://on3sfogdf.bkt.clouddn.com/nrpe-2.15.tar.gz" target="_blank" rel="external">nrpe-2.15 </a><br><a href="http://on3sfogdf.bkt.clouddn.com/nagios-plugins-2.1.1.tar.gz" target="_blank" rel="external">Nagios插件存放脚本</a></p>
+<hr>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="http://on3sfogdf.bkt.clouddn.com/2-27-Nagios%E7%9B%91%E6%8E%A7.doc" target="_blank" rel="external">word版本教程</a></p>
+<h2 id="问题解决方案来源"><a href="#问题解决方案来源" class="headerlink" title="问题解决方案来源"></a>问题解决方案来源</h2><p><a href="http://qiangsh.blog.51cto.com/3510397/1729856" target="_blank" rel="external">安装介绍以及注意事项</a><br><a href="http://www.cnblogs.com/hellotracy/articles/5143960.html" target="_blank" rel="external">MYSQL出现111错误</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on3sfogdf.bkt.clouddn.com/0000.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/0.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/20.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/21.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/22.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/23.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/23-1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/24.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/25.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/26.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/27.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/28.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/29.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/30.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/31.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/32.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/33.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/34.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/35.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/36.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/37.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/38.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/39.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/40.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/41.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/42.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/43.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/44.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/45.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/46.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/47.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/48.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/49.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/50.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/51.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/52.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/53.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/54.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/55.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/56.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/57.png" alt="教程"></p>
+<hr>
+<p><img src="http://on3sfogdf.bkt.clouddn.com/58.png" alt="教程"></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Nagios</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">监控</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/20/Nagios/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-LNMP源码安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/19/LNMP源码安装/">LNMP源码安装</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/19/LNMP源码安装/" class="archive-article-date">
+  	<time datetime="2017-03-19T07:57:35.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装前的介绍"><a href="#安装前的介绍" class="headerlink" title="安装前的介绍"></a>安装前的介绍</h2><pre><code>LNMP=Linux Nginx Mysql PHP
+
+Nginx (&quot;engine x&quot;) 是一个高性能的 HTTP 和 反向代理 服务器。Nginx 是由 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的，第一个公开版本0.1.0发布于2004年10月4日。其将源代码以类BSD许可证的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。2011年6月1日，nginx 1.0.4发布。
+
+Nginx是一款轻量级的Web服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。由俄罗斯的程序设计师IgorSysoev所开发，供俄国大型的入口网站及搜索引擎Rambler（俄文：Рамблер）使用。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度BWS、新浪、网易、腾讯等
+</code></pre><hr>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="http://on1wx78z7.bkt.clouddn.com/2-29-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP.doc" target="_blank" rel="external">安装教程</a></p>
+<hr>
+<h2 id="软件包准备"><a href="#软件包准备" class="headerlink" title="软件包准备"></a>软件包准备</h2><p><a href="http://on1wx78z7.bkt.clouddn.com/libmcrypt-2.5.8.tar.gz" target="_blank" rel="external">libmcrypt-2.5.8</a><br><a href="http://on1wx78z7.bkt.clouddn.com/mysql-5.6.26.tar.gz" target="_blank" rel="external">mysql-5.6</a><br><a href="http://on1wx78z7.bkt.clouddn.com/pcre-8.37.tar.bz2" target="_blank" rel="external">pcre-8.37</a><br><a href="http://on1wx78z7.bkt.clouddn.com/php-5.6.13.tar.bz2" target="_blank" rel="external">php-5.6</a><br><a href="http://on1wx78z7.bkt.clouddn.com/nginx-1.8.0.tar.gz" target="_blank" rel="external">nginx-1.8</a></p>
+<hr>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h3 id="1-Apache工作原理"><a href="#1-Apache工作原理" class="headerlink" title="1.Apache工作原理"></a>1.Apache工作原理</h3><p><img src="http://on1wx78z7.bkt.clouddn.com/1.jpg" alt="Apache工作原理"></p>
+<hr>
+<h3 id="2-Nginx工作原理"><a href="#2-Nginx工作原理" class="headerlink" title="2.Nginx工作原理"></a>2.Nginx工作原理</h3><p><img src="http://on1wx78z7.bkt.clouddn.com/2.jpg" alt="Nginx工作原理"></p>
+<hr>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on1wx78z7.bkt.clouddn.com/1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/20.png" alt="教程"></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LNMP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/19/LNMP源码安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-LAMP源码安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/19/LAMP源码安装/">LAMP源码安装</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/19/LAMP源码安装/" class="archive-article-date">
+  	<time datetime="2017-03-19T02:04:19.131Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装前的介绍"><a href="#安装前的介绍" class="headerlink" title="安装前的介绍"></a>安装前的介绍</h2><pre><code>Linux+Apache+MySQL/MariaDB+Perl/PHP/Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。随着开源潮流的蓬勃发展，开放源代码的LAMP已经与J2EE和.Net商业软件形成三足鼎立之势，并且该软件开发的项目在软件方面的投资成本较低，因此受到整个IT界的关注。从网站的流量上来说，70%以上的访问流量是LAMP来提供的，LAMP是最强大的网站解决方案．
+</code></pre><hr>
+<h2 id="安装所需软件包"><a href="#安装所需软件包" class="headerlink" title="安装所需软件包"></a>安装所需软件包</h2><p><a href="http://on0fh4bbl.bkt.clouddn.com/php-5.6.13.tar.bz2" target="_blank" rel="external">php5.6</a><br><a href="http://on0fh4bbl.bkt.clouddn.com/httpd-2.4.16.tar.bz2" target="_blank" rel="external">Apache2.4</a><br><a href="http://on0fh4bbl.bkt.clouddn.com/mysql-5.6.26.tar.gz" target="_blank" rel="external">mysql5.6</a><br><a href="http://on0fh4bbl.bkt.clouddn.com/apr-1.5.2.tar.gz" target="_blank" rel="external">apr1.5</a><br><a href="http://on0fh4bbl.bkt.clouddn.com/apr-util-1.5.4.tar.bz2" target="_blank" rel="external">apr-util1.5</a><br><a href="http://on0fh4bbl.bkt.clouddn.com/pcre-8.37.tar.bz2" target="_blank" rel="external">pcre8.3</a></p>
+<hr>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="http://on0fh4bbl.bkt.clouddn.com/2-23-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LAMP.doc" target="_blank" rel="external">安装教程</a></p>
+<hr>
+<h2 id="图文详解"><a href="#图文详解" class="headerlink" title="图文详解"></a>图文详解</h2><p><img src="http://on0fh4bbl.bkt.clouddn.com/1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/20.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/21.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/23.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/24.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/25.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/26.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/27.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/28.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/29.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/30.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0fh4bbl.bkt.clouddn.com/31.png" alt="教程"></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/19/LAMP源码安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-LAMP搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/18/LAMP搭建博客/">LAMP搭建博客</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/18/LAMP搭建博客/" class="archive-article-date">
+  	<time datetime="2017-03-18T12:09:29.209Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="实验前的准备"><a href="#实验前的准备" class="headerlink" title="实验前的准备"></a>实验前的准备</h2><p><a href="http://on0d39hpm.bkt.clouddn.com/wordpress-4.7.3.tar.gz" target="_blank" rel="external">wordpress安装包</a><br><a href="http://on0d39hpm.bkt.clouddn.com/yusi2.1.zip" target="_blank" rel="external">wordpress主题包-欲思主题</a><br><a href="http://on0d39hpm.bkt.clouddn.com/zanblog2.1.0.zip" target="_blank" rel="external">wordpress主题包-Zanblog主题</a><br><a href="http://on0d39hpm.bkt.clouddn.com/zanblog2-plugin.zip" target="_blank" rel="external">wordpress主题包-Zanblog插件</a></p>
+<hr>
+<h2 id="emlog的安装"><a href="#emlog的安装" class="headerlink" title="emlog的安装"></a>emlog的安装</h2><p><a href="http://on0d39hpm.bkt.clouddn.com/emlog5.3.1.zip" target="_blank" rel="external">国人的emlog安装包</a><br><a href="http://on0d39hpm.bkt.clouddn.com/emlogmb_hgwm.zip" target="_blank" rel="external">emlog主题</a></p>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="http://on0d39hpm.bkt.clouddn.com/web_1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_20.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_21.png" alt="教程"></p>
+<hr>
+<p><img src="http://on0d39hpm.bkt.clouddn.com/web_22.png" alt="教程"></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LAMP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">WEB服务器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/18/LAMP搭建博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-邮件服务2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/17/邮件服务2/">邮件服务2</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/17/邮件服务2/" class="archive-article-date">
+  	<time datetime="2017-03-17T15:26:37.009Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="环境准备前的基础知识"><a href="#环境准备前的基础知识" class="headerlink" title="环境准备前的基础知识"></a>环境准备前的基础知识</h2><ol>
+<li><a href="http://os.51cto.com/art/201101/243404.htm" target="_blank" rel="external">Courier-IMAP</a></li>
+<li><a href="http://baike.baidu.com/link?url=Gqq8JrocbUaZmm9EgJxg4aswn5Ib4maZiNYQs2sDGKncGxOFDpCm4AD1v1xjUV3jhY1D3FnAIu8r0PKUwYp7u1YnCcW5UdWg5_hbzkAincy" target="_blank" rel="external">maildrop百科</a></li>
+<li><a href="http://www.cnblogs.com/silenceli/p/4031262.html" target="_blank" rel="external">Cyrus SASL</a></li>
+<li><a href="http://wiki.extmail.org/extman%E7%AE%80%E4%BB%8B" target="_blank" rel="external">extman</a></li>
+<li><a href="http://baike.baidu.com/link?url=ljniFDJfCL7UiCwoOxIx3HPTnvHAai5d14c8cZWtGF2KKWKDi6gA4IC5ZxCCES8HXtIGkMfs_FxIGtHSJ5GR5N9bNTR35EDW12tKNiFPLaS" target="_blank" rel="external">spamassassin</a></li>
+<li><a href="http://baike.baidu.com/link?url=iuKygo-lVjO-v2eGYEUdNw-zzy7GRBRegbXKcgNwbSDB5kNzA_Uwc07nPpVFmtl4dhNz8T4pPkEew2g1WayS6P8t5sorIblxMNPZRyQ3KGUZKVjeifhzbVx3gxj55iG8RELsN__Mbq0hjKdwaBXGqa" target="_blank" rel="external">clamav</a></li>
+<li><a href="http://www.07net01.com/storage_networking/Amavisd_newfanlajihefanbingdupeizhi_10904_1345750220.html" target="_blank" rel="external">amavisd-new</a></li>
+<li><a href="http://www.07net01.com/storage_networking/Amavisd_newfanlajihefanbingdupeizhi_10904_1345750220.html" target="_blank" rel="external">amavisd-new</a></li>
+<li><a href="http://www.iyunv.com/thread-237251-1-1.html" target="_blank" rel="external">clamAV</a></li>
+<li><a href="http://baike.baidu.com/link?url=j9edDlhvcJhGQ31ro-wCeIxotGWDMDB7Ns8NtcID4FXUcfq7PCGpGtHnVXEqBMoeRqPHakk--LgiVsHagCnwu-A1VsoiQd2EJleKmP8S9aW" target="_blank" rel="external">Spam Locker</a></li>
+<li><a href="http://ywzhou.blog.51cto.com/2785388/1592505/" target="_blank" rel="external">dspam</a></li>
+</ol>
+<hr>
+<h3 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h3><p>1.<a href="http://wiki.extmail.org/extmail_solution_for_centos-5" target="_blank" rel="external">参考教程</a><br>2.需要注意的是在这个教程里面添加SASL配置的时候类似如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">smtpd_recipient_restrictions =</div><div class="line">    permit_mynetworks,</div><div class="line">    permit_sasl_authenticated,</div><div class="line">    reject_non_fqdn_hostname,</div><div class="line">    reject_non_fqdn_sender,</div><div class="line">    reject_non_fqdn_recipient,</div><div class="line">    reject_unauth_destination,</div><div class="line">    reject_unauth_pipelining,</div><div class="line">    reject_invalid_hostname,</div><div class="line"></div><div class="line">注意前面加空格，否则会报错</div></pre></td></tr></table></figure></p>
+<p>3.还有一处需要注意的就是添加authmysqlrc配置的的时候类似如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">MYSQL_SERVER localhost</div><div class="line">MYSQL_USERNAME extmail</div><div class="line">MYSQL_PASSWORD extmail</div><div class="line">MYSQL_SOCKET /var/lib/mysql/mysql.sock</div><div class="line">MYSQL_PORT <span class="number">3306</span></div><div class="line">MYSQL_OPT <span class="number">0</span></div><div class="line">MYSQL_DATABASE extmail</div><div class="line">MYSQL_USER_TABLE mailbox</div><div class="line">MYSQL_CRYPT_PWFIELD password</div><div class="line">MYSQL_UID_FIELD uidnumber</div><div class="line">MYSQL_GID_FIELD gidnumber</div><div class="line">MYSQL_LOGIN_FIELD username</div><div class="line">MYSQL_HOME_FIELD homedir</div><div class="line">MYSQL_NAME_FIELD name</div><div class="line">....</div><div class="line"></div><div class="line"></div><div class="line">在localhost后面没有空格，多添加的时候会连接不上数据库</div></pre></td></tr></table></figure></p>
+<ol>
+<li><a href="http://pan.baidu.com/s/1geAXzYN" target="_blank" rel="external">EMOS镜像下载地址  密码：wmr2</a></li>
+</ol>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_1.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_2.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_3.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_4.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_5.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_6.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_7.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_8.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_9.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_10.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_11.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_12.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_13.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_14.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_15.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_16.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_17.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_18.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_19.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_21.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_22.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_23.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_24.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_25.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_26.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_27.png" alt="案例"></p>
+<hr>
+<p><img src="http://omysh8v49.bkt.clouddn.com/extmail_28.png" alt="案例"></p>
+<hr>
+<h3 id="简便安装"><a href="#简便安装" class="headerlink" title="简便安装"></a>简便安装</h3><pre><code>看完上面的安装步骤你肯定烦了，下面我们用镜像来进行安装，这个就是so easy 了！！
+</code></pre><p><a href="http://blog.csdn.net/zonelan/article/details/8125971" target="_blank" rel="external">参考教程</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">邮件服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/17/邮件服务2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-新版邮件服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/16/新版邮件服务/">邮件服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/16/新版邮件服务/" class="archive-article-date">
+  	<time datetime="2017-03-16T15:30:22.682Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="服务安装"><a href="#服务安装" class="headerlink" title="服务安装"></a>服务安装</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_1.png" alt="安装"></p>
+<h2 id="安装完效果"><a href="#安装完效果" class="headerlink" title="安装完效果"></a>安装完效果</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_2.png" alt="配置"></p>
+<h2 id="服务配置"><a href="#服务配置" class="headerlink" title="服务配置"></a>服务配置</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_3.png" alt="配置"></p>
+<h2 id="163邮箱测试"><a href="#163邮箱测试" class="headerlink" title="163邮箱测试"></a>163邮箱测试</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_4.png" alt="测试"></p>
+<h2 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_5.png" alt="查看结果"></p>
+<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_6.png" alt="本地测试"></p>
+<h2 id="配置文件解析"><a href="#配置文件解析" class="headerlink" title="配置文件解析"></a>配置文件解析</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_7.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_8.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_9.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_10.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_11.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_12.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_13.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_14.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_16.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_17.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_18.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_19.png" alt="案例"></p>
+<h2 id="搭建案例环境"><a href="#搭建案例环境" class="headerlink" title="搭建案例环境"></a>搭建案例环境</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_20.png" alt="案例"></p>
+<h2 id="检测结果"><a href="#检测结果" class="headerlink" title="检测结果"></a>检测结果</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_21.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_22.png" alt="案例"></p>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_23.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_24.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_25.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_26.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_27.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_28.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_29.png" alt="案例"></p>
+<hr>
+<p><img src="http://omutvk8c2.bkt.clouddn.com/mail_30.png" alt="案例"></p>
+<hr>
+<h2 id="错误解决方案"><a href="#错误解决方案" class="headerlink" title="错误解决方案"></a>错误解决方案</h2><p><img src="http://omutvk8c2.bkt.clouddn.com/mail_31.png" alt="案例"></p>
+<hr>
+<h2 id="关于明天博客预告"><a href="#关于明天博客预告" class="headerlink" title="关于明天博客预告"></a>关于明天博客预告</h2><pre><code>今天简单介绍一下Postfix服务以及使用，本篇博客含有两个案例，可以查看我之前的笔记就可以找到，配合本篇
+博客进行一起学习效果更佳
+</code></pre><p><a href="http://www.cyysu.cn/2017/03/15/11.Linux%E8%BF%90%E7%BB%B4%E6%9C%8D%E5%8A%A1-Postfix%E6%9C%8D%E5%8A%A1/" target="_blank" rel="external">Postfix服务传送门</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">邮件服务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/16/新版邮件服务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-关于新版博客说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,2115 +1597,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-关于我" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/关于我/">博客说明</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/关于我/" class="archive-article-date">
-  	<time datetime="2017-03-15T13:08:26.608Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h2 id="1-关于我"><a href="#1-关于我" class="headerlink" title="1.关于我"></a>1.关于我</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">目前就读于燕山大学，即将毕业（2017），就这大学四年我一直有想要做的事情却又没有做完，一直有想要说的话却没有及时记录下来。就这今天正好有空，写一篇博客来记录一下整个大学四年的点点滴滴。在这里我将大学四年比喻成 “菜鸟”、“入门” 、“进阶” 、“大神”</div></pre></td></tr></table></figure>
-<h2 id="2-菜鸟"><a href="#2-菜鸟" class="headerlink" title="2.菜鸟"></a>2.菜鸟</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">刚上大一我怀着向往大学的心情来到学校，相信很多在高中的时候都听老师说“你们上大学就轻松了”，这句话在不同的时刻有着不同的感受。来到学校的第一眼我感到好失望，原来这就是大学呀！这么破！当时有着冲动想要回去在重新念书。忍住了！！嘿嘿</div><div class="line"></div><div class="line">在大一上学期的时候我遇到了改变我轨迹的第一个学长，他叫王悦，人特别好，对我也特别好。当时就加入了一个社团--科技创新协会(后面简称科协)。咱们先说说我的学长，在聊我的社团。</div><div class="line"></div><div class="line">他，在社团招新的时候我遇到的，脸上有痘痘，不过依然不影响帅气的形象，也不知道怎么回事我是我们宿舍唯一的一个加入到科协社团的人，也就是这件事改变了我人生轨迹。现在想想如果我当时没有加入这个社团，那么我这大学四年会怎么度过啊！！每次我的部长开会的时候我都不去，以至于后来我有我的学弟之后，看见他们每周开着会，心里顿生内疚啊！当然这都是后话了，我们继续！</div><div class="line"></div><div class="line">转眼就到了我们刚上大学的第一个假期，十一长假来了，当然是美美的7天长假啦！！苦逼的我当时不太想出去玩耍，就留在了学校搞世纪杯论文，当时也是第一个写论文，不会呀！说来也奇怪，奇葩的我搞了个量子计算机方面相关的！虽说我对这个东西有点了解吧！但是依旧没有获奖！！在这个10月1的假期还有一件重要的事情就是学习改变我人生轨迹的第一件事--单片机</div><div class="line"></div><div class="line">相信大家好多的人开始学习单片机的时候都是学习的STC89c51这款单片机，不错，我也不例外，我也学习的这款单片机。入门的教程依然是被很多师兄讨厌的郭天祥的51视频。当时听完他的时候感觉好牛逼的样子呀！我也要成为那么牛逼的人，可惜现在一直没有感觉自己怎么牛逼！哎，惭愧啊！</div><div class="line"></div><div class="line">继续我们的10.1假期吧，那个时候我每天晚上去我的师兄那里去学习，他单独辅导我，当时打字也不是那么的快，写程序也不是那么的会检查错误。有的时候就是差那么个分号，或者少了个字母，悲催啊！后来在自己多练习的基础上终于完成了打字的基本功，编程方面的基本功也算是可以了！就这样持续了7天，我比我们的小伙伴多学习了好多知识，也为我自己以后奠定了一个里程碑。</div><div class="line"></div><div class="line">这就样学习单片机，学习单片机，学习单片机，重要的事情说三遍。直到我直到我们社团还有一个比较牛逼的部门-研发部。不过需要经过考核才能进入。我就更加下定了决心去参加考核，这一段历史不多说了，最后如我所愿，加入了科协社团的研发部，在那里我遇到了一大堆牛逼的学长，有“学霸”，我认为的学霸和大家认为的不一样！（学霸就是不学习成绩依然霸道，实践能力也很牛逼！！），以及改变我现在轨迹的另一位师兄。下面介绍一下这两位师兄：白鹏飞师兄和付贱师兄</div><div class="line"></div><div class="line">白鹏飞师兄，一直和我关系很好，在我后来的学习上也帮助了我很多，他就是我所说的那种学霸类型的！！同时这里也希望他在北京交通大学美好的度过研究生阶段。</div><div class="line"></div><div class="line">付贱师兄，研发部里面的头头，让人感觉不出来深度，但是给人的感觉就是很很棒，很牛逼，当时他的一句话说你们谁想学习嵌入式开发，也就是Linux开发，也就促使我开始学习Linux，这一段历史后面在讲。</div><div class="line"></div><div class="line">就这样大一上学期的时间过去了，在最后的期末的用一个项目结束了我的这个阶段-自制单片机最小系统。功能就是串口下载模块，数码管模块，矩阵键盘模块，LED模块。就这样进入了自己的第一个寒假。</div><div class="line"></div><div class="line">其实在学校大家都在学习，那么什么时候才是超过别人的最佳时间呢，没错，就是寒假。这个时候每个人的学习环境不一样，我们每个人想要学习的心思也就不一样，也就是我们超过别人的最佳阶段。在这个寒假的里我有幸接触了Java，我的第一门编程语言，跨平台的，不对，应该说是第2门编程语言，第一门当然是C语言了，哈哈！</div><div class="line"></div><div class="line">在学习JAVA的时候，我知道了一个培训机构，传智播客。在里面认识了一个很幽默的老师，任小龙老师，最经典的一句话就是“龙哥的视频苍老师都喜欢！”，后来他们这些老师独立出去了，搞了一个小马哥教育，现在搞的还不错。</div><div class="line"></div><div class="line">当时学Java也不知道为了啥，就那么的学了，学完了JavaSE后来有学习了JavaWEB，这个阶段没学习SSH经典的框架，现在这框架已经太“过时了”，后来有幸接触了Android课程，学习了一段时间，当时Andorid工程师很火，智能机刚好很火，各大公司纷纷加入移动端的开发，现在却不怎么样了。</div><div class="line"></div><div class="line">就这样大一下学期的生活就这样度过了。</div></pre></td></tr></table></figure>
-<h2 id="3-入门"><a href="#3-入门" class="headerlink" title="3.入门"></a>3.入门</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">转眼就来到了大二，那个时候我还不了解Linux是个什么东东，这一年付出了整整一年的时间来做了个飞思卡尔比赛，一年的时间投入到这个上面，真心的是很累，等我们参加完华北赛区的比赛的时候我好长一段时间才缓解过来。这个阶段唯一的一件事情就是大家了自己博客，也就是github博客，原版不是现在这个样子，原版的博客我已经删除了！当时还是Hexo2.0阶段，现在改变了很多。</div><div class="line"></div><div class="line">这一阶段我就不多说了，也不想太多说啥！</div></pre></td></tr></table></figure>
-<h2 id="4-进阶"><a href="#4-进阶" class="headerlink" title="4.进阶"></a>4.进阶</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">    来到了大三，上学期基本是没怎么学习，也就是这样我认为我大学有点不完美，有些事情该做的没有做，在这个阶段我学习了Linux，学习了Linux运维方面的知识，当然刚开始学习Linux的时候都是从基本的命令开始，首先你得会玩电脑吧，会装一些软件，这些是最基本得。和我们在windows上得不同，Linux装软件需要软件包管理器，当然也可以自己去下载，期间了解了一下了一些其他得编程语言，如python，php，html，c#...</div><div class="line">当然都是了解语法得阶段，这个没什么难的，熟悉了一门语言，其他得大部分都是一样，不一样得就是语法，这个阶段对LINUX运维大概了解了一番，不过依然不是那么得熟悉，真正开始得时候是大四得时候，哎，想想都后悔，也怪自己当时太高傲了，把事情想得太简单了！！</div></pre></td></tr></table></figure>
-<h2 id="5-大神"><a href="#5-大神" class="headerlink" title="5.大神"></a>5.大神</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">时间过的很快，转眼就要到毕业了，上面大二和大三得时候我不太想写了，那个阶段我就是看见什么好奇我就捣鼓啥，以致于后来看见学弟他们出现什么问题我就直到那里出现了问题，当时那么阶段学习到得知识最重要得就是解决问题得能力，这一点很重要，千万不要一遇到不会得问题就是问本人，有的很很好，有的人就部愿意帮助你，这个你也不要怨别人，这个现象很正常！</div><div class="line"></div><div class="line">大四，这一年我收获了很多友谊，和他们在一起我感觉很开心，每天聊聊小技术，嘲笑嘲笑，偶尔敲敲代码。</div><div class="line"></div><div class="line">我得GitHub上存储了很多参考资料，大家感兴趣得可以点击主页得github图标去查看</div><div class="line"></div><div class="line">最后在这里我祝愿帮助过我得人，学校得师兄们，工作得师兄们，老师们生活美好，步步高升！！！</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/关于我/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-9.Linux运维服务-Apache服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/9.Linux运维服务-Apache服务/">Apache服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/9.Linux运维服务-Apache服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.639Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>##Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
-<p>##声明</p>
-<ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-<li><strong>本文内容如有不当之处，欢迎批评指正</strong></li>
-<li><strong>文档书写风格  章节内的小节缩进2个tab，小节内容在章节的基础上缩进1个tab</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.Apache 服务
-3.案例
-</code></pre><hr>
-<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h2><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-Apache-服务"><a href="#2-Apache-服务" class="headerlink" title="2.Apache 服务"></a>2.Apache 服务</h2><p><strong>简介</strong></p>
-<pre><code>web服务概述：
-    WEB服务器也称为WWW(WORLD WIDE WEB，万维网)服务器，主要功能是提供网上信息浏览服务。
-
-常见web服务器（web）：
-    httpd（apache）、nginx +PHP
-    tomcat：   jsp + html
-    win:IIS
-
-客户端：IE 、firefox、chrome 、手机（浏览器）Browser
-
-今天的主角：LAMP=Linux Apache Mysql PHP 中的 Apache（HTTPD）
-类 LINUX 系统
-
-    Linux+Apache+Mysql/MariaDB+Perl/PHP/Python 一组常用来搭建动态网站或者服务器 的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼 容度，共同组成了一个强大的 Web 应用程序平台。随着开源潮流的蓬勃发展，开放源代码 的 LAMP 已经与 J2EE 和.Net 商业软件形成三足鼎立之势，并且该软件开发的项目在软件方 面的投资成本较低，因此受到整个 IT 界的关注。从网站的流量上来说，70%以上的访问流量 是 LAMP 来提供的，LAMP 是最强大的网站解决方案
-
-
-什么是 Apache
-
-    Apache HTTPD Server 简称 Apache，是 Apache 软件基金会的一个开源的网页服务器， 可以在大多数计算机操作系统中运行，由于其多平台和安全性被广泛使用，是最流行的 Web 服务器端软件之一。它快速、可靠并且可通过简单的 API 扩展，将 Perl/Python 等解释器编 译到服务器中！Apache HTTP 服务器是一个模块化的服务器,各个功能使用模块化进行插拔！ 目前支持 Windows，Linux，Unix 等平台！
-    Apache 软件基金会（也就是 Apache Software Foundation，简称为 ASF），是专门为运 作一个开源软件项目的 Apache 的团体提供支持的非盈利性组织，这个开源软件项目就是 Apache 项目！那么我们的 HTTPD 也只是 Apache 的开源项目之一！
-    主要的开源项目：HTTP Server，Ant，DB，iBATIS，Jakarta，Logging，Maven，Struts， Tomcat，Tapestry,Hadoop 等等。只是最有名的是 HTTP Server，所以现在所说的 Apache 已 经就是 HTTPD Server 的代号了! 我们还见的比较多的是 Tomcat，Hadoop 等项目
-    官方网站：http://www.apache.org/httpd：http://httpd.apache.org/
-
-
-什么是 Mysql
-    MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 旗下公司，他也是最流行的关系型数据库管理系统！特别是在 WEB 应用方面！
-关系型数据库：它通过数据、关系和对数据的约束三者组成的数据模型来存放和管理数
-据
-官方网站：http://www.mysql.com/
-
-什么是 PHP
-    PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通 用开源脚本语言。语法吸收了 C 语言、Java 和 Perl 的特点，利于学习，使用广泛，主要适 用于 Web 开发领域。PHP 独特的语法混合了 C、Java、Perl 以及 PHP 自创的语法。它可以 比 CGI 或者 Perl 更快速地执行动态网页。用 PHP 做出的动态页面与其他的编程语言相比， PHP 是将程序嵌入到 HTML（标准通用标记语言下的一个应用）文档中去执行，执行效率比 完全生成 HTML 标记的 CGI 要高许多；PHP 还可以执行编译后代码，编译可以达到加密和 优化代码运行，使代码运行更快。
-
-简单的说，PHP 就是一个脚本解释器！ 官方网站：http://php.net/
-PHP 服务器安装好之后，升级切记注意，不要盲目升级！因为它会废弃很多废弃低效的语法!
-</code></pre><p><strong>工作原理</strong></p>
-<p><img src="http://omutvk8c2.bkt.clouddn.com/1.png" alt="工作原理"></p>
-<p><strong>服务安装、启动和配置</strong></p>
-<pre><code>服务安装
-
-    yum install -y httpd                #安装服务器端：httpd
-    yum install elinks                    #安装字符界面的下浏览器客户端
-
-
-服务启动、端口检测和加入开机启动项
-
-    service httpd restart
-    netstat -anutp | grep 80
-    chkconfig httpd on
-
-服务配置
-
-    vim /etc/httpd/conf/httpd.conf        #配置文件的位置
-
-配置参数
-
-    ServerName 192.168.1.235:80       #服务器主机名
-    PidFile run/httpd.pid#apache      #运行进程 ID 存放
-    Timeout 60                        #超时时间，多少 s 没有反应就超时
-    KeepAlive Off                     #是否允许一个永久的链接，设置为 OFF 的时候，不 能保持连接功能，传输效率比较低，设置为 ON 时，可以提高服务器传输文件的效率，建议开启
-    MaxKeepAliveRequests 100          #设置 KeepAlive 为 ON 时，设置客户端每次连接允许 请求相应最大文件数，默认 100 个
-    KeepAliveTimeout 15              #超时时间，同一个客户端下一个请求 15s 没收到就 超时
-    Listen 80#监听端口，默认本地 IP，如果指定 ip 写上 IP:80
-    &lt;IfModule prefork.c&gt;
-    StartServers8                     #服务开始起启动 8 个进程
-    MinSpareServers5                  #最小空闲 5 个进程
-    MaxSpareServers20                 #最多空闲 20 个进程
-    ServerLimit256                    #服务器允许配置进程数上线
-    MaxClients256                     #最大连接数 256，超过要进入等候队列
-    MaxRequestsPerChild4000           #每个进程生存期内服务最大的请求数量，0 表示用不 结束
-    &lt;/IfModule&gt;
-    &lt;Directory /&gt;
-    Options FollowSymLinks            #Options Indexes 目录浏览FollowSymLinks 用连接
-    浏览
-    AllowOverride None                #设置为 none，忽略.htaccess
-    &lt;/Directory&gt;
-    LoadModule auth_basic_module modules/mod_auth_basic.so      #载入的库，模块
-    ● ● ● ● ● ●
-    Include conf.d/*.conf              #conf.d 里面的 conf 文件也属有效配置文件
-    User apache#apache                 #运行以哪个身份运行
-    Group apache#apache                #运行以哪个组的身份运行
-    ServerAdmin root@localhost         #管理员邮箱
-    DocumentRoot &quot;/var/www/html&quot;       #默认的主目录，如果改动要改动两处，Directory
-    &lt;Directory &quot;/var/www/html&quot;&gt; Options Indexes FollowSymLinks AllowOverride None
-    Order allow,deny                   #这里默认后者生效，也就是 deny 生效
-    Allow from all                     #这里说允许所有
-    &lt;/Directory&gt;
-    LogLevel warn                      #日志等级
-    DirectoryIndex index.html index.html.var  #首页
-    AccessFileName .htaccess           #access 文件名
-    AddDefaultCharset UTF-8            #支持的语言，默认编码
-    #配置文件的最后是虚拟主机的字段，其中你大部分字段做个了解即可，用到的时候去查 即可
-</code></pre><h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><p><strong>例1：搭建一台测试web服务器</strong></p>
-<pre><code>分析：
-
-    部门内部搭建一台WEB服务器，采用的IP地址和端口为192.168.0.63:80，首页采用index.html文件。
-管理员E-mail地址为 cat@xuegod.cn，网页的编码类型采用UTF-8，所有网站资源都存放在/var/www/html目录下并将Apache的配置文件根目录设置为/etc/httpd目录。
-</code></pre><hr>
-<pre><code>方案：
-
-    vim /etc/httpd/conf/httpd.conf
-
-    设置Apache 的根目录为/etc/httpd
-    设置httpd 监听端口80
-    设置管理员E-mail地址为 cat@xuegod.cn
-    设置WEB 服务器的主机名和监听端口为192.168.0.63:80
-    设置Apache 文档目录为/var/www/html
-    设置主页文件为 index.html
-
-
-    改配置文件之前，记得先备份一份，以便恢复。
-
-
-    修改配置文件相关参数：
-    [root@xuegod63 chroot]#  vim /etc/httpd/conf/httpd.conf   #以下参数需要我们掌握
-    ServerRoot &quot;/etc/httpd&quot;  #apache配置文件的根目录
-    Timeout 60  #超时时间
-    Listen 80   监听的端口
-    ServerAdmin cat@xuegod.cn  #设置管理员，e-mail 地址
-    ServerName 192.168.0.63:80   #服务器主机名
-    DocumentRoot &quot;/var/www/html&quot;   #网站页面根目录
-    Options Indexes FollowSymLinks   #当一个目录没有默认首页时，允许显示此目录列表
-
-    DirectoryIndex index.html index.php   #指定默认首页
-
-
-    编码：
-    AddDefaultCharset UTF-8   # 设置服务器的默认编码为： UTF-8
-
-    取消apache默认欢迎页：
-    [root@xuegod63 ~]#  vim /etc/httpd/conf.d/welcome.conf
-    #
-    # This configuration file enables the default &quot;Welcome&quot;
-    # page if there is no default index page present for
-    # the root URL.  To disable the Welcome page, comment
-    # out all the lines below.
-    #
-    #&lt;LocationMatch &quot;^/+$&quot;&gt;   #把红色内容注释
-    #    Options -Indexes
-    #    ErrorDocument 403 /error/noindex.html
-    #&lt;/LocationMatch&gt;
-
-    重启：
-    [root@xuegod63 ~]# service httpd restart
-
-    创建首页：
-    # echo &apos;welcome to www.xuegod.cn!&apos;  &gt; /var/www/html/index.html
-</code></pre><p><strong>例2：使用yum搭建LAMP环境</strong></p>
-<pre><code>yum install httpd  mysql mysql-server php php-mysql –y
-service mysqld start
-chkconfig mysqld on
-
-安装完成之后首先要测试一下Mysql，在终端输入mysql如果出现mysql的提示符号那么代表Mysql安装成功
-
-测试apache是否支持php
-
-    cd /var/www/html/
-    [root@xuegod63 html]# vim index.php
-    &lt;?php
-    phpinfo();
-    ?&gt;
-</code></pre><p><strong>配置apache虚拟主机，实现在一台服务器上运行多个网站</strong></p>
-<pre><code>apache虚拟主机实现有三种方法：
-1、通过不同的IP地址
-2、通过不同的域名
-3、通过不同的端口号
-
-
-
-配置文件可以修改为如下：
-
-    修改httpd.conf
-    #vim httpd.conf   在文件的最后，添加以下内容
-    &lt;VirtualHost 192.168.0.63:80&gt;
-        ServerAdmin webmaster@dummy-host.example.com
-        DocumentRoot /var/www/html/
-        ServerName dummy-host.example.com
-        ErrorLog logs/dummy-host.example.com-error_log
-        CustomLog logs/dummy-host.example.com-access_log common
-    &lt;/VirtualHost&gt;
-    &lt;VirtualHost 192.168.0.56:80&gt;
-        ServerAdmin webmaster@dummy-host.example.com
-        DocumentRoot /var/www/html/bbs/
-        ServerName dummy-host.example.com
-        ErrorLog logs/dummy-host.example.com-error_log
-        CustomLog logs/dummy-host.example.com-access_log common
-    &lt;/VirtualHost&gt;
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Apache服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/9.Linux运维服务-Apache服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-8.Linux运维服务-DNS服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/8.Linux运维服务-DNS服务/">DNS服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/8.Linux运维服务-DNS服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.445Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
-<p>##声明</p>
-<ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-<li><strong>本文内容如有不当之处，欢迎批评指正</strong></li>
-<li><strong>文档书写风格  章节内的小节缩进2个tab，小节内容在章节的基础上缩进1个tab</strong></li>
-</ul>
-<p>##本文大纲</p>
-<pre><code>1.开篇的话
-2.DNS服务
-3.案例
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-DNS服务"><a href="#2-DNS服务" class="headerlink" title="2.DNS服务"></a>2.DNS服务</h2><p><strong>简介</strong></p>
-<pre><code>工作原理
-    DNS服务概述：
-        DNS（Domain Name System）域名系统，在TCP/IP 网络中有非常重要的地位，能够提供域名与IP地址的解析服务。
-
-        DNS 是一个分布式数据库，命名系统采用层次的逻辑结构，如同一棵倒置的树，这个逻辑的树形结构称为域名空间，由于DNS 划分了域名空间，所以各机构可以使用自己的域名空间创建DNS信息。
-        注：DNS 域名空间中，树的最大深度不得超过127 层，树中每个节点最长可以存储63 个字符。
-基础知识
-    1、域和域名
-        DNS 树的每个节点代表一个域，通过这些节点，对整个域名空间进行划分，成为一个层次结构。
-        域名空间的每个域的名字，通过域名进行表示。
-
-        域名：通常由一个完全合格域名（FQDN）标识。FQDN能准确表示出其相对于DNS 域树根的位置，也就是节点到DNS 树根的完整表述方式，从节点到树根采用反向书写，并将每个节点用“.”分隔，对于DNS 域google 来说，其完全正式域名（FQDN）
-        为google.com。
-        例如，google为com域的子域，其表示方法为google.com，而www为google域中的子域，可以使用www.google.com表示。
-
-        注意：通常，FQDN 有严格的命名限制，长度不能超过256 字节，只允许使用字符a-z,0-9,A-Z
-        和减号（-）。点号（.）只允许在域名标志之间（例如“google.com”）或者FQDN 的结尾使用。
-        域名不区分大小。
-        由最顶层到下层，可以分成：根域、顶级域、二级域、子域。
-
-        Internet 域名空间的最顶层是根域（root），其记录着Internet 的重要DNS 信息，由Internet域名注册授权机构管理，该机构把域名空间各部分的管理责任分配给连接到Internet 的各个组织。
-         “.”全球有13个根(root)服务器
-        DNS 根域下面是顶级域，也由Internet 域名注册授权机构管理。共有3 种类型的顶级域。
-        组织域：采用3 个字符的代号，表示DNS 域中所包含的组织的主要功能或活动。比如com 为商业机构组织，edu 为教育机构组织，gov 为政府机构组织，mil 为军事机构组织，net 为网络机构组
-        织，org 为非营利机构组织，int 为国际机构组织。
-
-        地址域：采用两个字符的国家或地区代号。如cn 为中国，kr 为韩国，us 为美国。
-        反向域：这是个特殊域，名字为in-addr.arpa，用于将IP 地址映射到名字（反向查询）。
-        对于顶级域的下级域，Internet 域名注册授权机构授权给Internet 的各种组织。当一个组织获得了对域名空间某一部分的授权后，该组织就负责命名所分配的域及其子域，包括域中的计算机和其他设备，并管理分配的域中主机名与IP 地址的映射信息。
-
-    2、区(Zone)
-        区是DNS 名称空间的一部分，其包含了一组存储在DNS 服务器上的资源记录。
-        使用区的概念，DNS 服务器回答关于自己区中主机的查询，每个区都有自己的授权服务器。
-
-    3、主域名服务器与辅助域名服务器
-        当区的辅助服务器启动时，它与该区的主控服务器进行连接并启动一次区传输，区辅助服务器定期与区主控服务器通信，查看区数据是否改变。如果改变了，它就启动一次数据更新传输。
-        每个区必须有主服务器，另外每个区至少要有一台辅助服务器，否则如果该区的主服务器崩溃了，就无法解析该区的名称。
-        辅助服务器的优点：
-
-        1）容错能力
-            配置辅助服务器后，在该区主服务器崩溃的情况下，客户机仍能解析该区的名称。一般把区的主
-        服务器和区的辅助服务器安装在不同子网上，这样如果到一个子网的连接中断，DNS 客户机还能
-        直接查询另一个子网上的名称服务器。
-
-        2）减少广域链路的通信量
-            如果某个区在远程有大量客户机，用户就可以在远程添加该区的辅助服务器，并把远程的客户机
-        配置成先查询这些服务器，这样就能防止远程客户机通过慢速链路通信来进行DNS 查询。
-
-        3）减轻主服务器的负载
-            辅助服务器能回答该区的查询，从而减少该区主服务器必须回答的查询数。
-
-    4、DNS 相关概念
-        1）DNS 服务器
-            运行DNS 服务器程序的计算机，储存DNS 数据库信息。DNS 服务器会尝试解析客户机的查询请求。
-        在解答查询时，如果DNS 服务器能提供所请求的信息，就直接回应解析结果，如果该DNS 服务器
-        没有相应的域名信息，则为客户机提供另一个能帮助解析查询的服务器地址，如果以上两种方法
-        均失败，则回应客户机没有所请求的信息或请求的信息不存在。
-
-        2）DNS 缓存
-            DNS 服务器在解析客户机请求时，如果本地没有该DNS 信息，则可以会询问其他DNS 服务器，当
-        其他域名服务器返回查询结果时，该DNS 服务器会将结果记录在本地的缓存中，成为DNS 缓存。
-        当下一次客户机提交相同请求时，DNS 服务器能够直接使用缓存中的DNS 信息进行解析。
-
-    5、DNS查询工作流程
-        &lt;1&gt; 客户机提交域名解析请求，并将该请求发送给本地的域名服务器。
-        &lt;2&gt; 当本地的域名服务器收到请求后，就先查询本地的缓存。如果有查询的DNS 信息记录，则直
-        接返回查询的结果。如果没有该记录，本地域名服务器就把请求发给根域名服务器。
-        &lt;3&gt; 根域名服务器再返回给本地域名服务器一个所查询域的顶级域名服务器的地址。
-        &lt;4&gt; 本地服务器再向返回的域名服务器发送请求。
-        &lt;5&gt; 接收到该查询请求的域名服务器查询其缓存和记录，如果有相关信息则返回客户机查询结
-        果，否则通知客户机下级的域名服务器的地址。
-        &lt;6&gt; 本地域名服务器将查询请求发送给返回的DNS 服务器。
-        &lt;7&gt; 域名服务器返回本地服务器查询结果（如果该域名服务器不包含查询的DNS 信息，查询过程
-        将重复&lt;6&gt;、&lt;7&gt;步骤，直到返回解析信息或解析失败的回应）。
-        &lt;8&gt; 本地域名服务器将返回的结果保存到缓存，并且将结果返回给客户机。
-
-    6、查询方式
-        1）递归查询
-            递归查询是一种DNS 服务器的查询模式，在该模式下DNS 服务器接收到客户机请求，必须使用一
-        个准确的查询结果回复客户机。如果DNS 服务器本地没有存储查询DNS 信息，那么该服务器会询
-        问其他服务器，并将返回的查询结果提交给客户机。
-
-        2）迭代查询
-            DNS 服务器另外一种查询方式为迭代查询，当客户机发送查询请求时，DNS 服务器并不直接回复查
-        询结果，而是告诉客户机另一台DNS 服务器地址，客户机再向这台DNS 服务器提交请求，依次循环直到返回查询的结果为止。
-
-    7、正向解析和反向解析
-
-        1）正向解析
-            正向解析是指域名到IP 地址的解析过程。
-
-        2）反向解析
-            反向解析是从IP 地址到域名的解析过程。反向解析的作用为服务器的身份验证。[http://dns.aizhan.com/](http://dns.aizhan.com/ &quot;反向解析网址&quot;)
-</code></pre><p><strong>服务安装、启动和配置</strong></p>
-<pre><code>服务安装
-    yum install bind bind-chroot bind-utils   -y
-    bind-9.7.3-8.P3.el6.x86_64.rpm   #该包为DNS 服务的主程序包。
-    bind-chroot-9.7.3-8.P3.el6.x86_64.rpm   # 提高安全性。
-    #bind-chroot是bind的一个功能,使bind可以在一个chroot 的模式下运行.也就是说,bind运行时的/(根)目录,并不是系统真正的/(根)目录,只是系统中的一个子目录而已.这样做的目的是为了提高安全性.因为在chroot的模式下,bind可以访问的范围仅限于这个子目录的范围里,无法进一步提升,进入到系统的其他目录中.
-    bind-utils-9.7.3-8.P3.el6.x86_64.rpm  #该包为客户端工具，默认安装，用于搜索域名指令。
-
-
-服务启动、端口检测和加入开机启动项
-
-    cat /etc/services | grep 53,593
-
-    ls /etc/named.conf
-        /etc/named.conf
-        named.conf 是BIND 的核心配置文件，它包含了BIND 的基本配置，但其并不包括区域数据。
-
-    /etc/init.d/named restart   #重启服务
-
-    netstat -antup | grep 53    #查看端口
-
-服务配置
-
-    开启named服务后，/var/named/chroot/目录下的文件会自动挂载，调用chroot功能切换根：
-
-
-配置DNS服务器解析： xuegod.cn
-
-    vim /var/named/chroot/etc/named.conf   #启动服务后，尽量使用这个路径。
-
-    整体分3段
-
-        zone        ： 针对某个区域生效
-
-            重点说一下type参数：
-
-            type 字段指定区域的类型，对于区域的管理至关重要，一共分为六种：
-
-                1)Master：主DNS 服务器：拥有区域数据文件，并对此区域提供管理数据
-
-                2)Slave：辅助DNS 服务器：拥有主DNS 服务器的区域数据文件的副本，辅助DNS 服务器会从主DNS服务器同步所有区域数据。
-
-                3)Stub：stub 区域和slave 类似，但其只复制主DNS 服务器上的NS 记录而不像辅助DNS 服务器会复制所有区域数据。
-
-                4)Forward：一个forward zone 是每个域的配置转发的主要部分。一个zone 语句中的type forward可以包括一个forward 和/或forwarders 子句，它会在区域名称给定的域中查询。如果没有forwarders 语句或者forwarders 是空表，那么这个域就不会有转发，消除了options 语句中有关转发的配置。
-
-                5)Hint：根域名服务器的初始化组指定使用线索区域hint zone，当服务器启动时，它使用根线索来查找根域名服务器，并找到最近的根域名服务器列表。
-
-    配置正向解析区域
-    授权DNS 服务器管理xuegod.cn 区域，并把该区域的区域文件命名为xuegod.cn
-</code></pre><h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><p><strong>例1：</strong></p>
-<pre><code>分析：
-</code></pre><hr>
-<pre><code>方案：
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DNS服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/8.Linux运维服务-DNS服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-7.Linux运维服务-FTP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/7.Linux运维服务-FTP服务/">FTP服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/7.Linux运维服务-FTP服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.326Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.FTP服务
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-FTP服务"><a href="#2-FTP服务" class="headerlink" title="2.FTP服务"></a>2.FTP服务</h2><p><strong>简介</strong></p>
-<pre><code>FTP服务器（File Transfer Protocol Server）是在互联网上提供文件存储和访问服务的计算机，它们依照FTP协议提供服务。
-FTP（File Transfer Protocol: 文件传输协议）作用： Internet 上用来传送文件的协议
-常见FTP服务器：
-windows：Serv-U FTP Server
-Linux：ProFTPD:（Professional FTP daemon）一个Unix平台上或是类Unix平台上（如Linux, FreeBSD等）的FTP服务器程序。
-
-VSFTP是一个基于GPL发布的类Unix系统上使用的FTP服务器软件，它的全称是Very Secure FTP 从此名称可以看出来，编制者的初衷是代码的安全。
-特点：
-它是一个安全、高速、稳定的FTP服务器；
-
-模式： C/S 模式
-
-20 (传数据)   21 (传指令)
-    fsp（File Service Protocol）： 文件服务协议。
-
-ftp分为主动模式和被动模式
-
-    这里的主动和被动，是相对于的FTP server 端来判断的。无论是被动还是主动模式，首先的控制通道都是先建立起来的，只有在数据传输模式上有区别
-</code></pre><p><strong>工作原理</strong></p>
-<p><strong>1.主动模式工作原理</strong></p>
-<pre><code>FTP客户端链接到FTP服务器的21端口，发送用户名和密码，客户端随机开放一个端口(1024以上)发送PORT命令到FTP服务器，告诉服务器客户端采用主动模式开放端口；FTP服务器收到PORT主动模式命令和端口号后，通过服务器的20端口和客户端开放的端口链接，发送数据，原理如下：
-
-        客户端                                                      服务器
-                        FTP链接请求(用户名，密码，port端口)
-                    --------------------------------------&gt;
-                服务器相应(ACK) 服务端21号和客户端端口建立回话连接通道
-                    &lt;---------------------------------------
-
-
-             FTP服务器从自己的20号端口连接客户端指定端口连接请求为主动模式
-                &lt;-------------------------------------------------
-                            最后客户端发送ACK确认，开始数据传输
-                -------------------------------------------------&gt;
-</code></pre><p><strong>2.被动模式工作原理</strong></p>
-<pre><code>FTP客户端链接到FTP服务器的21端口，发送用户名和密码，发送PASV命令到FTP服务器，服务器在本地随机开放一个端口(1024以上)，然后把开放的端口告诉客户端，客户端在链接到服务器开放的端口进行连接。原理如下：
-
-
-        客户端                                                    服务器
-
-                FTP连接请求(包括用户名，密码，发送被动链接PASV)
-                -----------------------------------------&gt;
-                ftp服务器响应ACK，服务器21号和客户端高位随机端口
-                进行回话连接，建立通道。同时服务器告诉了客户端服
-                务器开放的端口
-                &lt;-----------------------------------------
-
-
-                客户端从自己中的一个高位端口链接服务器开放的端口
-         ------------------------------------------------------&gt;
-                   服务器发送ACK响应给客户端，进行数据传输
-         &lt;------------------------------------------------------
-</code></pre><p><strong>服务安装、启动和配置</strong></p>
-<pre><code>服务安装
-    yum -y install vsftpd lftp
-
-    注：从RHEL6开始，系统镜像中默认没有ftp客户端命令。取而代之的是lftp命令
-    Linux客户端：
-    lftp 是一个功能强大的下载工具，它支持访问文件的协议: ftp, ftps, http, https, hftp, fish.(其中ftps和https需要在编译的时候包含openssl库)。llftp的界面非常好一个shell: 有命令补全，历史记录，允许多个后台任务执行等功能，使用起来非常方便。它还有书签、排队、镜像、断点续传、多进程下载等功能。
-
-服务启动和端口检测(注意将防火墙和selinux关闭)
-    service vsftpd restart
-    chkconfig vsftpd on
-    netstat -antup | grep ftp
-
-    这里我们会发现看不到20端口，那是因为服务器和客户端没有进行通信
-
-服务配置
-    /etc/vsftpd/vsftpd.conf：vsftpd 的核心配置文件
-    /etc/vsftpd/ftpusers：用于指定哪些用户不能访问FTP 服务器。  黑名单
-    /etc/vsftpd/user_list：指定允许使用vsftpd 的用户列表文件。  白名单
-    vim  /etc/vsftpd/user_list
-    /etc/vsftpd/vsftpd_conf_migrate.sh：是vsftpd 操作的一些变量和设置脚本
-    /var/ftp/：默认情况下匿名用户的根目录
-</code></pre><p><strong>案例</strong></p>
-<p><strong>例1：公司技术部准备搭建一台功能简单的FTP 服务器，允许所有员工上传和下载文件，并允许创建用户自己的目录</strong></p>
-<pre><code>分析：
-    允许所有员工上传和下载文件需要设置成允许匿名用户登录并且需要将允许匿名用户上传功能开启，
-</code></pre><hr>
-<pre><code>方案：
-    cp vsftpd.conf vsftpd.conf.back
-    vim  /etc/vsftpd/vsftpd.conf  #修改以下内容
-
-    #允许匿名用户访问
-    anonymous_enable=YES
-    #允许匿名用户上传文件并可以创建目录
-    anon_upload_enable=YES
-    #字段可以控制是否允许匿名用户创建目录
-    anon_mkdir_write_enable=YES
-</code></pre><p><strong>例2：公司内部现在有一台FTP 和WEB 服务器，FTP 的功能主要用于维护公司的网站内容，包括上传文件、创建目录、更新网页等等。公司现有两个部门负责维护任务，他们分别适用team1 和team2<br>帐号进行管理。先要求仅允许team1 和team2 帐号登录FTP 服务器，但不能登录本地系统，并将<br>这两个帐号的根目录限制为/var/www/html，不能进入该目录以外的任何目录</strong></p>
-<pre><code>分析：
-    将FTP 和WEB 服务器做在一起是企业经常采用的方法，这样方便实现对网站的维护，为了增强安
-    全性，首先需要使用仅允许本地用户访问，并禁止匿名用户登录。其次使用chroot 功能将team1
-    和team2 锁定在/var/www/html 目录下。如果需要删除文件则还需要注意本地权限
-</code></pre><hr>
-<pre><code>方案：
-    1）建立维护网站内容的ftp 帐号team1 和team2 并禁止本地登录，然后设置其密码
-        [root@xuegod63 ~]# useradd -s /sbin/nologin team1
-        [root@xuegod63 ~]# useradd -s /sbin/nologin team2
-        [root@xuegod63 ~]# echo &quot;123456&quot; | passwd --stdin team1
-        Changing password for user team1.
-        passwd: all authentication tokens updated successfully.
-        [root@xuegod63 ~]# echo &quot;123456&quot; | passwd --stdin team2
-        Changing password for user team2.
-        passwd: all authentication tokens updated successfully.
-
-    2）配置vsftpd.conf 主配置文件并作相应修改
-        [root@xuegod63 vsftpd]# cp vsftpd.conf.back vsftpd.conf
-        vim /etc/vsftpd/vsftpd.conf
-        anonymous_enable=NO：禁止匿名用户登录
-        local_enable=YES：允许本地用户登录
-
-        local_root=/var/www/html
-        chroot_list_enable=YES
-        chroot_list_file=/etc/vsftpd/chroot_list
-
-        #local_root=/var/www/html                        #设置本地用户的根目录为/var/www/html
-        #chroot_list_enable=YES                            #激活chroot功能
-        #chroot_list_file=/etc/vsftpd/chroot_list        #设置锁定用户在根目录中的列表文件。此文件存放要锁定的用户名
-
-    3）建立/etc/vsftpd/chroot_list 文件，添加team1 和team2 帐号
-        [root@xuegod63 vsftpd]# touch /etc/vsftpd/chroot_list
-        [root@xuegod63 ~]# ll !$
-        ll /etc/vsftpd/chroot_list
-        -rw-r--r-- 1 root root 0 Nov 10 17:08 /etc/vsftpd/chroot_list
-        [root@xuegod63 ~]# vim /etc/vsftpd/chroot_list  #写入以下内容，一行，一个用户名
-        team1
-        team2
-
-    4）重启vsftpd 服务使配置生效
-        service vsftpd restart
-
-    5）修改本地权限
-        [root@xuegod63 ~]# ll -d /var/www/html/
-        drwxr-xr-x. 2 root root 4096 Oct  6  2011 /var/www/html/
-        [root@xuegod63 ~]# chmod -R o+w /var/www/html/
-        [root@xuegod63 ~]# ll -d /var/www/html/
-        drwxr-xrwx. 2 root root 4096 Oct  6  2011 /var/www/html/
-</code></pre><p><strong>例3:公司为了宣传最新的产品信息，计划搭建FTP 服务器，为客户提供相关文档的下载。对所有互<br>联网开放共享目录，允许下载产品信息，禁止上传。公司的合作单位能够使用FTP 服务器进行上<br>传和下载，但不可以删除数据。需要保证服务器的稳定性并做优化。创建ftp虚拟帐号。允许客户使用ftp帐号下载文件。 但是，你们自己的合作伙伴帐号：vip可以上传一内部文件</strong></p>
-<pre><code>分析:
-    根据企业的需求，对于不同用户进行不同的权限限制，FTP 服务器需要实现用户的审核。需考虑
-    到服务器的安全性，所以关闭实体用户登录，使用虚拟帐号验证机制，并对不同虚拟帐号设置不
-    同的权限。为了保证服务器的性能，还需要根据用户的等级，限制客户端的连接数及下载速度。
-</code></pre><hr>
-<pre><code>方案：
-
-    1、创建用户数据库
-        1）创建用户文本文件
-            先建立用户文本文件vsftpd_virtualuser.txt，添加两个虚拟帐号，公共帐号ftp 及客户帐号
-            vip
-            [root@xuegod63 vsftpd]# vim /etc/vsftpd/vsftpd_virtualuser.txt  #写入以下内容。格式一行用户一行密码
-
-            ftp     #客户用户
-            123456  #密码
-            vip        #合作伙伴
-            123456
-
-        2）生成数据库
-            保存虚拟帐号和密码的文本文件无法被系统帐号直接调用。我们需要使用db_load 命令生成db数据库文件
-            [root@xuegod63 vsftpd]# rpm -qf `which db_load `
-            db4-utils-4.7.25-16.el6.x86_64
-
-            # db_load -T -t hash -f /etc/vsftpd/vsftpd_virtualuser.txt  /etc/vsftpd/vsftpd_virtualuser.db
-            参数说明：
-            选项-T允许应用程序能够将文本文件转译载入进数据库。
-            由于我们之虚拟用户信息，以文本文件存储的。为让Vsftpd应用程序能够通过来载入用户数据，必须要使用选项来转译成vsftpd可以读懂的内容
-                -t hash使用hash码加密
-                -f 指定包含用户名和密码文本文件。此文件格式要示：奇数行用户名、偶数行密码
-
-            [root@xuegod63 vsftpd]# rm -rf /etc/vsftpd/vsftpd_virtualuser.txt   #为了安全，删除此文件。后期不再使用此文件。
-
-         3）修改数据库文件访问权限
-            数据库文件中保存着虚拟帐号的密码信息，为了防止非法用户盗取哈，我们可以修改该文件的访问权限。生成的认证文件的权限应设置为只对root用户可读可写，即600
-            [root@xuegod63 vsftpd]# chmod 600 /etc/vsftpd/vsftpd_virtualuser.db
-            [root@xuegod63 vsftpd]# ll !$
-            ll /etc/vsftpd/vsftpd_virtualuser.db
-            -rw------- 1 root root 12288 Nov 10 21:16 /etc/vsftpd/vsftpd_virtualuser.db
-
-    2、配置PAM 文件
-         为了使服务器能够使用数据库文件，对客户端进行身份验证，需要调用系统的PAM 模块.
-
-
-            PAM(Plugable Authentication Module)为可插拔认证模块，不必重新安装应用系统，通过修
-            改指定的配置文件，调整对该程序的认证方式。PAM 模块配置文件路径为/etc/pam.d/目录，此
-            目录下保存着大量与认证有关的配置文件，并以服务名称命名。
-            修改vsftpd 对应的PAM 配置文件/etc/pam.d/vsftpd。将默认配置使用“#”全部注释，添加两行应字段。
-
-            [root@xuegod63 vsftpd]# cat /etc/pam.d/vsftpd
-            ##%PAM-1.0
-            #session    optional     pam_keyinit.so    force revoke
-            #auth       required    pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed
-            #auth       required    pam_shells.so
-            #auth       include    password-auth
-            #account    include    password-auth
-            #session    required     pam_loginuid.so
-            #session    include    password-auth
-            auth    required    /lib64/security/pam_userdb.so  db=/etc/vsftpd/vsftpd_virtualuser
-            account    required    /lib64/security/pam_userdb.so  db=/etc/vsftpd/vsftpd_virtualuser
-
-         注意：这里的db=/etc/vsftpd/vsftpd_virtualuser是pam文件的写法规范，不是真正指向db=/etc/vsftpd/vsftpd_virtualuser 这个文件，而是/etc/vsftpd/vsftpd_virtualuser.db 文件。与此同时还需要注意的是db=数据库中的数据库不用写出拓展名
-
-
-    3、创建虚拟帐号对应的系统用户及ftp共享的目录
-        对于公共帐号和客户帐号，因为需要配置不同的权限，所以可以将两个帐号的目录进行隔离，控
-        制用户的文件访问。公共帐号ftp 对应系统帐号ftpuser，并指定其主目录为/var/ftp/share，
-        而客户帐号vip 对应系统帐号ftpvip，指定主目录为/var/ftp/vip。
-
-        [root@xuegod63 vsftpd]# useradd -d   /var/ftp/share     ftpuser
-        [root@xuegod63 vsftpd]# useradd -d   /var/ftp/vip       ftpvip
-        [root@xuegod63 vsftpd]# chmod -R 500 /var/ftp/share/  #修改权限
-        [root@xuegod63 vsftpd]# chmod -R 700 /var/ftp/vip/
-
-        chmod -R 500 /var/ftp/share/ ：公共帐号ftp 只允许下载，修改share 目录其他用户权限为rx 可读可执行。
-        chmod -R 700 /var/ftp/vip/   ：客户帐号vip 允许上传和下载，所以对vip 目录权限设置为rwx，
-        可读可写可执行。
-        注：如果不设置可执行用户登录会出不能更改目录错误。
-
-    4、建立配置文件
-
-        互动：如何设置多个虚拟帐号的不同权限？ 以前都配置好服务后，对所有用户有效。现在需要对不同用户配置不同的权限。 怎么办？
-        一个配置文件无法实现此功能，需要为每个虚拟帐号建立独立的配置文件，并根据需要进行相应的设置。
-
-        1）修改vsftpd.conf 主配置文件
-            配置主配置文件/etc/vsftpd/vsftpd.conf 添加虚拟帐号的共同设置并添加user_config_dir 字段，定义虚拟帐号的配置文件目录。
-            开始配置：
-            [root@xuegod63 vsftpd]# cp vsftpd.conf.back vsftpd.conf
-            禁用匿名用户登录并启用本地用户登录设置
-            vim vsftpd.conf
-            改：
-            anonymous_enable=YES
-            为：
-            anonymous_enable=NO
-
-            local_enable=YES           #确认此选项打开，允许本地用户登录。 Uncomment ：取消注释
-            chroot_local_user=YES   #确认此选项打开。将所有本地用户限制在家目录中，NO 则不限制
-            pam_service_name=vsftpd  #确认在文件的最后有选项。配置vsftpd 使用的PAM 模块为vsftpd
-
-            在此选项后面追加：
-            user_config_dir=/etc/vsftpd/vuserconfig            #设置虚拟帐号的主目录为/vuserconfig
-            max_clients=300                                    #设置FTP 服务器最大接入客户端数为300 个
-            max_per_ip=10                                    #设置每个IP 地址最大连接数为10 个
-
-
-        2）建立虚拟帐号配置文件
-            在user_config_dir 指定路径下，建立与 **虚拟帐号** 同名 的配置文件并添加相应的配置字段
-
-            首先建立公共帐号ftp 的配置文件
-            [root@xuegod63 ~]# grep vuserconfig /etc/vsftpd/vsftpd.conf   #查看要创建的目录名
-            user_config_dir=/etc/vsftpd/vuserconfig
-            [root@xuegod63 ~]# mkdir /etc/vsftpd/vuserconfig
-            [root@xuegod63 ~]# touch /etc/vsftpd/vuserconfig/ftp
-            [root@xuegod63 ~]# touch /etc/vsftpd/vuserconfig/vip
-
-            下面是客户的虚拟账号配置文件
-                [root@xuegod63 ~]# vim /etc/vsftpd/vuserconfig/ftp
-                guest_enable=yes
-                guest_username=ftpuser
-                anon_world_readable_only=no
-                anon_max_rate=50000
-
-            解释：
-                guest_enable=yes：开启虚拟帐号登录
-                guest_username=ftpuser：设置ftp 对应的系统帐号为ftpuser
-                anon_world_readable_only=no：允许匿名用户浏览整个服务器的文件系统
-                anon_max_rate=50000：限定传输速率为50KB/s
-</code></pre><hr>
-<pre><code>注意：
-    vsftpd 对于文件传输速度限制并不是绝对锁定在一个数值上哈，而是在80%~120%之间变化
-    比如设置100KB/s 则实际是速度在80KB/s~120KB/s 之间变化
-</code></pre><hr>
-<pre><code>      下面是合作伙伴的虚拟账号配置文件
-          [root@xuegod63 ~]# vim /etc/vsftpd/vuserconfig/vip  #写入以下内容
-          guest_enable=yes
-          guest_username=ftpvip
-          anon_world_readable_only=no
-          write_enable=yes
-          anon_mkdir_write_enable=yes
-          anon_upload_enable=yes
-          anon_max_rate=100000
-
-      解释：
-          guest_enable=yes：开启虚拟帐号登录
-          guest_username=ftpvip：设置ftp 对应的系统帐号为ftpvip
-          anon_world_readable_only=no：允许匿名用户浏览器整个服务器的文件系统
-          write_enable=yes：允许在文件系统写入权限
-          anon_mkdir_write_enable=yes：允许创建文件夹
-          anon_upload_enable=yes：开启匿名帐号的上传功能
-          anon_max_rate=100000：限定传输速度为100KB/s
-
-5、重启 vsftpd 使配置生效
-      [root@xuegod63 ~]# service vsftpd restart
-</code></pre><p><strong>回顾配置文件参数</strong></p>
-<pre><code>anonymous_enable=YES          #启用匿名用户（anonymous、ftp）
-local_enable=YES              #本地用户、启用
-write_enable=YES              #本地用户、可写
-#anon_upload_enable=YES       #匿名用户可写
-#anon_mkdir_write_enable=YES  #匿名用户可以创建目录
-#idle_session_timeout=600     #超时时间
-#data_connection_timeout=120  #超时时间
-listen=YES                    #是否监听
-pam_service_name=vsftpd       #开启pam支持
-userlist_enable=YES           #用户列表功能开启
-tcp_wrappers=YES              #开始tcp_wrappers支持
-userlist_deny=NO              #黑名单变白名单
-
-
-
-#锁定用户访问的目录：
-chroot_local_user=NO
-chroot_list_enable=YES
-chroot_list_file=/etc/vsftpd/chroot_list　　　#写谁锁谁
-
-chroot_local_user=YES
-chroot_list_enable=YES
-chroot_list_file=/etc/vsftpd/chroot_list　　　#写谁不锁谁
-
-#其他功能：
-#匿名用户可以重命名和删除：
-#虚拟账号 pam认证
-anon_other_write_enable＝YES
-bind IP
-listen_address=IP
-local_max_rate=N
-anon_max_rate=N
-max_client=N
-max_per_ip=N
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">FTP服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/7.Linux运维服务-FTP服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-6.Linux运维服务-Samba服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/6.Linux运维服务-Samba服务/">Samba服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/6.Linux运维服务-Samba服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.Samba服务
-3.常见错误解决方案
-4.应用场景
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-Samba服务"><a href="#2-Samba服务" class="headerlink" title="2.Samba服务"></a>2.Samba服务</h2><p><strong>简介</strong></p>
-<pre><code>Samba服务概述：
-    Samba 最先在Linux 和Windows 两个平台之间架起了一座桥梁，正是由于Samba 的出现，我们可以在Linux 系统和Windows 系统之间互相通信，比如拷贝文件、实现不同操作系统之间的资源共享等等，我们可以将其架设成一个功能非常强大的文件服务器，也可以将其架设成打印服务器提供本地和远程联机打印
-</code></pre><p><strong>软件安装和启动</strong></p>
-<pre><code>软件安装
-    rpm -ivh /mnt/Packages/samba-3.5.10-114.el6.x86_64.rpm
-
-服务启动
-    service smb start 或 /etc/init.d/smb restart
-
-samba 服务配置重新加载
-    /etc/init.d/smb   reload
-
-服务加入开机自启
-    chkconfig smb on
-
-查看端口
-    netstat -antup | grep smb
-
-windows访问samba服务的时候采用如下格式访问
-    \\192.168.1.63
-
-Linux访问的时候共享文件夹采用如下格式
-    smbclient -L  samba IP    密码为空   这样查看的方式为匿名用户
-    smbclient -L  samba IP -U 用户名%密码    以用户名查看samba共享文件
-    smbclient //samba共享的绝对路径 -U 用户名%密码
-
-如果登陆出现问题可以尝试清除一下缓存    (windows平台)
-    net use * /del                      //显示已建立的远程连接并询问是否确认删除，输入y删除，输入n暂不删除
-</code></pre><p><strong>配置文件解析</strong></p>
-<pre><code>配置文件详解：/etc/samba/smb.conf
-
-    1、samba 配置简介
-        smb.conf 文件的开头部分为samba 配置简介，告诉我们smb.conf 文件的作用及相关信息。
-        smb.conf 中还有以“;”开头，这些都是samba 配置的格式范例，默认是不生效滴，可以通过去掉前面的“;”并加以修改来设置想使用的功能。
-        [root@xuegod63 ~]# vim /etc/samba/smb.conf  #搜索分号 ；
-        ;       security = domain
-        另外#号也是表示注示
-    2、Global Settings
-
-        Global Settings 设置为全局变量区域。全局变量就是说我们只要在global 时进行设置，那么该设置项目就是针对所有共享资源生效。这与以后我们学习的很多服务器配置文件相似。
-
-
-    格式：
-    字段=设定值
-    下面我们说下[global]常用字段及设置方法：
-
-    1）设置samba 服务器所在工作组或域名
-    我们设置samba 服务器的工作组为xuegod.cn
-           workgroup = xuegod.cn  #工作组
-    2）服务器描述，服务器描述实际上类似于备注信息，
-    设置samba 描述信息为“xuegod.cn Samba Server  ”。
-            server string = xuegod.cn Samba Server  #samba服务器描述
-
-    3、设置samba 服务器安全模式。常见模式有两种：share 安全级别模式和user 安全级别模式
-        samba 服务器有share、user、server、domain 和AD活动目录 五种安全模式。
-        （1）share 安全级别模式
-        客户端登录samba 服务器，不需要输入用户名和密码就可以浏览samba 服务器的资源，适用于公
-        共的共享资源，安全性差，需要配合其他权限设置，保证samba 服务器的安全性。
-        （2）user 安全级别模式
-        客户端登录samba 服务器，需要提交合法帐号和密码，经过服务器验证才可以访问共享资源，服务器默认为此级别模式。
-    4、Share Definitions 共享服务的定义
-        [homes]为特殊共享目录，表示用户主目录。
-        [printers]表示共享打印机。
-
-修改配置文件，实战举例：
-     Samba 常规服务器配置
-        基本的Samba服务器的搭建流程主要分为四个步骤：
-        [1]、编辑主配置文件smb.conf,指定需要共享的目录，并为共享目录设置共享权限。
-        [2]、在smb.conf 文件中指定日志文件名称和存放路径。
-        [3]、设置共享目录的本地系统权限及samba共享权限。
-        [4]、重新加载配置文件或重新启动smb 服务，使用配置生效
-
-
-    配置一个共享资源：
-        [share]  #设置共享名
-                comment = Home Directories  #描述
-                browseable = yes   #是否允许查看此共享内容 。如果是否，后期通过绝对路径，可以查看到。
-        path = /share      #共享路径，写绝对路径
-        public = yes  #允许匿名查看
-        readonly = yes
-    5、设置访问用户
-
-        如果共享资源存在重要数据的话，需要对访问用户审核，我们可以使用valid users 字段进行设置
-        格式：
-        valid users = 用户名
-        valid users = @组名
-
-    6、设置目录只读
-        共享目录如果限制用户的读写操作，我们可以通过readonly 实现哈~
-        格式：
-        readonly = yes #只读
-        readonly = no #读写
-
-    7、设置目录可写
-        如果共享目录允许用户写操作，可以使用writable 或write list 两个字段进行设置
-        writable 格式：
-        writable = yes #读写
-        writable = no #只读
-        write list 格式：
-        write list = 用户名
-        write list = @组名
-
-        Samba 服务日志文件
-        在/etc/samba/smb.conf 文件中，log file 为设置samba 日志的字段。
-</code></pre><p><strong>案例</strong></p>
-<pre><code>    例1：匿名共享：
-
-        公司现在用一个工作组xuegod.cn， 需要添加samba 服务器作为文件服务器，并发布共享目录/share，共享名为public,这个共享目录允许所有公司员工访问。
-
-
-        [root@xuegod63 Desktop]# mkdir /share
-        [root@xuegod63 Desktop]# cp /etc/passwd !$   #复制一个测试文件
-        cp /etc/passwd /share
-
-        vim /etc/samba/smb.conf
-        [global]
-                workgroup = xuegod.cn  #工作组
-                server string = xuegod.cn Samba Server  #samba服务器描述
-        security = share   # 允许匿名访问
-        ============================ Share Definitions ====
-        [share]  #设置共享名
-                comment = Home Directories  #描述
-        path = /share      #共享路径，写绝对路径
-        public = yes  #允许匿名查看
-
-        2）重新加载配置
-        service smb restart
-
-    例2：通过用户名和密码共享文件。把/sales  共享出去，只有知道用户名和密码的同事可以看这个共享。我们需要将全局配置中security 设置user 安全级别，然后在共享目录设置权限
-
-    注意：一定要先指定存放密码的文件位置：
-
-
-    1）添加销售部用户和组并添加相应samba 帐号
-
-        使用groupadd 命令添加sales 组，然后执行useradd 命令和passwd 命令添加销售部员工的帐号及密码。
-
-        [root@xuegod63 samba]# groupadd sales
-        [root@xuegod63 samba]# useradd -g sales sale1
-        [root@xuegod63 samba]# useradd -g sales sale2
-        [root@xuegod63 samba]# id sale2
-        uid=501(sale2) gid=500(sales) groups=500(sales)
-        [root@xuegod63 samba]#
-
-        接下来为销售部成员添加相应samba 帐号
-        [root@xuegod63 samba]# smbpasswd -a sale1
-        New SMB password:
-        Retype new SMB password:
-        startsmbfilepwent_internal: file /etc/samba/smbpasswd did not exist. File successfully created.
-        Added user sale1.
-        [root@xuegod63 samba]# ls /etc/samba/smbpasswd
-        /etc/samba/smbpasswd
-        [root@xuegod63 samba]# cat !$
-        cat /etc/samba/smbpasswd
-                sale1:500:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:32ED87BDB5FDC5E9CBA88547376818D4:[U          ]:LCT-545E2105:
-        [root@xuegod63 samba]# smbpasswd -a sale2
-        New SMB password:
-        Retype new SMB password:
-        Added user sale2.
-
-    2）修改samba 主配置文件smb.conf
-        passdb backend = smbpasswd
-        smb passwd file = /etc/samba/smbpasswd
-
-例3:linux访问Windows共享文件的方法
-
-    1、安装Samba服务
-         yum install samba samba-client samba-swat
-
-    2、启动Samba服务器
-         /etc/init.d/smb restart
-
-    3、安装cifs-utils，解决只读挂载
-
-        yum install cifs-utils.x86_64
-
-    4、把Windows共享文件夹挂载到linux 目录下
-
-        mount -t cifs -o username=cnt01/njpublic,passwd=&apos;Welcome123&apos; //10.60.1.14/Files-Temporary-Transfer /mnt/
-
-    注意挂载的格式：
-    密码要 写在‘’ 里面，
-    挂载的目录要写到上一级，//ip/共享文件夹
-</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题</strong></p>
-<p><strong>第二种问题</strong></p>
-<h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)文件和打印机贡献</strong><br>    文件和打印机共享是Samba 的主要功能，SMB 进程实现资源共享，将文件和打印机发布到网络之中，以供用户可以访问。</p>
-<p><strong>2)身份验证和权限设置</strong><br>    smbd 服务支持user mode 和domain mode 等身份验证和权限设置模式，</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Samba服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/6.Linux运维服务-Samba服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-5.Linux运维服务-NFS服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/5.Linux运维服务-NFS服务/">NFS服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/5.Linux运维服务-NFS服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.196Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
-<p>##声明</p>
-<ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.服务
-3.常见错误解决方案
-4.应用场景
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-NFS服务"><a href="#2-NFS服务" class="headerlink" title="2.NFS服务"></a>2.NFS服务</h2><p><strong>简介</strong></p>
-<pre><code>NFS，是Network File System的简写，即网络文件系统。网络文件系统是FreeBSD支持的文件系统中的一种，也被称为NFS. NFS允许一个系统在网络上与他人共享目录和文件。通过使用NFS，用户和程序可以像访问本地文件一样访问远端系统上的文件。
-
-模式： C/S 模式
-端口：
-RHEL6是以NFSv4作为默认版本，NFSv4使用TCP协议（端口号是2049）和NFS服务器建立连接
-</code></pre><p><strong>软件安装和启动</strong></p>
-<pre><code>软件安装
-    yum -y install nfs*
-    yum install mount        #用到showmount命令查看nfs的那些文件实现了贡献
-
-端口检测和服务开启
-    netstat -antpu | grep 2049
-    service nfs start
-
-加入开机自启
-    chkconfig nfs on
-
-查看NFS的贡献目录
-    showmount -e NFS服务器IP
-
-挂载文件
-    mount 192.168.1.63:/tmp /opt
-</code></pre><p><strong>触发式挂载</strong></p>
-<pre><code>1.自动挂载
-    vim  /etc/fstab
-        192.168.30.128:/media    /opt        /nfs         defualts   0  0
-
-2.安装软件 autofs
-
-    yum install autofs -y
-    autofs软件包要实现自动挂载涉及到两个文件，auto.master和auto.misc
-
-    /etc/auto.master 文件定义本地挂载点.
-    /etc/auto.misc 配置文件是用来设置需要挂载的文件系统类型和选项
-
-            cd              -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
-            *               -fstype=nfs,rw        192.168.0.62:/media
-
-服务器端没有必要安装autofs  客户端安装nfs
-
-重启服务
-    service autofs restart
-</code></pre><p><strong>配置文件解析</strong></p>
-<pre><code>配置文件
-
-        vim /etc/exports
-        /media      *(rw)
-        贡献目录
-
-配置文件的简单配置
-
-    /tmp/a/no_root_squash      *(rw,no_root_squash)
-    /tmp/a/sync                192.168.0.0/24(rw,sync)
-    /tmp/a/ro                  192.168.1.64(ro)
-    /tmp/a/all_squash          192.168.0.0/24(rw,all_squash,anonuid=500,anongid=500)
-    /tmp/a/async               192.168.3.0/255.255.255.0(async)
-    /tmp/a/rw                  192.168.3.0/255.255.255.0(rw)    192.168.4.0/255.255.255.0(rw)
-    /tmp/a/root_squash         *(rw,root_squash)
-
-    * 表示所有网段
-    sync/async:数据同步写入硬盘/不同步写入在内存中缓存
-    root_squash（压制）：如果用root登录nfs，使其身份自动切换成nfsnobody。
-    no_root_squash：如果用root登录nfs，使其身份就是root。
-    all_squash：用户登录nfs时，指定身份为UID/GID的用户。
-
-    注意：在发布共享目录的格式中除了共享目录是必跟参数外，其他参数都是可选的。并且共享
-    目录与客户端之间及客户端与客户端之间需要使用空格符号，但是客户端与参数之间是不能有
-    空格的
-
-查看NFS的贡献目录
-    showmount -e NFS服务器IP
-</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题：共享目录之后无法创建文件</strong></p>
-<pre><code>1、可能是服务器端文件自身的读写权限设置问题
-    chmod 777 -R /贡献目录
-
-2、chown nfsnobody:nfsnobody     /共享目录
-</code></pre><p><strong>第二种问题：</strong></p>
-<h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)文件共享</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NFS服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/5.Linux运维服务-NFS服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-4.Linux运维服务-NTP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/4.Linux运维服务-NTP服务/">NTP服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/4.Linux运维服务-NTP服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.NTP服务
-3.常见错误解决方案
-4.应用场景
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-NTP服务"><a href="#2-NTP服务" class="headerlink" title="2.NTP服务"></a>2.NTP服务</h2><p><strong>-简介</strong></p>
-<pre><code>1、原理
-
-    NTP（Network Time Protocol，网络时间协议）是用来使计算机时间同步化的一种协议。它可以使计算机对其服务器或时钟源做同步化，它可以提供高精准度的时间校正（LAN上与标准间差小于1毫秒，WAN上几十毫秒），且可介由加密确认的方式来防止恶毒的协议攻击。
-
-    模式： C/S 模式
-    运行模式：
-
-2.服务安装和检查
-
-    rpm -ivh /mnt/Packages/ntp-4.2.4p8-2.el6.x86_64.rpm 或 yum -y install ntp*
-
-    service ntpd start
-
-    netstat -anutp | grep 123
-
-     ntpdate time.windows.com        #同步时间
-    如果自己同步自己的话就会出现如下错误
-    ntpdate time.windows.com
-
-3.NTP服务器的主要配置文件
-
-    /etc/ntp.conf：这个是NTP服务器的主要设文件，也是 NTP 唯一的设定文件
-    下面重点说说 /etc/ntp.conf文件的设置。在 NTP Server 的设定上面，其实最好不要对 Internet 无限制的开放，尽量仅提供您自己内部的 Client 端联机进行网络校时就好。此外， NTP Server 总也是需要网络上面较为准确的主机来自行更新自己的时间，所以在我们的 NTP Server 上面也要找一部最靠近自己的 Time Server 来进行自我校正。事实上， NTP 这个服务和服务器之间，也是 C/S的一种模式。
-
-    NTP服务器实际作用：保证Linux集群中所有所有服务器时间同步。 对于一个Linux集群，集群内的机器保持时间同步是很重要的，不然会出现很多问题。
-
-    实例：配置一个本地时间同步服务器
-    实验前请确保此服务器可以上网
-    [root@xuegod63 ~]# vim /etc/ntp.conf   #修改以下√号标记内容，为自己需要的内存即可
-    [root@xuegod63 ~]# vim /etc/ntp.conf   #修改以下√号标记内容，为自己需要的内存即可
-
-    driftfile /var/lib/ntp/drift
-    restrict default kod nomodify notrap nopeer noquery
-    restrict -6 default kod nomodify notrap nopeer noquery
-    restrict 127.0.0.1
-    restrict -6 ::1
-    √restrict 192.168.1.0 mask 255.255.255.0   # 允许192.168.1.0这个网段中的服务器，访问ntp服务器同步时间。
-    √restrict 202.120.2.101   #允许单个IP地址方访问本服务器。
-
-    server  202.120.2.101  #指定本NTP服务器的上游NTP服务器为202.120.2.101，并且设置为首先服务器。同步时间为，从上到下，写的越靠上，优先级越高。（写在所有server最前面IP地址为首先服务器，此服务器同步不了时间，寻找下一个NTP服务器）。此IP地址是上海交通大学网络中心NTP服务器地址。  在原配置文件中添加一个外网NTP服务器
-    server 0.rhel.pool.ntp.org
-    server 1.rhel.pool.ntp.org
-    server 2.rhel.pool.ntp.org
-
-    注意：有的老系统里，有下面这两行配置。如何有，就启动这两行，如果没有，可以跳过
-
-
-    配置文件参数说明：
-    # 1. 关于权限设定部分
-    #权限的设定主要以 restrict 这个参数来设定，主要的语法为：
-    #restrict IP mask netmask_IP parameter （pəˈramitər ：参数）
-    #其中 IP 可以是IP地址，也可以是 default ，default 就类似 0.0.0.0
-    #至于 paramter 则有：
-
-    #ignore　：关闭所有的 NTP 联机服务
-    #nomodify：表示 Client 端不能更改 Server 端的时间参数，不过， Client 端仍然可以透过 Server 端来进行网络校时。
-    #notrust ：该 Client 除非通过认证，否则该 Client 来源将被视为不信任网域
-    #noquery ：不提供 Client 端的时间查询
-    #notrap ：不提供trap这个远程事件登入 。 不提供trap这个远程事件登陆（remote event logging)的功能。
-    #如果 paramter 完全没有设定，那就表示该 IP (或网域)“没有任何限制”
-
-    restrict default nomodify notrap noquery　# 关闭所有的 NTP 要求封包
-    restrict 133.100.11.8
-    #允许上游服务器133.100.11.8通过，并且指定上游服务器为133.100.11.8，并且设置为首先服务器。
-
-    restrict 127.0.0.1　　　 #这是允许本机查询
-    restrict 192.168.1.0  mask 255.255.255.0 nomodify
-    #允许192.168.1.0/24网段内的客户端，通过这台NTP Server进行时间同步。
-    #2. 上层主机的设定
-    #要设定上层主机主要以 server 这个参数来设定，语法为：
-    #server [IP|HOST Name]
-    #Server 后面接的就是我们上层 Time Server 啰！同步时间为，从上到下，写的越靠上，优先级越高。server 0.pool.ntp.org
-    server 1.pool.ntp.org
-    server 2.pool.ntp.org
-    server cn.pool.ntp.org prefer
-
-    #其他设置值，以系统默认值即可
-    #　另外，为了解决更新时间封包的传送延迟动作， 　所以可以使用 driftfile 来规定我们的主机
-    #　在与 Time Server 沟通时所花费的时间，可以记录在 driftfile
-    #　后面接的文件内，例如下面的范例中，我们的 NTP server 与   cn.pool.ntp.org联机时所花费的时间会记录在 /etc/ntp/drift文件内
-    driftfile /var/lib/ntp/drift
-    例：cat  /var/lib/ntp/drift    #只有ntp服务工作正常后，这个文件中才有内容。
-
-4.启动的流程
-
-    在启动NTP服务前，先对提供服务的这台主机手动的校正一次时间。有时，你的时间和NTP服务器时间相差太大，NTP会以你当前系统时间为准，不作同步。（因为启动服务器，端口会被服务端占用，就不能手动同步时间了）
-
-    ntpdate time.windows.com
-
-    然后在启动服务
-    service ntpd start 或 /etc/init.d/ntpd start
-
-    查看端口是否服务启动成功
-    netstat -ln|grep 123
-
-    确认我们的NTP服务器已经更新了自己的时间
-    ntpstat #如果出现一下信心那么就代表成功了
-    synchronized to NTP server(127.127.1.0) at stratum 11  #可以看到我们当前在11层。
-    time correct to within 950ms   # ms毫秒是一种较为微小的时间单位，是一秒的千分之一。
-    polling（轮询） server every 64 s
-
-5.NTP服务同步硬件时间
-
-    最后提及一点，ntp服务，默认只会同步系统时间。如果想要让ntp同时同步硬件时间，可以设置/etc/sysconfig/ntpd 文件。
-    在/etc/sysconfig/ntpd文件中，添加 SYNC_HWCLOCK=yes 这样，就可以让硬件时间与系统时间一起同步。
-    如下：
-    [root@desktop2 ~]# cat /etc/sysconfig/ntpd //允许BIOS与系统时间同步
-    # Drop root to id &apos;ntp:ntp&apos; by default.
-    SYNC_HWCLOCK=yes
-    OPTIONS=&quot;-u ntp:ntp -p /var/run/ntpd.pid -g&quot;
-</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题：no server suitable for synchronization found</strong></p>
-<pre><code>其实，这不是一个错误。而是由于每次重启NTP服务器之后大约要3－5分钟客户端才能与server建立正常的通讯连接。当此时用客户端连接服务端就会报这样的信息。一般等待几分钟就可以了。
-</code></pre><p><strong>第二种问题：unsynchronised     polling server every 64 s</strong></p>
-<pre><code>1、    在启动服务之前，先要手动同步下时间，系统时间和硬件时间都要同步
-2、    修改配置文件，在定义server 字段下添加两行：
-    server  127.127.1.0
-    fudge   127.127.1.0 stratum 10
-    server127.127.1.0 如果上面的服务器都无同步时间，就和本地系统时间同步。 127.127.1.0在这里是一个IP地址，不是网段。
-    fudge127.127.1.0 stratum 10 #  127.127.1.0 为第10层。 ntp和127.127.1.0同步完后，就变成了11层。  ntp是层次阶级的。同步上层服务器的stratum 大小不能超过或等于16。
-
-如果没有以上两个错误，可以不用添加这两行，按照上面的笔记配置即可
-</code></pre><h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)集群应用</strong></p>
-<p><strong>2)内网NTP服务器</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NTP服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/4.Linux运维服务-NTP服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-3.Linux运维服务-RSYNC服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/3.Linux运维服务-RSYNC服务/">RSYNC服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/3.Linux运维服务-RSYNC服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.RSYNC服务
-3.Rysnc特性和优点
-</code></pre><hr>
-<h2 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h2><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-简介"><a href="#2-简介" class="headerlink" title="2.简介"></a>2.简介</h2><pre><code>RSYNC=Remote Sync 远程同步   高效，一定要结合shell
-官方网站：https://rsync.samba.org/
-Author：     Andrew Tridgell, Wayne Davison, and others
-                     Andrew Tridgell是Samba项目的领导者和主要开发人员，同时还在参与开发rsync、Linux Kernel。
-
-与SCP的比较：scp=无法备份大量数据，类似windows的复制
- rsync=边复制 ，边统计，边比较
-</code></pre><h2 id="3-Rysnc特性和优点"><a href="#3-Rysnc特性和优点" class="headerlink" title="3.Rysnc特性和优点"></a>3.Rysnc特性和优点</h2><pre><code>可以镜像保存整个目录树和文件系统。
-可以很容易做到保持原来文件的权限、时间、软硬链接等等。
-无须特殊权限即可安装。
-
-快速：第一次同步时 rsync 会复制全部内容，但在下一次只传输修改过的文件。
-压缩传输：rsync 在传输数据的过程中可以实行压缩及解压缩操作，因此可以使用更少的带宽。
-
-安全：可以使用scp、ssh等方式来传输文件，当然也可以通过直接的socket连接。
-支持匿名传输，以方便进行网站镜象。
-选择性保持：符号连接，硬链接，文件属性，权限，时间等
-</code></pre><hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RSYNC服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/3.Linux运维服务-RSYNC服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-2.Linux运维服务-DHCP服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/2.Linux运维服务-DHCP服务/">DHCP服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/2.Linux运维服务-DHCP服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</p>
-<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.DHCP服务
-3.常见错误解决方案
-4.应用场景
-5.和windows server的异同
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外
-如果公司对DHCP服务器系统没有要求 那么建议用windows搭建
-</code></pre><h2 id="2-DHCP服务"><a href="#2-DHCP服务" class="headerlink" title="2.DHCP服务"></a>2.DHCP服务</h2><p><strong>-简介</strong></p>
-<pre><code>名称：DHCP  - Dynamic Host Configuration Protocol  动态主机配置协议
-功能：DHCP(Dynamic Host Configuration Protocol，动态主机配置协议)是一个局域网的网络协议，使用UDP协议工作， 主要有两个用途：
-
-    1、    给内部网络或网络服务供应商自动分配IP地址，主机名，DNS服务器，域名
-    2、    配合其它服务，实现集成化管理功能。如：无人执守安装服务器
-
-特点： C/S 模式
-    自动分配IP地址，方便管理
-    DHCP不会同时租借相同的IP地址给两台主机；
-    DHCP管理员可以约束特定的计算机使用特定的IP地址；
-    可以为每个DHCP作用域设置很多选项；
-    客户机在不同子网间移动时不需要重新设置IP地址。每次都自动获取IP地址就可以了。
-    DHCP的缺点:
-    当网络上存在多服务器时，一个DHCP服务器不能查出已被其它服务器租出去的IP地址；
-    DHCP服务器不能跨路由器与客户机通信，除非路由器允许BOOTP协议转发。
-端口：
-    **DHCP服务使用：端口67(bootps) 68(bootpc) 。
-</code></pre><p><strong>-DHCP工作原理</strong></p>
-<pre><code>第一阶段：
-        client -&gt;  发送 discover广播报 -&gt;server               #这个过程中只有dhcp server能响应
-第二阶段：
-        server -&gt;  发送 OFFER  -&gt;  client                  #如果局域网中有多台dhcp server 都会发给client一个offer  但是client只会选择第一个
-第三阶段：
-        client -&gt;  发送request -&gt;  server                 #client请求服务器
-第四阶段：
-        server -&gt;  发送ack -&gt; client                        #发送确认报文，并给予ip地址
-第五阶段：当ip地址的租期到达一半的时候，就会发生续租报文
-        client -&gt; 发送REQUEST(renew)  -&gt; server
-第六阶段：
-        server -&gt; ack  -&gt; client
-</code></pre><p><strong>便于理解</strong></p>
-<pre><code>为了便于理解，我们把DHCP客户机比做餐馆里的客人，DHCP服务器工作原理当中，服务器比做服务员（一个餐馆里也可以有多个服务员），IP地址比做客户需要的食物。那么可以这样描述整个过程：客人走进餐馆，问：“有没有服务员啊？”（DHCP discover），多个服务员同时回答：“有，我这有鸡翅”“有，我这有汉堡”（DHCP offer）。
-
-客人说：“好吧，我要一份汉堡”（DHCP request，这个客人比较死板，总是选择第一次听到的食物），端着汉堡的服务员回应了一声：“来啦”（DHCP ack），并把食物端到客人面前，供其享用（将网卡和IP地址绑定）。客人下次来的时候，就直接找上次那个服务员点自己喜欢的汉堡了（DHCP request），如果还有汉堡，服务员会再次确认并上菜（DHCP ack），而如果已经卖完了，服务员则会告诉客人：“不好意思，已经卖完了”（DHCP nack）。
-
-当然，服务员隔一段时间会来收拾一次桌子，除非客人特别说明这菜还要继续吃的，服务员会将剩菜端走。
-</code></pre><p><strong>注意</strong></p>
-<pre><code>客户端执行DHCP DISCOVER 后，如果没有DHCP 服务器响应客户端的请求，客户端会随机使用169.254.0.0/16 网段中的一个IP 地址配置本机地址
-</code></pre><p><strong>-搭建服务</strong></p>
-<pre><code>1.安装软件
-    yum install -y dhcp
-
-2.配置文件
-    cp /usr/share/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
-    chkconfig dhcpd on
-    配置完服务是启动不成功的,启动失败的原因是 dhcp服务器配置的IP地址和本地的ip地址分发是不相同。
-    ##在启动DHCP服务之前，需要给DHCP Server配置一个静态的IP地址
-
-3.配置文件解析
-    DHCP配置文件参数说明
-        1)、主配置文件介绍
-
-            dhcp 范本配置文件内容包含了部分参数、声明以及选项的用法，其中注释部分可以放在任何位
-            置，并以“#”号开头，当一行内容结束时，以“;”号结束，大括号所在行除外
-
-            可以看出整个配置文件分成全局和局部两个部分。但是并不容易看出哪些属于参数，哪些属于声明和选项。
-
-            概念与协议：
-            作用域：可以分配IP的范围 subnet
-            地址池：可以分配给客户端的IP，range包括的IP
-            保留地址：指定某个客户端使用一个特定IP，通过host配置的
-            租约(时间)：客户端可以使用这个IP地址的时间
-
-
-        2)、配置文件：/etc/dhcp/dhcpd.conf     部分配置解释
-            # option definitions common to all supported networks...    ＃定义全局配置，通用于所有支持的网络选项.
-            option domain-name &quot;example.org&quot;;    #为客户端指定所属的域类似windows上的AD域
-            option domain-name-servers ns1.example.org, ns2.example.org;  #为客户端指定DNS服务器地址
-
-
-            default-lease-time 600;
-                作用：定义默认IP 租约时间，以秒为单位的租约时间。
-                50%:续约。(续不上继续用)
-                87.5%:再次续约。(续不上找别人)
-                DHCP工作站除了在开机的时候发出 DHCPrequest 请求之外，在租约期限一半的时候也会发出 DHCPrequest ，如果此时得不到 DHCP服务器的确认的话，工作站还可以继续使用该IP；当租约期过了87.5%时，如果客户机仍然无法与当初的DHCP服务器联系上，它将与其它 DHCP服务器通信。如果网络上再没有任何DHCP协议服务器在运行时，该客户机必须停止使用该IP地址，并从发送一个Dhcpdiscover数据包开始，再一次重复整个过程。要是您想退租，可以随时送出 DHCPRELEASE 命令解约，就算您的租约在前一秒钟才获得的。
-
-            max-lease-time 7200;  (数字)
-                作用：定义客户端IP租约时间的最大值，当客户端超过租约时间，却尚未更新IP 时，最长可以使用该IP 的时间；
-                例：
-                比如，机器在开机获得IP地址后，然后关机了。这时，当时间过了default-lease-time 600秒后，没有机器向DHCP续约，DHCP会保留7200秒，保留此IP地址不用于分配给其它机器。 当超过7200秒后，将不再保留此IP地址给此机器。
-                注意:（3）、（4）都是以秒为单位的租约时间，该项参数可以作用在全局配置中，也可以作用在局部配置中。
-
-            log-facility local7;   #定义日志类型为  local7
-
-            subnet：
-
-                声明一般用来指定IP 作用域、定义为客户端分配的IP 地址池等等
-                声明格式如下：
-                subnet 网络号 netmask 子网掩码 {
-                选项或参数
-                }
-
-        3)、常见声明的使用如下：
-            1) subnet 网络号 netmask 子网掩码 {......}
-            作用:定义作用域，指定子网
-            如：
-
-            注意：网络号必须与DHCP 服务器的网络号相同
-
-            下面介绍以下每个选项的含意：
-                range 起始IP 地址 结束IP 地址
-                    作用：指定动态IP 地址范围
-                    注意：可以在subnet（子网） 声明中指定多个range，但多个range 所定义IP 范围不能重复
-
-                常用选项介绍
-                    选项通常用来配置DHCP 客户端的可选参数，比如定义客户端的DNS 地址、默认网关等等。选项
-                    内容都是以option 关键字开始。
-                    常见选项使用如下：
-                              1）option routers IP 地址
-                                作用：为客户端指定默认网关
-                                如：option routers 10.5.5.1;
-
-                            2）option domain-name
-                                作用：为客户端指定默认的域
-
-                            3) option domain-name-servers IP 地址
-                                作用：为客户端指定DNS 服务器地址
-                            注意：(1)、(2)、(3)选项可以用在全局配置中，也可以用在局部配置中。
-
-4、常见的配置
-    subnet 192.168.1.0 netmask 255.255.255.0 {
-          range 192.168.1.100 192.168.1.200;
-          option domain-name-servers 192.168.1.1;
-          option domain-name &quot;xuegod.cn&quot;;
-          option routers 192.168.1.1;
-          option broadcast-address 192.168.1.255;
-          default-lease-time 600;
-          max-lease-time 7200;
-    }
-    配置完之后就可以重启网络服务
-
-5.客户端配置
-    在以上步骤配置完服务器端之后就可以配置客户端了，首先可以在客户端添加一份网卡，网卡设置为dhcp之后如果都配置正确的话重启网络服务就会产生ip地址
-
-6.查看租期
-    客户端文件存放在/var/lib/dhclient/dhclient-eth1.leases
-服务器文件存放在/var/lib/dhcpd/dpcpd.leases
-
-7.设置ip地址和MAC地址绑定在一起
-    在DHCP 中的IP 地址绑定用于给客户端分配固定IP 地址。比如服务器需要使用固定IP 地址就可以使用IP 地址绑定，通过MAC 地址与IP 地址的对应关系为指定的物理地址计算机分配固定IP地址。整个配置过程需要用到 host 声明和hardware、fixed-address 参数。
-            （1）host 主机名 {......}
-                作用：用于定义保留地址
-            （2）hardware 类型 硬件地址
-                作用：定义网络接口类型和硬件地址。常用类型为以太网（ethernet）,地址为MAC 地址。
-            （3）fixed-address IP 地址
-                作用：定义DHCP 客户端指定的IP 地址。
-
- host xuegod63 {    #这一段内容，要写在subnet字段中，和subnet配合使用。
-    hardware ethernet 00:0C:29:12:ec:1e;
-    fixed-address 192.168.0.251;
-  }
-</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>-错误解决方案</strong></p>
-<pre><code>1.当配置文件复制完成之后，重启hdcpd服务发现无法启动
-    启动失败的原因是 dhcp服务器配置的IP地址和本地的ip地址分发是不相同。
-    ##在启动DHCP服务之前，需要给DHCP Server配置一个静态的IP地址
-
-2.在配置dhcpd.conf文件的时候，当到达句尾一定不要忘记“;”
-
-3.如果服务一直启动不成功，仔细检查配置文件，尤其是ip地址的网段
-</code></pre><h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>-主要应用</strong></p>
-<pre><code>1、    给内部网络或网络服务供应商自动分配IP地址，主机名，DNS服务器，域名
-2、    配合其它服务，实现集成化管理功能。如：无人执守安装服务器
-</code></pre><h2 id="5-windows-server的异同"><a href="#5-windows-server的异同" class="headerlink" title="5.windows server的异同"></a>5.windows server的异同</h2><p>由于本人不擅长windows server知识，但是为了大家方便给大家找了一些文章</p>
-<p>1.<a href="http://blog.chinaunix.net/uid-29178012-id-3963202.html" title="windows server AD" target="_blank" rel="external">http://blog.chinaunix.net/uid-29178012-id-3963202.html</a></p>
-<p>2.<a href="http://jingyan.baidu.com/article/c275f6bacef120e33d756701.html" title="在Windows Server中怎么安装DHCP服务" target="_blank" rel="external">http://jingyan.baidu.com/article/c275f6bacef120e33d756701.html</a></p>
-<p>3.<a href="http://blog.csdn.net/yuanguozhengjust/article/details/37512269" title="Windows Server上的DHCP配置 " target="_blank" rel="external">http://blog.csdn.net/yuanguozhengjust/article/details/37512269</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DHCP服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/2.Linux运维服务-DHCP服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -2474,7 +1720,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2482,19 +1728,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2502,7 +1736,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2510,11 +1744,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2534,11 +1764,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2554,26 +1808,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
               </li>
              
@@ -2583,6 +1817,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2606,19 +1848,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
+                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2630,14 +1872,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
@@ -2646,19 +1880,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">认证服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2674,6 +1912,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
@@ -2682,15 +1924,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2698,7 +1936,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2706,11 +1948,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2722,18 +1980,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版权声明</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">STM32</a>
               </li>
              
@@ -2742,11 +1988,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
