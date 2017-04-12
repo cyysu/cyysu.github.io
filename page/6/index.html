@@ -164,334 +164,60 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-WEB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql集群-MHA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/WEB/">WEB架构</a>
+      <a class="article-title" href="/2017/04/06/mysql集群-MHA/">mysql集群-MHA</a>
     </h1>
   
 
         
-        <a href="/2017/04/04/WEB/" class="archive-article-date">
-  	<time datetime="2017-04-04T14:56:53.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
+        <a href="/2017/04/06/mysql集群-MHA/" class="archive-article-date">
+  	<time datetime="2017-04-06T10:18:59.278Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="WEB大型架构图"><a href="#WEB大型架构图" class="headerlink" title="WEB大型架构图"></a>WEB大型架构图</h2><p><img src="http://d1.freep.cn/3tb_170404225936okvq584189.png" alt=""></p>
+        <p>#注意</p>
+<pre><code>博客由于七牛的问题无法上传图片，暂时将图片存储在了百度云盘，结果无法显示。大家只要点击那个图片就可以看到有一个链接的The image 点击一下就可以看到那张图片了
+</code></pre><h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>MHA（Master High Availability）目前在MySQL高可用方面是一个相对成熟的解决方案，它由日本DeNA公司youshimaton（现就职于Facebook公司）开发，是一套优秀的作为MySQL高可用性环境下故障切换和主从提升的高可用软件。在MySQL故障切换过程中，MHA能做到在0~30秒之内自动完成数据库的故障切换操作，并且在进行故障切换的过程中，MHA能在最大程度上保证数据的一致性，以达到真正意义上的高可用。
+
+该软件由两部分组成：MHA Manager（管理节点）和MHA Node（数据节点）。MHA Manager可以单独部署在一台独立的机器上管理多个master-slave集群，也可以部署在一台slave节点上。MHA Node运行在每台MySQL服务器上，MHA Manager会定时探测集群中的master节点，当master出现故障时，它可以自动将最新数据的slave提升为新的master，然后将所有其他的slave重新指向新的master。整个故障转移过程对应用程序完全透明。
+
+在MHA自动故障切换过程中，MHA试图从宕机的主服务器上保存二进制日志，最大程度的保证数据的不丢失，但这并不总是可行的。例如，如果主服务器硬件故障或无法通过ssh访问，MHA没法保存二进制日志，只进行故障转移而丢失了最新的数据。使用MySQL 5.5的半同步复制，可以大大降低数据丢失的风险。MHA可以与半同步复制结合起来。如果只有一个slave已经收到了最新的二进制日志，MHA可以将最新的二进制日志应用于其他所有的slave服务器上，因此可以保证所有节点的数据一致性。
+
+目前MHA主要支持一主多从的架构，要搭建MHA,要求一个复制集群中必须最少有三台数据库服务器，一主二从，即一台充当master，一台充当备用master，另外一台充当从库，因为至少需要三台服务器，出于机器成本的考虑，淘宝也在该基础上进行了改造，目前淘宝TMHA已经支持一主一从。
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.cnblogs.com/stefan-liu/p/5446263.html" target="_blank" rel="external">MHA原理</a></p>
+<p><a href="http://os.51cto.com/art/201307/401702.htm" target="_blank" rel="external">基于 MHA 方式实现 MySQL 的高可用</a></p>
+<p><a href="http://www.dataguru.cn/thread-457284-1-1.html" target="_blank" rel="external">MySQL高可用架构之MHA 很详细</a></p>
+<p><a href="http://www.cnblogs.com/gomysql/p/3675429.html" target="_blank" rel="external">MySQL高可用架构之MHA</a></p>
+<p><a href="http://www.cnblogs.com/gomysql/p/3662492.html" target="_blank" rel="external">MySQL Replication需要注意的问题</a></p>
+<h2 id="PDF教程"><a href="#PDF教程" class="headerlink" title="PDF教程"></a>PDF教程</h2><p><a href="http://pan.baidu.com/s/1hs7OPFm" target="_blank" rel="external">MHA配置</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://pan.baidu.com/s/1boBMCgR" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_1704042259382v00584189.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WEB架构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/WEB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-小工具集合21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/小工具集合21/">小工具集合21</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/小工具集合21/" class="archive-article-date">
-  	<time datetime="2017-04-04T14:51:38.807Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.IT书籍          <a href="https://pan.baidu.com/share/home?uk=3107275956#category/type=0" target="_blank" rel="external">https://pan.baidu.com/share/home?uk=3107275956#category/type=0</a></p>
-<p>2.Python教程      <a href="https://github.com/wangshunping/codeparkshare" target="_blank" rel="external">https://github.com/wangshunping/codeparkshare</a></p>
-<p>3.Python网站      <a href="http://www.pythoner.com/" target="_blank" rel="external">http://www.pythoner.com/</a></p>
-<p>4.大数据          <a href="https://pan.baidu.com/share/home?uk=4248009820#category/type=0" target="_blank" rel="external">https://pan.baidu.com/share/home?uk=4248009820#category/type=0</a></p>
-<p>5.MongoDB         <a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="external">http://www.runoob.com/mongodb/mongodb-tutorial.html</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/小工具集合21/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-小工具集合20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/小工具集合20/">小工具集合20</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/小工具集合20/" class="archive-article-date">
-  	<time datetime="2017-04-04T14:42:05.934Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.学神Linux学习  <a href="http://pan.baidu.com/s/1qYJdPqk" target="_blank" rel="external">http://pan.baidu.com/s/1qYJdPqk</a></p>
-<p>2.学神Linux第一阶段   <a href="http://pan.baidu.com/s/1boYhiVH" target="_blank" rel="external">http://pan.baidu.com/s/1boYhiVH</a></p>
-<p>3.学神Linux第二阶段   <a href="http://pan.baidu.com/s/1nvlZVFN" target="_blank" rel="external">http://pan.baidu.com/s/1nvlZVFN</a></p>
-<p>4.学神Linux第三阶段   <a href="http://pan.baidu.com/s/1gfwv55L" target="_blank" rel="external">http://pan.baidu.com/s/1gfwv55L</a></p>
-<p>5.学神Linux第四阶段   <a href="http://pan.baidu.com/s/1qYyfb68" target="_blank" rel="external">http://pan.baidu.com/s/1qYyfb68</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/小工具集合20/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-puppet1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/puppet1/">puppet1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/puppet1/" class="archive-article-date">
-  	<time datetime="2017-04-04T14:35:25.514Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><pre><code>我这里采用的是Centos6.8作为Master，CentOS7作为Agent，使用的是yum安装，所以在导入yum的源的时候需要从以下几个添加
-
-[centos7]
-rpm -Uvh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
-
-[centos6]
-rpm -Uvh http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-10.noarch.rpm
-
-对于centos7而言还可以采用以下导入
-yum install epel-release
-</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.cnblogs.com/eastson/p/6056456.html" target="_blank" rel="external">Centos7 - Puppet3.6</a></p>
-<p><a href="http://blog.chinaunix.net/uid-24250828-id-3882898.html" target="_blank" rel="external">Centos6 - Puppet2.7</a></p>
-<p><a href="http://blog.chinaunix.net/uid-7411781-id-3442504.html" target="_blank" rel="external">其他参考教程1</a></p>
-<p><a href="http://blog.chinaunix.net/uid-20639775-id-3312887.html" target="_blank" rel="external">其他参考教程2</a></p>
-<h2 id="网页教程-1"><a href="#网页教程-1" class="headerlink" title="网页教程"></a>网页教程</h2><p><img src="http://d1.freep.cn/3tb_170404222851vyb5584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1gfxbA3D" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222854dutl584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1jI5IVsy" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222855n64e584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1qYHcbBe" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222856vi8j584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1cku5K6" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222857i3ut584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1pLO5A9X" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_1704042228587tth584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1i59iLPN" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222858v39y584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1o8DcuLW" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222859rhpk584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1qY2OS5e" alt=""></p>
 <hr>
-<p><img src="http://d1.freep.cn/3tb_170404222859ijq3584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_1704042228594aki584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_170404222900167b584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_170404222900v30r584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_170404222901xa2a584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_170404222901l6r2584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_1704042229015t8a584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_170404222901kut5584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_170404222901fiuc584189.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1i4TRrLV" alt=""></p>
 <hr>
 
       
@@ -514,11 +240,7 @@ yum install epel-release
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">puppet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -539,7 +261,7 @@ yum install epel-release
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/puppet1/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/06/mysql集群-MHA/">展开全文 >></a>
         </p>
       
 
@@ -557,126 +279,61 @@ yum install epel-release
 
 
   
-    <article id="post-小工具集合19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux基础命令grep" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/小工具集合19/">小工具集合19</a>
+      <a class="article-title" href="/2017/04/06/Linux基础命令grep/">Linux基础命令-grep|egrep</a>
     </h1>
   
 
         
-        <a href="/2017/04/04/小工具集合19/" class="archive-article-date">
-  	<time datetime="2017-04-04T08:46:37.805Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
+        <a href="/2017/04/06/Linux基础命令grep/" class="archive-article-date">
+  	<time datetime="2017-04-06T10:17:17.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.老段带你学Mysql <a href="http://pan.baidu.com/s/1jIPv9Fw" target="_blank" rel="external">http://pan.baidu.com/s/1jIPv9Fw</a></p>
-<p>2.微信小程序  <a href="http://pan.baidu.com/s/1i5r7KpB" target="_blank" rel="external">http://pan.baidu.com/s/1i5r7KpB</a></p>
-<p>3.2016传智Nodejs  <a href="http://pan.baidu.com/s/1dE9G7ID" target="_blank" rel="external">http://pan.baidu.com/s/1dE9G7ID</a></p>
-<p>4.Linux内核  <a href="http://pan.baidu.com/s/1nuRbhDf" target="_blank" rel="external">http://pan.baidu.com/s/1nuRbhDf</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
+        <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h2><pre><code>grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/小工具集合19/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-centos7更改网卡eth0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/centos7更改网卡eth0/">Centos更新网卡eth0</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/03/centos7更改网卡eth0/" class="archive-article-date">
-  	<time datetime="2017-04-03T15:31:03.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onublu79i.bkt.clouddn.com/0.png" alt=""></p>
-<hr>
-<p><img src="http://onublu79i.bkt.clouddn.com/1.png" alt=""></p>
-<hr>
-<p><img src="http://onublu79i.bkt.clouddn.com/2.png" alt=""></p>
-<hr>
-<p><img src="http://onublu79i.bkt.clouddn.com/3.png" alt=""></p>
-<hr>
-<p><img src="http://onublu79i.bkt.clouddn.com/4.png" alt=""></p>
-<hr>
-<p><img src="http://onublu79i.bkt.clouddn.com/5.png" alt=""></p>
-<hr>
+Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。
+</code></pre><h2 id="1-命令参数选项"><a href="#1-命令参数选项" class="headerlink" title="1. 命令参数选项"></a>1. 命令参数选项</h2><pre><code>grep [-acinv] [--color=auto] &apos;搜寻字符串&apos; filename
+选项与参数：
+-a ：将 binary 文件以 text 文件的方式搜寻数据
+-c ：计算找到 &apos;搜寻字符串&apos; 的次数
+-i ：忽略大小写的不同，所以大小写视为相同
+-n ：顺便输出行号
+-v ：反向选择，亦即显示出没有 &apos;搜寻字符串&apos; 内容的那一行！
+--color=auto ：可以将找到的关键词部分加上颜色的显示喔！
+</code></pre><h2 id="2-常见的匹配规则"><a href="#2-常见的匹配规则" class="headerlink" title="2. 常见的匹配规则"></a>2. 常见的匹配规则</h2><pre><code>^      匹配输入字符串的开始位置。
+*      匹配前面的子表达式任意次。
++      匹配前面的子表达式一次或多次(大于等于1次）。
+?      匹配前面的子表达式零次或一次。
+{n,m}  m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。
+</code></pre><h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><pre><code>grep &apos;\&lt;Tom\&gt;&apos; file                 包含单词Tom的行
+grep &apos;Tom savage&apos; file              包含Tom savage的行
+grep &apos;^Tommy&apos; file                  包含以Tommy开头的行
+grep &apos;\.bak$&apos; file                  包含以.bak结束的行
+grep &apos;[Pp]yramid&apos; file              包含pyramid 或Pyramid的单词的行
+grep &apos;[A-Z]&apos; file                   包含至少一个大写字母的行
+grep &apos;[0-9]&apos; file                   包含至少一个数字的行
+grep &apos;[A-Z]...[0-9]&apos; file           包含五个字符,以大写开头, 和一个数字结尾的行.
+grep -w &apos;[tT]est&apos; file              包含单词和test的行.
+grep -s &apos;ken sun&apos; file              找到包含ken sun的行, 但不打印行, 而是用来检查退出状态.
+grep -v aaa file                    打印不包含aaa的行.
+grep -i cathy file                  打印所有包含cathy的行, 而不考虑大小些.
+grep -l &apos;dear cathy&apos; *              打印包含dear cathy的文件的文件名清单.
+grep -n tom file                    打印匹配的行并追加行号.
+grep &quot;$LOGNAME&quot; file                包含变量内容的行, 注意必须用双引号, 单引号则无法引用变量.
+grep &apos;$name&apos; file                   打印包含字符$name的行.
+</code></pre><h2 id="4-网络教程"><a href="#4-网络教程" class="headerlink" title="4. 网络教程"></a>4. 网络教程</h2><p><a href="http://blog.csdn.net/newthinker_wei/article/details/8219293" target="_blank" rel="external">关于grep和egrep的一些整理</a></p>
+<p><a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856896.html" target="_blank" rel="external">linux grep命令详解</a></p>
+<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5. 正则表达式"></a>5. 正则表达式</h2><p><a href="http://baike.baidu.com/link?url=B5fgKVzAWRE9MPf-tEGrmkABdRzpmgMLoOg-FrTVonMMNuGEUODIxAfksd3FZ_oHg0LR3ncYPylfPUx9fud2cVeqc0hdsm_aT0_rg6dZrTjjDrbFHHciuXUaNhfWg4HNoDkkNXTUoi3hlY5Lhwd78_" target="_blank" rel="external">百度百科</a></p>
 
       
 
@@ -690,15 +347,11 @@ yum install epel-release
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Centos7</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
         		</li>
       		
 		</ul>
@@ -719,7 +372,7 @@ yum install epel-release
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/03/centos7更改网卡eth0/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/06/Linux基础命令grep/">展开全文 >></a>
         </p>
       
 
@@ -737,67 +390,206 @@ yum install epel-release
 
 
   
-    <article id="post-elkstack-Logstash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux基础命令-cron" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/elkstack-Logstash/">ELKstack-Logstash</a>
+      <a class="article-title" href="/2017/04/06/Linux基础命令-cron/">Linux基础命令-cron</a>
     </h1>
   
 
         
-        <a href="/2017/04/03/elkstack-Logstash/" class="archive-article-date">
-  	<time datetime="2017-04-03T13:05:31.556Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
+        <a href="/2017/04/06/Linux基础命令-cron/" class="archive-article-date">
+  	<time datetime="2017-04-06T09:54:47.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://storysky.blog.51cto.com/628458/1158707/" target="_blank" rel="external">教程1</a></p>
-<p><a href="http://www.cnblogs.com/hanyifeng/p/5509985.html" target="_blank" rel="external">教程2</a></p>
-<p><a href="http://udn.yyuap.com/doc/logstash-best-practice-cn/get_start/install.html" target="_blank" rel="external">yum 仓库安装</a></p>
-<p><a href="http://www.cnblogs.com/ibook360/archive/2013/03/15/2961428.html" target="_blank" rel="external">教程3</a></p>
-<p><a href="https://www.elastic.co/guide/en/logstash/2.2/package-repositories.html" target="_blank" rel="external">官方教程</a></p>
-<p><a href="http://10452483.blog.51cto.com/10442483/1732225" target="_blank" rel="external">教程4</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onu4ztlbj.bkt.clouddn.com/1.png" alt=""></p>
+        <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h2><pre><code>crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。
+</code></pre><h2 id="1-crontab文件规范"><a href="#1-crontab文件规范" class="headerlink" title="1. crontab文件规范"></a>1. crontab文件规范</h2><pre><code>*　 *　 *　 *　 *　　command
+分　时　日　月　周　 命令
+
+第1列表示分钟1～59 每分钟用*或者 */1表示
+第2列表示小时1～23（0表示0点）
+第3列表示日期1～31
+第4列表示月份1～12
+第5列标识号星期0～6（0表示星期天）
+第6列要运行的命令
+</code></pre><h2 id="2-命令参数选项"><a href="#2-命令参数选项" class="headerlink" title="2. 命令参数选项"></a>2. 命令参数选项</h2><pre><code>crontab [-u username] [-l|-e|-r]
+选项与参数：
+-u  ：只有 root 才能进行这个任务，亦即帮其他使用者创建/移除 crontab 工作排程；
+-e  ：编辑 crontab 的工作内容
+-l  ：查阅 crontab 的工作内容
+-r  ：移除所有的 crontab 的工作内容，若仅要移除一项，请用 -e 去编辑
+</code></pre><h2 id="3-特殊符号含义"><a href="#3-特殊符号含义" class="headerlink" title="3. 特殊符号含义"></a>3. 特殊符号含义</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">特殊符号</th>
+<th style="text-align:center">代表含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">*(星号)</td>
+<td style="text-align:center">代表任何时刻都接受的意思,*代表的是任何时候</td>
+</tr>
+<tr>
+<td style="text-align:center">,(逗号)</td>
+<td style="text-align:center">代表分隔字段的意思</td>
+</tr>
+<tr>
+<td style="text-align:center">-(减号)</td>
+<td style="text-align:center">代表一段时间范围内</td>
+</tr>
+<tr>
+<td style="text-align:center">/n　</td>
+<td style="text-align:center">那个 n 代表数字，也就是每隔 n 单位间隔的意思</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-Demo"><a href="#4-Demo" class="headerlink" title="4. Demo"></a>4. Demo</h2><pre><code>1. 在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup :
+
+#    */20 6-12 * 12 * /usr/bin/backup
+
+2. 周一到周五每天下午 5:00 寄一封信给 alex_mail_name :
+
+#    0 17 * * 1-5 mail -s &quot;hi&quot; alex_mail_name &lt; /tmp/maildata
+
+3. 晚上11点到早上8点之间每两个小时，早上8点
+
+#    0 23-7/2,8 * * * date
+
+4. 每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 echo &quot;haha&quot;
+
+#    20 0-23/2 * * * echo &quot;haha&quot;
+</code></pre><h2 id="5-实例"><a href="#5-实例" class="headerlink" title="5. 实例"></a>5. 实例</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">实例</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">每1分钟执行一次</td>
+<td>/1 <em> </em> <em> </em> command</td>
+</tr>
+<tr>
+<td style="text-align:left">每小时的第15,30,45分钟执行</td>
+<td>15,30,45 <em> </em> <em> </em> command</td>
+</tr>
+<tr>
+<td style="text-align:left">每周一的7点到11点的第25和第50分钟执行</td>
+<td>25,50 7-11 <em> </em> 1 command</td>
+</tr>
+<tr>
+<td style="text-align:left">每周六、周日的3 : 30执行</td>
+<td>30 3 <em> </em> 6,7 command</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/06/Linux基础命令-cron/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql-LVM快照" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/mysql-LVM快照/">MysqlLVM快照</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/06/mysql-LVM快照/" class="archive-article-date">
+  	<time datetime="2017-04-06T04:41:20.692Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><pre><code>mysql的数据要存放在LVM卷上,备份二进制日志要在源数据备份
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.jb51.net/os/RedHat/337102.html" target="_blank" rel="external">LVM创建教程</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2016-09/135484.htm" target="_blank" rel="external">lvm快照恢复</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-10/107697.htm" target="_blank" rel="external">使用LVM创建弹性磁盘存储——第一部分</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-10/107786.htm" target="_blank" rel="external">在Linux中扩展/缩减LVM（第二部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-11/108867.htm" target="_blank" rel="external">在 LVM中 录制逻辑卷快照并恢复（第三部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-11/109757.htm" target="_blank" rel="external">在LVM中设置精简资源调配卷（第四部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-12/110532.htm" target="_blank" rel="external">使用条块化I/O管理多个LVM磁盘（第五部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2013-07/87887.htm" target="_blank" rel="external">MySQL高性能备份方案解决数据不间断访问（LVM快照方式备份</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-04/116238.htm" target="_blank" rel="external">MySQL基于LVM快照的备份恢复</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onz0j1wor.bkt.clouddn.com/0.jpg" alt=""></p>
 <hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/2.png" alt=""></p>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/1.jpg" alt=""></p>
 <hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/3.png" alt=""></p>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/2.jpg" alt=""></p>
 <hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/4.png" alt=""></p>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/3.jpg" alt=""></p>
 <hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/5.png" alt=""></p>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/4.jpg" alt=""></p>
 <hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/6.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/7.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/8.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/9.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/10.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/11.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/12.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/13.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/14.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/15.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/16.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/17.png" alt=""></p>
-<hr>
-<p><img src="http://onu4ztlbj.bkt.clouddn.com/18.png" alt=""></p>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/5.jpg" alt=""></p>
 <hr>
 
       
@@ -820,15 +612,7 @@ yum install epel-release
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ELKstack</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Logstash</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -849,7 +633,7 @@ yum install epel-release
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/03/elkstack-Logstash/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/06/mysql-LVM快照/">展开全文 >></a>
         </p>
       
 
@@ -867,183 +651,37 @@ yum install epel-release
 
 
   
-    <article id="post-elkstack-ES" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql备份恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/elkstack-ES/">ELKstack-Elasticsearch</a>
+      <a class="article-title" href="/2017/04/06/mysql备份恢复/">mysql备份恢复</a>
     </h1>
   
 
         
-        <a href="/2017/04/03/elkstack-ES/" class="archive-article-date">
-  	<time datetime="2017-04-03T06:14:06.273Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
+        <a href="/2017/04/06/mysql备份恢复/" class="archive-article-date">
+  	<time datetime="2017-04-06T04:41:20.166Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.linuxidc.com/Linux/2015-10/123771.htm" target="_blank" rel="external">教程</a></p>
-<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.3/rpm.html" target="_blank" rel="external">官网教程</a></p>
-<p><a href="http://kernal.blog.51cto.com/8136890/1430418" target="_blank" rel="external">elasticsearch 1.2版本</a></p>
-<p><a href="http://www.ttlsa.com/elk/elk-elasticsearch-yum-install/" target="_blank" rel="external">elasticsearch 2.x版本</a></p>
-<p><a href="http://www.cnblogs.com/shifu204/p/6370682.html" target="_blank" rel="external">Centos7 两种方法安装 elasticsearch</a></p>
-<h2 id="PDF教程"><a href="#PDF教程" class="headerlink" title="PDF教程"></a>PDF教程</h2><p><a href="http://onm16gwvz.bkt.gdipper.com/ELK-guide-cn.pdf" target="_blank" rel="external">版本一</a></p>
-<p><a href="http://onm16gwvz.bkt.gdipper.com/Ansible-notes.pdf" target="_blank" rel="external">版本二</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://ontkgqxj9.bkt.clouddn.com/1.png" alt=""></p>
+        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.ha97.com/4197.html" target="_blank" rel="external">MySQL存储引擎MyISAM与InnoDB的主要区别对比</a></p>
+<p><a href="http://www.cnblogs.com/kissdodog/p/4174421.html" target="_blank" rel="external">mysql备份和恢复</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://pan.baidu.com/s/1bpaPhDl" alt=""></p>
 <hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/2.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1jIyXvnS" alt=""></p>
 <hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/3.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1mi7GIvu" alt=""></p>
 <hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/4.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1geBE2H1" alt=""></p>
 <hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/5.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/6.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/7.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/8.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/9.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/10.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/11.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/12.png" alt=""></p>
-<hr>
-<p><img src="http://ontkgqxj9.bkt.clouddn.com/13.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ELKstack</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/03/elkstack-ES/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-cobbler" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/cobbler/">cobbler</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/02/cobbler/" class="archive-article-date">
-  	<time datetime="2017-04-02T13:52:23.687Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://9528du.blog.51cto.com/8979089/1566885" target="_blank" rel="external">教程1</a></p>
-<p><a href="http://www.tuicool.com/articles/NFfi6fv" target="_blank" rel="external">教程2</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onsbx2lvp.bkt.clouddn.com/1.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/2.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/3.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/4.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/5.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/6.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/7.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/8.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/9.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/10.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/11.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/12.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/13.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/14.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/15.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/16.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/17.png" alt=""></p>
-<hr>
-<p><img src="http://onsbx2lvp.bkt.clouddn.com/18.png" alt=""></p>
+<p><img src="http://pan.baidu.com/s/1kVSb7wF" alt=""></p>
 <hr>
 
       
@@ -1066,11 +704,7 @@ yum install epel-release
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">cobbler</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -1091,7 +725,7 @@ yum install epel-release
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/02/cobbler/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/06/mysql备份恢复/">展开全文 >></a>
         </p>
       
 
@@ -1109,20 +743,108 @@ yum install epel-release
 
 
   
-    <article id="post-小工具集合18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql复制过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/小工具集合18/">小工具集合18</a>
+      <a class="article-title" href="/2017/04/05/mysql复制过滤器/">mysql复制过滤器</a>
     </h1>
   
 
         
-        <a href="/2017/04/02/小工具集合18/" class="archive-article-date">
-  	<time datetime="2017-04-02T04:31:27.700Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
+        <a href="/2017/04/05/mysql复制过滤器/" class="archive-article-date">
+  	<time datetime="2017-04-05T14:49:05.627Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#注意</p>
+<pre><code>博客由于七牛的问题无法上传图片，暂时将图片存储在了百度云盘，结果无法显示。大家只要点击那个图片就可以看到有一个链接的The image 点击一下就可以看到那张图片了
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://blog.csdn.net/dba_waterbin/article/details/8143284" target="_blank" rel="external">图解</a></p>
+<p><a href="http://blog.csdn.net/yaoqinglin/article/details/46658727" target="_blank" rel="external">参数解析</a></p>
+<p><a href="https://yq.aliyun.com/articles/59268" target="_blank" rel="external">详细解析</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://pan.baidu.com/s/1sl6kA7N" alt=""></p>
+<hr>
+<p><img src="http://pan.baidu.com/s/1clG2uE" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/05/mysql复制过滤器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-云栖社区分享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/05/云栖社区分享/">云栖社区</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/05/云栖社区分享/" class="archive-article-date">
+  	<time datetime="2017-04-05T14:34:05.287Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
 </a>
         
       </header>
@@ -1130,17 +852,9 @@ yum install epel-release
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>思科CCNA  <a href="http://pan.baidu.com/s/1o7OriFw" target="_blank" rel="external">http://pan.baidu.com/s/1o7OriFw</a></p>
+<li><p>阿里珍贵技术资料免费下载  <a href="https://yq.aliyun.com/articles/69316?spm=5176.100239.topwz.1.5Jr3va" target="_blank" rel="external">https://yq.aliyun.com/articles/69316?spm=5176.100239.topwz.1.5Jr3va</a></p>
 </li>
-<li><p>lINUX 性能调试  <a href="http://pan.baidu.com/s/1eSvH2kq" target="_blank" rel="external">http://pan.baidu.com/s/1eSvH2kq</a></p>
-</li>
-<li><p>CCNA06班  <a href="http://pan.baidu.com/s/1kVoLFy3" target="_blank" rel="external">http://pan.baidu.com/s/1kVoLFy3</a></p>
-</li>
-<li><p>2016 CCNA  <a href="http://pan.baidu.com/s/1ge2kMPl" target="_blank" rel="external">http://pan.baidu.com/s/1ge2kMPl</a></p>
-</li>
-<li><p>windows server    链接：<a href="http://pan.baidu.com/s/1qXSWLvY" target="_blank" rel="external">http://pan.baidu.com/s/1qXSWLvY</a> 密码：pki1</p>
-</li>
-<li><p>windows server 2012   <a href="http://pan.baidu.com/s/1ge7A1vP" target="_blank" rel="external">http://pan.baidu.com/s/1ge7A1vP</a></p>
+<li><p>云栖大会资料下载          <a href="https://yq.aliyun.com/activity/147?spm=5176.100239.blogcont69316.22.IF0ZR8" target="_blank" rel="external">https://yq.aliyun.com/activity/147?spm=5176.100239.blogcont69316.22.IF0ZR8</a></p>
 </li>
 </ol>
 <h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
@@ -1189,7 +903,333 @@ yum install epel-release
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/02/小工具集合18/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/05/云栖社区分享/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql半同步复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/05/mysql半同步复制/">Mysql半同步复制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/05/mysql半同步复制/" class="archive-article-date">
+  	<time datetime="2017-04-05T14:15:42.912Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://blog.csdn.net/lichangzai/article/details/50554057" target="_blank" rel="external">半同步复制</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onxwyu0t3.bkt.clouddn.com/1.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/2.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/3.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/4.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/5.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/6.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/7.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/8.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/9.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/10.jpg" alt=""></p>
+<hr>
+<p><img src="http://onxwyu0t3.bkt.clouddn.com/11.jpg" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/05/mysql半同步复制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/05/Linux博客/">Linux博客</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/05/Linux博客/" class="archive-article-date">
+  	<time datetime="2017-04-05T13:22:25.017Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Linux运维部落     <a href="http://www.178linux.com/" target="_blank" rel="external">http://www.178linux.com/</a></p>
+</li>
+<li><p>前端技术博客      <a href="http://www.daqianduan.com/" target="_blank" rel="external">http://www.daqianduan.com/</a></p>
+</li>
+<li><p>Linux基础         <a href="http://roclinux.cn/" target="_blank" rel="external">http://roclinux.cn/</a></p>
+</li>
+<li><p>Lamp优化          <a href="http://blog.csdn.net/chinalinuxzend/article/details/1761921" target="_blank" rel="external">http://blog.csdn.net/chinalinuxzend/article/details/1761921</a></p>
+</li>
+<li><p>启程Linux博客     <a href="http://qicheng0211.blog.51cto.com/" target="_blank" rel="external">http://qicheng0211.blog.51cto.com/</a></p>
+</li>
+<li><p>Linux驱动         <a href="http://blog.csdn.net/dansen_xu" target="_blank" rel="external">http://blog.csdn.net/dansen_xu</a></p>
+</li>
+<li><p>Linux技术         <a href="http://qgjie456.blog.163.com/" target="_blank" rel="external">http://qgjie456.blog.163.com/</a></p>
+</li>
+</ol>
+<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/05/Linux博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql主从复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/05/mysql主从复制/">Mysql主从复制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/05/mysql主从复制/" class="archive-article-date">
+  	<time datetime="2017-04-05T13:14:01.639Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://blog.csdn.net/sqzhao/article/details/42421849" target="_blank" rel="external">windows 部署</a></p>
+<p><a href="http://www.cnblogs.com/crazylqy/p/5542558.html" target="_blank" rel="external">概念介绍</a></p>
+<p><a href="https://segmentfault.com/a/1190000003716617" target="_blank" rel="external">mysql读写分离</a></p>
+<p><a href="http://bestvivi.com/2015/09/06/MySQL%E5%A4%8D%E5%88%B6%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%90%AD%E5%BB%BA/" target="_blank" rel="external">mysql复制介绍</a></p>
+<h2 id="主从复制图解"><a href="#主从复制图解" class="headerlink" title="主从复制图解"></a>主从复制图解</h2><p><img src="http://onvnnn2jc.bkt.gdipper.com/mysql%E5%A4%8D%E5%88%B6.png" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/mysql%E5%A4%9A%E7%BA%A7%E5%A4%8D%E5%88%B6.png" alt=""></p>
+<h2 id="网页教程-1"><a href="#网页教程-1" class="headerlink" title="网页教程"></a>网页教程</h2><p><img src="http://onvnnn2jc.bkt.gdipper.com/1.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/2.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/3.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/4.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/5.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/6.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/7.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/8.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/9.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/10.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/11.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/12.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/13.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/14.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/15.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/16.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/17.jpg" alt=""></p>
+<hr>
+<p><img src="http://onvnnn2jc.bkt.gdipper.com/18.jpg" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/05/mysql主从复制/">展开全文 >></a>
         </p>
       
 
@@ -1209,7 +1249,7 @@ yum install epel-release
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -1330,7 +1370,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,11 +1386,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1355,18 +1395,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1386,19 +1414,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1410,11 +1454,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1430,6 +1478,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1439,26 +1495,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1474,15 +1510,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,11 +1554,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1530,15 +1566,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1550,11 +1586,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1566,11 +1606,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">puppet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1579,14 +1627,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">跨平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,11 +1642,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">

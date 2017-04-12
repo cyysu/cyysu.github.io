@@ -164,64 +164,88 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-nginx七层负载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MFS分布是系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/nginx七层负载/">Nginx实现七层负载</a>
+      <a class="article-title" href="/2017/03/25/MFS分布是系统/">MFS分布系统</a>
     </h1>
   
 
         
-        <a href="/2017/03/24/nginx七层负载/" class="archive-article-date">
-  	<time datetime="2017-03-24T11:53:14.940Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+        <a href="/2017/03/25/MFS分布是系统/" class="archive-article-date">
+  	<time datetime="2017-03-25T14:38:41.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="ab测试工具"><a href="#ab测试工具" class="headerlink" title="ab测试工具"></a>ab测试工具</h2><p><a href="http://freeloda.blog.51cto.com/2033581/1240814/" target="_blank" rel="external">传送门</a></p>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/nginx.conf" target="_blank" rel="external">配置文件传送门</a></p>
-<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/nginx-1.8.0.tar.gz" target="_blank" rel="external">软件</a></p>
-<h2 id="word版本教程"><a href="#word版本教程" class="headerlink" title="word版本教程"></a>word版本教程</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/3-4-%E4%BD%BF%E7%94%A8nginx-haproxy-%E5%AE%9E%E7%8E%B0%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">教程</a></p>
-<h2 id="测试材料"><a href="#测试材料" class="headerlink" title="测试材料"></a>测试材料</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/xuegod62%E7%BD%91%E7%AB%99%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2.zip" target="_blank" rel="external">材料1</a><br><a href="http://onbh5rsxw.bkt.clouddn.com/xuegod64%E7%BD%91%E7%AB%99%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2.zip" target="_blank" rel="external">材料2</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onbh5rsxw.bkt.clouddn.com/1.png" alt=""></p>
+        <h2 id="word教程"><a href="#word教程" class="headerlink" title="word教程"></a>word教程</h2><p><a href="http://ondkvs20z.bkt.clouddn.com/3-7-mfs.docx" target="_blank" rel="external">教程</a></p>
+<h2 id="PDF教程"><a href="#PDF教程" class="headerlink" title="PDF教程"></a>PDF教程</h2><p><a href="http://ondkvs20z.bkt.clouddn.com/3-9-MFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BA-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external"></a></p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="http://ondkvs20z.bkt.clouddn.com/MFS%20read.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/2.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/MFS%20write.png" alt=""></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://ondkvs20z.bkt.clouddn.com/1.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/3.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/2.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/4.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/3.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/5.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/4.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/6.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/5.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/7.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/6.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/8.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/7.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/9.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/8.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/10.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/9.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/20.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/10.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/21.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/11.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/22.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/12.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/23.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/13.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/24.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/14.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/25.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/15.png" alt=""></p>
 <hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/26.png" alt=""></p>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/16.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/17.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/18.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/19.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/20.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/21.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/22.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/23.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/24.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/25.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/26.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/27.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/28.png" alt=""></p>
+<hr>
+<p><img src="http://ondkvs20z.bkt.clouddn.com/29.png" alt=""></p>
 <hr>
 
       
@@ -248,11 +272,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件共享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">分布式系统</a>
         		</li>
       		
 		</ul>
@@ -273,7 +293,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/nginx七层负载/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/25/MFS分布是系统/">展开全文 >></a>
         </p>
       
 
@@ -291,123 +311,67 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-heartbeat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-小工具集合13-嵌入式篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/heartbeat/">Heartbeat</a>
+      <a class="article-title" href="/2017/03/25/小工具集合13-嵌入式篇/">小工具集合13</a>
     </h1>
   
 
         
-        <a href="/2017/03/24/heartbeat/" class="archive-article-date">
-  	<time datetime="2017-03-24T07:48:29.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+        <a href="/2017/03/25/小工具集合13-嵌入式篇/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:38:10.984Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="网络参考教程和一些错误解决方案"><a href="#网络参考教程和一些错误解决方案" class="headerlink" title="网络参考教程和一些错误解决方案"></a>网络参考教程和一些错误解决方案</h2><p><a href="http://blog.chinaunix.net/uid-22539324-id-2644094.html" target="_blank" rel="external">1.没有rpmbuild </a><br><a href="http://blog.sina.com.cn/s/blog_5f190fff0101d1kf.html" target="_blank" rel="external">2.脑力的解决方案</a></p>
-<h2 id="业余拓展资料"><a href="#业余拓展资料" class="headerlink" title="业余拓展资料"></a>业余拓展资料</h2><p><a href="http://www.cnblogs.com/losbyday/p/5844491.html" target="_blank" rel="external">1.集群概念以及多种搭建教程</a><br><a href="http://www.linuxidc.com/Linux/2013-09/90321.htm" target="_blank" rel="external">2.DRBD简介安装</a></p>
-<h2 id="课堂笔记"><a href="#课堂笔记" class="headerlink" title="课堂笔记"></a>课堂笔记</h2><p><a href="http://onb6uqmmu.bkt.clouddn.com/3-4-heartbeat.txt" target="_blank" rel="external">笔记</a></p>
-<h2 id="word版教程"><a href="#word版教程" class="headerlink" title="word版教程"></a>word版教程</h2><p><a href="http://onb6uqmmu.bkt.clouddn.com/3-5-heartbeat.docx" target="_blank" rel="external">教程</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onb6uqmmu.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/2.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/3.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/4.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/5.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/6.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/7.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/8.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/9.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/10.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/11.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/12.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/13.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/14.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/15.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/16.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/17.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/18.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/19.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/20.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/21.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/22.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/23.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/24.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/25.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/26.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/27.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/28.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/29.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/30.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/31.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/32.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/33.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/34.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/35.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/36.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/37.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/38.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/39.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/40.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/41.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/42.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/43.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/44.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/45.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/46.png" alt="教程"></p>
-<hr>
+        <h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>STM32学习完了不知道干啥了？好！这次分享的内容会让你知道你该做什么了！
+没错！我们开始学习ARM9、ARM11或者Cortex-A8或者Cortex-A9了。
+</code></pre><h2 id="学习视频链接"><a href="#学习视频链接" class="headerlink" title="学习视频链接"></a>学习视频链接</h2><pre><code>1.国嵌视频                  http://pan.baidu.com/s/1pLJfqVD
 
+2.顶嵌视频                  http://pan.baidu.com/s/1nvfnOCT
+
+3.达内嵌入式                http://pan.baidu.com/s/1dF1OHgt
+
+4.天嵌视频                  http://pan.baidu.com/s/1qYe1FwK
+
+5.天祥电子                  http://pan.baidu.com/s/1jIdsdsq
+
+6.天嵌E9                    http://pan.baidu.com/s/1mhVg2a0
+
+7.ARM11                     http://pan.baidu.com/s/1qXUYqh2
+
+8.OK210                     http://pan.baidu.com/s/1dFvdhQT
+
+9.韦东山                    http://pan.baidu.com/s/1hrO3cBa
+
+10.ARM9                     http://pan.baidu.com/s/1o7PCIj4
+
+11.国嵌完整版               http://pan.baidu.com/s/1dFHxLeD
+</code></pre><h1 id="学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！"><a href="#学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！" class="headerlink" title="学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！"></a>学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！</h1><p><a href="http://pan.baidu.com/s/1kUPIKfX" target="_blank" rel="external">QT传送门</a></p>
+<h2 id="学习建议"><a href="#学习建议" class="headerlink" title="学习建议"></a>学习建议</h2><pre><code>这么多视频资料初学者肯定不知道看哪个，我根据自己的经验给大家提出几条建议：
+
+1. 首先学习嵌入式开发的门槛比较高，这个你心里要有准备
+
+2. 嵌入式你得会Linux的基本命令呀，包括一些简单的配置，比如网卡，NFS，编译内核，软件的安装和下载
+
+3. 摆正姿态，不要松懈
+
+4. 嵌入式Linux用的系统大部分是ubuntu，这个比较简单，大家有时间可以去玩玩
+
+5. 这个阶段你会接触很多新鲜的名词，先不要深究，慢慢来用到的时候多用用就会了解概念了
+
+6. 这个阶段你首先学习的是嵌入式的裸机开发，也就是用寄存器开发，然后就是嵌入式的驱动开发
+
+7. 先模仿，在造轮子，在成为大神级人物。
+</code></pre><h2 id="韦东山嵌入式开发系统镜像"><a href="#韦东山嵌入式开发系统镜像" class="headerlink" title="韦东山嵌入式开发系统镜像"></a>韦东山嵌入式开发系统镜像</h2><p><a href="http://pan.baidu.com/s/1hrTmIB6" target="_blank" rel="external">Vmware-Ubuntu9.10</a></p>
+<h1 id="祝愿大家早日成为大牛！！！切勿浮躁！！！！！"><a href="#祝愿大家早日成为大牛！！！切勿浮躁！！！！！" class="headerlink" title="祝愿大家早日成为大牛！！！切勿浮躁！！！！！"></a>祝愿大家早日成为大牛！！！切勿浮躁！！！！！</h1><h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
       
 
       
@@ -420,23 +384,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">STM32</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件共享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Heartbeat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
         		</li>
       		
 		</ul>
@@ -448,7 +404,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
         		</li>
       		
 		</ul>
@@ -457,7 +413,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/heartbeat/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/25/小工具集合13-嵌入式篇/">展开全文 >></a>
         </p>
       
 
@@ -475,159 +431,47 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-lvs-keepalived" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-小工具集合12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/lvs-keepalived/">LVS集群-Keepalived</a>
+      <a class="article-title" href="/2017/03/25/小工具集合12/">小工具集合12</a>
     </h1>
   
 
         
-        <a href="/2017/03/24/lvs-keepalived/" class="archive-article-date">
-  	<time datetime="2017-03-24T02:58:35.707Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+        <a href="/2017/03/25/小工具集合12/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:32:24.641Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p><a href="http://on9lqdvnn.bkt.clouddn.com/keepalived-1.2.16.tar.gz" target="_blank" rel="external">keepalived1.2</a></p>
-<h2 id="RS脚本"><a href="#RS脚本" class="headerlink" title="RS脚本"></a>RS脚本</h2><p><a href="http://on9lqdvnn.bkt.clouddn.com/realserver.sh" target="_blank" rel="external">RealServer.sh脚本</a></p>
-<h2 id="keepalived-书籍"><a href="#keepalived-书籍" class="headerlink" title="keepalived 书籍"></a>keepalived 书籍</h2><p><a href="http://on9lqdvnn.bkt.clouddn.com/keepalived%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.pdf" target="_blank" rel="external">书籍</a></p>
-<h2 id="word教程"><a href="#word教程" class="headerlink" title="word教程"></a>word教程</h2><p><a href="http://on9lqdvnn.bkt.clouddn.com/3-4-keepalived.docx" target="_blank" rel="external">教程</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on9lqdvnn.bkt.clouddn.com/1.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/2.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/3.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/4.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/5.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/6.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/7.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/8.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/9.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/10.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/11.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/12.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/13.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/14.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/15.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/16.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/17.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/18.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/19.png" alt=""></p>
-<hr>
-<p><img src="http://on9lqdvnn.bkt.clouddn.com/20.png" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/lvs-keepalived/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-小工具集合8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/小工具集合8/">小工具集合8</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/小工具集合8/" class="archive-article-date">
-  	<time datetime="2017-03-24T02:57:26.510Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.链接：<a href="http://pan.baidu.com/s/1jHZUik2" target="_blank" rel="external">http://pan.baidu.com/s/1jHZUik2</a> 密码：fkpy</p>
-<p>2.链接：<a href="http://pan.baidu.com/s/1nvFf7pn" target="_blank" rel="external">http://pan.baidu.com/s/1nvFf7pn</a> 密码：d7u0</p>
-<p>3.链接：<a href="http://pan.baidu.com/s/1c2HzJ7y" target="_blank" rel="external">http://pan.baidu.com/s/1c2HzJ7y</a> 密码：j4wf</p>
-<p>4.链接：<a href="http://pan.baidu.com/s/1mhGTnIg" target="_blank" rel="external">http://pan.baidu.com/s/1mhGTnIg</a> 密码：2khg</p>
-<p>5.链接：<a href="http://pan.baidu.com/s/1boWeB1P" target="_blank" rel="external">http://pan.baidu.com/s/1boWeB1P</a> 密码：y4lq</p>
+        <ol>
+<li><p>matlab   <a href="http://pan.baidu.com/s/1qXSWvDi" target="_blank" rel="external">http://pan.baidu.com/s/1qXSWvDi</a></p>
+</li>
+<li><p>matlab   <a href="http://pan.baidu.com/s/1jHKvkMy" target="_blank" rel="external">http://pan.baidu.com/s/1jHKvkMy</a></p>
+</li>
+<li><p>C++到MFC <a href="http://pan.baidu.com/s/1ge8VVTT" target="_blank" rel="external">http://pan.baidu.com/s/1ge8VVTT</a></p>
+</li>
+<li><p>opencv   <a href="http://pan.baidu.com/s/1sl4OfmP" target="_blank" rel="external">http://pan.baidu.com/s/1sl4OfmP</a></p>
+</li>
+<li><p>VS插件   <a href="http://pan.baidu.com/s/1i5FnKo9" target="_blank" rel="external">http://pan.baidu.com/s/1i5FnKo9</a></p>
+</li>
+<li><p>组态王-PLC上位机 <a href="http://pan.baidu.com/s/1qXSWvDU" target="_blank" rel="external">http://pan.baidu.com/s/1qXSWvDU</a></p>
+</li>
+<li><p>西门子WINCC和视频   <a href="http://pan.baidu.com/s/1dF24Gyl" target="_blank" rel="external">http://pan.baidu.com/s/1dF24Gyl</a></p>
+</li>
+<li><p>FPGA     <a href="http://pan.baidu.com/s/1jIoNuaM" target="_blank" rel="external">http://pan.baidu.com/s/1jIoNuaM</a></p>
+</li>
+<li><p>台达PLC  <a href="http://pan.baidu.com/s/1nu6bUcD" target="_blank" rel="external">http://pan.baidu.com/s/1nu6bUcD</a></p>
+</li>
+</ol>
+<p>10.三菱PLC  <a href="http://pan.baidu.com/s/1o7NANKe" target="_blank" rel="external">http://pan.baidu.com/s/1o7NANKe</a></p>
 <h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
       
 
@@ -678,7 +522,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/小工具集合8/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/25/小工具集合12/">展开全文 >></a>
         </p>
       
 
@@ -696,31 +540,585 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-小工具集合9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ISCSI-高可用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/小工具集合9/">小工具集合9</a>
+      <a class="article-title" href="/2017/03/25/ISCSI-高可用/">ISCSI高可用</a>
     </h1>
   
 
         
-        <a href="/2017/03/24/小工具集合9/" class="archive-article-date">
-  	<time datetime="2017-03-24T02:56:54.495Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+        <a href="/2017/03/25/ISCSI-高可用/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:31:14.292Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.链接：<a href="http://pan.baidu.com/s/1hstBadQ" target="_blank" rel="external">http://pan.baidu.com/s/1hstBadQ</a> 密码：gc8h</p>
-<p>2.链接：<a href="http://pan.baidu.com/s/1i4VS1pF" target="_blank" rel="external">http://pan.baidu.com/s/1i4VS1pF</a> 密码：1eqk</p>
-<p>3.链接：<a href="http://pan.baidu.com/s/1kVx8DUn" target="_blank" rel="external">http://pan.baidu.com/s/1kVx8DUn</a> 密码：ta47</p>
-<p>4.链接：<a href="http://pan.baidu.com/s/1kUB56Hh" target="_blank" rel="external">http://pan.baidu.com/s/1kUB56Hh</a> 密码：w2rk</p>
-<p>5.链接：<a href="http://pan.baidu.com/s/1gfGDEOr" target="_blank" rel="external">http://pan.baidu.com/s/1gfGDEOr</a> 密码：y4h6</p>
+        <h2 id="word版本教程"><a href="#word版本教程" class="headerlink" title="word版本教程"></a>word版本教程</h2><p><a href="http://ondbspkir.bkt.clouddn.com/3-8-iscsi%E5%A4%9A%E8%B7%AF%E5%BE%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F-%E4%BD%BF%E7%94%A8udev%E5%9B%BA%E5%AE%9Aiscsi%E8%AE%BE%E5%A4%87%E5%90%8D%E5%AD%97-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">教程</a></p>
+<hr>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://ondbspkir.bkt.clouddn.com/1.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/2.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/3.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/4.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/5.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/6.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/7.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/8.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/9.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/10.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/11.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/12.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/13.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/14.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/15.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/16.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/17.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/18.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/19.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/20.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/21.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/22.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/23.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/24.png" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">存储系统</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">高可用</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">负载均衡</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/ISCSI-高可用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-虚拟机增加磁盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/虚拟机增加磁盘/">虚拟机增加磁盘</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/虚拟机增加磁盘/" class="archive-article-date">
+  	<time datetime="2017-03-25T09:36:11.402Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://ond67ewl6.bkt.clouddn.com/1.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/2.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/3.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/4.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/5.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/6.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/7.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/8.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/9.png" alt=""></p>
+<hr>
+<p><img src="http://ond67ewl6.bkt.clouddn.com/10.png" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">存储系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/虚拟机增加磁盘/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-iscsi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/iscsi/">ISCSI</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/iscsi/" class="archive-article-date">
+  	<time datetime="2017-03-25T09:32:13.679Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PDF教程"><a href="#PDF教程" class="headerlink" title="PDF教程"></a>PDF教程</h2><p><a href="http://ond6qb9qu.bkt.clouddn.com/3-7-%E6%90%AD%E5%BB%BAiscsi%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">教程</a></p>
+<h2 id="word教程"><a href="#word教程" class="headerlink" title="word教程"></a>word教程</h2><p><a href="http://ond6qb9qu.bkt.clouddn.com/3-6-iscsi.docx" target="_blank" rel="external">教程</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://ond6qb9qu.bkt.clouddn.com/1.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/2.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/3.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/4.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/5.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/6.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/7.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/8.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/9.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/10.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/11.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/12.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/13.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/14.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/15.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/16.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/17.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/18.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/19.png" alt=""></p>
+<hr>
+<p><img src="http://ond6qb9qu.bkt.clouddn.com/20.png" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">存储系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/iscsi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-学神IT第三阶段图文教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/学神IT第三阶段图文教程/">第三阶段图文教程</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/学神IT第三阶段图文教程/" class="archive-article-date">
+  	<time datetime="2017-03-25T09:24:31.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>这套教程来源于互联网，仅可用作学习用途，不可商用！！关于本博客后期涉及到的内容均来源于
+网络，由于第三阶段是加密处理的，这里我为了更多学习Linux运维的同学更快的入门，在原
+有的笔记的基础上附上图文教程，方便大家可以对照环境，更好的进行学习
+</code></pre><h2 id="关于第三阶段"><a href="#关于第三阶段" class="headerlink" title="关于第三阶段"></a>关于第三阶段</h2><pre><code>后期我会将第三阶段全部图文教程整理成一个目录，目前还请大家去查找相应文章查看！
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">版权声明</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/学神IT第三阶段图文教程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-小工具集合11-stm32篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/小工具集合11-stm32篇/">小工具集合11</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/小工具集合11-stm32篇/" class="archive-article-date">
+  	<time datetime="2017-03-25T08:55:42.984Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>应需求这次小工具分享的内容为嵌入式学习资料和视频,以及分享一些STM32精彩文章给大家
+</code></pre><h2 id="学习视频链接"><a href="#学习视频链接" class="headerlink" title="学习视频链接"></a>学习视频链接</h2><p>1.<a href="http://pan.baidu.com/s/1o8difns#list/path=%2F" target="_blank" rel="external">战舰V2 STM32开发板光盘资料</a></p>
+<p>2.<a href="http://pan.baidu.com/s/1gfQeATd#list/path=%2F" target="_blank" rel="external">STM32 神州IV视频</a></p>
+<p>3.<a href="http://pan.baidu.com/s/1pLQ3vUr#list/path=%2F&amp;parentPath=%2Fstm32%20%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%20%E5%85%A8%E5%A5%97%20%E6%B7%98%E5%AE%9D%E8%B4%AD%E4%B9%B0" target="_blank" rel="external">芯嵌stm32视频</a></p>
+<p>4.<a href="http://pan.baidu.com/s/1qYF27Uk#list/path=%2F" target="_blank" rel="external">正点原子STM32视频</a></p>
+<p>5.<a href="http://pan.baidu.com/share/link?shareid=870077098&amp;uk=2889268786&amp;fid=665447780191#list/path=%2F%E6%88%98%E8%88%B0STM32&amp;parentPath=%2F" target="_blank" rel="external">战舰V3开发板视频</a></p>
+<p>6.<a href="http://pan.baidu.com/s/1hsMHyte" target="_blank" rel="external">硬石科技STM32</a></p>
+<p>7.<a href="http://pan.baidu.com/s/1jImf53o" target="_blank" rel="external">探索者stm32嵌入式系统</a></p>
+<p>8.<a href="http://pan.baidu.com/s/1hrM1joC" target="_blank" rel="external">探索者F4视频</a></p>
+<p>9.<a href="http://pan.baidu.com/s/1c1BdWIG" target="_blank" rel="external">UCOSiii</a></p>
+<p>10.<a href="http://pan.baidu.com/s/1boYgASn" target="_blank" rel="external">安福来STM32资料V3 V4 V5</a></p>
+<p>11.<a href="http://pan.baidu.com/s/1dFbyyn3#list/path=%2FALIENTEK%20%E5%BC%80%E5%8F%91%E6%9D%BF%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86%2F%E9%98%BF%E6%B3%A2%E7%BD%97STM32F429%E5%BC%80%E5%8F%91%E6%9D%BF%E5%85%89%E7%9B%98%E8%B5%84%E6%96%99&amp;parentPath=%2FALIENTEK%20%E5%BC%80%E5%8F%91%E6%9D%BF%E8%B5%84%E6%96%99%E5%90%88%E9%9B%86" target="_blank" rel="external">阿波罗F4</a></p>
+<p>12.<a href="http://www.openedv.com/thread-78272-1-1.html" target="_blank" rel="external">阿波罗系列资料网址</a></p>
+<h2 id="学习建议"><a href="#学习建议" class="headerlink" title="学习建议"></a>学习建议</h2><pre><code>这么多视频资料初学者肯定不知道看哪个，我根据自己的经验给大家提出几条建议：
+
+1. 学习stm32首先可以看正点原子的，挺经典的
+
+2. 如果需要以后增强可以看探索者F4的
+
+3. 如果以后做项目用的很多，那就看安富莱的视频，安富莱的资料全部免费开源，V6版本的应该正在整理
+
+4. 如果你想学习新版STM32库，你可以学习一下阿波罗系列的开发板(正点原子)
+
+5. 最后重要的是你要有一块开发板，但你不能只下载一下例程，你需要自己加一些其他的功能
+
+6. 先模仿，在造轮子，在成为大神级人物。
+</code></pre><h1 id="祝愿大家早日成为大牛！！！切勿浮躁！！！！！"><a href="#祝愿大家早日成为大牛！！！切勿浮躁！！！！！" class="headerlink" title="祝愿大家早日成为大牛！！！切勿浮躁！！！！！"></a>祝愿大家早日成为大牛！！！切勿浮躁！！！！！</h1><h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">STM32</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/小工具集合11-stm32篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-小工具集合10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/24/小工具集合10/">小工具集合10</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/24/小工具集合10/" class="archive-article-date">
+  	<time datetime="2017-03-24T15:43:56.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.链接：<a href="http://pan.baidu.com/s/1pLK1j5L" target="_blank" rel="external">http://pan.baidu.com/s/1pLK1j5L</a> 密码：zba4</p>
+<p>2.链接：<a href="http://pan.baidu.com/s/1o7MoQEm" target="_blank" rel="external">http://pan.baidu.com/s/1o7MoQEm</a> 密码：9wpn</p>
+<p>3.链接：<a href="http://pan.baidu.com/s/1gfonxkf" target="_blank" rel="external">http://pan.baidu.com/s/1gfonxkf</a> 密码：gq9r</p>
+<p>4.链接：<a href="http://pan.baidu.com/s/1c25U3Gs" target="_blank" rel="external">http://pan.baidu.com/s/1c25U3Gs</a> 密码：fwmp</p>
+<p>5.链接：<a href="http://pan.baidu.com/s/1dF8AqTN" target="_blank" rel="external">http://pan.baidu.com/s/1dF8AqTN</a> 密码：a452</p>
 <h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
       
 
@@ -771,7 +1169,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/小工具集合9/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/24/小工具集合10/">展开全文 >></a>
         </p>
       
 
@@ -789,263 +1187,68 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-小工具集合7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-cacti" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/小工具集合7/">小工具集合7</a>
+      <a class="article-title" href="/2017/03/24/cacti/">Cacti</a>
     </h1>
   
 
         
-        <a href="/2017/03/23/小工具集合7/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:55:47.171Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+        <a href="/2017/03/24/cacti/" class="archive-article-date">
+  	<time datetime="2017-03-24T15:37:26.172Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.链接：<a href="http://pan.baidu.com/s/1slrWIol" target="_blank" rel="external">http://pan.baidu.com/s/1slrWIol</a> 密码：ndjk</p>
-<p>2.链接：<a href="http://pan.baidu.com/s/1jIcBX58" target="_blank" rel="external">http://pan.baidu.com/s/1jIcBX58</a> 密码：m9ij</p>
-<p>3.链接：<a href="http://pan.baidu.com/s/1bpszrcF" target="_blank" rel="external">http://pan.baidu.com/s/1bpszrcF</a> 密码：h678</p>
-<p>4.链接：<a href="http://pan.baidu.com/s/1slFDqt3" target="_blank" rel="external">http://pan.baidu.com/s/1slFDqt3</a> 密码：4l36</p>
-<p>5.链接：<a href="http://pan.baidu.com/s/1boWeB4F" target="_blank" rel="external">http://pan.baidu.com/s/1boWeB4F</a> 密码：h7ia</p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序员</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/小工具集合7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-小工具集合6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/小工具集合6/">小工具集合(六)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/23/小工具集合6/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:54:47.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://pan.baidu.com/s/1b4wsxS" target="_blank" rel="external">1.程序员书籍  密码：slii </a></p>
-<p><a href="http://pan.baidu.com/s/1pLGxv6b" target="_blank" rel="external">2.Java经典书籍  密码：0xy8</a></p>
-<p><a href="http://pan.baidu.com/s/1gfkjDbt" target="_blank" rel="external">3.硬件设计 密码：gkyi</a></p>
-<p><a href="http://pan.baidu.com/s/1kV1Cvnp" target="_blank" rel="external">4.黑马安卓56期  密码：h478</a></p>
-<p><a href="http://pan.baidu.com/s/1pLDF4Zh" target="_blank" rel="external">5.NodeJS 工程师  密码：t1pd</a></p>
-<p><a href="http://pan.baidu.com/s/1bplDB23" target="_blank" rel="external">6.老男孩高级架构  密码：vqny</a></p>
-<p><a href="http://pan.baidu.com/s/1bOFh1O" target="_blank" rel="external">7.老王python 密码：x77b</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序员</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/小工具集合6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-lvs-DR" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/lvs-DR/">LVS集群-DR模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/23/lvs-DR/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:12:16.113Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="课堂笔记"><a href="#课堂笔记" class="headerlink" title="课堂笔记"></a>课堂笔记</h2><p><a href="http://on9hji4an.bkt.clouddn.com/3-2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.txt" target="_blank" rel="external">笔记</a></p>
-<h2 id="word版教程"><a href="#word版教程" class="headerlink" title="word版教程"></a>word版教程</h2><p><a href="http://on9hji4an.bkt.clouddn.com/lvs-dr%E9%A2%84%E4%B9%A0.docx" target="_blank" rel="external">教程</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on9hji4an.bkt.clouddn.com/0.LVS-DR%E5%8E%9F%E7%90%86.jpg" alt="教程"></p>
+        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.iyunv.com/thread-25844-1-1.html" target="_blank" rel="external">网页版教程</a></p>
+<h2 id="word版教程"><a href="#word版教程" class="headerlink" title="word版教程"></a>word版教程</h2><p><a href="http://onbru45gz.bkt.clouddn.com/Cacti-0.8.8b%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4.docx" target="_blank" rel="external">教程</a></p>
+<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p><a href="http://onbru45gz.bkt.clouddn.com/rrdtool-1.4.8.tar.gz" target="_blank" rel="external">rddtool</a></p>
+<p><a href="http://onbru45gz.bkt.clouddn.com/cacti-spine-0.8.8b.tar.gz" target="_blank" rel="external">cacti-spine</a></p>
+<p><a href="http://onbru45gz.bkt.clouddn.com/settings-v0.7-1.tgz" target="_blank" rel="external">seetings</a></p>
+<p><a href="http://onbru45gz.bkt.clouddn.com/thold-v0.5.0.tgz" target="_blank" rel="external">thold</a></p>
+<p><a href="http://onbru45gz.bkt.clouddn.com/monitor-v1.3-1.tgz" target="_blank" rel="external">monitor</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onbru45gz.bkt.clouddn.com/1.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/2.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/2.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/3.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/3.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/4.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/4.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/5.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/5.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/6.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/6.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/7.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/7.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/8.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/8.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/9.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/9.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/10.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/10.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/11.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/11.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/12.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/12.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/13.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/13.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/14.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/14.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/15.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/16.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/17.png" alt=""></p>
 <hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hji4an.bkt.clouddn.com/1.png" alt="教程"></p>
+<p><img src="http://onbru45gz.bkt.clouddn.com/18.png" alt=""></p>
 <hr>
 
       
@@ -1072,7 +1275,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">监控</a>
         		</li>
       		
 		</ul>
@@ -1093,275 +1296,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/lvs-DR/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-lvs-TUN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/lvs-TUN/">LVS集群-TUN模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/23/lvs-TUN/" class="archive-article-date">
-  	<time datetime="2017-03-23T10:06:26.616Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="课堂笔记"><a href="#课堂笔记" class="headerlink" title="课堂笔记"></a>课堂笔记</h2><p><a href="http://on9hvgjaw.bkt.clouddn.com/3-3-LVS%E9%9B%86%E7%BE%A4-IP-TUN%E6%A8%A1%E5%BC%8F%E5%92%8Cwebbench%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">1.PDF教程</a></p>
-<p><a href="http://on9hvgjaw.bkt.clouddn.com/3-3-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.txt" target="_blank" rel="external">2.课堂笔记</a></p>
-<h2 id="word版教程"><a href="#word版教程" class="headerlink" title="word版教程"></a>word版教程</h2><p><a href="http://on9hvgjaw.bkt.clouddn.com/3-3-lvs-iptun.docx" target="_blank" rel="external">教程</a></p>
-<h2 id="网页版教程"><a href="#网页版教程" class="headerlink" title="网页版教程"></a>网页版教程</h2><p><a href="http://www.linuxidc.com/Linux/2012-09/71340p3.htm" target="_blank" rel="external">教程</a></p>
-<h2 id="压力测试工具"><a href="#压力测试工具" class="headerlink" title="压力测试工具"></a>压力测试工具</h2><p><a href="http://on9hvgjaw.bkt.clouddn.com/webbench-1.5.tar.gz" target="_blank" rel="external">工具</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on9hvgjaw.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/2.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/3.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/4.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/5.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/6.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/7.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/8.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/9.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9hvgjaw.bkt.clouddn.com/10.png" alt="教程"></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/lvs-TUN/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-lvs-nat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/lvs-nat/">LVS集群-NAT模式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/23/lvs-nat/" class="archive-article-date">
-  	<time datetime="2017-03-23T09:58:45.951Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="课堂笔记"><a href="#课堂笔记" class="headerlink" title="课堂笔记"></a>课堂笔记</h2><p><a href="http://on9h3vcu0.bkt.clouddn.com/%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.txt" target="_blank" rel="external">笔记</a></p>
-<h2 id="word版教程"><a href="#word版教程" class="headerlink" title="word版教程"></a>word版教程</h2><p><a href="http://on9h3vcu0.bkt.clouddn.com/lvs-nat.docx" target="_blank" rel="external">教程</a></p>
-<h2 id="网页版教程"><a href="#网页版教程" class="headerlink" title="网页版教程"></a>网页版教程</h2><p><a href="http://www.linuxidc.com/Linux/2012-09/71340p2.htm" target="_blank" rel="external">教程</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on9h3vcu0.bkt.clouddn.com/1.png" alt="教程"></p>
-<p>–</p>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/2.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/3.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/4.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/5.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/6.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/7.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/8.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/9.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/10.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/11.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/12.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/13.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/14.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/15.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/16.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/17.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/18.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/19.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/20.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/21.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/22.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/23.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/24.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/25.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/26.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/27.gif" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/28.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/29.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/30.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/30.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/31.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/32.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/33.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/34.png" alt="教程"></p>
-<hr>
-<p><img src="http://on9h3vcu0.bkt.clouddn.com/35.png" alt="教程"></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/23/lvs-nat/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/24/cacti/">展开全文 >></a>
         </p>
       
 
@@ -1381,7 +1316,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
     </nav>
   
 
@@ -1502,7 +1437,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,11 +1453,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1527,18 +1462,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1558,19 +1481,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1582,11 +1521,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,6 +1545,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1611,26 +1562,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1646,15 +1577,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1686,11 +1621,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1702,15 +1633,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1722,11 +1653,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1738,11 +1673,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">puppet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1751,14 +1694,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">跨平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1774,11 +1709,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">

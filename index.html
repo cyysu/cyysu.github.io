@@ -164,100 +164,68 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Linux命令基础-find" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-xrags" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Linux命令基础-find/">Linux命令基础-find</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-xrags/">Linux命令基础-xargs</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Linux命令基础-find/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:58:02.843Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-xrags/" class="archive-article-date">
+  	<time datetime="2017-04-12T15:11:11.353Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>find命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-amin&lt;分钟&gt;：查找在指定时间曾被存取过的文件或目录，单位以分钟计算；
--anewer&lt;参考文件或目录&gt;：查找其存取时间较指定文件或目录的存取时间更接近现在的文件或目录；
--atime&lt;24小时数&gt;：查找在指定时间曾被存取过的文件或目录，单位以24小时计算；
--cmin&lt;分钟&gt;：查找在指定时间之时被更改过的文件或目录；
--cnewer&lt;参考文件或目录&gt;查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
--ctime&lt;24小时数&gt;：查找在指定时间之时被更改的文件或目录，单位以24小时计算；
--daystart：从本日开始计算时间； -depth：从指定目录下最深层的子目录开始查找；
--expty：寻找文件大小为0 Byte的文件，或目录下没有任何子目录或文件的空目录；
--exec&lt;执行指令&gt;：假设find指令的回传值为True，就执行该指令；
--false：将find指令的回传值皆设为False；
--fls&lt;列表文件&gt;：此参数的效果和指定“-ls”参数类似，但会把结果保存为指定的列表文件；
--follow：排除符号连接； -fprint&lt;列表文件&gt;：此参数的效果和指定“-print”参数类似，但会把结果保存成指定的列表文件；
--fprint0&lt;列表文件&gt;：此参数的效果和指定“-print0”参数类似，但会把结果保存成指定的列表文件；
--fprintf&lt;列表文件&gt;&lt;输出格式&gt;：此参数的效果和指定“-printf”参数类似，但会把结果保存成指定的列表文件；
--fstype&lt;文件系统类型&gt;：只寻找该文件系统类型下的文件或目录；
--gid&lt;群组识别码&gt;：查找符合指定之群组识别码的文件或目录；
--group&lt;群组名称&gt;：查找符合指定之群组名称的文件或目录；
--help或——help：在线帮助； -ilname&lt;范本样式&gt;：此参数的效果和指定“-lname”参数类似，但忽略字符大小写的差别；
--iname&lt;范本样式&gt;：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
--inum：查找符合指定的inode编号的文件或目录；
--ipath&lt;范本样式&gt;：此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别；
--iregex&lt;范本样式&gt;：此参数的效果和指定“-regexe”参数类似，但忽略字符大小写的差别；
--links&lt;连接数目&gt;：查找符合指定的硬连接数目的文件或目录；
--iname&lt;范本样式&gt;：指定字符串作为寻找符号连接的范本样式；
--ls：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出；
--maxdepth&lt;目录层级&gt;：设置最大目录层级；
--mindepth&lt;目录层级&gt;：设置最小目录层级；
--mmin&lt;分钟&gt;：查找在指定时间曾被更改过的文件或目录，单位以分钟计算；
--mount：此参数的效果和指定“-xdev”相同；
--mtime&lt;24小时数&gt;：查找在指定时间曾被更改过的文件或目录，单位以24小时计算；
--name&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式；
--newer&lt;参考文件或目录&gt;：查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
--nogroup：找出不属于本地主机群组识别码的文件或目录；
--noleaf：不去考虑目录至少需拥有两个硬连接存在；
--nouser：找出不属于本地主机用户识别码的文件或目录；
--ok&lt;执行指令&gt;：此参数的效果和指定“-exec”类似，但在执行指令之前会先询问用户，若回答“y”或“Y”，则放弃执行命令；
--path&lt;范本样式&gt;：指定字符串作为寻找目录的范本样式；
--perm&lt;权限数值&gt;：查找符合指定的权限数值的文件或目录；
--print：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为每列一个名称，每个名称前皆有“./”字符串；
--print0：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为全部的名称皆在同一行；
--printf&lt;输出格式&gt;：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式可以自行指定；
--prune：不寻找字符串作为寻找文件或目录的范本样式;
--regex&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式；
--size&lt;文件大小&gt;：查找符合指定的文件大小的文件；
--true：将find指令的回传值皆设为True；
--typ&lt;文件类型&gt;：只寻找符合指定的文件类型的文件；
--uid&lt;用户识别码&gt;：查找符合指定的用户识别码的文件或目录；
--used&lt;日数&gt;：查找文件或目录被更改之后在指定时间曾被存取过的文件或目录，单位以日计算；
--user&lt;拥有者名称&gt;：查找符和指定的拥有者名称的文件或目录；
--version或——version：显示版本信息；
--xdev：将范围局限在先行的文件系统中；
--xtype&lt;文件类型&gt;：此参数的效果和指定“-type”参数类似，差别在于它针对符号连接检查。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>在/home目录下查找以.txt结尾的文件名
-# find /home -name &quot;*.txt&quot;
-
-当前目录及子目录下查找所有以.txt和.pdf结尾的文件
-# find . -name &quot;*.txt&quot; -o -name &quot;*.pdf&quot;
-
-搜索最近七天内被访问过的所有文件
-# find . -type f -atime -7
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>xargs命令是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，xargs能够处理管道或者stdin并将其转换成特定命令的命令参数。xargs也可以将单行或多行文本输入转换为其他格式，例如多行变单行，单行变多行。xargs的默认命令是echo，空格是默认定界符。这意味着通过管道传递给xargs的输入将会包含换行和空白，不过通过xargs的处理，换行和空白将被空格取代。xargs是构建单行命令的重要组件之一。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>定义一个测试文件，内有多行文本数据：
+# cat test.txt
+a b c d e f g
+h i j k l m n
+o p q
+r s t
+u v w x y z
 
 
-找出当前目录下所有root的文件，并把所有权更改为用户tom
-# find . -type f -user root -exec chown tom {} \;
+多行输入单行输出：
+# cat test.txt | xargs
+a b c d e f g h i j k l m n o p q r s t u v w x y z
 
+-n选项多行输出：
+# cat test.txt | xargs -n3
+a b c
+d e f
+g h i
+j k l
+m n o
+p q r
+s t u
+v w x
+y z
 
-找出自己家目录下所有的.txt文件并删除
-# find $HOME/. -name &quot;*.txt&quot; -ok rm {} \;
--ok和-exec行为一样，不过它会给出提示，是否执行相应的操作。
+-d选项可以自定义一个定界符：
+# echo &quot;nameXnameXnameXname&quot; | xargs -dX
+name name name name
 
+如果上面这条命令结合-n参数使用：
+# echo &quot;nameXnameXnameXname&quot; | xargs -dX -n2
+name name
+name name
 
-查找当前目录下所有.txt文件并把他们拼接起来写入到all.txt文件中
-# find . -type f -name &quot;*.txt&quot; -exec cat {} \;&gt; all.txt
+xargs结合find使用 用rm 删除太多的文件时候，可能得到一个错误信息：/bin/rm Argument list too long. 用xargs去避免这个问题： # find . -type f -name &quot;*.log&quot; -print0 | xargs -0 rm -f
+
+统计一个源代码目录中所有php文件的行数：
+# find . -type f -name &quot;*.php&quot; -print0 | xargs -0 wc -l
+
+查找所有的jpg 文件，并且压缩它们：
+# find . -type f -name &quot;*.jpg&quot; -print | xargs tar -czvf images.tar.gz
 </code></pre>
       
 
@@ -300,7 +268,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Linux命令基础-find/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-xrags/">展开全文 >></a>
         </p>
       
 
@@ -318,41 +286,62 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Linux命令基础-文件权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-unzip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Linux命令基础-文件权限/">Linux命令基础-文件权限</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-unzip/">Linux命令基础-unzip</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Linux命令基础-文件权限/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:46:19.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-unzip/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:54:40.094Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><pre><code>只读权限表示只允许读其内容，而禁止对其做所有的更改操作。可执行权限表示允许将该文 件作为一个程序执行。文件被创建时，文件所有者自动拥有对该文件的读、写和可执行权限，以便于对文件的阅读和修改。用户也可根据需要把访问权限设置为需要 的所有组合。
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>unzip命令用于解压缩由zip命令压缩的“.zip”压缩包。
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-c：将解压缩的结果显示到屏幕上，并对字符做适当的转换；
+-f：更新现有的文件；
+-l：显示压缩文件内所包含的文件；
+-p：与-c参数类似，会将解压缩的结果显示到屏幕上，但不会执行任何的转换；
+-t：检查压缩文件是否正确；
+-u：与-f参数类似，但是除了更新现有的文件外，也会将压缩文件中的其他文件解压缩到目录中；
+-v：执行时显示详细的信息；
+-z：仅显示压缩文件的备注文字；
+-a：对文本文件进行必要的字符转换；
+-b：不要对文本文件进行字符转换；
+-C：压缩文件中的文件名称区分大小写；
+-j：不处理压缩文件中原有的目录路径；
+-L：将压缩文件中的全部文件名改为小写；
+-M：将输出结果送到more程序处理；
+-n：解压缩时不要覆盖原有的文件；
+-o：不必先询问用户，unzip执行后覆盖原有的文件；
+-P&lt;密码&gt;：使用zip的密码选项；
+-q：执行时不显示任何信息；
+-s：将文件名中的空白字符转换为底线字符；
+-V：保留VMS的文件版本信息；
+-X：解压缩时同时回存文件原来的UID/GID；
+-d&lt;目录&gt;：指定文件解压缩后所要存储的目录；
+-x&lt;文件&gt;：指定不要处理.zip压缩文件中的哪些文件；
+-Z：unzip-Z等于执行zipinfo指令。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>将压缩文件text.zip在当前目录下解压缩。
+# unzip test.zip
 
-有三种不同类型的用户可对文件或目录进行访问：文件所有者，同组用户、其他用户。所有者一般是文件的创建者。所有者能允许同组用户有权访问文件，还能将文件的访问权限赋予系统中的其他用户。在这种情况下，系统中每一位用户都能访问该用户拥有的文件或目录。
+将压缩文件text.zip在指定目录/tmp下解压缩，如果已有相同的文件存在，要求unzip命令不覆盖原先的文件。
+# unzip -n test.zip -d /tmp
 
-每一文件或目录的访问权限都有三组，每组用三位表示，分别为文件属主的读、写和执行权限；和属主同组的用户的读、写和执行权限；系统中其他用户的读、写和执行权限。当用ls -l命令显示文件或目录的周详信息时，最左边的一列为文件的访问权限。
+查看压缩文件目录，但不解压。
+# unzip -v test.zip
 
-
-权限列表
--rw-------   (600) 只有所有者才有读和写的权限
--rw-r--r--   (644) 只有所有者才有读和写的权限，组群和其他人只有读的权限
--rwx------   (700) 只有所有者才有读，写，执行的权限
--rwxr-xr-x   (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限
--rwx--x--x   (711) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限
--rw-rw-rw-   (666) 每个人都有读写的权限
--rwxrwxrwx   (777) 每个人都有读写和执行的权限
+将压缩文件test.zip在指定目录/tmp下解压缩，如果已有相同的文件存在，要求unzip命令覆盖原先的文件。
+# unzip -o test.zip -d tmp/
 </code></pre>
       
 
@@ -395,7 +384,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Linux命令基础-文件权限/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-unzip/">展开全文 >></a>
         </p>
       
 
@@ -413,51 +402,60 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Linux命令基础-file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-tar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Linux命令基础-file/">Linux命令基础-file</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-tar/">Linux命令基础-tar</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Linux命令基础-file/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:45:43.062Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-tar/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:54:39.707Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>file命令用来探测给定文件的类型。file命令对文件的检查分为文件系统、魔法幻数检查和语言检查3个过程。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>file(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-b：列出辨识结果时，不显示文件名称；
--c：详细显示指令执行过程，便于排错或分析程序执行的情形；
--f&lt;名称文件&gt;：指定名称文件，其内容有一个或多个文件名称时，让file依序辨识这些文件，格式为每列一个文件名称； -L：直接显示符号连接所指向的文件类别；
--m&lt;魔法数字文件&gt;：指定魔法数字文件；
--v：显示版本信息；
--z：尝试去解读压缩文件的内容。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# file install.log
-install.log: UTF-8 Unicode text
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>tar命令可以为linux的文件和目录创建档案。利用tar，可以为某一特定文件创建档案（备份文件），也可以在档案中改变文件，或者向档案中加入新的文件。tar最初被用来在磁带上创建档案，现在，用户可以在任何设备上创建档案。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文件或将几个文件组合成为一个文件以便于网络传输是非常有用的。 首先要弄清两个概念：打包和压缩。打包是指将一大堆文件或目录变成一个总的文件；压缩则是将一个大的文件通过一些压缩算法变成一个小文件。 为什么要区分这两个概念呢？这源于Linux中很多压缩程序只能针对一个文件进行压缩，这样当你想要压缩一大堆文件时，你得先将这一大堆文件先打成一个包（tar命令），然后再用压缩程序进行压缩（gzip bzip2命令）。
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-A或--catenate：新增文件到以存在的备份文件；
+-B：设置区块大小；
+-c或--create：建立新的备份文件；
+-C &lt;目录&gt;：这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。
+-d：记录文件的差别；
+-x或--extract或--get：从备份文件中还原文件；
+-t或--list：列出备份文件的内容；
+-z或--gzip或--ungzip：通过gzip指令处理备份文件；
+-Z或--compress或--uncompress：通过compress指令处理备份文件；
+-f&lt;备份文件&gt;或--file=&lt;备份文件&gt;：指定备份文件；
+-v或--verbose：显示指令执行过程；
+-r：添加文件到已经压缩的文件；
+-u：添加改变了和现有的文件到已经存在的压缩文件；
+-j：支持bzip2解压文件；
+-v：显示操作过程；
+-l：文件系统边界设置；
+-k：保留原有文件不覆盖；
+-m：保留文件不被覆盖；
+-w：确认压缩文件的正确性；
+-p或--same-permissions：用原来的文件权限还原文件；
+-P或--absolute-names：文件名使用绝对名称，不移除文件名称前的“/”号；
+-N &lt;日期格式&gt; 或 --newer=&lt;日期时间&gt;：只将较指定日期更新的文件保存到备份文件里；
+--exclude=&lt;范本样式&gt;：排除符合范本样式的文件。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>将tar包解压缩：
+# tar -zxvf /opt/soft/test/log.tar.gz
 
-[root@localhost ~]# file -b install.log &lt;== 不显示文件名称
-UTF-8 Unicode text
+其实最简单的使用 tar 就只要记忆底下的方式即可：
 
-[root@localhost ~]# file -i install.log &lt;== 显示MIME类别。
-install.log: text/plain; charset=utf-8
+# 压　缩：tar -jcv -f filename.tar.bz2 要被压缩的文件或目录名称
 
-[root@localhost ~]# file -b -i install.log
-text/plain; charset=utf-8
+# 查　询：tar -jtv -f filename.tar.bz2
 
-[root@localhost ~]# ls -l /var/mail
-lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
-
-[root@localhost ~]# file /var/mail
-/var/mail: symbolic link to `spool/mail&apos;
+# 解压缩：tar -jxv -f filename.tar.bz2 -C 欲解压缩的目录
 </code></pre>
       
 
@@ -500,7 +498,7 @@ lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Linux命令基础-file/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-tar/">展开全文 >></a>
         </p>
       
 
@@ -518,118 +516,45 @@ lrwxrwxrwx 1 root root 10 08-13 00:11 /var/mail -&gt; spool/mail
 
 
   
-    <article id="post-Linux命令基础-vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-dpkg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Linux命令基础-vim/">Linux命令基础-vim</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-dpkg/">Linux命令基础-dpkg</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Linux命令基础-vim/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:43:10.742Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-dpkg/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:47:20.819Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="vi的基本概念"><a href="#vi的基本概念" class="headerlink" title="vi的基本概念"></a>vi的基本概念</h2><pre><code>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：
-
-1) 命令行模式command mode）
-控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。
-
-2) 插入模式（Insert mode）
-只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。
-
-3) 底行模式（last line mode）
-将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。
-
-不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。
-</code></pre><h2 id="vi的基本操作"><a href="#vi的基本操作" class="headerlink" title="vi的基本操作"></a>vi的基本操作</h2><pre><code>a) 进入vi
-在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面：$ vi myfile。不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！
-
-b) 切换至插入模式（Insert mode）编辑文件
-在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时候你就可以开始输入文字了。
-
-c) Insert 的切换
-您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字。
-
-d) 退出vi及保存文件
-在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：
-: w filename （输入 「w filename」将文章以指定的文件名filename保存）
-: wq (输入「wq」，存盘并退出vi)
-: q! (输入q!， 不存盘强制退出vi)
-</code></pre><h2 id="命令行模式（command-mode）功能键"><a href="#命令行模式（command-mode）功能键" class="headerlink" title="命令行模式（command mode）功能键"></a>命令行模式（command mode）功能键</h2><pre><code>1）. 插入模式
-按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件；
-按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字；
-按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。
-
-2）. 从插入模式切换为命令行模式
-按「ESC」键。
-
-3）. 移动光标
-vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。
-按「ctrl」+「b」：屏幕往“后”移动一页。
-按「ctrl」+「f」：屏幕往“前”移动一页。
-按「ctrl」+「u」：屏幕往“后”移动半页。
-按「ctrl」+「d」：屏幕往“前”移动半页。
-按数字「0」：移到文章的开头。
-按「G」：移动到文章的最后。
-按「$」：移动到光标所在行的“行尾”。
-按「^」：移动到光标所在行的“行首”
-按「w」：光标跳到下个字的开头
-按「e」：光标跳到下个字的字尾
-按「b」：光标回到上个字的开头
-按「#l」：光标移到该行的第#个位置，如：5l,56l。
-
-4）. 删除文字
-「x」：每按一次，删除光标所在位置的“后面”一个字符。
-「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。
-「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。
-「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。
-「dd」：删除光标所在行。
-「#dd」：从光标所在行开始删除#行
-
-5）. 复制
-「yw」：将光标所在之处到字尾的字符复制到缓冲区中。
-「#yw」：复制#个字到缓冲区
-「yy」：复制光标所在行到缓冲区。
-「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。
-「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。
-
-6）. 替换
-「r」：替换光标所在处的字符。
-「R」：替换光标所到之处的字符，直到按下「ESC」键为止。
-
-7）. 回复上一次操作
-「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作。按多次“u”可以执行多次回复。
-
-8）. 更改
-「cw」：更改光标所在处的字到字尾处
-「c#w」：例如，「c3w」表示更改3个字
-</code></pre><h2 id="Last-line-mode下命令简介"><a href="#Last-line-mode下命令简介" class="headerlink" title="Last line mode下命令简介"></a>Last line mode下命令简介</h2><pre><code>在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。
-
-A) 列出行号
-「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。
-
-B) 跳到文件中的某一行
-「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。
-
-C) 查找字符
-「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。
-「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。
-
-D) 保存文件
-「w」：在冒号输入字母「w」就可以将文件保存起来。
-
-E) 离开vi
-「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。
-「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>dpkg命令是Debian Linux系统用来安装、创建和管理软件包的实用工具。
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-i：安装软件包；
+-r：删除软件包；
+-P：删除软件包的同时删除其配置文件；
+-L：显示于软件包关联的文件；
+-l：显示已安装软件包列表；
+--unpack：解开软件包；
+-c：显示软件包内文件列表；
+--confiugre：配置软件包。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>dpkg -i package.deb #安装包
+dpkg -r package #删除包
+dpkg -P package #删除包（包括配置文件）
+dpkg -L package #列出与该包关联的文件
+dpkg -l package #显示该包的版本
+dpkg --unpack package.deb #解开deb包的内容
+dpkg -S keyword #搜索所属的包内容
+dpkg -l #列出当前已安装的包
+dpkg -c package.deb #列出deb包的内容
+dpkg --configure package #配置包
 </code></pre>
       
 
@@ -672,7 +597,7 @@ E) 离开vi
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Linux命令基础-vim/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-dpkg/">展开全文 >></a>
         </p>
       
 
@@ -690,31 +615,52 @@ E) 离开vi
 
 
   
-    <article id="post-Linux命令基础-chgrp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-rpm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Linux命令基础-chgrp/">Linux命令基础-chgrp</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-rpm/">Linux命令基础-rpm</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Linux命令基础-chgrp/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:43:10.001Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-rpm/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:44:39.951Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>chgrp命令用来改变文件或目录所属的用户组。该命令用来改变指定文件所属的用户组。其中，组名可以是用户组的id，也可以是用户组的组名。文件名可以 是由空格分开的要改变属组的文件列表，也可以是由通配符描述的文件集合。如果用户不是该文件的文件主或超级用户(root)，则不能改变该文件的组。 在UNIX系统家族里，文件或目录权限的掌控以拥有者及所属群组来管理。您可以使用chgrp指令去变更文件与目录的所属群组，设置方式采用群组名称或群组识别码皆可。
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-c或——changes：效果类似“-v”参数，但仅回报更改的部分； -f或--quiet或——silent：不显示错误信息； -h或--no-dereference：只对符号连接的文件作修改，而不是该其他任何相关文件； -R或——recursive：递归处理，将指令目录下的所有文件及子目录一并处理； -v或——verbose：显示指令执行过程； --reference=&lt;参考文件或目录&gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同；
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# chgrp root Demo.txt
-[root@localhost ~]# ll Demo.txt
--rw-r--r--. 1 lyx root 44 Apr  8 21:54 Demo.txt
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>rpm命令是RPM软件包的管理工具。rpm原本是Red Hat Linux发行版专门用来管理Linux各项套件的程序，由于它遵循GPL规则且功能强大方便，因而广受欢迎。逐渐受到其他发行版的采用。RPM套件管理方式的出现，让Linux易于安装，升级，间接提升了Linux的适用度。
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：查询所有套件；
+-b&lt;完成阶段&gt;&lt;套件档&gt;+或-t &lt;完成阶段&gt;&lt;套件档&gt;+：设置包装套件的完成阶段，并指定套件档的文件名称；
+-c：只列出组态配置文件，本参数需配合&quot;-l&quot;参数使用；
+-d：只列出文本文件，本参数需配合&quot;-l&quot;参数使用；
+-e&lt;套件档&gt;或--erase&lt;套件档&gt;：删除指定的套件；
+-f&lt;文件&gt;+：查询拥有指定文件的套件；
+-h或--hash：套件安装时列出标记；
+-i：显示套件的相关信息；
+-i&lt;套件档&gt;或--install&lt;套件档&gt;：安装指定的套件档；
+-l：显示套件的文件列表；
+-p&lt;套件档&gt;+：查询指定的RPM套件档；
+-q：使用询问模式，当遇到任何问题时，rpm指令会先询问用户；
+-R：显示套件的关联性信息；
+-s：显示文件状态，本参数需配合&quot;-l&quot;参数使用；
+-U&lt;套件档&gt;或--upgrade&lt;套件档&gt;：升级指定的套件档；
+-v：显示指令执行过程；
+-vv：详细显示指令执行过程，便于排错。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>rpm软件包的安装可以使用程序rpm来完成。执行下面的命令：
+# rpm -ivh your-package.rpm
+
+使用命令rpm -e包名，包名可以包含版本号等信息，但是不可以有后缀.rpm，比如卸载软件包proftpd-1.2.8-1，可以使用下
+
+rpm -qa                          # 讲列出所有安装过的包
+
+rpm -qa | grep sql               # 如果要查找所有安装过的包含某个字符串sql的软件包
 </code></pre>
       
 
@@ -757,7 +703,7 @@ E) 离开vi
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Linux命令基础-chgrp/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-rpm/">展开全文 >></a>
         </p>
       
 
@@ -775,48 +721,50 @@ E) 离开vi
 
 
   
-    <article id="post-Linux命令基础-chown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-apt-get" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Linux命令基础-chown/">Linux命令基础-chown</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-apt-get/">Linux命令基础-apt-get</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Linux命令基础-chown/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:43:09.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-apt-get/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:37:45.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>chown命令改变某个文件或目录的所有者和所属的组，该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组。用户可以是用户或者是用户D，用户组可以是组名或组id。文件名可以使由空格分开的文件列表，在文件名中可以包含通配符。 只有文件主和超级用户才可以便用该命令。
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-c或——changes：效果类似“-v”参数，但仅回报更改的部分；
--f或--quite或——silent：不显示错误信息；
--h或--no-dereference：只对符号连接的文件作修改，而不更改其他任何相关文件；
--R或——recursive：递归处理，将指定目录下的所有文件及子目录一并处理；
--v或——version：显示指令执行过程；
---dereference：效果和“-h”参数相同；
---help：在线帮助；
---reference=&lt;参考文件或目录&gt;：把指定文件或目录的拥有者与所属群组全部设成和参考文件或目录的拥有者与所属群组相同；
---version：显示版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# ll Demo.txt
--rw-r--r--. 1 root root 44 Apr  8 21:54 Demo.txt
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>apt-get命令是Debian Linux发行版中的APT软件包管理工具。所有基于Debian的发行都使用这个包管理系统。deb包可以把一个应用的文件包在一起，大体就如同Windows上的安装文件。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>apt-get(选项)(参数)
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>在修改/etc/apt/sources.list或者/etc/apt/preferences之后运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的：
+# apt-get update
 
-[root@localhost ~]# chown lyx Demo.txt
-[root@localhost ~]# ll Demo.txt
--rw-r--r--. 1 lyx root 44 Apr  8 21:54 Demo.txt
+安装一个新软件包：
+# apt-get install packagename
 
-[root@localhost ~]# chown lyx.lyx Demo.txt
-[root@localhost ~]# ll Demo.txt
--rw-r--r--. 1 lyx lyx 44 Apr  8 21:54 Demo.txt
+卸载一个已安装的软件包（保留配置文件）：
+# apt-get remove packagename
 
-主要常用的就是-R选项
+卸载一个已安装的软件包（删除配置文件）：
+# apt-get –purge remove packagename
+
+会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件：
+# apt-get clean
+
+更新所有已安装的软件包：
+# apt-get upgrade
+
+将系统升级到新版本：
+# apt-get autoclean
+
+我们这里主要以CentOS为主，针对Debian衍生类的系统不做重点介绍，由于博主之前安装双系统的时候就是安装的ubuntu，这里仅仅是介绍一些常用的。
 </code></pre>
       
 
@@ -859,7 +807,7 @@ E) 离开vi
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Linux命令基础-chown/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-apt-get/">展开全文 >></a>
         </p>
       
 
@@ -877,34 +825,161 @@ E) 离开vi
 
 
   
-    <article id="post-Docker视频资源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux命令基础-yum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Docker视频资源/">Docker 视频资源</a>
+      <a class="article-title" href="/2017/04/12/Linux命令基础-yum/">Linux命令基础-yum</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Docker视频资源/" class="archive-article-date">
-  	<time datetime="2017-04-12T07:39:51.573Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/Linux命令基础-yum/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:37:45.614Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p><a href="http://pan.baidu.com/s/1pL0PtFX" target="_blank" rel="external">http://pan.baidu.com/s/1pL0PtFX</a></p>
-</li>
-<li><p><a href="http://pan.baidu.com/s/1qYFayPu" target="_blank" rel="external">http://pan.baidu.com/s/1qYFayPu</a></p>
-</li>
-<li><p><a href="http://pan.baidu.com/s/1o8x39Bc" target="_blank" rel="external">http://pan.baidu.com/s/1o8x39Bc</a></p>
-</li>
-</ol>
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>yum命令是在Fedora和RedHat以及SUSE中基于rpm的软件包管理器，它可以使系统管理人员交互和自动化地更细与管理RPM软件包，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>yum(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-h：显示帮助信息；
+-y：对所有的提问都回答“yes”；
+-c：指定配置文件；
+-q：安静模式；
+-v：详细模式；
+-d：设置调试等级（0-10）；
+-e：设置错误等级（0-10）；
+-R：设置yum处理一个命令的最大等待时间；
+-C：完全从缓存中运行，而不去下载或者更新任何头文件。
+</code></pre><h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><pre><code>install：安装rpm软件包；
+update：更新rpm软件包；
+check-update：检查是否有可用的更新rpm软件包；
+remove：删除指定的rpm软件包；
+list：显示软件包的信息；
+search：检查软件包的信息；
+info：显示指定的rpm软件包的描述信息和概要信息；
+clean：清理yum过期的缓存；
+shell：进入yum的shell提示符；
+resolvedep：显示rpm软件包的依赖关系；
+localinstall：安装本地的rpm软件包；
+localupdate：显示本地rpm软件包进行更新；
+deplist：显示rpm软件包的所有依赖关系。
+
+这里重点使用的有 install update check-update remove list clean localinstall info list
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>&gt;安装
+yum install #全部安装
+yum install package1 #安装指定的安装包package1
+yum groupinsall group1 #安装程序组group1
+
+&gt;更新和升级
+yum update #全部更新
+yum update package1 #更新指定程序包package1
+yum check-update #检查可更新的程序
+yum upgrade package1 #升级指定程序包package1
+yum groupupdate group1 #升级程序组group1
+
+&gt;查找和显示
+yum info package1 #显示安装包信息package1
+yum list #显示所有已经安装和可以安装的程序包
+yum list package1 #显示指定程序包安装情况package1
+yum groupinfo group1 #显示程序组group1信息
+yum search string 根据关键字string查找安装包
+
+&gt;删除程序
+yum remove | erase package1 #删除程序包package1
+yum groupremove group1 #删除程序组group1
+yum deplist package1 #查看程序package1依赖情况
+
+&gt;清除缓存
+yum clean packages #清除缓存目录下的软件包
+yum clean headers #清除缓存目录下的 headers
+yum clean oldheaders #清除缓存目录下旧的 headers
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-yum/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-2016峰会资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/2016峰会资料/">2016峰会</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/12/2016峰会资料/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:21:17.244Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2016峰会  <a href="http://pan.baidu.com/s/1geAsQAZ" target="_blank" rel="external">http://pan.baidu.com/s/1geAsQAZ</a></p>
 <h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
       
 
@@ -951,7 +1026,7 @@ E) 离开vi
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Docker视频资源/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/2016峰会资料/">展开全文 >></a>
         </p>
       
 
@@ -969,70 +1044,29 @@ E) 离开vi
 
 
   
-    <article id="post-Docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-考研视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/Docker/">Docker</a>
+      <a class="article-title" href="/2017/04/12/考研视频/">考研视频</a>
     </h1>
   
 
         
-        <a href="/2017/04/12/Docker/" class="archive-article-date">
-  	<time datetime="2017-04-12T07:38:29.734Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+        <a href="/2017/04/12/考研视频/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:21:16.881Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="docker-search-csphere"><a href="#docker-search-csphere" class="headerlink" title="docker search csphere"></a>docker search csphere</h2><pre><code>[root@localhost ~]# docker search csphere
-INDEX       NAME                                         DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
-docker.io   docker.io/csphere/csphere                    docker container management platform            7
-docker.io   docker.io/xcy0609/csphere                                                                    1
-docker.io   docker.io/csphere/jenkins                                                                    0
-docker.io   docker.io/csphere/qingcloud-docker-network   Docker Network and IPAM plugin for Qingclo...   0
-docker.io   docker.io/csphere/squid                                                                      0
-docker.io   docker.io/micha09/docker-csphere             Docker Image for cSphere Web CMS                0                    [OK]
-docker.io   docker.io/tsing/qingcloud-lb                 Qingcloud load balance updater for csphere...   0                    [OK]
-</code></pre><h2 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h2><pre><code>[root@localhost yum.repos.d]# docker images
-REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE
-csphere/mysql                    5.5                 1212e642112e        14 hours ago        739.3 MB
-csphere/php-fpm                  5.4                 897d9b88966a        14 hours ago        701.9 MB
-csphere/centos                   7.1                 8f067fc9016e        15 hours ago        603.9 MB
-learn/ping                       latest              9412c9464710        16 hours ago        139.5 MB
-daocloud.io/library/centos       latest              a8493f5f50ff        5 days ago          192.5 MB
-docker.io/django                 latest              eb40dcf64078        3 months ago        436 MB
-docker.io/centos                 centos7.1.1503      285396d0a019        7 months ago        212.1 MB
-docker.io/csphere/csphere        latest              2266d9e47034        16 months ago       97.95 MB
-127.0.0.1:5000/csphere/csphere   0.11.2              3468c34fa83b        16 months ago       97.95 MB
-docker.io/registry               2.1.1               52bb991b482e        17 months ago       220.1 MB
-docker.io/learn/tutorial         latest              a7876479f1aa        4 years ago         128 MB
-</code></pre><h2 id="确保Docker的版本要大于1-6-这个是官方的要求"><a href="#确保Docker的版本要大于1-6-这个是官方的要求" class="headerlink" title="确保Docker的版本要大于1.6  这个是官方的要求"></a>确保Docker的版本要大于1.6  这个是官方的要求</h2><pre><code>[root@localhost yum.repos.d]# cat docker.repo
-[dockerrepo]
-name=DockerRepository
-baseurl=https://yum.dockerproject.org/repo/main/centos/7
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-</code></pre><h2 id="生成容器"><a href="#生成容器" class="headerlink" title="生成容器"></a>生成容器</h2><pre><code>[root@localhost yum.repos.d]# docker run  -d --restart=always -p 1106:80 -e ROLE=controller -l CSPHERE_ROLE=controller  -v /data/csphere:/data:rw --name=csphereDemo1 docker.io/csphere/csphere:latest
-
-$DATA_DIR:/data:rw
-</code></pre><h2 id="查看是否成功"><a href="#查看是否成功" class="headerlink" title="查看是否成功"></a>查看是否成功</h2><pre><code>[root@localhost yum.repos.d]# docker ps -a
-CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS                    PORTS                                       NAMES
-1f4fcd24e05c        docker.io/csphere/csphere:latest   &quot;/bin/csphere-init -i&quot;   5 seconds ago       Up 4 seconds              8086/tcp, 27017/tcp, 0.0.0.0:1106-&gt;80/tcp   csphereDemo                                               csphere
-6c8dc0281a08        registry:2.1.1                     &quot;/bin/registry /etc/d&quot;   3 hours ago         Up 3 hours                0.0.0.0:5000-&gt;5000/tcp                      registry
-bb3bddd38d8d        csphere/mysql:5.5                  &quot;/scripts/start&quot;         14 hours ago        Up 14 hours               22/tcp, 0.0.0.0:3306-&gt;3306/tcp              kickass_bardeen
-672759fc8fb3        csphere/php-fpm:5.4                &quot;/usr/bin/supervisord&quot;   14 hours ago        Up 14 hours               22/tcp, 443/tcp, 0.0.0.0:8080-&gt;80/tcp       website
-9dc53dc98943        csphere/centos:7.1                 &quot;/usr/bin/supervisord&quot;   15 hours ago        Up 15 hours               0.0.0.0:2222-&gt;22/tcp                        base
-efb4c7eb173c        learn/tutorial                     &quot;apt-get install -y p&quot;   16 hours ago        Exited (0) 16 hours ago                                               sharp_kowalevski
-b095b689b909        learn/tutorial                     &quot;echo Hello&quot;             16 hours ago        Exited (0) 16 hours ago
-</code></pre><h2 id="声明一下"><a href="#声明一下" class="headerlink" title="声明一下"></a>声明一下</h2><pre><code>由于官方给的安装脚本不能运行，我这边在测试的时候不知道为什么容器的数量一直显示为0，还请大神告知！！！我个人猜测可能是没有读取到我
-docker容器存放的目录，官方具体的实现方法这个确实不知道，如果有哪位知道的可以相互交流一下！！
-</code></pre>
+        <p>1.考研数学  <a href="http://pan.baidu.com/s/1i5sokzb" target="_blank" rel="external">http://pan.baidu.com/s/1i5sokzb</a></p>
+<p>2.考研英语  <a href="http://pan.baidu.com/s/1dFGcQMP" target="_blank" rel="external">http://pan.baidu.com/s/1dFGcQMP</a></p>
+<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
       
 
       
@@ -1045,15 +1079,19 @@ docker容器存放的目录，官方具体的实现方法这个确实不知道�
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Dokcer</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1065,7 +1103,7 @@ docker容器存放的目录，官方具体的实现方法这个确实不知道�
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
         		</li>
       		
 		</ul>
@@ -1074,7 +1112,7 @@ docker容器存放的目录，官方具体的实现方法这个确实不知道�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/12/Docker/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/考研视频/">展开全文 >></a>
         </p>
       
 
@@ -1092,74 +1130,31 @@ docker容器存放的目录，官方具体的实现方法这个确实不知道�
 
 
   
-    <article id="post-Linux命令基础-sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux视频分享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/Linux命令基础-sort/">Linux命令基础-sort</a>
+      <a class="article-title" href="/2017/04/12/Linux视频分享/">Linux视频分享</a>
     </h1>
   
 
         
-        <a href="/2017/04/11/Linux命令基础-sort/" class="archive-article-date">
-  	<time datetime="2017-04-11T09:41:58.220Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+        <a href="/2017/04/12/Linux视频分享/" class="archive-article-date">
+  	<time datetime="2017-04-12T14:18:06.413Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>sort命令是在Linux里非常有用，它将文件进行排序，并将排序结果标准输出。sort命令既可以从特定的文件，也可以从stdin中获取输入。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>sort(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-b：忽略每行前面开始出的空格字符；
--c：检查文件是否已经按照顺序排序；
--d：排序时，处理英文字母、数字及空格字符外，忽略其他的字符；
--f：排序时，将小写字母视为大写字母；
--i：排序时，除了040至176之间的ASCII字符外，忽略其他的字符；
--m：将几个排序号的文件进行合并；
--M：将前面3个字母依照月份的缩写进行排序；
--n：依照数值的大小排序；
--o&lt;输出文件&gt;：将排序后的结果存入制定的文件；
--r：以相反的顺序来排序；
--t&lt;分隔字符&gt;：指定排序时所用的栏位分隔字符；
-+&lt;起始栏位&gt;-&lt;结束栏位&gt;：以指定的栏位来排序，范围由起始栏位到结束栏位的前一栏位。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>sort的-n、-r、-k、-t选项的使用：
-
-[root@mail text]# cat sort.txt
-AAA:BB:CC
-aaa:30:1.6
-ccc:50:3.3
-ddd:20:4.2
-bbb:10:2.5
-eee:40:5.4
-eee:60:5.1
-
-#将BB列按照数字从小到大顺序排列：
-
-[root@mail text]# sort -nk 2 -t: sort.txt
-AAA:BB:CC
-bbb:10:2.5
-ddd:20:4.2
-aaa:30:1.6
-eee:40:5.4
-ccc:50:3.3
-eee:60:5.1
-
-#将CC列数字从大到小顺序排列：
-[root@mail text]# sort -nrk 3 -t: sort.txt
-eee:40:5.4
-eee:60:5.1
-ddd:20:4.2
-ccc:50:3.3
-bbb:10:2.5
-aaa:30:1.6
-AAA:BB:CC
-
-# -n是按照数字大小排序，-r是以相反顺序，-k是指定需要爱排序的栏位，-t指定栏位分隔符为冒号
-</code></pre>
+        <p>Linux内核篇   <a href="http://pan.baidu.com/s/1bpL69J5" target="_blank" rel="external">http://pan.baidu.com/s/1bpL69J5</a></p>
+<p>高级架构13期  <a href="http://pan.baidu.com/s/1i53d2HR" target="_blank" rel="external">http://pan.baidu.com/s/1i53d2HR</a></p>
+<p>34期Linux视频 <a href="http://pan.baidu.com/s/1eSqYsWM" target="_blank" rel="external">http://pan.baidu.com/s/1eSqYsWM</a></p>
+<p>python12期视频 <a href="http://pan.baidu.com/s/1kVSbT7h" target="_blank" rel="external">http://pan.baidu.com/s/1kVSbT7h</a></p>
+<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
       
 
       
@@ -1172,15 +1167,19 @@ AAA:BB:CC
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -1192,7 +1191,7 @@ AAA:BB:CC
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
         		</li>
       		
 		</ul>
@@ -1201,124 +1200,7 @@ AAA:BB:CC
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/11/Linux命令基础-sort/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-cut" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/Linux命令基础-cut/">Linux命令基础-cut</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/11/Linux命令基础-cut/" class="archive-article-date">
-  	<time datetime="2017-04-11T09:31:15.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cut命令用来显示行中的指定部分，删除文件中指定字段。cut经常用来显示文件的内容，类似于下的type命令。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cut(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-b：仅显示行中指定直接范围的内容；
--c：仅显示行中指定范围的字符；
--d：指定字段的分隔符，默认的字段分隔符为“TAB”；
--f：显示指定字段的内容；
--n：与“-b”选项连用，不分割多字节字符；
---complement：补足被选择的字节、字符或字段；
---out-delimiter=&lt;字段分隔符&gt;：指定输出内容是的字段分割符；
---help：显示指令的帮助信息；
---version：显示指令的版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# cat test.txt
-root:x:0:0:root:/root:/bin/bash
-bin:x:1:1:bin:/bin:/sbin/nologin
-daemon:x:2:2:daemon:/sbin:/sbin/nologin
-adm:x:3:4:adm:/var/adm:/sbin/nologin
-lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
-sync:x:5:0:sync:/sbin:/bin/sync
-shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
-
-[root@localhost ~]# cut -d: -f1 test.txt
-root
-bin
-daemon
-adm
-lp
-sync
-shutdown
-
-[root@localhost ~]# cut -d: -f1,3 test.txt
-root:0
-bin:1
-daemon:2
-adm:3
-lp:4
-sync:5
-shutdown:6
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/11/Linux命令基础-cut/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/04/12/Linux视频分享/">展开全文 >></a>
         </p>
       
 
@@ -1338,7 +1220,7 @@ shutdown:6
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1459,7 +1341,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1471,11 +1357,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1484,18 +1366,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,19 +1385,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,11 +1425,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1559,6 +1449,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1568,26 +1466,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1603,15 +1481,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1643,11 +1525,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1659,15 +1537,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1679,11 +1557,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1695,11 +1577,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">puppet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1708,14 +1598,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">跨平台</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1731,11 +1613,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
