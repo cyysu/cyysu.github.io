@@ -164,6 +164,609 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux命令基础-touch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-touch/">Linux命令基础-touch</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-touch/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:51:01.938Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>touch命令有两个功能：一是用于把已存在文件的时间标签更新为系统当前的时间（默认方式），它们的数据将原封不动地保留下来；二是用来创建新的空文件。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>touch(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：或--time=atime或--time=access或--time=use 只更改存取时间；
+-c：或--no-create 不建立任何文件；
+-d：&lt;时间日期&gt; 使用指定的日期时间，而非现在的时间；
+-f：此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题；
+-m：或--time=mtime或--time=modify 只更该变动时间；
+-r：&lt;参考文件或目录&gt; 把指定文件或目录的日期时间，统统设成和参考文件或目录的日期时间相同；
+-t：&lt;日期时间&gt; 使用指定的日期时间，而非现在的时间；
+--help：在线帮助；
+--version：显示版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这个比较简单，大家简单尝试一下就可以了！！
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-touch/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-head" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-head/">Linux命令基础-head</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-head/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:45:17.898Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>head命令用于显示文件的开头的内容。在默认情况下，head命令显示文件的头10行内容。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>head(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-n&lt;数字&gt;：指定显示头部内容的行数；
+-c&lt;字符数&gt;：指定显示头部内容的字符数；
+-v：总是显示文件名的头信息；
+-q：不显示文件名的头信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# head  -v anaconda-ks.cfg
+==&gt; anaconda-ks.cfg &lt;==
+#version=DEVEL
+# Demo file
+# hello
+# helo
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# Use CDROM installation media
+cdrom
+# Use graphical install
+graphical
+
+
+显示文件前20行
+[root@localhost ~]# head -20 anaconda-ks.cfg
+#version=DEVEL
+# Demo file
+# hello
+# helo
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# Use CDROM installation media
+cdrom
+# Use graphical install
+graphical
+# Run the Setup Agent on first boot
+firstboot --enable
+ignoredisk --only-use=sda
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts=&apos;us&apos;
+# System language
+lang en_US.UTF-8
+
+# Network information
+network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
+
+显示文件第10到20行
+[root@localhost ~]# head -20 anaconda-ks.cfg | tail
+# Run the Setup Agent on first boot
+firstboot --enable
+ignoredisk --only-use=sda
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts=&apos;us&apos;
+# System language
+lang en_US.UTF-8
+
+# Network information
+network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
+[root@localhost ~]#
+
+如果想要显示的时候增加行号，我们可以使用cat命令
+[root@localhost ~]# cat -n anaconda-ks.cfg | head -n 5 | tail -n 2
+     4  # helo
+     5  # System authorization information
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-head/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-pwd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-pwd/">Linux命令基础-pwd</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-pwd/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:45:17.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>pwd命令以绝对路径的方式显示用户当前工作目录。命令将当前目录的全路径名称（从根目录）写入标准输出。全部目录使用/分隔。第一个/表示根目录，最后一个目录是当前目录。执行pwd命令可立刻得知您目前所在的工作目录的绝对路径名称。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>pwd（选项）
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--help：显示帮助信息；
+--version：显示版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# pwd /root
+/root
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-pwd/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-tree/">Linux命令基础-tree</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-tree/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:45:16.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>tree命令以树状图列出目录的内容。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>tree(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：显示所有文件和目录；
+-A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
+-C：在文件和目录清单加上色彩，便于区分各种类型；
+-d：先是目录名称而非内容；
+-D：列出文件或目录的更改时间；
+-f：在每个文件或目录之前，显示完整的相对路径名称； -F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;，&quot;/&quot;，&quot;@&quot;，&quot;|&quot;号； -g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；
+-i：不以阶梯状列出文件和目录名称；
+-l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称； -l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
+-n：不在文件和目录清单加上色彩；
+-N：直接列出文件和目录名称，包括控制字符；
+-p：列出权限标示；
+-P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；
+-q：用“？”号取代控制字符，列出文件和目录名称； -s：列出文件和目录大小；
+-t：用文件和目录的更改时间排序；
+-u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
+-x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>如果大家的Linux没有tree，那么可以使用yum来进行安装
+
+这个命令主要用的就是 -L 选项 和显示当前目录，我这里就不演示了
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-cd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-cd/">Linux命令基础-cd</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-cd/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:45:16.078Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cd命令用来切换工作目录至dirname。 其中dirName表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的home directory(也就是刚login时所在的目录)。另外，~也表示为home directory的意思，.则是表示目前所在的目录，..则表示目前目录位置的上一层目录。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cd (选项) (参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-p 如果要切换到的目标目录是一个符号连接，直接切换到符号连接指向的目标目录
+-L 如果要切换的目标目录是一个符号的连接，直接切换到字符连接名代表的目录，而非符号连接所指向的目标目录。
+- 当仅实用&quot;-&quot;一个选项时，当前工作目录将被切换到环境变量&quot;OLDPWD&quot;所表示的目录。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>cd 进入用户主目录；
+cd ~ 进入用户主目录；
+cd - 返回进入此目录之前所在的目录；
+cd .. 返回上级目录（若当前目录为“/“，则执行完后还在“/&quot;；&quot;..&quot;为上级目录的意思）；
+cd ../.. 返回上两级目录；
+cd !$ 把上个命令的参数作为cd参数使用。
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-cd/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-tail" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-tail/">Linux命令基础-tail</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-tail/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:45:12.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>当前位置：首页 » 文件和目录管理 » tail tail命令文件内容查看 tail命令用于输入文件中的尾部内容。tail命令默认在屏幕上显示指定文件的末尾10行。如果给定的文件不止一个，则在显示的每个文件前面加一个文件名标题。如果没有指定文件或者文件名为“-”，则读取标准输入。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>tail(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--retry：即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“——follow=name”连用；
+-c或——bytes=：输出文件尾部的N（N为整数）个字节内容； -f或；--follow：显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。“-f”与“-fdescriptor”等效； -F：与选项“-follow=name”和“--retry&quot;连用时功能相同；
+-n或——line=：输出文件的尾部N（N位数字）行内容。
+--pid=&lt;进程号&gt;：与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令； -q或——quiet或——silent：当有多个文件参数时，不输出各个文件名；
+-s&lt;秒数&gt;或——sleep-interal=&lt;秒数&gt;：与“-f”选项连用，指定监视文件变化时间隔的秒数； -v或——verbose：当有多个文件参数时，总是输出各个文件名；
+--help：显示指令的帮助信息；
+--version：显示指令的版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>tail file （显示文件file的最后10行）
+tail +20 file （显示文件file的内容，从第20行至文件末尾）
+tail -c 10 file （显示文件file的最后10个字符）
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-tail/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux命令基础-type" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -232,11 +835,11 @@ cd is /usr/bin/cd
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -357,11 +960,11 @@ less命令比较好用的就是支持 &quot;↑&quot; 和 &quot;↓&quot; 操作
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -484,11 +1087,11 @@ network  --hostname=localhost.localdomain
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -683,11 +1286,11 @@ Codename:   Final
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -730,878 +1333,9 @@ Codename:   Final
 
 
   
-    <article id="post-Linux命令基础-ls" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/Linux命令基础-ls/">Linux命令基础-ls</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/Linux命令基础-ls/" class="archive-article-date">
-  	<time datetime="2017-04-08T13:25:56.106Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>ls命令用来显示目标列表，在Linux中是使用率较高的命令。ls命令的输出信息可以进行彩色加亮显示，以分区不同类型的文件。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>ls（选项）（参数）
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：显示所有档案及目录（ls内定将档案名或目录名称为“.”的视为影藏，不会列出）
-
--A：显示除影藏文件“.”和“..”以外的所有文件列表； -C：多列显示输出结果。这是默认选项；
-
--l：与“-C”选项功能相反，所有输出信息用单列格式输出，不输出为多列；
-
--F：在每个输出项后追加文件的类型标识符，具体含义：“*”表示具有可执行权限的普通文件，“/”表示目录，“@”表示符号链接，“|”表示命令管道FIFO，“=”表示sockets套接字。当文件为普通文件时，不输出任何标识符；
-
--b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出； -c：与“-lt”选项连用时，按照文件状态时间排序输出目录内容，排序的依据是文件的索引节点中的ctime字段。与“-l”选项连用时，则排序的一句是文件的状态改变时间；
-
--d：仅显示目录名，而不显示目录下的内容列表。显示符号链接文件本身，而不显示其所指向的目录列表；
-
--f：此参数的效果和同时指定“aU”参数相同，并关闭“lst”参数的效果；
-
--i：显示文件索引节点号（inode）。一个索引节点代表一个文件；
-
---file-type：与“-F”选项的功能相同，但是不显示“*”； -k：以KB（千字节）为单位显示文件大小； -l：以长格式显示目录下的内容列表。输出的信息从左到右依次包括文件名，文件类型、权限模式、硬连接数、所有者、组、文件大小和文件的最后修改时间等； -m：用“,”号区隔每个文件和目录的名称； -n：以用户识别码和群组识别码替代其名称；
-
--r：以文件名反序排列并输出目录内容列表； -s：显示文件和目录的大小，以区块为单位；
-
--t：用文件和目录的更改时间排序；
-
--L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录；
-
--R：递归处理，将指定目录下的所有文件及子目录一并处理；
-
---full-time：列出完整的日期与时间；
-
---color[=WHEN]：使用不同的颜色高亮显示不同类型的。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这么多的参数，你都要记住？那你可就犯了大错误！需要的时候你可以找一下男人man啊！！！下面我中针对常用的参数选项进行讲解。
-
--l 选项：
-
-    [root@localhost ~]# ls -l
-    total 8
-    -rw-------. 1 root root 1607 Apr  4 06:48 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1635 Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-
-    上面这个命令有点长怎么办，我们可以使用alias命令进行简化我们的书写，当然这个在系统中已经帮我们弄好了别名设置，可以使用
-    alias来查看一下系统还有那些的别名设置。
-
-    [root@localhost ~]# alias
-    alias cp=&apos;cp -i&apos;
-    alias egrep=&apos;egrep --color=auto&apos;
-    alias fgrep=&apos;fgrep --color=auto&apos;
-    alias grep=&apos;grep --color=auto&apos;
-    alias l.=&apos;ls -d .* --color=auto&apos;
-    alias ll=&apos;ls -l --color=auto&apos;
-    alias ls=&apos;ls --color=auto&apos;
-    alias mv=&apos;mv -i&apos;
-    alias rm=&apos;rm -i&apos;
-    alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&apos;
-
-    通过 “ll” 命令我们看到的文件大小不够直观，这个时候我们需要用到的参数选项为 -h
-
-- h 选项：
-
-    [root@localhost ~]# ls -l
-    total 8
-    -rw-------. 1 root root 1607 Apr  4 06:48 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1635 Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-
-    通过对比我们可以看出显示文件大小更直观了，这个选项可以理解成以human的方式去查看。
-
-    [root@localhost ~]# ls -lh
-    total 8.0K
-    -rw-------. 1 root root 1.6K Apr  4 06:48 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1.6K Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-
-- a 选项：
-
-    在windows我们都知道系统中有隐藏文件，在Linux中也是不例外的。我们可以使用 - a 选项进行查看所有文件
-
-    [root@localhost ~]# ll -ah
-    total 48K
-    dr-xr-x---. 14 root root 4.0K Apr  8 20:39 .
-    dr-xr-xr-x. 17 root root  233 Apr  4 06:47 ..
-    -rw-------.  1 root root 1.6K Apr  4 06:48 anaconda-ks.cfg
-    -rw-------.  1 root root  758 Apr  4 15:40 .bash_history
-    -rw-r--r--.  1 root root   18 Dec 29  2013 .bash_logout
-    -rw-r--r--.  1 root root  176 Dec 29  2013 .bash_profile
-    -rw-r--r--.  1 root root  176 Dec 29  2013 .bashrc
-    drwx------. 11 root root  284 Apr  8 20:39 .cache
-    drwx------. 15 root root  276 Apr  3 23:09 .config
-    -rw-r--r--.  1 root root  100 Dec 29  2013 .cshrc
-    drwx------.  3 root root   25 Apr  4 06:52 .dbus
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Downloads
-    -rw-------.  1 root root   16 Apr  3 23:08 .esd_auth
-    -rw-------.  1 root root  938 Apr  8 20:39 .ICEauthority
-    -rw-r--r--.  1 root root 1.6K Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x.  3 root root   19 Apr  3 22:55 .local
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Public
-    -rw-r--r--.  1 root root  129 Dec 29  2013 .tcshrc
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Videos
-    -rw-------.  1 root root 1.8K Apr  3 23:26 .viminfo
-
-- d 选项：
-
-    有些时候我们只想查看一下文件夹的属性，这个时候我们就要用到了 - d 选项
-
-    [root@localhost init.d]# ls -d /etc/init.d/
-    /etc/init.d/
-
-    [root@localhost init.d]# ll -dh /etc/init.d/
-    drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/init.d/
-
-- i 选项：
-
-    索引节点（index inode简称为“inode”）是Linux中一个特殊的概念，具有相同的索引节点号的两个文本本质上是同一个文件（除文件名不同外）。
-
-    这里我们以查看 /etc/下的文件进行讲解，大家可以看到下面你的grub2.cfg文件是链接到了../boot/grub2/grub.cfg
-    以及我们常用的脚本目录 init.d 链接到了 rc.d/init.d
-
-    [root@localhost init.d]# ll /etc/
-    total 1416
-
-    drwxr-xr-x.  2 root root        6 Nov  5 21:44 gdbinit.d
-    drwxr-xr-x.  6 root root      107 Apr  4 06:42 gdm
-    drwxr-xr-x.  2 root root       26 Apr  4 06:38 geoclue
-    -rw-r--r--.  1 root root      842 Nov  6 04:29 GeoIP.conf
-    -rw-r--r--.  1 root root      858 Nov  6 04:29 GeoIP.conf.default
-    drwxr-xr-x.  3 root root       18 Mar  3 16:07 ghostscript
-    drwxr-xr-x.  2 root root        6 Nov  6 00:06 gnupg
-    -rw-r--r--.  1 root root       94 Apr 29  2015 GREP_COLORS
-    drwxr-xr-x.  4 root root       40 Apr  4 06:34 groff
-    -rw-r--r--.  1 root root      954 Apr  3 23:13 group
-    -rw-r--r--.  1 root root      954 Apr  3 23:13 group-
-    lrwxrwxrwx.  1 root root       22 Apr  4 06:43 grub2.cfg -&gt; ../boot/grub2/grub.cfg
-    drwx------.  2 root root      182 Apr  4 06:47 grub.d
-    ----------.  1 root root      768 Apr  3 23:01 gshadow
-    ----------.  1 root root      757 Apr  4 06:43 gshadow-
-    drwxr-xr-x.  3 root root       20 Dec  7 02:34 gss
-    drwxr-xr-x.  2 root root       27 Apr  4 06:39 gssproxy
-    -rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
-    -rw-r--r--.  1 root root       22 Apr  4 06:47 hostname
-    -rw-r--r--.  1 root root      158 Jun  7  2013 hosts
-    -rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
-    -rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
-    drwxr-xr-x.  2 root root       24 Apr  4 06:39 hp
-    -rw-r--r--.  1 root root     3580 Nov  6 09:18 idmapd.conf
-    lrwxrwxrwx.  1 root root       11 Apr  4 06:33 init.d -&gt; rc.d/init.d
-
-    可以看到两个文件的inode的节点数是一样的，表明这其实文件内容是一样的。
-
-    [root@localhost init.d]# ll -id /etc/init.d/
-    56140 drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/init.d/
-
-    [root@localhost init.d]# ll -id /etc/rc.d/init.d/
-    56140 drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/rc.d/init.d/
-
-- t 选项：
-
-    如果我们想查看最近修改的文件  那么我们可以使用-t选项
-
-    [root@localhost ~]# ll -t
-    total 8
-    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
-    -rw-------. 1 root root 1619 Apr  8 21:16 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-
-    [root@localhost ~]# vim anaconda-ks.cfg                             #这个编辑器后面会讲到
-
-    [root@localhost ~]# ll -t
-    total 8
-    -rw-------. 1 root root 1635 Apr  8 21:19 anaconda-ks.cfg
-    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-
--- color 选项：
-
-    列出文件并标记颜色分类，当然这个命令的别名系统已经帮我们做好了，再上面我们也可以看到
-
-    [root@localhost ~]# ll --color=auto
-    total 8
-    -rw-------. 1 root root 1635 Apr  8 21:19 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/Linux命令基础-ls/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-关于Linux命令基础博客更新体系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/关于Linux命令基础博客更新体系/">关于Linux命令基础博客更新体系</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/07/关于Linux命令基础博客更新体系/" class="archive-article-date">
-  	<time datetime="2017-04-07T15:10:40.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Linux基础命令更新体系"><a href="#Linux基础命令更新体系" class="headerlink" title="Linux基础命令更新体系"></a>Linux基础命令更新体系</h2><pre><code>1. 软件包的管理
-
-2. 文件目录管理
-
-3. 用户管理
-
-4. 磁盘分区
-
-5. 源码编译
-
-6. 网络管理
-
-7. 防火墙
-</code></pre><h2 id="更新体系详细说明"><a href="#更新体系详细说明" class="headerlink" title="更新体系详细说明"></a>更新体系详细说明</h2><pre><code>更新内容如上面所示，在每一个模块内会有多个命令进行介绍，然后进行最后目录的汇总。
-预计在7天左右更新完以上内容。
-</code></pre><h2 id="关于下一阶段更新内容介绍"><a href="#关于下一阶段更新内容介绍" class="headerlink" title="关于下一阶段更新内容介绍"></a>关于下一阶段更新内容介绍</h2><pre><code>学习完了命令，就的学学写一下脚本吧！一直在命令行中敲代码多累呀！！哈哈，这个阶段将保持1个月左右，
-争取让大家可以达到入门级别。
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/07/关于Linux命令基础博客更新体系/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-MogileFS分布式系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/MogileFS分布式系统/">MogileFS分布式系统</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/07/MogileFS分布式系统/" class="archive-article-date">
-  	<time datetime="2017-04-07T06:36:32.843Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><pre><code>什么是MFS文件系统？
-　　 Moose File System 是一个具备容错功能的网络分布式文件系统，它将数据分布在网络中的不同服务器上，MooseFS 通过 FUSE 使之看起来就是一个 Unix 的文件系统。
-
-　　 MFS文件系统个人理解: 将分布在各个范围的计算机,将他们未使用的分区统一进行管理使用的一种文件系统。
-
-MFS文件系统结构：
-包含3种角色:
-        管理服务器managing server (master)
-        数据存储服务器data servers (chunkservers)
-        客户机挂载使用client computers
-</code></pre><h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><pre><code>Mogilefs工作原理：
-
-MogileFS是一个开源的分布式文件系统。其特性包括：应用层的组件、无单点故障、自动文件复制 主要由mogilefsd和mogstored两个程序组成。前者即是mogilefsd的tracker，它将一些全局信息保存在数据库里，例如站点domain,class,host等。后者即是存储节点(store node)，它其实是个HTTP Daemon，默认侦听在7500端口，接受客户端的文件备份请求。在安装完后，要运行mogadm工具将所有的store node注册到mogilefsd的数据库里，mogilefsd会对这些节点进行管理和监控。
-
-
-tracker 节点： 借助数据库保存各节点文件的元数据信息保存每个域中所有键的存储位置分布 , 方便检索定位数据位置的同时监控各节点，告诉客户端存储区位置并指挥 storage 节点复制数据副本，进程名为 mogilefsd(7001) 。
-
-database 节点： 为 tracker 节点提供数据存取服务。
-
-storage 节点： 将指定域中的键转换为其特有的文件名存储在指定的设备文件中，转换后的文件名为值， storage 节点自动维护键值的对应关系， storage 节点由于使用 http 进行数据传输，因此依赖于 perlbal ， storage 节点前端可以使用 nginx 进行反向代理，但需要安装 nginx-mogilefs-module-master 模块进行名称转换。
-
-Domain ： 一个域中的键值是惟一的，一个 MogileFS 可以有多个域，域可以用来存储不同应用类型的数据的容器。
-
-Host ： 每一个存储节点称为一个主机，一个主机上可以有多个存储设备 ( 单独的硬盘 ) ，每个设备都有 ID 号， Domain+Fid 用来定位文件。
-
-Class: 复制最小单位 , 文件属性管理，定义文件存储在不同设备上份数。
-</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://bbs.chinaunix.net/tree/index_304_1/" target="_blank" rel="external">汇总连接</a></p>
-<p><a href="http://www.cnblogs.com/adolfmc/p/4238604.html" target="_blank" rel="external">MogileFS和FastDFS</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2015-09/122947.htm" target="_blank" rel="external">分布式MogileFS</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/07/MogileFS分布式系统/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-RHCS-GFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/RHCS-GFS/">RHCS-gfs</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/07/RHCS-GFS/" class="archive-article-date">
-  	<time datetime="2017-04-07T06:05:01.341Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><ol>
-<li>ISCSI配置教程   <a href="http://vicdu.blog.51cto.com/4604557/1427290" target="_blank" rel="external">http://vicdu.blog.51cto.com/4604557/1427290</a></li>
-</ol>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://img1.ph.126.net/jPGxmUhW97RzuEt24cVnsQ==/6632376184536083764.jpg" alt=""></p>
-<hr>
-<p><img src="http://img1.ph.126.net/Mc9Oq55N74t818lfkWHY8g==/6632453150350036054.jpg" alt=""></p>
-<hr>
-<p><img src="http://img0.ph.126.net/GmRdPdk-U49ngrS-izeuAg==/6631925384771375640.jpg" alt=""></p>
-<hr>
-<p><img src="http://img1.ph.126.net/vSbHHLykeltzCMdI2c4j5Q==/6632181570980647255.jpg" alt=""></p>
-<hr>
-<p><img src="http://img2.ph.126.net/yfsi8CJUdjP3WLX3hBUBLg==/6632218954376023253.jpg" alt=""></p>
-<hr>
-<p><img src="http://img1.ph.126.net/mIWwlCEIWoTlG41uvSSlDA==/6632610380512816423.jpg" alt=""></p>
-<hr>
-<p><img src="http://img0.ph.126.net/SkSjyjsI1ctsP1YdIUJF7A==/6632469643024452585.jpg" alt=""></p>
-<hr>
-<p><img src="http://img2.ph.126.net/jpl-maFjUGBY7lwOoXa6Ng==/6632125495887627695.jpg" alt=""></p>
-<hr>
-<p><img src="http://img0.ph.126.net/4rDzMmnRHDuTDp2VgocFUA==/6632089212003915183.jpg" alt=""></p>
-<hr>
-<p><img src="http://img2.ph.126.net/CK-vSGP78fFokX2DKe_7FQ==/6632469643024452590.jpg" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/07/RHCS-GFS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-rhcs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/07/rhcs/">rhcs</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/07/rhcs/" class="archive-article-date">
-  	<time datetime="2017-04-07T02:50:48.044Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><ol>
-<li><p>RHCS完全配置手册             <a href="https://wenku.baidu.com/view/10a1b31aa8114431b90dd8a8.html" target="_blank" rel="external">https://wenku.baidu.com/view/10a1b31aa8114431b90dd8a8.html</a></p>
-</li>
-<li><p>RHCS概念                     <a href="http://blog.chinaunix.net/uid-26931379-id-3558604.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26931379-id-3558604.html</a></p>
-</li>
-<li><p>RHCS实战                     <a href="http://blog.chinaunix.net/uid-26931379-id-3558613.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-26931379-id-3558613.html</a></p>
-</li>
-<li><p>CentOS6.6+ RHCS              <a href="http://blog.163.com/qiushuhui1989@126/blog/static/2701108920156331823741/" target="_blank" rel="external">http://blog.163.com/qiushuhui1989@126/blog/static/2701108920156331823741/</a></p>
-</li>
-<li><p>红帽RHCS套件搭建与配置       <a href="https://my.oschina.net/leeypp1/blog/294740" target="_blank" rel="external">https://my.oschina.net/leeypp1/blog/294740</a></p>
-</li>
-</ol>
-<p><a href="https://access.redhat.com/documentation/zh-CN/Red_Hat_Enterprise_Linux/6/pdf/Cluster_Administration/Red_Hat_Enterprise_Linux-6-Cluster_Administration-zh-CN.pdf" target="_blank" rel="external">6. RHEL 6 集群配置官方管理手册</a></p>
-<ol>
-<li><p>CentOS6.5搭建RHCS            <a href="http://www.limingit.com/sitecn/itjq/1645_1694.html" target="_blank" rel="external">http://www.limingit.com/sitecn/itjq/1645_1694.html</a></p>
-</li>
-<li><p>RHCS集群搭建                 <a href="http://blog.csdn.net/tjiyu/article/details/52736285" target="_blank" rel="external">http://blog.csdn.net/tjiyu/article/details/52736285</a></p>
-</li>
-<li><p>架构基础                     <a href="http://blog.csdn.net/tjiyu/article/category/6517525" target="_blank" rel="external">http://blog.csdn.net/tjiyu/article/category/6517525</a></p>
-</li>
-</ol>
-<p>10.图文的RHCS集群搭建           <a href="http://www.limingit.com/sitecn/itjq/1645_1694.html" target="_blank" rel="external">http://www.limingit.com/sitecn/itjq/1645_1694.html</a></p>
-<h2 id="官方教程"><a href="#官方教程" class="headerlink" title="官方教程"></a>官方教程</h2><p><a href="http://7vzp5q.com1.z0.glb.clouddn.com/Red_Hat_Enterprise_Linux-6-Cluster_Administration-zh-CN.pdf" target="_blank" rel="external">RHCS6</a></p>
-<h2 id="步骤总结"><a href="#步骤总结" class="headerlink" title="步骤总结"></a>步骤总结</h2><pre><code>1. 同步时间  ntpdate time.windows.com
-
-2. 编辑主机域名解析文件  vim /etc/hosts  以及 hostname xxxx
-
-3. 关闭防火墙 service iptables stop 以及关闭selinux  setenforce 0
-
-4. 关闭NetworkManager  service NetworkManager stop  &amp;&amp; chkconfig NetworkManager off
-
-5. 节点安装 yum install -y ricci  在管理节点上安装 yum install -y luci
-
-6. 修改ricci的密码
-
-7. 在启动服务
-</code></pre><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/1.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/2.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/3.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/6.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/7.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/8.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/9.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/10.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/11.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/15.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/16.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/17.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/18.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/19.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/20.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/21.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/22.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/23.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/24.jpg" alt=""></p>
-<hr>
-<p><img src="http://7vzp5q.com1.z0.glb.clouddn.com/25.jpg" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/07/rhcs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-关于上一次发布博文更新内容目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/关于上一次发布博文更新内容目录/">关于上一次博文更新目录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/06/关于上一次发布博文更新内容目录/" class="archive-article-date">
-  	<time datetime="2017-04-06T10:45:55.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.cyysu.cn/2017/04/04/WEB/" target="_blank" rel="external">0.web架构图</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/02/cobbler/" target="_blank" rel="external">1.cobbler</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/03/elkstack-ES/" target="_blank" rel="external">2.架构师日志平台ELKStack-1</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/03/elkstack-Logstash/" target="_blank" rel="external">3.架构师日志平台ELKStack-2</a></p>
-<p><a href="http://www.cyysu.cn/2017/03/30/saltstack1/" target="_blank" rel="external">4.Saltstack-1</a></p>
-<p><a href="http://www.cyysu.cn/2017/03/31/saltstack2/" target="_blank" rel="external">5.Saltstack-2</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/01/saltstack3/" target="_blank" rel="external">6.Saltstack-3</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/01/saltstack4/" target="_blank" rel="external">7.Saltstack-4</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/04/puppet1/" target="_blank" rel="external">8.puppet</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/02/ansible/" target="_blank" rel="external">9.Ansible</a></p>
-<p><a href="http://www.cyysu.cn/2017/03/30/Linux%E5%86%85%E6%A0%B8%E8%A3%81%E5%89%AA/" target="_blank" rel="external">10.Linux定制内核</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/07/rhcs/" target="_blank" rel="external">11.RHCS集群</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/07/RHCS-GFS/" target="_blank" rel="external">12.RHCS-GFS</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/05/mysql%E4%B8%BB%E4%B8%BB%E5%A4%8D%E5%88%B6/" target="_blank" rel="external">13.mysql-复制1</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/06/mysql-LVM%E5%BF%AB%E7%85%A7/" target="_blank" rel="external">14.mysql-复制2</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/05/mysql%E5%A4%8D%E5%88%B6%E8%BF%87%E6%BB%A4%E5%99%A8/" target="_blank" rel="external">15.mysql复制过滤器</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/06/mysql%E9%9B%86%E7%BE%A4-MHA/" target="_blank" rel="external">16.mysql集群</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/05/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" target="_blank" rel="external">17.mysql-主从复制</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/06/mysql-LVM%E5%BF%AB%E7%85%A7/" target="_blank" rel="external">18.mysql-LVM快照备份</a></p>
-<p><a href="http://www.cyysu.cn/2017/04/07/MogileFS%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" target="_blank" rel="external">19.MogileFS分布式系统</a></p>
-<p><a href="http://bbs.chinaunix.net/tree/" target="_blank" rel="external">20.分享一个Linux技术综合性网站</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/06/关于上一次发布博文更新内容目录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1722,11 +1456,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1734,11 +1476,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1746,19 +1488,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1770,11 +1508,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1783,30 +1549,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1822,10 +1564,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
               </li>
              
@@ -1838,23 +1576,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1866,6 +1596,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
               </li>
              
@@ -1874,7 +1608,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1886,6 +1620,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
@@ -1894,23 +1640,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1922,27 +1652,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1950,11 +1664,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1962,7 +1696,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2002,6 +1736,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
@@ -2019,14 +1761,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
             
             <div class="clearfix"></div>
