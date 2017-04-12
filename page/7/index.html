@@ -164,6 +164,184 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ansible" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/ansible/">Ansible</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/02/ansible/" class="archive-article-date">
+  	<time datetime="2017-04-02T04:26:46.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ansible"><a href="#Ansible" class="headerlink" title="Ansible"></a>Ansible</h2><pre><code>                                                                            默认  删除  链接
+    ansible &lt;host-pattern&gt; [-f forks] [-m module_name] [-a args]    state={present|absent|link}
+    args:
+        key=value
+
+        注意：command模块要执行命令无须为key=value格式，而是直接给出要执行的命令即可；
+    常用模块：
+        command
+            -a &apos;COMMAND&apos;
+        user
+            -a &apos;name= state={present|absent} system= uid=&apos;
+
+        group
+            -a &apos;name= gid= state= system=&apos;
+
+        cron
+            -a &apos;name= minute= hour= day= month= weekday= job= user= state=&apos;
+
+        copy
+            -a &apos;dest=目的 src=来源 mode=权限 owner= group=&apos;
+
+        file
+            -a &apos;path= mode= owner= group= state={directory|link|present|absent} src= force=&apos;
+
+        ping
+            没有参数
+
+        yum
+            -a &apos;name= state={present|latest|absent}&apos;
+
+        service
+            -a &apos;name= state={started|stopped|restarted} enabled={yes|no}&apos;
+
+        shell
+            -a &apos;COMMAND&apos;
+
+        script
+            -a &apos;/path/to/script&apos;
+
+        setup
+
+playbook的核心元素：
+    tasks: 任务
+    variables: 变量
+    templates: 模板
+    handlers: 处理器  配置文件修改就需要重启 类似service.running
+    roles: 角色
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.cnblogs.com/cc-Study/p/5676079.html" target="_blank" rel="external">教程1</a></p>
+<p><a href="http://www.ansible.com.cn/" target="_blank" rel="external">马哥团队的官方翻译文档</a></p>
+<p><a href="http://docs.ansible.com/ansible/index.html" target="_blank" rel="external">官方英文文档</a></p>
+<p><a href="http://onm16gwvz.bkt.gdipper.com/Ansible-notes.pdf" target="_blank" rel="external">Ansible 中文PDF</a></p>
+<h2 id="文档生成工具"><a href="#文档生成工具" class="headerlink" title="文档生成工具"></a>文档生成工具</h2><p><a href="http://www.sphinxsearch.org/sphinx-tutorial" target="_blank" rel="external">Sphinx中文站</a></p>
+<p><a href="http://readthedocs.readthedocs.io/zh_CN/latest/" target="_blank" rel="external">Read the docs</a></p>
+<h2 id="Sphinx-Readdocs-网络教程"><a href="#Sphinx-Readdocs-网络教程" class="headerlink" title="Sphinx + Readdocs 网络教程"></a>Sphinx + Readdocs 网络教程</h2><p><a href="https://www.ibm.com/developerworks/cn/opensource/os-sphinx-documentation/" target="_blank" rel="external">教程1</a></p>
+<p><a href="http://zh-sphinx-doc.readthedocs.io/en/latest/tutorial.html" target="_blank" rel="external">教程2</a></p>
+<p><a href="http://blog.csdn.net/xubeiqiannian/article/details/50166529" target="_blank" rel="external">教程3</a></p>
+<p><a href="http://www.cnblogs.com/zzqcn/p/5096876.html" target="_blank" rel="external">教程4</a></p>
+<p><a href="http://onm16gwvz.bkt.gdipper.com/CoreSeekSphinx%E6%89%8B%E5%86%8C.pdf" target="_blank" rel="external">教程5</a></p>
+<h2 id="Ansible-笔记"><a href="#Ansible-笔记" class="headerlink" title="Ansible 笔记"></a>Ansible 笔记</h2><p><a href="http://pan.baidu.com/s/1pLhlW8r" target="_blank" rel="external">笔记</a></p>
+<h2 id="Ansible-部署-LAMP环境实战"><a href="#Ansible-部署-LAMP环境实战" class="headerlink" title="Ansible 部署 LAMP环境实战"></a>Ansible 部署 LAMP环境实战</h2><p><a href="http://www.tuicool.com/articles/FBn6b2m" target="_blank" rel="external">传送门</a></p>
+<h2 id="Ansible-tags的使用简介"><a href="#Ansible-tags的使用简介" class="headerlink" title="Ansible tags的使用简介"></a>Ansible tags的使用简介</h2><p><a href="http://unixman.blog.51cto.com/10163040/1674198" target="_blank" rel="external">教程1</a></p>
+<p><a href="http://blog.csdn.net/tcxp_for_wife/article/details/41685695" target="_blank" rel="external">教程2</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onrkngub8.bkt.clouddn.com/0.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/0-1.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/1.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/2.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/3.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/4.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/5.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/6.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/7.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/8.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/9.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/10.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/11.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/12.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/13.png" alt=""></p>
+<hr>
+<p><img src="http://onrkngub8.bkt.clouddn.com/14.png" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">saltstack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/02/ansible/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-saltstack4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1175,93 +1353,6 @@ Ethernet support 选择网卡驱动
 
 
   
-    <article id="post-小工具集合15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/小工具集合15/">小工具集合15</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/28/小工具集合15/" class="archive-article-date">
-  	<time datetime="2017-03-28T15:05:56.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://on0d39hpm.bkt.clouddn.com/%E8%BF%90%E7%BB%B4%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84Linux%E9%9D%A2%E8%AF%95%E9%A2%98.pdf" target="_blank" rel="external">运维面试题1</a></p>
-<p><a href="http://on0d39hpm.bkt.clouddn.com/2016%E5%A5%87%E8%99%8E360%E8%BF%90%E7%BB%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98.pdf" target="_blank" rel="external">运维面试题2</a></p>
-<p><a href="http://on0d39hpm.bkt.clouddn.com/%E8%BF%90%E7%BB%B4%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84Linux%E9%9D%A2%E8%AF%95%E9%A2%98.pdf" target="_blank" rel="external">运维面试题3</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/28/小工具集合15/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -1385,15 +1476,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,15 +1484,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1418,14 +1513,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1445,19 +1532,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1481,15 +1556,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1502,6 +1573,26 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1537,6 +1628,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
@@ -1557,31 +1652,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1593,7 +1668,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1601,7 +1688,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1610,10 +1705,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1637,11 +1728,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1657,11 +1748,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">

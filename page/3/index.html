@@ -164,6 +164,151 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux命令基础-echo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-echo/">Linux命令基础-echo</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-echo/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:51:02.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>echo命令用于在shell中打印shell变量的值，或者直接输出指定的字符串。linux的echo命令，在shell编程中极为常用, 在终端下打印变量value的时候也是常常用到的，因此有必要了解下echo的用法echo命令的功能是在显示器上显示一段文字，一般起到一个提示的作用。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>echo(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-e：激活转义字符。 使用-e选项时，若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出：
+\a 发出警告声；
+\b 删除前一个字符；
+\c 最后不加上换行符号；
+\f 换行但光标仍旧停留在原来的位置；
+\n 换行且光标移至行首；
+\r 光标移至行首，但不换行；
+\t 插入tab；
+\v 与\f相同；
+\\ 插入\字符；
+\nnn 插入nnn（八进制）所代表的ASCII字符；
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# echo -e &quot;\e[1;42mGreed Background\e[0m&quot;
+Greed Background
+
+文字闪动效果，5m表示光标闪烁 0m表示光标停止闪烁
+[root@localhost ~]# echo -e &quot;\033[37;31;5mMySQL Server Stop...\033[39;49;0m&quot;
+MySQL Server Stop...
+
+
+可以选择的编码如下所示(这些颜色是ANSI标准颜色)：
+      编码          颜色/动作
+      0      　     重新设置属性到缺省设置
+      1     　      设置粗体
+      2     　      设置一半亮度(模拟彩色显示器的颜色)
+      4     　      设置下划线(模拟彩色显示器的颜色)
+      5     　      设置闪烁
+      7     　      设置反向图象
+      22    　      设置一般密度
+      24    　      关闭下划线
+      25     　     关闭闪烁
+      27     　     关闭反向图象
+      30      　    设置黑色前景
+      31   　       设置红色前景
+      32   　       设置绿色前景
+      33   　       设置黄色前景
+      34   　       设置蓝色前景
+      35    　      设置紫色前景
+      36     　     设置青色前景
+      37    　      设置白色(灰色)前景
+      38      　    在缺省的前景颜色上设置下划线
+      39      　    在缺省的前景颜色上关闭下划线
+      40      　    设置黑色背景
+      41      　    设置红色背景
+      42     　     设置绿色背景
+      43     　     设置黄色背景
+      44     　     设置蓝色背景
+      45     　     设置紫色背景
+      46     　     设置青色背景
+      47      　    设置白色(灰色)背景
+      49      　    设置缺省黑色背景
+其他有趣的代码还有：
+      \033[2J  　   清除屏幕
+      \033[0q  　   关闭所有的键盘指示灯
+      \033[1q 　    设置&quot;滚动锁定&quot;指示灯(Scroll Lock)
+      \033[2q 　    设置&quot;数值锁定&quot;指示灯(Num Lock)
+      \033[3q 　    设置&quot;大写锁定&quot;指示灯(Caps Lock)
+      \033[15:40H   把关闭移动到第15行，40列
+      \007  　　    发蜂鸣生beep
+
+
+关注更多的可以查看这个网址
+
+http://blog.csdn.net/xin_yu_xin/article/details/46948079
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-echo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux命令基础-touch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1134,205 +1279,6 @@ network  --hostname=localhost.localdomain
 
 
   
-    <article id="post-Linux命令基础-cat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/Linux命令基础-cat/">Linux命令基础-cat</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/Linux命令基础-cat/" class="archive-article-date">
-  	<time datetime="2017-04-08T14:24:24.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cat(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-n或-number：有1开始对所有输出的行数编号；
--b或--number-nonblank：和-n相似，只不过对于空白行不编号；
--s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行；
--A：显示不可打印字符，行尾显示“$”；
--e：等价于&quot;-vE&quot;选项
--t：等价于&quot;-vT&quot;选项；
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# cat /etc/fstab
-#
-# /etc/fstab
-# Created by anaconda on Mon Apr  3 18:32:24 2017
-#
-# Accessible filesystems, by reference, are maintained under &apos;/dev/disk&apos;
-# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
-#
-/dev/mapper/cl-root     /                       xfs     defaults        0 0
-UUID=a4fcb234-a261-44f8-9653-6d3ed094a989 /boot xfs     defaults        0 0
-/dev/mapper/cl-swap     swap                    swap    defaults        0 0
-
-
-[root@localhost ~]# cat &gt; test.txt              ## ctrl + D 停止输入
-welcome to use cat command
-bye
-bye
-[root@localhost ~]# cat test.txt
-welcome to use cat command
-bye
-bye
-
-
-
-我们一般不会像上面那样做，我们使用下面这种方式对文件进行追加操作。我这里为了测试在末尾输入eof
-没有和结尾处定义的一致，也说明了Linux是区分大小写的。
-[root@localhost ~]# cat &gt; Demo.txt &lt;&lt; EOF
-&gt; HELLO WORLD
-&gt; welcome to linux world
-&gt; bye
-&gt; eof
-&gt; EOF
-[root@localhost ~]# cat Demo.txt
-HELLO WORLD
-welcome to linux world
-bye
-eof
-
-
-将两个文件的内容和并到一个文件里面
-[root@localhost ~]# cat Demo.txt test.txt &gt; Demo-test.txt
-[root@localhost ~]# cat Demo.txt
-HELLO WORLD
-welcome to linux world
-bye
-eof
-[root@localhost ~]# cat test.txt
-welcome to use cat command
-bye
-bye
-[root@localhost ~]# cat Demo-test.txt
-HELLO WORLD
-welcome to linux world
-bye
-eof
-welcome to use cat command
-bye
-bye
-
-
-
-如果加上-n选项表示的是显示文件的行号
-[root@localhost ~]# cat -n Demo-test.txt
- 1  HELLO WORLD
- 2  welcome to linux world
- 3  bye
- 4  eof
- 5  welcome to use cat command
- 6  bye
- 7  bye
-
-
-如果想要对文件进行追加操作，那么需要使用 &gt;&gt; 操作符  其中!$ 表示上一条命令的最后一个参数
-[root@localhost ~]# cat Demo.txt test.txt  &gt;&gt; Demo-test.txt
-[root@localhost ~]# cat -n !$
-cat -n Demo-test.txt
-     1  HELLO WORLD
-     2  welcome to linux world
-     3  bye
-     4  eof
-     5  welcome to use cat command
-     6  bye
-     7  bye
-     8  HELLO WORLD
-     9  welcome to linux world
-    10  bye
-    11  eof
-    12  welcome to use cat command
-    13  bye
-    14  bye
-
-
-这里我们使用cat命令查看我们系统版本来结束我们本篇文章
-[root@localhost ~]# cat /etc/redhat-release
-CentOS Linux release 7.3.1611 (Core)
-
-[root@localhost ~]# cat /proc/version
-Linux version 3.10.0-514.10.2.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-11) (GCC) ) #1 SMP Fri Mar 3 00:04:05 UTC 2017
-
-还有一个可以查看内核版本的命令
-[root@localhost ~]# uname -r
-3.10.0-514.10.2.el7.x86_64
-
-同时还有一个命令可以查看，这个命令有些版本可能没有，你可以选择去用yum安装，我在CentOS7进行测试的时候是没有的
-在CentOS6.8上可以完美得出结果
-[root@node1 ~]# lsb_release -a
-LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
-Distributor ID: CentOS
-Description:    CentOS release 6.8 (Final)
-Release:    6.8
-Codename:   Final
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/Linux命令基础-cat/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1456,15 +1402,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1472,15 +1410,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,14 +1439,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1516,19 +1458,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1552,15 +1482,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1573,6 +1499,26 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1608,6 +1554,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
@@ -1628,31 +1578,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1664,7 +1594,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1672,7 +1614,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1681,10 +1631,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1708,11 +1654,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1728,11 +1674,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
