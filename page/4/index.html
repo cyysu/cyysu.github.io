@@ -63,6 +63,8 @@ var _hmt = _hmt || [];
 		<nav class="header-menu">
 			<ul>
 			
+				<li><a href="/categories/embed">嵌入式</a></li>
+	        
 				<li><a href="/categories/Linux">运维</a></li>
 	        
 				<li><a href="/categories/oldLinux">笔记</a></li>
@@ -125,6 +127,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -143,11 +147,13 @@ var _hmt = _hmt || [];
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/categories/Linux">运维</a></li>
+					<li style="width: 25%"><a href="/categories/embed">嵌入式</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/oldLinux">笔记</a></li>
+					<li style="width: 25%"><a href="/categories/Linux">运维</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/about">关于</a></li>
+					<li style="width: 25%"><a href="/categories/oldLinux">笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/about">关于</a></li>
 		        
 				</ul>
 			</nav>
@@ -163,6 +169,264 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Linux基础命令-chkconfig" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux基础命令-chkconfig/">Linux命令基础-chkconfig</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux基础命令-chkconfig/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:03:16.186Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux下的7个运行级别"><a href="#Linux下的7个运行级别" class="headerlink" title="Linux下的7个运行级别"></a>Linux下的7个运行级别</h2><pre><code>0.系统停机状态，系统默认运行级别不能设置为0，否则不能正常启动，机器关闭。
+
+1.单用户工作状态，root权限，用于系统维护，禁止远程登陆，就像Windows下的安全模式登录。
+
+2.多用户状态，没有NFS支持。
+
+3.完整的多用户模式，有NFS，登陆后进入控制台命令行模式。
+
+4.系统未使用，保留一般不用，在一些特殊情况下可以用它来做一些事情。例如在笔记本电脑的电池用尽时，可以切换到这个模式来做一些设置。
+
+5.X11控制台，登陆后进入图形GUI模式，X Window系统。
+
+6.系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动。运行init 6机器就会重启。
+</code></pre><h2 id="运行级别原理"><a href="#运行级别原理" class="headerlink" title="运行级别原理"></a>运行级别原理</h2><pre><code>1.在目录/etc/rc.d/init.d下有许多服务器脚本程序，一般称为服务(service)
+2.在/etc/rc.d下有7个名为rcN.d的目录，对应系统的7个运行级别
+
+3.rcN.d目录下都是一些符号链接文件，这些链接文件都指向init.d目录下的service脚本文件，命名规则为K+nn+服务名或S+nn+服务名，其中nn为两位数字。
+
+4.系统会根据指定的运行级别进入对应的rcN.d目录，并按照文件名顺序检索目录下的链接文件：对于以K开头的文件，系统将终止对应的服； 对于以S开头的文件，系统将启动对应的服务
+
+5.查看运行级别用：runlevel
+
+6.进入其它运行级别用：init N，如果init 3则进入终端模式，init 5则又登录图形GUI模式
+
+7.另外init0为关机，init 6为重启系统
+</code></pre><h2 id="忘记root密码拯救办法"><a href="#忘记root密码拯救办法" class="headerlink" title="忘记root密码拯救办法"></a>忘记root密码拯救办法</h2><pre><code>标准的Linux运行级别为3或5，如果是3的话，系统就在多用户状态；如果是5的话，则是运行着X Window系统。
+
+不同的运行级别有不同的用处，也应该根据自己的不同情形来设置。例如，如果丢失了root口令，那么可以让机器启动进入单用户状态来设置。在启动后的lilo提示符下输入：
+
+init=/bin/sh rw
+
+这样就可以使机器进入运行级别1，并把root文件系统挂为读写。它会路过所有系统认证，让你使用passwd程序来改变root口令，然后启动到一个新的运行级。
+</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre><code>[root@localhost ~]# ll /etc/rc3.d/
+total 0
+lrwxrwxrwx. 1 root root 20 Apr 10 10:00 K50netconsole -&gt; ../init.d/netconsole
+lrwxrwxrwx. 1 root root 22 Apr 10 10:00 S03vmware-tools -&gt; ../init.d/vmware-tools
+lrwxrwxrwx. 1 root root 17 Apr 10 10:00 S10network -&gt; ../init.d/network
+lrwxrwxrwx. 1 root root 32 Apr 10 10:00 S57vmware-tools-thinprint -&gt; ../init.d/vmware-tools-thinprint
+
+[root@localhost ~]# ll /etc/init.d/
+total 92
+-rw-r--r--. 1 root root 15131 Sep 12  2016 functions
+-rwxr-xr-x. 1 root root  2989 Sep 12  2016 netconsole
+-rwxr-xr-x. 1 root root  6643 Sep 12  2016 network
+-rw-r--r--. 1 root root  1160 Mar  3 11:23 README
+-rwxr-xr-x. 1 root root 44264 Apr  3 23:05 vmware-tools
+-rwxr-xr-x. 1 root root 15721 Apr  3 23:05 vmware-tools-thinprint
+</code></pre><h2 id="chkconfig用法"><a href="#chkconfig用法" class="headerlink" title="chkconfig用法"></a>chkconfig用法</h2><pre><code>chkconfig命令可以用来检查、设置系统的各种服务
+
+使用语法：
+
+chkconfig [--add][--del][--list][系统服务] 或 chkconfig [--level &lt;等级代号&gt;][系统服务][on/off/reset]
+
+
+使用范例：
+
+chkconfig --list      列出所有的系统服务
+
+chkconfig --add httpd 增加httpd服务
+
+chkconfig --del httpd 删除httpd服务
+
+chkconfig --level httpd 2345 on 把httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态。
+
+
+
+chkconfig命令提供了一种简单的方式来设置一个服务的运行级别。例如，为了设置MySQL服务器在运行级别3和4上运行，你必须首先将MySQL添加为受chkconfig管理的服务：
+
+chkconfig --add mysql
+
+现在，我们在级别3和5上设定服务为“on”
+
+chkconfig --level 35 mysql on
+
+在其他级别上设为off
+
+chkconfig --level 01246 mysql off
+
+为了确认你的配置被正确的修改了，我们可以列出服务将会运行的运行级别，如下所示：
+
+#chkconfig --list mysql
+
+mysql           0:off       1:off       2:off       3:on 4:off       5:on 6:off
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux基础命令-chkconfig/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-mv" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/11/Linux命令基础-mv/">Linux命令基础-mv</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/11/Linux命令基础-mv/" class="archive-article-date">
+  	<time datetime="2017-04-11T09:00:58.074Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>mv命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。source表示源文件或目录，target表示目标文件或目录。如果将一个文件移到一个已经存在的目标文件中，则目标文件的内容将被覆盖。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>mv(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--backup=&lt;备份模式&gt;：若需覆盖文件，则覆盖前先行备份；
+-b：当文件存在时，覆盖前，为其创建一个备份；
+-f：若目标文件或目录与现有的文件或目录重复，则直接覆盖现有的文件或目录；
+-i：交互式操作，覆盖前先行询问用户，如果源文件与目标文件或目标目录中的文件同名，则询问用户是否覆盖目标文件。用户输入”y”，表示将覆盖目标文件；输入”n”，表示取消对源文件的移动。这样可以避免误将文件覆盖。
+--strip-trailing-slashes：删除源文件中的斜杠“/”；
+-S&lt;后缀&gt;：为备份文件指定后缀，而不使用默认的后缀；
+--target-directory=&lt;目录&gt;：指定源文件要移动到目标目录；
+-u：当源文件比目标文件新或者目标文件不存在时，才执行移动操作。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>将文件ex3改名为new1 mv ex3 new1
+mv ex3 new1
+
+将目录/usr/men中的所有文件移到当前目录（用.表示）中：
+mv /usr/men/* .
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/11/Linux命令基础-mv/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-Linux命令基础-rm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1016,193 +1280,6 @@ network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
 
 
   
-    <article id="post-Linux命令基础-pwd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-pwd/">Linux命令基础-pwd</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-pwd/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:17.381Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>pwd命令以绝对路径的方式显示用户当前工作目录。命令将当前目录的全路径名称（从根目录）写入标准输出。全部目录使用/分隔。第一个/表示根目录，最后一个目录是当前目录。执行pwd命令可立刻得知您目前所在的工作目录的绝对路径名称。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>pwd（选项）
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>--help：显示帮助信息；
---version：显示版本信息。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# pwd /root
-/root
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-pwd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/Linux命令基础-tree/">Linux命令基础-tree</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/Linux命令基础-tree/" class="archive-article-date">
-  	<time datetime="2017-04-09T01:45:16.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>tree命令以树状图列出目录的内容。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>tree(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：显示所有文件和目录；
--A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
--C：在文件和目录清单加上色彩，便于区分各种类型；
--d：先是目录名称而非内容；
--D：列出文件或目录的更改时间；
--f：在每个文件或目录之前，显示完整的相对路径名称； -F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;，&quot;/&quot;，&quot;@&quot;，&quot;|&quot;号； -g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；
--i：不以阶梯状列出文件和目录名称；
--l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称； -l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
--n：不在文件和目录清单加上色彩；
--N：直接列出文件和目录名称，包括控制字符；
--p：列出权限标示；
--P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；
--q：用“？”号取代控制字符，列出文件和目录名称； -s：列出文件和目录大小；
--t：用文件和目录的更改时间排序；
--u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
--x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>如果大家的Linux没有tree，那么可以使用yum来进行安装
-
-这个命令主要用的就是 -L 选项 和显示当前目录，我这里就不演示了
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/Linux命令基础-tree/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1326,6 +1403,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
@@ -1350,15 +1431,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1366,7 +1439,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1374,15 +1447,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,11 +1463,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1407,6 +1476,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,15 +1499,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1446,15 +1523,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WEB服务器</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1466,6 +1539,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
               </li>
              
@@ -1474,11 +1551,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1494,19 +1571,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">RAID</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,10 +1599,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">自动化</a>
               </li>
              
@@ -1534,11 +1607,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1547,6 +1620,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1598,11 +1675,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
