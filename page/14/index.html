@@ -170,6 +170,140 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LNMP源码安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/19/LNMP源码安装/">LNMP源码安装</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/19/LNMP源码安装/" class="archive-article-date">
+  	<time datetime="2017-03-19T07:57:35.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装前的介绍"><a href="#安装前的介绍" class="headerlink" title="安装前的介绍"></a>安装前的介绍</h2><pre><code>LNMP=Linux Nginx Mysql PHP
+
+Nginx (&quot;engine x&quot;) 是一个高性能的 HTTP 和 反向代理 服务器。Nginx 是由 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的，第一个公开版本0.1.0发布于2004年10月4日。其将源代码以类BSD许可证的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。2011年6月1日，nginx 1.0.4发布。
+
+Nginx是一款轻量级的Web服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。由俄罗斯的程序设计师IgorSysoev所开发，供俄国大型的入口网站及搜索引擎Rambler（俄文：Рамблер）使用。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度BWS、新浪、网易、腾讯等
+</code></pre><hr>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p><a href="http://on1wx78z7.bkt.clouddn.com/2-29-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85LNMP.doc" target="_blank" rel="external">安装教程</a></p>
+<hr>
+<h2 id="软件包准备"><a href="#软件包准备" class="headerlink" title="软件包准备"></a>软件包准备</h2><p><a href="http://on1wx78z7.bkt.clouddn.com/libmcrypt-2.5.8.tar.gz" target="_blank" rel="external">libmcrypt-2.5.8</a><br><a href="http://on1wx78z7.bkt.clouddn.com/mysql-5.6.26.tar.gz" target="_blank" rel="external">mysql-5.6</a><br><a href="http://on1wx78z7.bkt.clouddn.com/pcre-8.37.tar.bz2" target="_blank" rel="external">pcre-8.37</a><br><a href="http://on1wx78z7.bkt.clouddn.com/php-5.6.13.tar.bz2" target="_blank" rel="external">php-5.6</a><br><a href="http://on1wx78z7.bkt.clouddn.com/nginx-1.8.0.tar.gz" target="_blank" rel="external">nginx-1.8</a></p>
+<hr>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h3 id="1-Apache工作原理"><a href="#1-Apache工作原理" class="headerlink" title="1.Apache工作原理"></a>1.Apache工作原理</h3><p><img src="http://on1wx78z7.bkt.clouddn.com/1.jpg" alt="Apache工作原理"></p>
+<hr>
+<h3 id="2-Nginx工作原理"><a href="#2-Nginx工作原理" class="headerlink" title="2.Nginx工作原理"></a>2.Nginx工作原理</h3><p><img src="http://on1wx78z7.bkt.clouddn.com/2.jpg" alt="Nginx工作原理"></p>
+<hr>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://on1wx78z7.bkt.clouddn.com/1.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/2.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/3.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/4.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/5.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/6.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/7.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/8.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/9.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/10.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/11.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/12.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/13.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/14.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/15.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/16.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/17.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/18.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/19.png" alt="教程"></p>
+<hr>
+<p><img src="http://on1wx78z7.bkt.clouddn.com/20.png" alt="教程"></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">源码安装</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">LNMP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/19/LNMP源码安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-LAMP源码安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1860,291 +1994,6 @@ max_per_ip=N
 
 
   
-    <article id="post-6.Linux运维服务-Samba服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/15/6.Linux运维服务-Samba服务/">Samba服务</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/15/6.Linux运维服务-Samba服务/" class="archive-article-date">
-  	<time datetime="2017-03-15T11:13:48.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来"><a href="#Linux运维笔记-就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来" class="headerlink" title="Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)"></a>Linux运维笔记(就老男孩运维28期、马哥教育、学神IT、老段带你学Linux、Linux-Cast整理而来)</h3><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><strong>“-“ 后面接的是段落小节标题</strong></li>
-<li><strong>笔记按照服务一般配置整理</strong></li>
-<li><strong>本文采用软件为 MarkdownPad2进行编辑</strong></li>
-<li><strong>本文记录时间 2/27/2017 5:38:32 PM</strong></li>
-<li><strong>请将本文ip替换成自己的ip</strong></li>
-</ul>
-<h2 id="本文大纲"><a href="#本文大纲" class="headerlink" title="本文大纲"></a>本文大纲</h2><pre><code>1.开篇的话
-2.Samba服务
-3.常见错误解决方案
-4.应用场景
-</code></pre><hr>
-<h4 id="1-开篇的话"><a href="#1-开篇的话" class="headerlink" title="1.开篇的话"></a>1.开篇的话</h4><pre><code>学习Linux服务的大体流程如下
-
-    了解服务的作用：名称，功能，特点
-    安装
-    配置文件位置，端口
-    服务启动关闭的脚本
-    此服务的使用方法
-    修改配置文件，实战举例
-    排错(从下到上，从内到外)
-</code></pre><h2 id="2-Samba服务"><a href="#2-Samba服务" class="headerlink" title="2.Samba服务"></a>2.Samba服务</h2><p><strong>简介</strong></p>
-<pre><code>Samba服务概述：
-    Samba 最先在Linux 和Windows 两个平台之间架起了一座桥梁，正是由于Samba 的出现，我们可以在Linux 系统和Windows 系统之间互相通信，比如拷贝文件、实现不同操作系统之间的资源共享等等，我们可以将其架设成一个功能非常强大的文件服务器，也可以将其架设成打印服务器提供本地和远程联机打印
-</code></pre><p><strong>软件安装和启动</strong></p>
-<pre><code>软件安装
-    rpm -ivh /mnt/Packages/samba-3.5.10-114.el6.x86_64.rpm
-
-服务启动
-    service smb start 或 /etc/init.d/smb restart
-
-samba 服务配置重新加载
-    /etc/init.d/smb   reload
-
-服务加入开机自启
-    chkconfig smb on
-
-查看端口
-    netstat -antup | grep smb
-
-windows访问samba服务的时候采用如下格式访问
-    \\192.168.1.63
-
-Linux访问的时候共享文件夹采用如下格式
-    smbclient -L  samba IP    密码为空   这样查看的方式为匿名用户
-    smbclient -L  samba IP -U 用户名%密码    以用户名查看samba共享文件
-    smbclient //samba共享的绝对路径 -U 用户名%密码
-
-如果登陆出现问题可以尝试清除一下缓存    (windows平台)
-    net use * /del                      //显示已建立的远程连接并询问是否确认删除，输入y删除，输入n暂不删除
-</code></pre><p><strong>配置文件解析</strong></p>
-<pre><code>配置文件详解：/etc/samba/smb.conf
-
-    1、samba 配置简介
-        smb.conf 文件的开头部分为samba 配置简介，告诉我们smb.conf 文件的作用及相关信息。
-        smb.conf 中还有以“;”开头，这些都是samba 配置的格式范例，默认是不生效滴，可以通过去掉前面的“;”并加以修改来设置想使用的功能。
-        [root@xuegod63 ~]# vim /etc/samba/smb.conf  #搜索分号 ；
-        ;       security = domain
-        另外#号也是表示注示
-    2、Global Settings
-
-        Global Settings 设置为全局变量区域。全局变量就是说我们只要在global 时进行设置，那么该设置项目就是针对所有共享资源生效。这与以后我们学习的很多服务器配置文件相似。
-
-
-    格式：
-    字段=设定值
-    下面我们说下[global]常用字段及设置方法：
-
-    1）设置samba 服务器所在工作组或域名
-    我们设置samba 服务器的工作组为xuegod.cn
-           workgroup = xuegod.cn  #工作组
-    2）服务器描述，服务器描述实际上类似于备注信息，
-    设置samba 描述信息为“xuegod.cn Samba Server  ”。
-            server string = xuegod.cn Samba Server  #samba服务器描述
-
-    3、设置samba 服务器安全模式。常见模式有两种：share 安全级别模式和user 安全级别模式
-        samba 服务器有share、user、server、domain 和AD活动目录 五种安全模式。
-        （1）share 安全级别模式
-        客户端登录samba 服务器，不需要输入用户名和密码就可以浏览samba 服务器的资源，适用于公
-        共的共享资源，安全性差，需要配合其他权限设置，保证samba 服务器的安全性。
-        （2）user 安全级别模式
-        客户端登录samba 服务器，需要提交合法帐号和密码，经过服务器验证才可以访问共享资源，服务器默认为此级别模式。
-    4、Share Definitions 共享服务的定义
-        [homes]为特殊共享目录，表示用户主目录。
-        [printers]表示共享打印机。
-
-修改配置文件，实战举例：
-     Samba 常规服务器配置
-        基本的Samba服务器的搭建流程主要分为四个步骤：
-        [1]、编辑主配置文件smb.conf,指定需要共享的目录，并为共享目录设置共享权限。
-        [2]、在smb.conf 文件中指定日志文件名称和存放路径。
-        [3]、设置共享目录的本地系统权限及samba共享权限。
-        [4]、重新加载配置文件或重新启动smb 服务，使用配置生效
-
-
-    配置一个共享资源：
-        [share]  #设置共享名
-                comment = Home Directories  #描述
-                browseable = yes   #是否允许查看此共享内容 。如果是否，后期通过绝对路径，可以查看到。
-        path = /share      #共享路径，写绝对路径
-        public = yes  #允许匿名查看
-        readonly = yes
-    5、设置访问用户
-
-        如果共享资源存在重要数据的话，需要对访问用户审核，我们可以使用valid users 字段进行设置
-        格式：
-        valid users = 用户名
-        valid users = @组名
-
-    6、设置目录只读
-        共享目录如果限制用户的读写操作，我们可以通过readonly 实现哈~
-        格式：
-        readonly = yes #只读
-        readonly = no #读写
-
-    7、设置目录可写
-        如果共享目录允许用户写操作，可以使用writable 或write list 两个字段进行设置
-        writable 格式：
-        writable = yes #读写
-        writable = no #只读
-        write list 格式：
-        write list = 用户名
-        write list = @组名
-
-        Samba 服务日志文件
-        在/etc/samba/smb.conf 文件中，log file 为设置samba 日志的字段。
-</code></pre><p><strong>案例</strong></p>
-<pre><code>    例1：匿名共享：
-
-        公司现在用一个工作组xuegod.cn， 需要添加samba 服务器作为文件服务器，并发布共享目录/share，共享名为public,这个共享目录允许所有公司员工访问。
-
-
-        [root@xuegod63 Desktop]# mkdir /share
-        [root@xuegod63 Desktop]# cp /etc/passwd !$   #复制一个测试文件
-        cp /etc/passwd /share
-
-        vim /etc/samba/smb.conf
-        [global]
-                workgroup = xuegod.cn  #工作组
-                server string = xuegod.cn Samba Server  #samba服务器描述
-        security = share   # 允许匿名访问
-        ============================ Share Definitions ====
-        [share]  #设置共享名
-                comment = Home Directories  #描述
-        path = /share      #共享路径，写绝对路径
-        public = yes  #允许匿名查看
-
-        2）重新加载配置
-        service smb restart
-
-    例2：通过用户名和密码共享文件。把/sales  共享出去，只有知道用户名和密码的同事可以看这个共享。我们需要将全局配置中security 设置user 安全级别，然后在共享目录设置权限
-
-    注意：一定要先指定存放密码的文件位置：
-
-
-    1）添加销售部用户和组并添加相应samba 帐号
-
-        使用groupadd 命令添加sales 组，然后执行useradd 命令和passwd 命令添加销售部员工的帐号及密码。
-
-        [root@xuegod63 samba]# groupadd sales
-        [root@xuegod63 samba]# useradd -g sales sale1
-        [root@xuegod63 samba]# useradd -g sales sale2
-        [root@xuegod63 samba]# id sale2
-        uid=501(sale2) gid=500(sales) groups=500(sales)
-        [root@xuegod63 samba]#
-
-        接下来为销售部成员添加相应samba 帐号
-        [root@xuegod63 samba]# smbpasswd -a sale1
-        New SMB password:
-        Retype new SMB password:
-        startsmbfilepwent_internal: file /etc/samba/smbpasswd did not exist. File successfully created.
-        Added user sale1.
-        [root@xuegod63 samba]# ls /etc/samba/smbpasswd
-        /etc/samba/smbpasswd
-        [root@xuegod63 samba]# cat !$
-        cat /etc/samba/smbpasswd
-                sale1:500:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:32ED87BDB5FDC5E9CBA88547376818D4:[U          ]:LCT-545E2105:
-        [root@xuegod63 samba]# smbpasswd -a sale2
-        New SMB password:
-        Retype new SMB password:
-        Added user sale2.
-
-    2）修改samba 主配置文件smb.conf
-        passdb backend = smbpasswd
-        smb passwd file = /etc/samba/smbpasswd
-
-例3:linux访问Windows共享文件的方法
-
-    1、安装Samba服务
-         yum install samba samba-client samba-swat
-
-    2、启动Samba服务器
-         /etc/init.d/smb restart
-
-    3、安装cifs-utils，解决只读挂载
-
-        yum install cifs-utils.x86_64
-
-    4、把Windows共享文件夹挂载到linux 目录下
-
-        mount -t cifs -o username=cnt01/njpublic,passwd=&apos;Welcome123&apos; //10.60.1.14/Files-Temporary-Transfer /mnt/
-
-    注意挂载的格式：
-    密码要 写在‘’ 里面，
-    挂载的目录要写到上一级，//ip/共享文件夹
-</code></pre><h2 id="3-常见错误解决方案"><a href="#3-常见错误解决方案" class="headerlink" title="3.常见错误解决方案"></a>3.常见错误解决方案</h2><p><strong>第一种问题</strong></p>
-<p><strong>第二种问题</strong></p>
-<h2 id="4-应用场景"><a href="#4-应用场景" class="headerlink" title="4.应用场景"></a>4.应用场景</h2><p><strong>1)文件和打印机贡献</strong><br>    文件和打印机共享是Samba 的主要功能，SMB 进程实现资源共享，将文件和打印机发布到网络之中，以供用户可以访问。</p>
-<p><strong>2)身份验证和权限设置</strong><br>    smbd 服务支持user mode 和domain mode 等身份验证和权限设置模式，</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Samba服务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/15/6.Linux运维服务-Samba服务/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
@@ -2276,6 +2125,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
               </li>
              
@@ -2296,15 +2149,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2312,11 +2157,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2325,14 +2182,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2356,11 +2205,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2376,23 +2245,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高可用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2401,10 +2254,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内核</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2420,11 +2269,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2436,19 +2285,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2464,15 +2313,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">自动化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">saltstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2540,11 +2389,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
