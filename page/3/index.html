@@ -164,6 +164,323 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux命令基础-chown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/Linux命令基础-chown/">Linux命令基础-chown</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/12/Linux命令基础-chown/" class="archive-article-date">
+  	<time datetime="2017-04-12T13:43:09.304Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>chown命令改变某个文件或目录的所有者和所属的组，该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组。用户可以是用户或者是用户D，用户组可以是组名或组id。文件名可以使由空格分开的文件列表，在文件名中可以包含通配符。 只有文件主和超级用户才可以便用该命令。
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-c或——changes：效果类似“-v”参数，但仅回报更改的部分；
+-f或--quite或——silent：不显示错误信息；
+-h或--no-dereference：只对符号连接的文件作修改，而不更改其他任何相关文件；
+-R或——recursive：递归处理，将指定目录下的所有文件及子目录一并处理；
+-v或——version：显示指令执行过程；
+--dereference：效果和“-h”参数相同；
+--help：在线帮助；
+--reference=&lt;参考文件或目录&gt;：把指定文件或目录的拥有者与所属群组全部设成和参考文件或目录的拥有者与所属群组相同；
+--version：显示版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# ll Demo.txt
+-rw-r--r--. 1 root root 44 Apr  8 21:54 Demo.txt
+
+[root@localhost ~]# chown lyx Demo.txt
+[root@localhost ~]# ll Demo.txt
+-rw-r--r--. 1 lyx root 44 Apr  8 21:54 Demo.txt
+
+[root@localhost ~]# chown lyx.lyx Demo.txt
+[root@localhost ~]# ll Demo.txt
+-rw-r--r--. 1 lyx lyx 44 Apr  8 21:54 Demo.txt
+
+主要常用的就是-R选项
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/12/Linux命令基础-chown/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Docker视频资源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/Docker视频资源/">Docker 视频资源</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/12/Docker视频资源/" class="archive-article-date">
+  	<time datetime="2017-04-12T07:39:51.573Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p><a href="http://pan.baidu.com/s/1pL0PtFX" target="_blank" rel="external">http://pan.baidu.com/s/1pL0PtFX</a></p>
+</li>
+<li><p><a href="http://pan.baidu.com/s/1qYFayPu" target="_blank" rel="external">http://pan.baidu.com/s/1qYFayPu</a></p>
+</li>
+<li><p><a href="http://pan.baidu.com/s/1o8x39Bc" target="_blank" rel="external">http://pan.baidu.com/s/1o8x39Bc</a></p>
+</li>
+</ol>
+<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/12/Docker视频资源/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/Docker/">Docker</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/12/Docker/" class="archive-article-date">
+  	<time datetime="2017-04-12T07:38:29.734Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="docker-search-csphere"><a href="#docker-search-csphere" class="headerlink" title="docker search csphere"></a>docker search csphere</h2><pre><code>[root@localhost ~]# docker search csphere
+INDEX       NAME                                         DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+docker.io   docker.io/csphere/csphere                    docker container management platform            7
+docker.io   docker.io/xcy0609/csphere                                                                    1
+docker.io   docker.io/csphere/jenkins                                                                    0
+docker.io   docker.io/csphere/qingcloud-docker-network   Docker Network and IPAM plugin for Qingclo...   0
+docker.io   docker.io/csphere/squid                                                                      0
+docker.io   docker.io/micha09/docker-csphere             Docker Image for cSphere Web CMS                0                    [OK]
+docker.io   docker.io/tsing/qingcloud-lb                 Qingcloud load balance updater for csphere...   0                    [OK]
+</code></pre><h2 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h2><pre><code>[root@localhost yum.repos.d]# docker images
+REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE
+csphere/mysql                    5.5                 1212e642112e        14 hours ago        739.3 MB
+csphere/php-fpm                  5.4                 897d9b88966a        14 hours ago        701.9 MB
+csphere/centos                   7.1                 8f067fc9016e        15 hours ago        603.9 MB
+learn/ping                       latest              9412c9464710        16 hours ago        139.5 MB
+daocloud.io/library/centos       latest              a8493f5f50ff        5 days ago          192.5 MB
+docker.io/django                 latest              eb40dcf64078        3 months ago        436 MB
+docker.io/centos                 centos7.1.1503      285396d0a019        7 months ago        212.1 MB
+docker.io/csphere/csphere        latest              2266d9e47034        16 months ago       97.95 MB
+127.0.0.1:5000/csphere/csphere   0.11.2              3468c34fa83b        16 months ago       97.95 MB
+docker.io/registry               2.1.1               52bb991b482e        17 months ago       220.1 MB
+docker.io/learn/tutorial         latest              a7876479f1aa        4 years ago         128 MB
+</code></pre><h2 id="确保Docker的版本要大于1-6-这个是官方的要求"><a href="#确保Docker的版本要大于1-6-这个是官方的要求" class="headerlink" title="确保Docker的版本要大于1.6  这个是官方的要求"></a>确保Docker的版本要大于1.6  这个是官方的要求</h2><pre><code>[root@localhost yum.repos.d]# cat docker.repo
+[dockerrepo]
+name=DockerRepository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+</code></pre><h2 id="生成容器"><a href="#生成容器" class="headerlink" title="生成容器"></a>生成容器</h2><pre><code>[root@localhost yum.repos.d]# docker run  -d --restart=always -p 1106:80 -e ROLE=controller -l CSPHERE_ROLE=controller  -v /data/csphere:/data:rw --name=csphereDemo1 docker.io/csphere/csphere:latest
+
+$DATA_DIR:/data:rw
+</code></pre><h2 id="查看是否成功"><a href="#查看是否成功" class="headerlink" title="查看是否成功"></a>查看是否成功</h2><pre><code>[root@localhost yum.repos.d]# docker ps -a
+CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS                    PORTS                                       NAMES
+1f4fcd24e05c        docker.io/csphere/csphere:latest   &quot;/bin/csphere-init -i&quot;   5 seconds ago       Up 4 seconds              8086/tcp, 27017/tcp, 0.0.0.0:1106-&gt;80/tcp   csphereDemo                                               csphere
+6c8dc0281a08        registry:2.1.1                     &quot;/bin/registry /etc/d&quot;   3 hours ago         Up 3 hours                0.0.0.0:5000-&gt;5000/tcp                      registry
+bb3bddd38d8d        csphere/mysql:5.5                  &quot;/scripts/start&quot;         14 hours ago        Up 14 hours               22/tcp, 0.0.0.0:3306-&gt;3306/tcp              kickass_bardeen
+672759fc8fb3        csphere/php-fpm:5.4                &quot;/usr/bin/supervisord&quot;   14 hours ago        Up 14 hours               22/tcp, 443/tcp, 0.0.0.0:8080-&gt;80/tcp       website
+9dc53dc98943        csphere/centos:7.1                 &quot;/usr/bin/supervisord&quot;   15 hours ago        Up 15 hours               0.0.0.0:2222-&gt;22/tcp                        base
+efb4c7eb173c        learn/tutorial                     &quot;apt-get install -y p&quot;   16 hours ago        Exited (0) 16 hours ago                                               sharp_kowalevski
+b095b689b909        learn/tutorial                     &quot;echo Hello&quot;             16 hours ago        Exited (0) 16 hours ago
+</code></pre><h2 id="声明一下"><a href="#声明一下" class="headerlink" title="声明一下"></a>声明一下</h2><pre><code>由于官方给的安装脚本不能运行，我这边在测试的时候不知道为什么容器的数量一直显示为0，还请大神告知！！！我个人猜测可能是没有读取到我
+docker容器存放的目录，官方具体的实现方法这个确实不知道，如果有哪位知道的可以相互交流一下！！
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Dokcer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/12/Docker/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux命令基础-sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -959,285 +1276,6 @@ mv /usr/men/* .
 
 
   
-    <article id="post-Linux命令基础-rm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/Linux命令基础-rm/">Linux命令基础-rm</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/11/Linux命令基础-rm/" class="archive-article-date">
-  	<time datetime="2017-04-11T09:00:35.105Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>rm命令可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉。对于链接文件，只是删除整个链接文件，而原有文件保持不变。 注意：使用rm命令要格外小心。因为一旦删除了一个文件，就无法再恢复它。所以，在删除文件之前，最好再看一下文件的内容，确定是否真要删除。rm命令可以用-i选项，这个选项在使用文件扩展名字符删除多个文件时特别有用。使用这个选项，系统会要求你逐一确定是否要删除。这时，必须输入y并按Enter键，才能删除文件。如果仅按Enter键或其他字符，文件不会被删除。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>rm (选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-d：直接把欲删除的目录的硬连接数据删除成0，删除该目录；
--f：强制删除文件或目录；
--i：删除已有文件或目录之前先询问用户；
--r或-R：递归处理，将指定目录下的所有文件与子目录一并处理；
---preserve-root：不对根目录进行递归操作；
--v：显示指令的详细执行过程。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>交互式删除当前目录下的文件test和example
-rm -i test example Remove test ?n（不删除文件test)
-Remove example ?y（删除文件example)
-
-删除当前目录下除隐含文件外的所有文件和子目录
-# rm -r *
-应注意，这样做是非常危险的!
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/11/Linux命令基础-rm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-cp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/Linux命令基础-cp/">Linux命令基础-cp</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/11/Linux命令基础-cp/" class="archive-article-date">
-  	<time datetime="2017-04-11T09:00:33.045Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cp命令用来将一个或多个源文件或者目录复制到指定的目的文件或目录。它可以将单个源文件复制成一个指定文件名的具体的文件或一个已经存在的目录下。cp命令还支持同时复制多个文件，当一次复制多个文件时，目标文件参数必须是一个已经存在的目录，否则将出现错误。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cp(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：此参数的效果和同时指定&quot;-dpR&quot;参数相同；
--d：当复制符号连接时，把目标文件或目录也建立为符号连接，并指向与源文件或目录连接的原始文件或目录；
--f：强行复制文件或目录，不论目标文件或目录是否已存在；
--i：覆盖既有文件之前先询问用户；
--l：对源文件建立硬连接，而非复制文件；
--p：保留源文件或目录的属性；
--R/r：递归处理，将指定目录下的所有文件与子目录一并处理；
--s：对源文件建立符号连接，而非复制文件；
--u：使用这项参数后只会在源文件的更改时间较目标文件更新时或是名称相互对应的目标文件并不存在时，才复制文件；
--S：在备份文件时，用指定的后缀“SUFFIX”代替文件的默认后缀；
--b：覆盖已存在的文件目标前将目标文件备份；
--v：详细显示命令执行的操作。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这里最常用的还是 -p 选项和-r选项以及-v选项
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/11/Linux命令基础-cp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Devops资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/Devops资料/">devops资料</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/10/Devops资料/" class="archive-article-date">
-  	<time datetime="2017-04-10T13:17:13.751Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.炒了8年的概念,到底该如何理解DEVOPS这个词?   <a href="http://mt.sohu.com/20160815/n464305141.shtml" target="_blank" rel="external">http://mt.sohu.com/20160815/n464305141.shtml</a></p>
-<p>2.给 DevOps 初学者的入门指南   <a href="http://blog.csdn.net/FIRim/article/details/52681704" target="_blank" rel="external">http://blog.csdn.net/FIRim/article/details/52681704</a></p>
-<p>3.DEVOPS门户  <a href="http://devopshub.cn/" target="_blank" rel="external">http://devopshub.cn/</a></p>
-<p>4.DEVOPS  <a href="http://www.leexide.com/page/2" target="_blank" rel="external">http://www.leexide.com/page/2</a></p>
-<p>5.DEVOPS 文档中心   <a href="http://docs.devopshub.cn/" target="_blank" rel="external">http://docs.devopshub.cn/</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/10/Devops资料/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1365,27 +1403,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">自动化部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1405,11 +1423,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1417,15 +1447,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Apache服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1437,23 +1467,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1469,11 +1499,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">内核</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,27 +1539,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">内核</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Linux命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1517,7 +1547,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1529,11 +1559,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">监控</a>
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1549,11 +1575,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nagios</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">监控</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1569,19 +1595,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Centos7</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1593,23 +1623,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">大学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1618,6 +1644,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">跨平台</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">puppet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Linux服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1641,14 +1679,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">分布式存储</a>
               </li>
              
@@ -1666,6 +1696,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MooseFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网卡错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
             
             <div class="clearfix"></div>
