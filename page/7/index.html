@@ -170,6 +170,378 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux基础命令grep" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/Linux基础命令grep/">Linux基础命令-grep|egrep</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/06/Linux基础命令grep/" class="archive-article-date">
+  	<time datetime="2017-04-06T10:17:17.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h2><pre><code>grep (global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来)是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
+
+Unix的grep家族包括grep、egrep和fgrep。egrep和fgrep的命令只跟grep有很小不同。egrep是grep的扩展，支持更多的re元字符， fgrep就是fixed grep或fast grep，它们把所有的字母都看作单词，也就是说，正则表达式中的元字符表示回其自身的字面意义，不再特殊。linux使用GNU版本的grep。它功能更强，可以通过-G、-E、-F命令行选项来使用egrep和fgrep的功能。
+</code></pre><h2 id="1-命令参数选项"><a href="#1-命令参数选项" class="headerlink" title="1. 命令参数选项"></a>1. 命令参数选项</h2><pre><code>grep [-acinv] [--color=auto] &apos;搜寻字符串&apos; filename
+选项与参数：
+-a ：将 binary 文件以 text 文件的方式搜寻数据
+-c ：计算找到 &apos;搜寻字符串&apos; 的次数
+-i ：忽略大小写的不同，所以大小写视为相同
+-n ：顺便输出行号
+-v ：反向选择，亦即显示出没有 &apos;搜寻字符串&apos; 内容的那一行！
+--color=auto ：可以将找到的关键词部分加上颜色的显示喔！
+</code></pre><h2 id="2-常见的匹配规则"><a href="#2-常见的匹配规则" class="headerlink" title="2. 常见的匹配规则"></a>2. 常见的匹配规则</h2><pre><code>^      匹配输入字符串的开始位置。
+*      匹配前面的子表达式任意次。
++      匹配前面的子表达式一次或多次(大于等于1次）。
+?      匹配前面的子表达式零次或一次。
+{n,m}  m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。
+</code></pre><h2 id="3-案例"><a href="#3-案例" class="headerlink" title="3.案例"></a>3.案例</h2><pre><code>grep &apos;\&lt;Tom\&gt;&apos; file                 包含单词Tom的行
+grep &apos;Tom savage&apos; file              包含Tom savage的行
+grep &apos;^Tommy&apos; file                  包含以Tommy开头的行
+grep &apos;\.bak$&apos; file                  包含以.bak结束的行
+grep &apos;[Pp]yramid&apos; file              包含pyramid 或Pyramid的单词的行
+grep &apos;[A-Z]&apos; file                   包含至少一个大写字母的行
+grep &apos;[0-9]&apos; file                   包含至少一个数字的行
+grep &apos;[A-Z]...[0-9]&apos; file           包含五个字符,以大写开头, 和一个数字结尾的行.
+grep -w &apos;[tT]est&apos; file              包含单词和test的行.
+grep -s &apos;ken sun&apos; file              找到包含ken sun的行, 但不打印行, 而是用来检查退出状态.
+grep -v aaa file                    打印不包含aaa的行.
+grep -i cathy file                  打印所有包含cathy的行, 而不考虑大小些.
+grep -l &apos;dear cathy&apos; *              打印包含dear cathy的文件的文件名清单.
+grep -n tom file                    打印匹配的行并追加行号.
+grep &quot;$LOGNAME&quot; file                包含变量内容的行, 注意必须用双引号, 单引号则无法引用变量.
+grep &apos;$name&apos; file                   打印包含字符$name的行.
+</code></pre><h2 id="4-网络教程"><a href="#4-网络教程" class="headerlink" title="4. 网络教程"></a>4. 网络教程</h2><p><a href="http://blog.csdn.net/newthinker_wei/article/details/8219293" target="_blank" rel="external">关于grep和egrep的一些整理</a></p>
+<p><a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856896.html" target="_blank" rel="external">linux grep命令详解</a></p>
+<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5. 正则表达式"></a>5. 正则表达式</h2><p><a href="http://baike.baidu.com/link?url=B5fgKVzAWRE9MPf-tEGrmkABdRzpmgMLoOg-FrTVonMMNuGEUODIxAfksd3FZ_oHg0LR3ncYPylfPUx9fud2cVeqc0hdsm_aT0_rg6dZrTjjDrbFHHciuXUaNhfWg4HNoDkkNXTUoi3hlY5Lhwd78_" target="_blank" rel="external">百度百科</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/06/Linux基础命令grep/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux基础命令-cron" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/Linux基础命令-cron/">Linux基础命令-cron</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/06/Linux基础命令-cron/" class="archive-article-date">
+  	<time datetime="2017-04-06T09:54:47.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h2><pre><code>crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。
+</code></pre><h2 id="1-crontab文件规范"><a href="#1-crontab文件规范" class="headerlink" title="1. crontab文件规范"></a>1. crontab文件规范</h2><pre><code>*　 *　 *　 *　 *　　command
+分　时　日　月　周　 命令
+
+第1列表示分钟1～59 每分钟用*或者 */1表示
+第2列表示小时1～23（0表示0点）
+第3列表示日期1～31
+第4列表示月份1～12
+第5列标识号星期0～6（0表示星期天）
+第6列要运行的命令
+</code></pre><h2 id="2-命令参数选项"><a href="#2-命令参数选项" class="headerlink" title="2. 命令参数选项"></a>2. 命令参数选项</h2><pre><code>crontab [-u username] [-l|-e|-r]
+选项与参数：
+-u  ：只有 root 才能进行这个任务，亦即帮其他使用者创建/移除 crontab 工作排程；
+-e  ：编辑 crontab 的工作内容
+-l  ：查阅 crontab 的工作内容
+-r  ：移除所有的 crontab 的工作内容，若仅要移除一项，请用 -e 去编辑
+</code></pre><h2 id="3-特殊符号含义"><a href="#3-特殊符号含义" class="headerlink" title="3. 特殊符号含义"></a>3. 特殊符号含义</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">特殊符号</th>
+<th style="text-align:center">代表含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">*(星号)</td>
+<td style="text-align:center">代表任何时刻都接受的意思,*代表的是任何时候</td>
+</tr>
+<tr>
+<td style="text-align:center">,(逗号)</td>
+<td style="text-align:center">代表分隔字段的意思</td>
+</tr>
+<tr>
+<td style="text-align:center">-(减号)</td>
+<td style="text-align:center">代表一段时间范围内</td>
+</tr>
+<tr>
+<td style="text-align:center">/n　</td>
+<td style="text-align:center">那个 n 代表数字，也就是每隔 n 单位间隔的意思</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-Demo"><a href="#4-Demo" class="headerlink" title="4. Demo"></a>4. Demo</h2><pre><code>1. 在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup :
+
+#    */20 6-12 * 12 * /usr/bin/backup
+
+2. 周一到周五每天下午 5:00 寄一封信给 alex_mail_name :
+
+#    0 17 * * 1-5 mail -s &quot;hi&quot; alex_mail_name &lt; /tmp/maildata
+
+3. 晚上11点到早上8点之间每两个小时，早上8点
+
+#    0 23-7/2,8 * * * date
+
+4. 每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 echo &quot;haha&quot;
+
+#    20 0-23/2 * * * echo &quot;haha&quot;
+</code></pre><h2 id="5-实例"><a href="#5-实例" class="headerlink" title="5. 实例"></a>5. 实例</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">实例</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">每1分钟执行一次</td>
+<td>/1 <em> </em> <em> </em> command</td>
+</tr>
+<tr>
+<td style="text-align:left">每小时的第15,30,45分钟执行</td>
+<td>15,30,45 <em> </em> <em> </em> command</td>
+</tr>
+<tr>
+<td style="text-align:left">每周一的7点到11点的第25和第50分钟执行</td>
+<td>25,50 7-11 <em> </em> 1 command</td>
+</tr>
+<tr>
+<td style="text-align:left">每周六、周日的3 : 30执行</td>
+<td>30 3 <em> </em> 6,7 command</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/06/Linux基础命令-cron/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-mysql-LVM快照" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/mysql-LVM快照/">MysqlLVM快照</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/06/mysql-LVM快照/" class="archive-article-date">
+  	<time datetime="2017-04-06T04:41:20.692Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><pre><code>mysql的数据要存放在LVM卷上,备份二进制日志要在源数据备份
+</code></pre><h2 id="网页教程"><a href="#网页教程" class="headerlink" title="网页教程"></a>网页教程</h2><p><a href="http://www.jb51.net/os/RedHat/337102.html" target="_blank" rel="external">LVM创建教程</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2016-09/135484.htm" target="_blank" rel="external">lvm快照恢复</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-10/107697.htm" target="_blank" rel="external">使用LVM创建弹性磁盘存储——第一部分</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-10/107786.htm" target="_blank" rel="external">在Linux中扩展/缩减LVM（第二部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-11/108867.htm" target="_blank" rel="external">在 LVM中 录制逻辑卷快照并恢复（第三部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-11/109757.htm" target="_blank" rel="external">在LVM中设置精简资源调配卷（第四部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2014-12/110532.htm" target="_blank" rel="external">使用条块化I/O管理多个LVM磁盘（第五部分）</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2013-07/87887.htm" target="_blank" rel="external">MySQL高性能备份方案解决数据不间断访问（LVM快照方式备份</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-04/116238.htm" target="_blank" rel="external">MySQL基于LVM快照的备份恢复</a></p>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onz0j1wor.bkt.clouddn.com/0.jpg" alt=""></p>
+<hr>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/1.jpg" alt=""></p>
+<hr>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/2.jpg" alt=""></p>
+<hr>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/3.jpg" alt=""></p>
+<hr>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/4.jpg" alt=""></p>
+<hr>
+<p><img src="http://onz0j1wor.bkt.clouddn.com/5.jpg" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/06/mysql-LVM快照/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-mysql备份恢复" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -887,270 +1259,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Linux网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/Linux网站/">Linux网站学习集合</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/Linux网站/" class="archive-article-date">
-  	<time datetime="2017-04-04T15:06:22.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.Linux Story  <a href="https://linuxstory.org/" target="_blank" rel="external">https://linuxstory.org/</a></p>
-<p>2.程序员之家   <a href="http://bbs.it-home.org/" target="_blank" rel="external">http://bbs.it-home.org/</a></p>
-<p>3.51CTO        <a href="http://blog.csdn.net/system/column.html" target="_blank" rel="external">http://blog.csdn.net/system/column.html</a></p>
-<p>4.Linux在线命令手册  <a href="http://man.linuxde.net/" target="_blank" rel="external">http://man.linuxde.net/</a></p>
-<p>5.Linux在线学习  <a href="http://www.server-world.info/en/" target="_blank" rel="external">http://www.server-world.info/en/</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/Linux网站/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-WEB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/WEB/">WEB架构</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/WEB/" class="archive-article-date">
-  	<time datetime="2017-04-04T14:56:53.379Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="WEB大型架构图"><a href="#WEB大型架构图" class="headerlink" title="WEB大型架构图"></a>WEB大型架构图</h2><p><img src="http://d1.freep.cn/3tb_170404225936okvq584189.png" alt=""></p>
-<hr>
-<p><img src="http://d1.freep.cn/3tb_1704042259382v00584189.png" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">WEB架构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/WEB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-小工具集合21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/小工具集合21/">小工具集合21</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/04/小工具集合21/" class="archive-article-date">
-  	<time datetime="2017-04-04T14:51:38.807Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.IT书籍          <a href="https://pan.baidu.com/share/home?uk=3107275956#category/type=0" target="_blank" rel="external">https://pan.baidu.com/share/home?uk=3107275956#category/type=0</a></p>
-<p>2.Python教程      <a href="https://github.com/wangshunping/codeparkshare" target="_blank" rel="external">https://github.com/wangshunping/codeparkshare</a></p>
-<p>3.Python网站      <a href="http://www.pythoner.com/" target="_blank" rel="external">http://www.pythoner.com/</a></p>
-<p>4.大数据          <a href="https://pan.baidu.com/share/home?uk=4248009820#category/type=0" target="_blank" rel="external">https://pan.baidu.com/share/home?uk=4248009820#category/type=0</a></p>
-<p>5.MongoDB         <a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="external">http://www.runoob.com/mongodb/mongodb-tutorial.html</a></p>
-<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/04/小工具集合21/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -1271,15 +1382,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1303,11 +1410,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1315,15 +1426,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1339,14 +1450,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
@@ -1355,7 +1458,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1371,22 +1490,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1399,7 +1502,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1408,6 +1515,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内核</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1483,6 +1594,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
               </li>
              
@@ -1491,15 +1606,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1543,11 +1654,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">

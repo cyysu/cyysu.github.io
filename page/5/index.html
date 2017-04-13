@@ -170,6 +170,332 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux命令基础-mkdir" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-mkdir/">Linux命令基础-mkdir</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-mkdir/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:51:02.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>mkdir命令用来创建目录。该命令创建由dirname命名的目录。如果在目录名的前面没有加任何路径名，则在当前目录下创建由dirname指定的目录；如果给出了一个已经存在的路径，将会在该目录下创建一个指定的目录。在创建目录时，应保证新建的目录与它所在目录下的文件没有重名。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>mkdir (选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-Z：设置安全上下文，当使用SELinux时有效；
+-m&lt;目标属性&gt;或--mode&lt;目标属性&gt;建立目录的同时设置目录的权限；
+-p或--parents 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录；
+--version 显示版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# mkdir -pv  /mnt/haha/hello
+mkdir: created directory ‘/mnt/haha’
+mkdir: created directory ‘/mnt/haha/hello’
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-mkdir/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-echo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-echo/">Linux命令基础-echo</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-echo/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:51:02.281Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>echo命令用于在shell中打印shell变量的值，或者直接输出指定的字符串。linux的echo命令，在shell编程中极为常用, 在终端下打印变量value的时候也是常常用到的，因此有必要了解下echo的用法echo命令的功能是在显示器上显示一段文字，一般起到一个提示的作用。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>echo(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-e：激活转义字符。 使用-e选项时，若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出：
+\a 发出警告声；
+\b 删除前一个字符；
+\c 最后不加上换行符号；
+\f 换行但光标仍旧停留在原来的位置；
+\n 换行且光标移至行首；
+\r 光标移至行首，但不换行；
+\t 插入tab；
+\v 与\f相同；
+\\ 插入\字符；
+\nnn 插入nnn（八进制）所代表的ASCII字符；
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# echo -e &quot;\e[1;42mGreed Background\e[0m&quot;
+Greed Background
+
+文字闪动效果，5m表示光标闪烁 0m表示光标停止闪烁
+[root@localhost ~]# echo -e &quot;\033[37;31;5mMySQL Server Stop...\033[39;49;0m&quot;
+MySQL Server Stop...
+
+
+可以选择的编码如下所示(这些颜色是ANSI标准颜色)：
+      编码          颜色/动作
+      0      　     重新设置属性到缺省设置
+      1     　      设置粗体
+      2     　      设置一半亮度(模拟彩色显示器的颜色)
+      4     　      设置下划线(模拟彩色显示器的颜色)
+      5     　      设置闪烁
+      7     　      设置反向图象
+      22    　      设置一般密度
+      24    　      关闭下划线
+      25     　     关闭闪烁
+      27     　     关闭反向图象
+      30      　    设置黑色前景
+      31   　       设置红色前景
+      32   　       设置绿色前景
+      33   　       设置黄色前景
+      34   　       设置蓝色前景
+      35    　      设置紫色前景
+      36     　     设置青色前景
+      37    　      设置白色(灰色)前景
+      38      　    在缺省的前景颜色上设置下划线
+      39      　    在缺省的前景颜色上关闭下划线
+      40      　    设置黑色背景
+      41      　    设置红色背景
+      42     　     设置绿色背景
+      43     　     设置黄色背景
+      44     　     设置蓝色背景
+      45     　     设置紫色背景
+      46     　     设置青色背景
+      47      　    设置白色(灰色)背景
+      49      　    设置缺省黑色背景
+其他有趣的代码还有：
+      \033[2J  　   清除屏幕
+      \033[0q  　   关闭所有的键盘指示灯
+      \033[1q 　    设置&quot;滚动锁定&quot;指示灯(Scroll Lock)
+      \033[2q 　    设置&quot;数值锁定&quot;指示灯(Num Lock)
+      \033[3q 　    设置&quot;大写锁定&quot;指示灯(Caps Lock)
+      \033[15:40H   把关闭移动到第15行，40列
+      \007  　　    发蜂鸣生beep
+
+
+关注更多的可以查看这个网址
+
+http://blog.csdn.net/xin_yu_xin/article/details/46948079
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-echo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Linux命令基础-touch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/09/Linux命令基础-touch/">Linux命令基础-touch</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/09/Linux命令基础-touch/" class="archive-article-date">
+  	<time datetime="2017-04-09T01:51:01.938Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>touch命令有两个功能：一是用于把已存在文件的时间标签更新为系统当前的时间（默认方式），它们的数据将原封不动地保留下来；二是用来创建新的空文件。
+</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>touch(选项)(参数)
+</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：或--time=atime或--time=access或--time=use 只更改存取时间；
+-c：或--no-create 不建立任何文件；
+-d：&lt;时间日期&gt; 使用指定的日期时间，而非现在的时间；
+-f：此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题；
+-m：或--time=mtime或--time=modify 只更该变动时间；
+-r：&lt;参考文件或目录&gt; 把指定文件或目录的日期时间，统统设成和参考文件或目录的日期时间相同；
+-t：&lt;日期时间&gt; 使用指定的日期时间，而非现在的时间；
+--help：在线帮助；
+--version：显示版本信息。
+</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这个比较简单，大家简单尝试一下就可以了！！
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/09/Linux命令基础-touch/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Linux命令基础-head" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -921,644 +1247,9 @@ less命令比较好用的就是支持 &quot;↑&quot; 和 &quot;↓&quot; 操作
 
 
   
-    <article id="post-Linux命令基础-more" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/Linux命令基础-more/">Linux命令基础-more</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/Linux命令基础-more/" class="archive-article-date">
-  	<time datetime="2017-04-08T15:21:15.391Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，支持vi中的关键字定位操作。more名单中内置了若干快捷键，常用的有H（获得帮助信息），Enter（向下翻滚一行），空格（向下滚动一屏），Q（退出命令）
-
-该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比：--More--（XX%）可以用下列不同的方法对提示做出回答：
-
-按Space键：显示文本的下一屏内容。
-按Enier键：只显示文本的下一行内容。
-按斜线符|：接着输入一个模式，可以在文本中寻找下一个相匹配的模式。
-按H键：显示帮助屏，该屏上有相关的帮助信息。
-按B键：显示上一屏内容。 按Q键：退出rnore命令。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>more(语法)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>+&lt;数字&gt;： 从笫n行开始显示
--&lt;数字&gt;： 定义屏幕大小为n行
-+/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示
--c        从顶部清屏，然后显示
--d        提示“Press space to continue，’q’ to quit（按空格键继续，按q键退出）”，禁用响铃功能
--l        忽略Ctrl+l（换页）字符
--p        通过清除窗口而不是滚屏来对文件进行换页，与-c选项相似
--s        把连续的多个空行显示为一行
--u        把文件内容中的下画线去掉
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# more -10 anaconda-ks.cfg
-#version=DEVEL
-# Demo file
-# hello
-# helo
-# System authorization information
-auth --enableshadow --passalgo=sha512
-# Use CDROM installation media
-cdrom
-# Use graphical install
-graphical
---More--(11%)
-
-
-[root@localhost ~]# more +/network anaconda-ks.cfg
-...skipping
-# Network information
-network  --bootproto=dhcp --device=ens33 --onboot=off --ipv6=auto --no-activate
-network  --hostname=localhost.localdomain
-@development
-@dial-up
-@directory-client
-@fonts
-@gnome-desktop
-@guest-agents
---More--(70%)
-
-其实more命令我这边用的不是怎么多，大部分用的还是less命令，让我们来看下一篇关于less的博客的！
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/Linux命令基础-more/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-cat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/Linux命令基础-cat/">Linux命令基础-cat</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/Linux命令基础-cat/" class="archive-article-date">
-  	<time datetime="2017-04-08T14:24:24.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>cat命令连接文件并打印到标准输出设备上，cat经常用来显示文件的内容。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>cat(选项)(参数)
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-n或-number：有1开始对所有输出的行数编号；
--b或--number-nonblank：和-n相似，只不过对于空白行不编号；
--s或--squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行；
--A：显示不可打印字符，行尾显示“$”；
--e：等价于&quot;-vE&quot;选项
--t：等价于&quot;-vT&quot;选项；
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>[root@localhost ~]# cat /etc/fstab
-#
-# /etc/fstab
-# Created by anaconda on Mon Apr  3 18:32:24 2017
-#
-# Accessible filesystems, by reference, are maintained under &apos;/dev/disk&apos;
-# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
-#
-/dev/mapper/cl-root     /                       xfs     defaults        0 0
-UUID=a4fcb234-a261-44f8-9653-6d3ed094a989 /boot xfs     defaults        0 0
-/dev/mapper/cl-swap     swap                    swap    defaults        0 0
-
-
-[root@localhost ~]# cat &gt; test.txt              ## ctrl + D 停止输入
-welcome to use cat command
-bye
-bye
-[root@localhost ~]# cat test.txt
-welcome to use cat command
-bye
-bye
-
-
-
-我们一般不会像上面那样做，我们使用下面这种方式对文件进行追加操作。我这里为了测试在末尾输入eof
-没有和结尾处定义的一致，也说明了Linux是区分大小写的。
-[root@localhost ~]# cat &gt; Demo.txt &lt;&lt; EOF
-&gt; HELLO WORLD
-&gt; welcome to linux world
-&gt; bye
-&gt; eof
-&gt; EOF
-[root@localhost ~]# cat Demo.txt
-HELLO WORLD
-welcome to linux world
-bye
-eof
-
-
-将两个文件的内容和并到一个文件里面
-[root@localhost ~]# cat Demo.txt test.txt &gt; Demo-test.txt
-[root@localhost ~]# cat Demo.txt
-HELLO WORLD
-welcome to linux world
-bye
-eof
-[root@localhost ~]# cat test.txt
-welcome to use cat command
-bye
-bye
-[root@localhost ~]# cat Demo-test.txt
-HELLO WORLD
-welcome to linux world
-bye
-eof
-welcome to use cat command
-bye
-bye
-
-
-
-如果加上-n选项表示的是显示文件的行号
-[root@localhost ~]# cat -n Demo-test.txt
- 1  HELLO WORLD
- 2  welcome to linux world
- 3  bye
- 4  eof
- 5  welcome to use cat command
- 6  bye
- 7  bye
-
-
-如果想要对文件进行追加操作，那么需要使用 &gt;&gt; 操作符  其中!$ 表示上一条命令的最后一个参数
-[root@localhost ~]# cat Demo.txt test.txt  &gt;&gt; Demo-test.txt
-[root@localhost ~]# cat -n !$
-cat -n Demo-test.txt
-     1  HELLO WORLD
-     2  welcome to linux world
-     3  bye
-     4  eof
-     5  welcome to use cat command
-     6  bye
-     7  bye
-     8  HELLO WORLD
-     9  welcome to linux world
-    10  bye
-    11  eof
-    12  welcome to use cat command
-    13  bye
-    14  bye
-
-
-这里我们使用cat命令查看我们系统版本来结束我们本篇文章
-[root@localhost ~]# cat /etc/redhat-release
-CentOS Linux release 7.3.1611 (Core)
-
-[root@localhost ~]# cat /proc/version
-Linux version 3.10.0-514.10.2.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-11) (GCC) ) #1 SMP Fri Mar 3 00:04:05 UTC 2017
-
-还有一个可以查看内核版本的命令
-[root@localhost ~]# uname -r
-3.10.0-514.10.2.el7.x86_64
-
-同时还有一个命令可以查看，这个命令有些版本可能没有，你可以选择去用yum安装，我在CentOS7进行测试的时候是没有的
-在CentOS6.8上可以完美得出结果
-[root@node1 ~]# lsb_release -a
-LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
-Distributor ID: CentOS
-Description:    CentOS release 6.8 (Final)
-Release:    6.8
-Codename:   Final
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/Linux命令基础-cat/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux命令基础-ls" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/Linux命令基础-ls/">Linux命令基础-ls</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/Linux命令基础-ls/" class="archive-article-date">
-  	<time datetime="2017-04-08T13:25:56.106Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><pre><code>ls命令用来显示目标列表，在Linux中是使用率较高的命令。ls命令的输出信息可以进行彩色加亮显示，以分区不同类型的文件。
-</code></pre><h2 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h2><pre><code>ls（选项）（参数）
-</code></pre><h2 id="命令选项"><a href="#命令选项" class="headerlink" title="命令选项"></a>命令选项</h2><pre><code>-a：显示所有档案及目录（ls内定将档案名或目录名称为“.”的视为影藏，不会列出）
-
--A：显示除影藏文件“.”和“..”以外的所有文件列表； -C：多列显示输出结果。这是默认选项；
-
--l：与“-C”选项功能相反，所有输出信息用单列格式输出，不输出为多列；
-
--F：在每个输出项后追加文件的类型标识符，具体含义：“*”表示具有可执行权限的普通文件，“/”表示目录，“@”表示符号链接，“|”表示命令管道FIFO，“=”表示sockets套接字。当文件为普通文件时，不输出任何标识符；
-
--b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出； -c：与“-lt”选项连用时，按照文件状态时间排序输出目录内容，排序的依据是文件的索引节点中的ctime字段。与“-l”选项连用时，则排序的一句是文件的状态改变时间；
-
--d：仅显示目录名，而不显示目录下的内容列表。显示符号链接文件本身，而不显示其所指向的目录列表；
-
--f：此参数的效果和同时指定“aU”参数相同，并关闭“lst”参数的效果；
-
--i：显示文件索引节点号（inode）。一个索引节点代表一个文件；
-
---file-type：与“-F”选项的功能相同，但是不显示“*”； -k：以KB（千字节）为单位显示文件大小； -l：以长格式显示目录下的内容列表。输出的信息从左到右依次包括文件名，文件类型、权限模式、硬连接数、所有者、组、文件大小和文件的最后修改时间等； -m：用“,”号区隔每个文件和目录的名称； -n：以用户识别码和群组识别码替代其名称；
-
--r：以文件名反序排列并输出目录内容列表； -s：显示文件和目录的大小，以区块为单位；
-
--t：用文件和目录的更改时间排序；
-
--L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录；
-
--R：递归处理，将指定目录下的所有文件及子目录一并处理；
-
---full-time：列出完整的日期与时间；
-
---color[=WHEN]：使用不同的颜色高亮显示不同类型的。
-</code></pre><h2 id="命令实例"><a href="#命令实例" class="headerlink" title="命令实例"></a>命令实例</h2><pre><code>这么多的参数，你都要记住？那你可就犯了大错误！需要的时候你可以找一下男人man啊！！！下面我中针对常用的参数选项进行讲解。
-
--l 选项：
-
-    [root@localhost ~]# ls -l
-    total 8
-    -rw-------. 1 root root 1607 Apr  4 06:48 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1635 Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-
-    上面这个命令有点长怎么办，我们可以使用alias命令进行简化我们的书写，当然这个在系统中已经帮我们弄好了别名设置，可以使用
-    alias来查看一下系统还有那些的别名设置。
-
-    [root@localhost ~]# alias
-    alias cp=&apos;cp -i&apos;
-    alias egrep=&apos;egrep --color=auto&apos;
-    alias fgrep=&apos;fgrep --color=auto&apos;
-    alias grep=&apos;grep --color=auto&apos;
-    alias l.=&apos;ls -d .* --color=auto&apos;
-    alias ll=&apos;ls -l --color=auto&apos;
-    alias ls=&apos;ls --color=auto&apos;
-    alias mv=&apos;mv -i&apos;
-    alias rm=&apos;rm -i&apos;
-    alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&apos;
-
-    通过 “ll” 命令我们看到的文件大小不够直观，这个时候我们需要用到的参数选项为 -h
-
-- h 选项：
-
-    [root@localhost ~]# ls -l
-    total 8
-    -rw-------. 1 root root 1607 Apr  4 06:48 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1635 Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-
-    通过对比我们可以看出显示文件大小更直观了，这个选项可以理解成以human的方式去查看。
-
-    [root@localhost ~]# ls -lh
-    total 8.0K
-    -rw-------. 1 root root 1.6K Apr  4 06:48 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1.6K Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-
-- a 选项：
-
-    在windows我们都知道系统中有隐藏文件，在Linux中也是不例外的。我们可以使用 - a 选项进行查看所有文件
-
-    [root@localhost ~]# ll -ah
-    total 48K
-    dr-xr-x---. 14 root root 4.0K Apr  8 20:39 .
-    dr-xr-xr-x. 17 root root  233 Apr  4 06:47 ..
-    -rw-------.  1 root root 1.6K Apr  4 06:48 anaconda-ks.cfg
-    -rw-------.  1 root root  758 Apr  4 15:40 .bash_history
-    -rw-r--r--.  1 root root   18 Dec 29  2013 .bash_logout
-    -rw-r--r--.  1 root root  176 Dec 29  2013 .bash_profile
-    -rw-r--r--.  1 root root  176 Dec 29  2013 .bashrc
-    drwx------. 11 root root  284 Apr  8 20:39 .cache
-    drwx------. 15 root root  276 Apr  3 23:09 .config
-    -rw-r--r--.  1 root root  100 Dec 29  2013 .cshrc
-    drwx------.  3 root root   25 Apr  4 06:52 .dbus
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Downloads
-    -rw-------.  1 root root   16 Apr  3 23:08 .esd_auth
-    -rw-------.  1 root root  938 Apr  8 20:39 .ICEauthority
-    -rw-r--r--.  1 root root 1.6K Apr  3 22:56 initial-setup-ks.cfg
-    drwxr-xr-x.  3 root root   19 Apr  3 22:55 .local
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Public
-    -rw-r--r--.  1 root root  129 Dec 29  2013 .tcshrc
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x.  2 root root    6 Apr  3 23:08 Videos
-    -rw-------.  1 root root 1.8K Apr  3 23:26 .viminfo
-
-- d 选项：
-
-    有些时候我们只想查看一下文件夹的属性，这个时候我们就要用到了 - d 选项
-
-    [root@localhost init.d]# ls -d /etc/init.d/
-    /etc/init.d/
-
-    [root@localhost init.d]# ll -dh /etc/init.d/
-    drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/init.d/
-
-- i 选项：
-
-    索引节点（index inode简称为“inode”）是Linux中一个特殊的概念，具有相同的索引节点号的两个文本本质上是同一个文件（除文件名不同外）。
-
-    这里我们以查看 /etc/下的文件进行讲解，大家可以看到下面你的grub2.cfg文件是链接到了../boot/grub2/grub.cfg
-    以及我们常用的脚本目录 init.d 链接到了 rc.d/init.d
-
-    [root@localhost init.d]# ll /etc/
-    total 1416
-
-    drwxr-xr-x.  2 root root        6 Nov  5 21:44 gdbinit.d
-    drwxr-xr-x.  6 root root      107 Apr  4 06:42 gdm
-    drwxr-xr-x.  2 root root       26 Apr  4 06:38 geoclue
-    -rw-r--r--.  1 root root      842 Nov  6 04:29 GeoIP.conf
-    -rw-r--r--.  1 root root      858 Nov  6 04:29 GeoIP.conf.default
-    drwxr-xr-x.  3 root root       18 Mar  3 16:07 ghostscript
-    drwxr-xr-x.  2 root root        6 Nov  6 00:06 gnupg
-    -rw-r--r--.  1 root root       94 Apr 29  2015 GREP_COLORS
-    drwxr-xr-x.  4 root root       40 Apr  4 06:34 groff
-    -rw-r--r--.  1 root root      954 Apr  3 23:13 group
-    -rw-r--r--.  1 root root      954 Apr  3 23:13 group-
-    lrwxrwxrwx.  1 root root       22 Apr  4 06:43 grub2.cfg -&gt; ../boot/grub2/grub.cfg
-    drwx------.  2 root root      182 Apr  4 06:47 grub.d
-    ----------.  1 root root      768 Apr  3 23:01 gshadow
-    ----------.  1 root root      757 Apr  4 06:43 gshadow-
-    drwxr-xr-x.  3 root root       20 Dec  7 02:34 gss
-    drwxr-xr-x.  2 root root       27 Apr  4 06:39 gssproxy
-    -rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
-    -rw-r--r--.  1 root root       22 Apr  4 06:47 hostname
-    -rw-r--r--.  1 root root      158 Jun  7  2013 hosts
-    -rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
-    -rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
-    drwxr-xr-x.  2 root root       24 Apr  4 06:39 hp
-    -rw-r--r--.  1 root root     3580 Nov  6 09:18 idmapd.conf
-    lrwxrwxrwx.  1 root root       11 Apr  4 06:33 init.d -&gt; rc.d/init.d
-
-    可以看到两个文件的inode的节点数是一样的，表明这其实文件内容是一样的。
-
-    [root@localhost init.d]# ll -id /etc/init.d/
-    56140 drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/init.d/
-
-    [root@localhost init.d]# ll -id /etc/rc.d/init.d/
-    56140 drwxr-xr-x. 2 root root 120 Apr  3 23:13 /etc/rc.d/init.d/
-
-- t 选项：
-
-    如果我们想查看最近修改的文件  那么我们可以使用-t选项
-
-    [root@localhost ~]# ll -t
-    total 8
-    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
-    -rw-------. 1 root root 1619 Apr  8 21:16 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-
-    [root@localhost ~]# vim anaconda-ks.cfg                             #这个编辑器后面会讲到
-
-    [root@localhost ~]# ll -t
-    total 8
-    -rw-------. 1 root root 1635 Apr  8 21:19 anaconda-ks.cfg
-    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-
--- color 选项：
-
-    列出文件并标记颜色分类，当然这个命令的别名系统已经帮我们做好了，再上面我们也可以看到
-
-    [root@localhost ~]# ll --color=auto
-    total 8
-    -rw-------. 1 root root 1635 Apr  8 21:19 anaconda-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Desktop
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Documents
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Downloads
-    -rw-r--r--. 1 root root 1644 Apr  8 21:17 initial-setup-ks.cfg
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Music
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Pictures
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Public
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Templates
-    drwxr-xr-x. 2 root root    6 Apr  3 23:08 Videos
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/Linux命令基础-ls/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -1679,15 +1370,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1711,11 +1398,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1723,15 +1414,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1747,14 +1438,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
@@ -1763,7 +1446,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1779,22 +1478,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1807,7 +1490,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1816,6 +1503,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内核</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1891,6 +1582,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
               </li>
              
@@ -1899,15 +1594,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1951,11 +1642,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">

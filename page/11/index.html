@@ -170,6 +170,377 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-小工具集合13-嵌入式篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/小工具集合13-嵌入式篇/">小工具集合13</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/小工具集合13-嵌入式篇/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:38:10.984Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开篇的话"><a href="#开篇的话" class="headerlink" title="开篇的话"></a>开篇的话</h2><pre><code>STM32学习完了不知道干啥了？好！这次分享的内容会让你知道你该做什么了！
+没错！我们开始学习ARM9、ARM11或者Cortex-A8或者Cortex-A9了。
+</code></pre><h2 id="学习视频链接"><a href="#学习视频链接" class="headerlink" title="学习视频链接"></a>学习视频链接</h2><pre><code>1.国嵌视频                  http://pan.baidu.com/s/1pLJfqVD
+
+2.顶嵌视频                  http://pan.baidu.com/s/1nvfnOCT
+
+3.达内嵌入式                http://pan.baidu.com/s/1dF1OHgt
+
+4.天嵌视频                  http://pan.baidu.com/s/1qYe1FwK
+
+5.天祥电子                  http://pan.baidu.com/s/1jIdsdsq
+
+6.天嵌E9                    http://pan.baidu.com/s/1mhVg2a0
+
+7.ARM11                     http://pan.baidu.com/s/1qXUYqh2
+
+8.OK210                     http://pan.baidu.com/s/1dFvdhQT
+
+9.韦东山                    http://pan.baidu.com/s/1hrO3cBa
+
+10.ARM9                     http://pan.baidu.com/s/1o7PCIj4
+
+11.国嵌完整版               http://pan.baidu.com/s/1dFHxLeD
+</code></pre><h1 id="学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！"><a href="#学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！" class="headerlink" title="学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！"></a>学会了嵌入式Linux，这个时候可能你还会有点小不满足，界面太丑了，好，QT你应该学学了！！</h1><p><a href="http://pan.baidu.com/s/1kUPIKfX" target="_blank" rel="external">QT传送门</a></p>
+<h2 id="学习建议"><a href="#学习建议" class="headerlink" title="学习建议"></a>学习建议</h2><pre><code>这么多视频资料初学者肯定不知道看哪个，我根据自己的经验给大家提出几条建议：
+
+1. 首先学习嵌入式开发的门槛比较高，这个你心里要有准备
+
+2. 嵌入式你得会Linux的基本命令呀，包括一些简单的配置，比如网卡，NFS，编译内核，软件的安装和下载
+
+3. 摆正姿态，不要松懈
+
+4. 嵌入式Linux用的系统大部分是ubuntu，这个比较简单，大家有时间可以去玩玩
+
+5. 这个阶段你会接触很多新鲜的名词，先不要深究，慢慢来用到的时候多用用就会了解概念了
+
+6. 这个阶段你首先学习的是嵌入式的裸机开发，也就是用寄存器开发，然后就是嵌入式的驱动开发
+
+7. 先模仿，在造轮子，在成为大神级人物。
+</code></pre><h2 id="韦东山嵌入式开发系统镜像"><a href="#韦东山嵌入式开发系统镜像" class="headerlink" title="韦东山嵌入式开发系统镜像"></a>韦东山嵌入式开发系统镜像</h2><p><a href="http://pan.baidu.com/s/1hrTmIB6" target="_blank" rel="external">Vmware-Ubuntu9.10</a></p>
+<h1 id="祝愿大家早日成为大牛！！！切勿浮躁！！！！！"><a href="#祝愿大家早日成为大牛！！！切勿浮躁！！！！！" class="headerlink" title="祝愿大家早日成为大牛！！！切勿浮躁！！！！！"></a>祝愿大家早日成为大牛！！！切勿浮躁！！！！！</h1><h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">STM32</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/小工具集合13-嵌入式篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-小工具集合12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/小工具集合12/">小工具集合12</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/小工具集合12/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:32:24.641Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>matlab   <a href="http://pan.baidu.com/s/1qXSWvDi" target="_blank" rel="external">http://pan.baidu.com/s/1qXSWvDi</a></p>
+</li>
+<li><p>matlab   <a href="http://pan.baidu.com/s/1jHKvkMy" target="_blank" rel="external">http://pan.baidu.com/s/1jHKvkMy</a></p>
+</li>
+<li><p>C++到MFC <a href="http://pan.baidu.com/s/1ge8VVTT" target="_blank" rel="external">http://pan.baidu.com/s/1ge8VVTT</a></p>
+</li>
+<li><p>opencv   <a href="http://pan.baidu.com/s/1sl4OfmP" target="_blank" rel="external">http://pan.baidu.com/s/1sl4OfmP</a></p>
+</li>
+<li><p>VS插件   <a href="http://pan.baidu.com/s/1i5FnKo9" target="_blank" rel="external">http://pan.baidu.com/s/1i5FnKo9</a></p>
+</li>
+<li><p>组态王-PLC上位机 <a href="http://pan.baidu.com/s/1qXSWvDU" target="_blank" rel="external">http://pan.baidu.com/s/1qXSWvDU</a></p>
+</li>
+<li><p>西门子WINCC和视频   <a href="http://pan.baidu.com/s/1dF24Gyl" target="_blank" rel="external">http://pan.baidu.com/s/1dF24Gyl</a></p>
+</li>
+<li><p>FPGA     <a href="http://pan.baidu.com/s/1jIoNuaM" target="_blank" rel="external">http://pan.baidu.com/s/1jIoNuaM</a></p>
+</li>
+<li><p>台达PLC  <a href="http://pan.baidu.com/s/1nu6bUcD" target="_blank" rel="external">http://pan.baidu.com/s/1nu6bUcD</a></p>
+</li>
+</ol>
+<p>10.三菱PLC  <a href="http://pan.baidu.com/s/1o7NANKe" target="_blank" rel="external">http://pan.baidu.com/s/1o7NANKe</a></p>
+<h1 id="未完待续。。。。-持续更新中。。。。。。"><a href="#未完待续。。。。-持续更新中。。。。。。" class="headerlink" title="未完待续。。。。 持续更新中。。。。。。"></a>未完待续。。。。 持续更新中。。。。。。</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">互联网资源</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">程序员</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/about/" class="article-tag-list-link color1">about</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/小工具集合12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-ISCSI-高可用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/25/ISCSI-高可用/">ISCSI高可用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/25/ISCSI-高可用/" class="archive-article-date">
+  	<time datetime="2017-03-25T11:31:14.292Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="word版本教程"><a href="#word版本教程" class="headerlink" title="word版本教程"></a>word版本教程</h2><p><a href="http://ondbspkir.bkt.clouddn.com/3-8-iscsi%E5%A4%9A%E8%B7%AF%E5%BE%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F-%E4%BD%BF%E7%94%A8udev%E5%9B%BA%E5%AE%9Aiscsi%E8%AE%BE%E5%A4%87%E5%90%8D%E5%AD%97-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">教程</a></p>
+<hr>
+<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://ondbspkir.bkt.clouddn.com/1.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/2.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/3.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/4.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/5.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/6.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/7.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/8.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/9.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/10.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/11.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/12.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/13.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/14.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/15.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/16.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/17.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/18.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/19.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/20.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/21.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/22.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/23.png" alt=""></p>
+<hr>
+<p><img src="http://ondbspkir.bkt.clouddn.com/24.png" alt=""></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">存储系统</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">高可用</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">负载均衡</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/25/ISCSI-高可用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-虚拟机增加磁盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -948,461 +1319,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Haproxy实现七层负载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/Haproxy实现七层负载/">Haproxy实现七层负载</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/Haproxy实现七层负载/" class="archive-article-date">
-  	<time datetime="2017-03-24T11:54:02.288Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ab测试工具"><a href="#ab测试工具" class="headerlink" title="ab测试工具"></a>ab测试工具</h2><p><a href="http://freeloda.blog.51cto.com/2033581/1240814/" target="_blank" rel="external">传送门</a></p>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p><a href="http://onbhkhnp5.bkt.clouddn.com/haproxy.cfg" target="_blank" rel="external">配置文件</a></p>
-<h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h2><p><a href="http://onbhkhnp5.bkt.clouddn.com/haproxy" target="_blank" rel="external">脚本</a></p>
-<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p><a href="http://onbhkhnp5.bkt.clouddn.com/haproxy-1.4.22.tar.gz" target="_blank" rel="external">软件</a></p>
-<h2 id="word版本教程"><a href="#word版本教程" class="headerlink" title="word版本教程"></a>word版本教程</h2><p><a href="http://onbhkhnp5.bkt.clouddn.com/3-4-%E4%BD%BF%E7%94%A8nginx-haproxy-%E5%AE%9E%E7%8E%B0%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">教程</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onbhkhnp5.bkt.clouddn.com/1.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/2.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/3.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/4.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/5.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/6.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/7.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/8.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/9.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/10.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/11.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/12.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/13.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/14.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/15.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/16.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/17.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/18.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/19.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/20.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/21.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/22.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/23.png" alt=""></p>
-<hr>
-<p><img src="http://onbhkhnp5.bkt.clouddn.com/24.png" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件共享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Haproxy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/Haproxy实现七层负载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-nginx七层负载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/nginx七层负载/">Nginx实现七层负载</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/nginx七层负载/" class="archive-article-date">
-  	<time datetime="2017-03-24T11:53:14.940Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ab测试工具"><a href="#ab测试工具" class="headerlink" title="ab测试工具"></a>ab测试工具</h2><p><a href="http://freeloda.blog.51cto.com/2033581/1240814/" target="_blank" rel="external">传送门</a></p>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/nginx.conf" target="_blank" rel="external">配置文件传送门</a></p>
-<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/nginx-1.8.0.tar.gz" target="_blank" rel="external">软件</a></p>
-<h2 id="word版本教程"><a href="#word版本教程" class="headerlink" title="word版本教程"></a>word版本教程</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/3-4-%E4%BD%BF%E7%94%A8nginx-haproxy-%E5%AE%9E%E7%8E%B0%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0.pdf" target="_blank" rel="external">教程</a></p>
-<h2 id="测试材料"><a href="#测试材料" class="headerlink" title="测试材料"></a>测试材料</h2><p><a href="http://onbh5rsxw.bkt.clouddn.com/xuegod62%E7%BD%91%E7%AB%99%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2.zip" target="_blank" rel="external">材料1</a><br><a href="http://onbh5rsxw.bkt.clouddn.com/xuegod64%E7%BD%91%E7%AB%99%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2.zip" target="_blank" rel="external">材料2</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onbh5rsxw.bkt.clouddn.com/1.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/2.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/3.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/4.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/5.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/6.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/7.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/8.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/9.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/10.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/20.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/21.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/22.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/23.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/24.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/25.png" alt=""></p>
-<hr>
-<p><img src="http://onbh5rsxw.bkt.clouddn.com/26.png" alt=""></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件共享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/nginx七层负载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-heartbeat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/heartbeat/">Heartbeat</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/24/heartbeat/" class="archive-article-date">
-  	<time datetime="2017-03-24T07:48:29.267Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网络参考教程和一些错误解决方案"><a href="#网络参考教程和一些错误解决方案" class="headerlink" title="网络参考教程和一些错误解决方案"></a>网络参考教程和一些错误解决方案</h2><p><a href="http://blog.chinaunix.net/uid-22539324-id-2644094.html" target="_blank" rel="external">1.没有rpmbuild </a><br><a href="http://blog.sina.com.cn/s/blog_5f190fff0101d1kf.html" target="_blank" rel="external">2.脑力的解决方案</a></p>
-<h2 id="业余拓展资料"><a href="#业余拓展资料" class="headerlink" title="业余拓展资料"></a>业余拓展资料</h2><p><a href="http://www.cnblogs.com/losbyday/p/5844491.html" target="_blank" rel="external">1.集群概念以及多种搭建教程</a><br><a href="http://www.linuxidc.com/Linux/2013-09/90321.htm" target="_blank" rel="external">2.DRBD简介安装</a></p>
-<h2 id="课堂笔记"><a href="#课堂笔记" class="headerlink" title="课堂笔记"></a>课堂笔记</h2><p><a href="http://onb6uqmmu.bkt.clouddn.com/3-4-heartbeat.txt" target="_blank" rel="external">笔记</a></p>
-<h2 id="word版教程"><a href="#word版教程" class="headerlink" title="word版教程"></a>word版教程</h2><p><a href="http://onb6uqmmu.bkt.clouddn.com/3-5-heartbeat.docx" target="_blank" rel="external">教程</a></p>
-<h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><img src="http://onb6uqmmu.bkt.clouddn.com/1.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/2.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/3.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/4.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/5.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/6.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/7.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/8.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/9.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/10.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/11.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/12.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/13.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/14.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/15.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/16.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/17.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/18.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/19.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/20.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/21.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/22.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/23.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/24.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/25.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/26.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/27.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/28.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/29.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/30.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/31.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/32.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/33.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/34.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/35.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/36.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/37.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/38.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/39.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/40.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/41.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/42.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/43.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/44.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/45.png" alt="教程"></p>
-<hr>
-<p><img src="http://onb6uqmmu.bkt.clouddn.com/46.png" alt="教程"></p>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Centos6.8</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件共享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Heartbeat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/24/heartbeat/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -1523,15 +1442,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SSH服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,11 +1470,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1567,15 +1486,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DHCP服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">Samba服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DNS服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1591,14 +1510,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
              
@@ -1607,7 +1518,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">源码安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Centos6.8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1623,22 +1550,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件共享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">LAMP</a>
               </li>
              
@@ -1651,7 +1562,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1660,6 +1575,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内核</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1735,6 +1654,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ELKstack</a>
               </li>
              
@@ -1743,15 +1666,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1795,11 +1714,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
