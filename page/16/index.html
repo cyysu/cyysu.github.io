@@ -170,6 +170,203 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-10.Linux运维服务-自动化安装服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">自动化部署</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/15/10.Linux运维服务-自动化安装服务器/" class="archive-article-date">
+  	<time datetime="2017-03-15T11:13:44.645Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#YSU-Linux运维笔记模板V3.0</p>
+<p><strong>编辑软件：MarkdownPad2</strong></p>
+<p><strong>撰写人员：Kali</strong></p>
+<p><strong>撰写日期：2017年3月5日</strong></p>
+<p><strong>联系作者：cyysu.github.io@gmail.com</strong></p>
+<p><strong>友情提示：文章内容如有不对，欢迎指正。</strong></p>
+<hr>
+<p><strong>PXE简介</strong></p>
+<pre><code>严格来说，PXE 并不是一种安装方式，而是一种引导的方式。进行 PXE 安装的必要条件是要安装的计算机中包含一个 PXE 支持的网卡（NIC），即网卡中必须要有 PXE Client。PXE （Pre-boot Execution Environment）协议使计算机可以通过网络启动。
+
+协议分为 client 和 server 端，PXE client 在网卡的 ROM 中，当计算机引导时，BIOS 把 PXE client 调入内存执行，由 PXE client 将放置在远端的文件通过网络下载到本地运行。
+
+运行 PXE 协议需要设置 DHCP 服务器 和 TFTP 服务器。DHCP 服务器用来给 PXE client（将要安装系统的主机）分配一个 IP 地址，由于是给 PXE client 分配 IP 地址，所以在配置 DHCP 服务器时需要增加相应的 PXE 设置。
+此外，在 PXE client 的 ROM 中，已经存在了 TFTP Client。PXE Client 通过 TFTP 协议到 TFTP Server 上下载所需的文件。
+</code></pre><p><strong>KickStart</strong></p>
+<pre><code>KickStart是一种无人职守安装方式。KickStart的工作原理是通过记录典型的安装过程中所需人工干预填写的各种参数，并生成一个名为 ks.cfg的文件；在其后的安装过程中（不只局限于生成KickStart安装文件的机器）当出现要求填写参数的情况时，安装程序会首先去查找 KickStart生成的文件，当找到合适的参数时，就采用找到的参数，当没有找到合适的参数时，才需要安装者手工干预。
+
+这样，如果KickStart文件涵盖了安装过程中出现的所有需要填写的参数时，安装者完全可以只告诉安装程序从何处取ks.cfg文件，然后去忙自己的事情。等安装完毕，安装程序会根据ks.cfg中设置的重启选项来重启系统，并结束安装。
+</code></pre><p><strong>PXE + KickStart安装需要准备内容</strong></p>
+<pre><code>DHCP 服务器用来给客户机分配IP；
+TFTP 服务器用来存放PXE的相关文件，比如：系统引导文件；
+FTP 服务器用来存放系统安装文件；
+KickStart所生成的ks.cfg配置文件；
+带有一个 PXE 支持网卡的将安装的主机；
+</code></pre><hr>
+<p>##以上的基础知识已经讲完，现在就让我们动手来实践一下吧！</p>
+<p><strong>配置基本环境</strong></p>
+<h3 id="安装ftp服务"><a href="#安装ftp服务" class="headerlink" title="安装ftp服务"></a>安装ftp服务</h3><pre><code>yum install vsftpd -y
+/etc/init.d/vsftpd start
+chkconfig vsftpd on
+</code></pre><h3 id="安装tftp服务"><a href="#安装tftp服务" class="headerlink" title="安装tftp服务"></a>安装tftp服务</h3><pre><code>yum install tftp tftp-server xinetd -y
+
+
+配置tftp服务器：
+vim /etc/xinetd.d/tftp
+修改配置文件里面的13，14行.改成以下内容：
+
+disable = no
+server_args = -s /tftpboot  # 表示服务器默认的目录是 /tftpboot
+
+启动服务
+/etc/init.d/xinetd restart
+lsof -i :69    #查看69端口正在被哪个进程使用
+netstat -antup | grep 69   #这种方法，只能看到xinetd进程
+</code></pre><h3 id="安装dhcp服务"><a href="#安装dhcp服务" class="headerlink" title="安装dhcp服务"></a>安装dhcp服务</h3><pre><code>yum install dhcp* -y
+
+配置DHCP服务器：
+cp /usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
+
+在配置DHCP服务器的时候可以不用在加一张网卡，可以直接使用本机的网卡。这里为了使用Xshell在加一张网卡，但是和实际中都是一样的。
+
+给DHCP服务器添加一张VMNET4网卡，ip设置为192.168.1.10（只要是1网段都行）
+ifconfig eth1 192.168.1.10/24
+
+
+vim /etc/dhcp/dhcpd.conf  #这里为了简便，只保留一个subnet {。。。} ，取掉其它subnet，改成如下内容：
+
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+   range 192.168.1.100 192.168.1.200;
+ option domain-name-servers 192.168.1.1;
+  option domain-name &quot;internal.example.org&quot;;
+  option routers 192.168.1.1;
+  option broadcast-address 192.168.1.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+  next-server 192.168.1.10;
+  filename &quot;pxelinux.0&quot;;
+}
+
+
+在配置上面的文件的时候一定要注意每行的结尾处要加上分号。配置完，先不启动DHCP ，等所有的软件安装好，最后来启动。
+</code></pre><h3 id="安装PXE"><a href="#安装PXE" class="headerlink" title="安装PXE"></a>安装PXE</h3><pre><code>yum -y install system-config-kickstart  #安装此包时，会把syslinux软件包也安装上。
+
+准备tftp需要共享出去的文件
+
+mount /dev/sr0 /media/
+
+mkdir /tftpboot
+mkdir /tftpboot/pxelinux.cfg
+cp /usr/share/syslinux/pxelinux.0     /tftpboot/
+cp /media/images/pxeboot/initrd.img /tftpboot/
+cp /media/images/pxeboot/vmlinuz     /tftpboot/
+cp /media/isolinux/isolinux.cfg     /tftpboot/pxelinux.cfg/default
+chmod 644 /tftpboot/pxelinux.cfg/default
+
+
+修改default，指定安装操作系统的方式和ks.cfg文件路径
+vim /tftpboot/pxelinux.cfg/default
+#修改第1行 改为 default  linux,后面的linux意思是寻找下面18行的label linux
+然后修改下22行（即在后面添加ks=ftp://192.168.1.10/ks.cfg）
+第22行的意思是使安装程序通过FTP服务器访问kickstart文件
+</code></pre><h3 id="制作kickstart安装向导"><a href="#制作kickstart安装向导" class="headerlink" title="制作kickstart安装向导"></a>制作kickstart安装向导</h3><pre><code> yum install system-config-kickstart -y
+ LANG=zh_CN.UTF-8
+ system-config-kickstart  #执行system-config-kickstart弹出来界面。
+    1.设置下默认安装的语言，时区，根口令，然后勾选下面的安装后重新引导
+    2.配置ftp服务器的安装方法。修改FTP服务器和FTP根目录为/pub
+    3.配置grub相关选项
+    4.设置分区
+    5.配置网络，默认没有网络设置，点击添加网络，设备名称为eth0，网络类型为dhcp
+    6.验证，默认就可以了。
+    7.防火墙和selinux根据自己需求选择开启或者禁用。我选择关闭selinux。启用防火墙。
+    8.安装图形环境选择禁用
+    9.自定义软件包。默认可能没有勾选桌面。根据自己需求勾选。 我们为了快速度演示安装，不选择安装桌面。
+    10.安装脚本：在&quot;预安装脚本&quot;，&quot;安装后脚本&quot;对话框中，可以分别添加在安装前、安装后自动动行的可执行语句。此项设置可以使服务器自动化配置变得更加容易。
+    11.保存文件 -&gt; 点击左上角的文件选择保存，选择下保存的路径
+cp ks.cfg /var/ftp  #复制ks.cfg文件到/var/ftp目录下
+注：ks.cfg就是无人值守安装时要用的Kickstart文件。
+要对应：/tftpboot/pxelinux.cfg/default文件中设置过ks=ftp://192.168.1.10/ks.cfg
+mount /dev/sr0 /var/ftp/pub             #挂载RHEL6安装光盘到/var/ftp/pub目录下
+建议关闭防火墙和selinux，
+如果没有关闭的话，tftp服务会有问题。
+[root@xuegod63 ~]# getenforce
+Disabled
+设置防火墙：
+#iptables -F
+#service iptables save
+配置两台机器的网络模式为：VMnet4
+给server 设置一个和DHCP 定义相同网段的IP
+</code></pre><p>#现在接下来就是启动DHCP，设置为开机启动<br>    /etc/init.d/dhcpd start<br>    chkconfig dhcpd on<br>    修改另一台机器的BIOS启动顺序为网络优先，加电后开始启动。</p>
+<h1 id="整个过程工作原理"><a href="#整个过程工作原理" class="headerlink" title="整个过程工作原理"></a>整个过程工作原理</h1><p><img src="http://omutvk8c2.bkt.clouddn.com/2.jpg" alt="工作原理"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CentOS6.8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自动化部署</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/oldLinux/" class="article-tag-list-link color4">oldLinux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/15/10.Linux运维服务-自动化安装服务器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-1.Linux运维服务-SSH服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -869,6 +1066,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">互联网资源</a>
               </li>
              
@@ -885,10 +1086,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Postfix服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RSYNC服务</a>
               </li>
              
@@ -897,7 +1094,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,7 +1102,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">NFS服务</a>
+                <a href="javascript:void(0)" class="js-tag color1">FTP服务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,14 +1119,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Dokcer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -950,6 +1139,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Haproxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,11 +1174,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,7 +1186,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">LNMP</a>
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1009,11 +1206,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
+                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">分布式系统</a>
+                <a href="javascript:void(0)" class="js-tag color4">NFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1033,14 +1230,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">远程连接</a>
               </li>
              
@@ -1049,11 +1238,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">存储</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+                <a href="javascript:void(0)" class="js-tag color5">RAID</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WEB架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1069,6 +1262,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cobbler</a>
               </li>
              
@@ -1081,11 +1278,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
+                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Logstash</a>
+                <a href="javascript:void(0)" class="js-tag color5">Heartbeat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,11 +1326,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
+                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">邮件服务</a>
+                <a href="javascript:void(0)" class="js-tag color3">汉化</a>
               </li>
              
               <li class="article-tag-list-item">
